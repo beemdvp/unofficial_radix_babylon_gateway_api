@@ -3,7 +3,5 @@ import 'package:unofficial_babylon_gateway_api/unofficial_babylon_gateway_api.da
 
 // tests for TransactionFungibleFeeBalanceChangeType
 void main() {
-
-  group(TransactionFungibleFeeBalanceChangeType, () {
-  });
+  group(TransactionFungibleFeeBalanceChangeType, () {});
 }

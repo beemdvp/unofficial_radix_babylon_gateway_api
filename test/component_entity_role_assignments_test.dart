@@ -7,7 +7,7 @@ void main() {
   // TODO add properties to the builder and call build()
 
   group(ComponentEntityRoleAssignments, () {
-    // This type is defined in the Core API as `OwnerRole`. See the Core API documentation for more details. 
+    // This type is defined in the Core API as `OwnerRole`. See the Core API documentation for more details.
     // JsonObject owner
     test('to test the property `owner`', () async {
       // TODO
@@ -17,6 +17,5 @@ void main() {
     test('to test the property `entries`', () async {
       // TODO
     });
-
   });
 }

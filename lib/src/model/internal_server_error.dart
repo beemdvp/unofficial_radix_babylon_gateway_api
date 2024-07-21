@@ -16,7 +16,10 @@ part 'internal_server_error.g.dart';
 /// * [exception] - Gives an error type which occurred within the Gateway API when serving the request.
 /// * [cause] - Gives a human readable message - likely just a trace ID for reporting the error.
 @BuiltValue()
-abstract class InternalServerError implements GatewayError, Built<InternalServerError, InternalServerErrorBuilder> {
+abstract class InternalServerError
+    implements
+        GatewayError,
+        Built<InternalServerError, InternalServerErrorBuilder> {
   /// Gives an error type which occurred within the Gateway API when serving the request.
   @BuiltValueField(wireName: r'exception')
   String get exception;
@@ -27,18 +30,25 @@ abstract class InternalServerError implements GatewayError, Built<InternalServer
 
   InternalServerError._();
 
-  factory InternalServerError([void updates(InternalServerErrorBuilder b)]) = _$InternalServerError;
+  factory InternalServerError([void updates(InternalServerErrorBuilder b)]) =
+      _$InternalServerError;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(InternalServerErrorBuilder b) => b..type=b.discriminatorValue;
+  static void _defaults(InternalServerErrorBuilder b) =>
+      b..type = b.discriminatorValue;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<InternalServerError> get serializer => _$InternalServerErrorSerializer();
+  static Serializer<InternalServerError> get serializer =>
+      _$InternalServerErrorSerializer();
 }
 
-class _$InternalServerErrorSerializer implements PrimitiveSerializer<InternalServerError> {
+class _$InternalServerErrorSerializer
+    implements PrimitiveSerializer<InternalServerError> {
   @override
-  final Iterable<Type> types = const [InternalServerError, _$InternalServerError];
+  final Iterable<Type> types = const [
+    InternalServerError,
+    _$InternalServerError
+  ];
 
   @override
   final String wireName = r'InternalServerError';
@@ -71,7 +81,9 @@ class _$InternalServerErrorSerializer implements PrimitiveSerializer<InternalSer
     InternalServerError object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -135,4 +147,3 @@ class _$InternalServerErrorSerializer implements PrimitiveSerializer<InternalSer
     return result.build();
   }
 }
-

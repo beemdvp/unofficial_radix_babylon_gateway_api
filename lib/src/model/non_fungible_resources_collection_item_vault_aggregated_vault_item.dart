@@ -13,13 +13,17 @@ part 'non_fungible_resources_collection_item_vault_aggregated_vault_item.g.dart'
 /// NonFungibleResourcesCollectionItemVaultAggregatedVaultItem
 ///
 /// Properties:
-/// * [totalCount] 
+/// * [totalCount]
 /// * [nextCursor] - If specified, contains a cursor to query next page of the `items` collection.
-/// * [items] 
+/// * [items]
 /// * [vaultAddress] - Bech32m-encoded human readable version of the address.
 /// * [lastUpdatedAtStateVersion] - The most recent state version underlying object was modified at.
 @BuiltValue()
-abstract class NonFungibleResourcesCollectionItemVaultAggregatedVaultItem implements OptionalNonFungibleIdsCollection, Built<NonFungibleResourcesCollectionItemVaultAggregatedVaultItem, NonFungibleResourcesCollectionItemVaultAggregatedVaultItemBuilder> {
+abstract class NonFungibleResourcesCollectionItemVaultAggregatedVaultItem
+    implements
+        OptionalNonFungibleIdsCollection,
+        Built<NonFungibleResourcesCollectionItemVaultAggregatedVaultItem,
+            NonFungibleResourcesCollectionItemVaultAggregatedVaultItemBuilder> {
   /// Bech32m-encoded human readable version of the address.
   @BuiltValueField(wireName: r'vault_address')
   String get vaultAddress;
@@ -30,21 +34,37 @@ abstract class NonFungibleResourcesCollectionItemVaultAggregatedVaultItem implem
 
   NonFungibleResourcesCollectionItemVaultAggregatedVaultItem._();
 
-  factory NonFungibleResourcesCollectionItemVaultAggregatedVaultItem([void updates(NonFungibleResourcesCollectionItemVaultAggregatedVaultItemBuilder b)]) = _$NonFungibleResourcesCollectionItemVaultAggregatedVaultItem;
+  factory NonFungibleResourcesCollectionItemVaultAggregatedVaultItem(
+          [void updates(
+              NonFungibleResourcesCollectionItemVaultAggregatedVaultItemBuilder
+                  b)]) =
+      _$NonFungibleResourcesCollectionItemVaultAggregatedVaultItem;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(NonFungibleResourcesCollectionItemVaultAggregatedVaultItemBuilder b) => b;
+  static void _defaults(
+          NonFungibleResourcesCollectionItemVaultAggregatedVaultItemBuilder
+              b) =>
+      b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<NonFungibleResourcesCollectionItemVaultAggregatedVaultItem> get serializer => _$NonFungibleResourcesCollectionItemVaultAggregatedVaultItemSerializer();
+  static Serializer<NonFungibleResourcesCollectionItemVaultAggregatedVaultItem>
+      get serializer =>
+          _$NonFungibleResourcesCollectionItemVaultAggregatedVaultItemSerializer();
 }
 
-class _$NonFungibleResourcesCollectionItemVaultAggregatedVaultItemSerializer implements PrimitiveSerializer<NonFungibleResourcesCollectionItemVaultAggregatedVaultItem> {
+class _$NonFungibleResourcesCollectionItemVaultAggregatedVaultItemSerializer
+    implements
+        PrimitiveSerializer<
+            NonFungibleResourcesCollectionItemVaultAggregatedVaultItem> {
   @override
-  final Iterable<Type> types = const [NonFungibleResourcesCollectionItemVaultAggregatedVaultItem, _$NonFungibleResourcesCollectionItemVaultAggregatedVaultItem];
+  final Iterable<Type> types = const [
+    NonFungibleResourcesCollectionItemVaultAggregatedVaultItem,
+    _$NonFungibleResourcesCollectionItemVaultAggregatedVaultItem
+  ];
 
   @override
-  final String wireName = r'NonFungibleResourcesCollectionItemVaultAggregatedVaultItem';
+  final String wireName =
+      r'NonFungibleResourcesCollectionItemVaultAggregatedVaultItem';
 
   Iterable<Object?> _serializeProperties(
     Serializers serializers,
@@ -90,7 +110,9 @@ class _$NonFungibleResourcesCollectionItemVaultAggregatedVaultItemSerializer imp
     NonFungibleResourcesCollectionItemVaultAggregatedVaultItem object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -98,7 +120,8 @@ class _$NonFungibleResourcesCollectionItemVaultAggregatedVaultItemSerializer imp
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
     required List<Object?> serializedList,
-    required NonFungibleResourcesCollectionItemVaultAggregatedVaultItemBuilder result,
+    required NonFungibleResourcesCollectionItemVaultAggregatedVaultItemBuilder
+        result,
     required List<Object?> unhandled,
   }) {
     for (var i = 0; i < serializedList.length; i += 2) {
@@ -156,7 +179,8 @@ class _$NonFungibleResourcesCollectionItemVaultAggregatedVaultItemSerializer imp
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = NonFungibleResourcesCollectionItemVaultAggregatedVaultItemBuilder();
+    final result =
+        NonFungibleResourcesCollectionItemVaultAggregatedVaultItemBuilder();
     final serializedList = (serialized as Iterable<Object?>).toList();
     final unhandled = <Object?>[];
     _deserializeProperties(
@@ -170,4 +194,3 @@ class _$NonFungibleResourcesCollectionItemVaultAggregatedVaultItemSerializer imp
     return result.build();
   }
 }
-

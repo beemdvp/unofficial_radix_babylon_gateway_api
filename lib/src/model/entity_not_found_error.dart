@@ -15,25 +15,35 @@ part 'entity_not_found_error.g.dart';
 /// * [type] - The type of error. Each subtype may have its own additional structured fields.
 /// * [address] - Bech32m-encoded human readable version of the address.
 @BuiltValue()
-abstract class EntityNotFoundError implements GatewayError, Built<EntityNotFoundError, EntityNotFoundErrorBuilder> {
+abstract class EntityNotFoundError
+    implements
+        GatewayError,
+        Built<EntityNotFoundError, EntityNotFoundErrorBuilder> {
   /// Bech32m-encoded human readable version of the address.
   @BuiltValueField(wireName: r'address')
   String get address;
 
   EntityNotFoundError._();
 
-  factory EntityNotFoundError([void updates(EntityNotFoundErrorBuilder b)]) = _$EntityNotFoundError;
+  factory EntityNotFoundError([void updates(EntityNotFoundErrorBuilder b)]) =
+      _$EntityNotFoundError;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(EntityNotFoundErrorBuilder b) => b..type=b.discriminatorValue;
+  static void _defaults(EntityNotFoundErrorBuilder b) =>
+      b..type = b.discriminatorValue;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<EntityNotFoundError> get serializer => _$EntityNotFoundErrorSerializer();
+  static Serializer<EntityNotFoundError> get serializer =>
+      _$EntityNotFoundErrorSerializer();
 }
 
-class _$EntityNotFoundErrorSerializer implements PrimitiveSerializer<EntityNotFoundError> {
+class _$EntityNotFoundErrorSerializer
+    implements PrimitiveSerializer<EntityNotFoundError> {
   @override
-  final Iterable<Type> types = const [EntityNotFoundError, _$EntityNotFoundError];
+  final Iterable<Type> types = const [
+    EntityNotFoundError,
+    _$EntityNotFoundError
+  ];
 
   @override
   final String wireName = r'EntityNotFoundError';
@@ -61,7 +71,9 @@ class _$EntityNotFoundErrorSerializer implements PrimitiveSerializer<EntityNotFo
     EntityNotFoundError object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -118,4 +130,3 @@ class _$EntityNotFoundErrorSerializer implements PrimitiveSerializer<EntityNotFo
     return result.build();
   }
 }
-

@@ -14,10 +14,10 @@ part 'transaction_account_deposit_pre_validation_authorized_depositor_badge.g.da
 /// TransactionAccountDepositPreValidationAuthorizedDepositorBadge
 ///
 /// Properties:
-/// * [badgeType] 
+/// * [badgeType]
 /// * [resourceAddress] - Bech32m-encoded human readable version of the address.
 @BuiltValue(instantiable: false)
-abstract class TransactionAccountDepositPreValidationAuthorizedDepositorBadge  {
+abstract class TransactionAccountDepositPreValidationAuthorizedDepositorBadge {
   @BuiltValueField(wireName: r'badge_type')
   AccountAuthorizedDepositorBadgeType get badgeType;
   // enum badgeTypeEnum {  ResourceBadge,  NonFungibleBadge,  };
@@ -34,38 +34,50 @@ abstract class TransactionAccountDepositPreValidationAuthorizedDepositorBadge  {
   };
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<TransactionAccountDepositPreValidationAuthorizedDepositorBadge> get serializer => _$TransactionAccountDepositPreValidationAuthorizedDepositorBadgeSerializer();
+  static Serializer<
+          TransactionAccountDepositPreValidationAuthorizedDepositorBadge>
+      get serializer =>
+          _$TransactionAccountDepositPreValidationAuthorizedDepositorBadgeSerializer();
 }
 
-extension TransactionAccountDepositPreValidationAuthorizedDepositorBadgeDiscriminatorExt on TransactionAccountDepositPreValidationAuthorizedDepositorBadge {
-    String? get discriminatorValue {
-        if (this is AccountDepositPreValidationNonFungibleBadge) {
-            return r'NonFungibleBadge';
-        }
-        if (this is AccountDepositPreValidationResourceBadge) {
-            return r'ResourceBadge';
-        }
-        return null;
+extension TransactionAccountDepositPreValidationAuthorizedDepositorBadgeDiscriminatorExt
+    on TransactionAccountDepositPreValidationAuthorizedDepositorBadge {
+  String? get discriminatorValue {
+    if (this is AccountDepositPreValidationNonFungibleBadge) {
+      return r'NonFungibleBadge';
     }
-}
-extension TransactionAccountDepositPreValidationAuthorizedDepositorBadgeBuilderDiscriminatorExt on TransactionAccountDepositPreValidationAuthorizedDepositorBadgeBuilder {
-    String? get discriminatorValue {
-        if (this is AccountDepositPreValidationNonFungibleBadgeBuilder) {
-            return r'NonFungibleBadge';
-        }
-        if (this is AccountDepositPreValidationResourceBadgeBuilder) {
-            return r'ResourceBadge';
-        }
-        return null;
+    if (this is AccountDepositPreValidationResourceBadge) {
+      return r'ResourceBadge';
     }
+    return null;
+  }
 }
 
-class _$TransactionAccountDepositPreValidationAuthorizedDepositorBadgeSerializer implements PrimitiveSerializer<TransactionAccountDepositPreValidationAuthorizedDepositorBadge> {
+extension TransactionAccountDepositPreValidationAuthorizedDepositorBadgeBuilderDiscriminatorExt
+    on TransactionAccountDepositPreValidationAuthorizedDepositorBadgeBuilder {
+  String? get discriminatorValue {
+    if (this is AccountDepositPreValidationNonFungibleBadgeBuilder) {
+      return r'NonFungibleBadge';
+    }
+    if (this is AccountDepositPreValidationResourceBadgeBuilder) {
+      return r'ResourceBadge';
+    }
+    return null;
+  }
+}
+
+class _$TransactionAccountDepositPreValidationAuthorizedDepositorBadgeSerializer
+    implements
+        PrimitiveSerializer<
+            TransactionAccountDepositPreValidationAuthorizedDepositorBadge> {
   @override
-  final Iterable<Type> types = const [TransactionAccountDepositPreValidationAuthorizedDepositorBadge];
+  final Iterable<Type> types = const [
+    TransactionAccountDepositPreValidationAuthorizedDepositorBadge
+  ];
 
   @override
-  final String wireName = r'TransactionAccountDepositPreValidationAuthorizedDepositorBadge';
+  final String wireName =
+      r'TransactionAccountDepositPreValidationAuthorizedDepositorBadge';
 
   Iterable<Object?> _serializeProperties(
     Serializers serializers,
@@ -91,12 +103,17 @@ class _$TransactionAccountDepositPreValidationAuthorizedDepositorBadgeSerializer
     FullType specifiedType = FullType.unspecified,
   }) {
     if (object is AccountDepositPreValidationNonFungibleBadge) {
-      return serializers.serialize(object, specifiedType: FullType(AccountDepositPreValidationNonFungibleBadge))!;
+      return serializers.serialize(object,
+          specifiedType:
+              FullType(AccountDepositPreValidationNonFungibleBadge))!;
     }
     if (object is AccountDepositPreValidationResourceBadge) {
-      return serializers.serialize(object, specifiedType: FullType(AccountDepositPreValidationResourceBadge))!;
+      return serializers.serialize(object,
+          specifiedType: FullType(AccountDepositPreValidationResourceBadge))!;
     }
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   @override
@@ -106,39 +123,73 @@ class _$TransactionAccountDepositPreValidationAuthorizedDepositorBadgeSerializer
     FullType specifiedType = FullType.unspecified,
   }) {
     final serializedList = (serialized as Iterable<Object?>).toList();
-    final discIndex = serializedList.indexOf(TransactionAccountDepositPreValidationAuthorizedDepositorBadge.discriminatorFieldName) + 1;
-    final discValue = serializers.deserialize(serializedList[discIndex], specifiedType: FullType(String)) as String;
+    final discIndex = serializedList.indexOf(
+            TransactionAccountDepositPreValidationAuthorizedDepositorBadge
+                .discriminatorFieldName) +
+        1;
+    final discValue = serializers.deserialize(serializedList[discIndex],
+        specifiedType: FullType(String)) as String;
     switch (discValue) {
       case r'NonFungibleBadge':
-        return serializers.deserialize(serialized, specifiedType: FullType(AccountDepositPreValidationNonFungibleBadge)) as AccountDepositPreValidationNonFungibleBadge;
+        return serializers.deserialize(serialized,
+                specifiedType:
+                    FullType(AccountDepositPreValidationNonFungibleBadge))
+            as AccountDepositPreValidationNonFungibleBadge;
       case r'ResourceBadge':
-        return serializers.deserialize(serialized, specifiedType: FullType(AccountDepositPreValidationResourceBadge)) as AccountDepositPreValidationResourceBadge;
+        return serializers.deserialize(serialized,
+                specifiedType:
+                    FullType(AccountDepositPreValidationResourceBadge))
+            as AccountDepositPreValidationResourceBadge;
       default:
-        return serializers.deserialize(serialized, specifiedType: FullType($TransactionAccountDepositPreValidationAuthorizedDepositorBadge)) as $TransactionAccountDepositPreValidationAuthorizedDepositorBadge;
+        return serializers.deserialize(serialized,
+                specifiedType: FullType(
+                    $TransactionAccountDepositPreValidationAuthorizedDepositorBadge))
+            as $TransactionAccountDepositPreValidationAuthorizedDepositorBadge;
     }
   }
 }
 
 /// a concrete implementation of [TransactionAccountDepositPreValidationAuthorizedDepositorBadge], since [TransactionAccountDepositPreValidationAuthorizedDepositorBadge] is not instantiable
 @BuiltValue(instantiable: true)
-abstract class $TransactionAccountDepositPreValidationAuthorizedDepositorBadge implements TransactionAccountDepositPreValidationAuthorizedDepositorBadge, Built<$TransactionAccountDepositPreValidationAuthorizedDepositorBadge, $TransactionAccountDepositPreValidationAuthorizedDepositorBadgeBuilder> {
+abstract class $TransactionAccountDepositPreValidationAuthorizedDepositorBadge
+    implements
+        TransactionAccountDepositPreValidationAuthorizedDepositorBadge,
+        Built<$TransactionAccountDepositPreValidationAuthorizedDepositorBadge,
+            $TransactionAccountDepositPreValidationAuthorizedDepositorBadgeBuilder> {
   $TransactionAccountDepositPreValidationAuthorizedDepositorBadge._();
 
-  factory $TransactionAccountDepositPreValidationAuthorizedDepositorBadge([void Function($TransactionAccountDepositPreValidationAuthorizedDepositorBadgeBuilder)? updates]) = _$$TransactionAccountDepositPreValidationAuthorizedDepositorBadge;
+  factory $TransactionAccountDepositPreValidationAuthorizedDepositorBadge(
+          [void Function(
+                  $TransactionAccountDepositPreValidationAuthorizedDepositorBadgeBuilder)?
+              updates]) =
+      _$$TransactionAccountDepositPreValidationAuthorizedDepositorBadge;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($TransactionAccountDepositPreValidationAuthorizedDepositorBadgeBuilder b) => b;
+  static void _defaults(
+          $TransactionAccountDepositPreValidationAuthorizedDepositorBadgeBuilder
+              b) =>
+      b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<$TransactionAccountDepositPreValidationAuthorizedDepositorBadge> get serializer => _$$TransactionAccountDepositPreValidationAuthorizedDepositorBadgeSerializer();
+  static Serializer<
+          $TransactionAccountDepositPreValidationAuthorizedDepositorBadge>
+      get serializer =>
+          _$$TransactionAccountDepositPreValidationAuthorizedDepositorBadgeSerializer();
 }
 
-class _$$TransactionAccountDepositPreValidationAuthorizedDepositorBadgeSerializer implements PrimitiveSerializer<$TransactionAccountDepositPreValidationAuthorizedDepositorBadge> {
+class _$$TransactionAccountDepositPreValidationAuthorizedDepositorBadgeSerializer
+    implements
+        PrimitiveSerializer<
+            $TransactionAccountDepositPreValidationAuthorizedDepositorBadge> {
   @override
-  final Iterable<Type> types = const [$TransactionAccountDepositPreValidationAuthorizedDepositorBadge, _$$TransactionAccountDepositPreValidationAuthorizedDepositorBadge];
+  final Iterable<Type> types = const [
+    $TransactionAccountDepositPreValidationAuthorizedDepositorBadge,
+    _$$TransactionAccountDepositPreValidationAuthorizedDepositorBadge
+  ];
 
   @override
-  final String wireName = r'$TransactionAccountDepositPreValidationAuthorizedDepositorBadge';
+  final String wireName =
+      r'$TransactionAccountDepositPreValidationAuthorizedDepositorBadge';
 
   @override
   Object serialize(
@@ -146,7 +197,9 @@ class _$$TransactionAccountDepositPreValidationAuthorizedDepositorBadgeSerialize
     $TransactionAccountDepositPreValidationAuthorizedDepositorBadge object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return serializers.serialize(object, specifiedType: FullType(TransactionAccountDepositPreValidationAuthorizedDepositorBadge))!;
+    return serializers.serialize(object,
+        specifiedType: FullType(
+            TransactionAccountDepositPreValidationAuthorizedDepositorBadge))!;
   }
 
   void _deserializeProperties(
@@ -154,7 +207,8 @@ class _$$TransactionAccountDepositPreValidationAuthorizedDepositorBadgeSerialize
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
     required List<Object?> serializedList,
-    required TransactionAccountDepositPreValidationAuthorizedDepositorBadgeBuilder result,
+    required TransactionAccountDepositPreValidationAuthorizedDepositorBadgeBuilder
+        result,
     required List<Object?> unhandled,
   }) {
     for (var i = 0; i < serializedList.length; i += 2) {
@@ -189,7 +243,8 @@ class _$$TransactionAccountDepositPreValidationAuthorizedDepositorBadgeSerialize
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = $TransactionAccountDepositPreValidationAuthorizedDepositorBadgeBuilder();
+    final result =
+        $TransactionAccountDepositPreValidationAuthorizedDepositorBadgeBuilder();
     final serializedList = (serialized as Iterable<Object?>).toList();
     final unhandled = <Object?>[];
     _deserializeProperties(
@@ -203,4 +258,3 @@ class _$$TransactionAccountDepositPreValidationAuthorizedDepositorBadgeSerialize
     return result.build();
   }
 }
-

@@ -16,17 +16,20 @@ part 'account_resource_preferences_collection.g.dart';
 /// Properties:
 /// * [totalCount] - Total number of items in underlying collection, fragment of which is available in `items` collection.
 /// * [nextCursor] - If specified, contains a cursor to query next page of the `items` collection.
-/// * [items] 
+/// * [items]
 @BuiltValue(instantiable: false)
-abstract class AccountResourcePreferencesCollection implements ResultSetCursorMixin {
+abstract class AccountResourcePreferencesCollection
+    implements ResultSetCursorMixin {
   @BuiltValueField(wireName: r'items')
   BuiltList<AccountResourcePreferencesResponseItem> get items;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<AccountResourcePreferencesCollection> get serializer => _$AccountResourcePreferencesCollectionSerializer();
+  static Serializer<AccountResourcePreferencesCollection> get serializer =>
+      _$AccountResourcePreferencesCollectionSerializer();
 }
 
-class _$AccountResourcePreferencesCollectionSerializer implements PrimitiveSerializer<AccountResourcePreferencesCollection> {
+class _$AccountResourcePreferencesCollectionSerializer
+    implements PrimitiveSerializer<AccountResourcePreferencesCollection> {
   @override
   final Iterable<Type> types = const [AccountResourcePreferencesCollection];
 
@@ -55,7 +58,8 @@ class _$AccountResourcePreferencesCollectionSerializer implements PrimitiveSeria
     yield r'items';
     yield serializers.serialize(
       object.items,
-      specifiedType: const FullType(BuiltList, [FullType(AccountResourcePreferencesResponseItem)]),
+      specifiedType: const FullType(
+          BuiltList, [FullType(AccountResourcePreferencesResponseItem)]),
     );
   }
 
@@ -65,7 +69,9 @@ class _$AccountResourcePreferencesCollectionSerializer implements PrimitiveSeria
     AccountResourcePreferencesCollection object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   @override
@@ -74,27 +80,40 @@ class _$AccountResourcePreferencesCollectionSerializer implements PrimitiveSeria
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return serializers.deserialize(serialized, specifiedType: FullType($AccountResourcePreferencesCollection)) as $AccountResourcePreferencesCollection;
+    return serializers.deserialize(serialized,
+            specifiedType: FullType($AccountResourcePreferencesCollection))
+        as $AccountResourcePreferencesCollection;
   }
 }
 
 /// a concrete implementation of [AccountResourcePreferencesCollection], since [AccountResourcePreferencesCollection] is not instantiable
 @BuiltValue(instantiable: true)
-abstract class $AccountResourcePreferencesCollection implements AccountResourcePreferencesCollection, Built<$AccountResourcePreferencesCollection, $AccountResourcePreferencesCollectionBuilder> {
+abstract class $AccountResourcePreferencesCollection
+    implements
+        AccountResourcePreferencesCollection,
+        Built<$AccountResourcePreferencesCollection,
+            $AccountResourcePreferencesCollectionBuilder> {
   $AccountResourcePreferencesCollection._();
 
-  factory $AccountResourcePreferencesCollection([void Function($AccountResourcePreferencesCollectionBuilder)? updates]) = _$$AccountResourcePreferencesCollection;
+  factory $AccountResourcePreferencesCollection(
+      [void Function($AccountResourcePreferencesCollectionBuilder)?
+          updates]) = _$$AccountResourcePreferencesCollection;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($AccountResourcePreferencesCollectionBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<$AccountResourcePreferencesCollection> get serializer => _$$AccountResourcePreferencesCollectionSerializer();
+  static Serializer<$AccountResourcePreferencesCollection> get serializer =>
+      _$$AccountResourcePreferencesCollectionSerializer();
 }
 
-class _$$AccountResourcePreferencesCollectionSerializer implements PrimitiveSerializer<$AccountResourcePreferencesCollection> {
+class _$$AccountResourcePreferencesCollectionSerializer
+    implements PrimitiveSerializer<$AccountResourcePreferencesCollection> {
   @override
-  final Iterable<Type> types = const [$AccountResourcePreferencesCollection, _$$AccountResourcePreferencesCollection];
+  final Iterable<Type> types = const [
+    $AccountResourcePreferencesCollection,
+    _$$AccountResourcePreferencesCollection
+  ];
 
   @override
   final String wireName = r'$AccountResourcePreferencesCollection';
@@ -105,7 +124,8 @@ class _$$AccountResourcePreferencesCollectionSerializer implements PrimitiveSeri
     $AccountResourcePreferencesCollection object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return serializers.serialize(object, specifiedType: FullType(AccountResourcePreferencesCollection))!;
+    return serializers.serialize(object,
+        specifiedType: FullType(AccountResourcePreferencesCollection))!;
   }
 
   void _deserializeProperties(
@@ -139,7 +159,8 @@ class _$$AccountResourcePreferencesCollectionSerializer implements PrimitiveSeri
         case r'items':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltList, [FullType(AccountResourcePreferencesResponseItem)]),
+            specifiedType: const FullType(
+                BuiltList, [FullType(AccountResourcePreferencesResponseItem)]),
           ) as BuiltList<AccountResourcePreferencesResponseItem>;
           result.items.replace(valueDes);
           break;
@@ -171,4 +192,3 @@ class _$$AccountResourcePreferencesCollectionSerializer implements PrimitiveSeri
     return result.build();
   }
 }
-

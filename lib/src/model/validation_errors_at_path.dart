@@ -12,10 +12,11 @@ part 'validation_errors_at_path.g.dart';
 /// ValidationErrorsAtPath
 ///
 /// Properties:
-/// * [path] 
-/// * [errors] 
+/// * [path]
+/// * [errors]
 @BuiltValue()
-abstract class ValidationErrorsAtPath implements Built<ValidationErrorsAtPath, ValidationErrorsAtPathBuilder> {
+abstract class ValidationErrorsAtPath
+    implements Built<ValidationErrorsAtPath, ValidationErrorsAtPathBuilder> {
   @BuiltValueField(wireName: r'path')
   String get path;
 
@@ -24,18 +25,25 @@ abstract class ValidationErrorsAtPath implements Built<ValidationErrorsAtPath, V
 
   ValidationErrorsAtPath._();
 
-  factory ValidationErrorsAtPath([void updates(ValidationErrorsAtPathBuilder b)]) = _$ValidationErrorsAtPath;
+  factory ValidationErrorsAtPath(
+          [void updates(ValidationErrorsAtPathBuilder b)]) =
+      _$ValidationErrorsAtPath;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(ValidationErrorsAtPathBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<ValidationErrorsAtPath> get serializer => _$ValidationErrorsAtPathSerializer();
+  static Serializer<ValidationErrorsAtPath> get serializer =>
+      _$ValidationErrorsAtPathSerializer();
 }
 
-class _$ValidationErrorsAtPathSerializer implements PrimitiveSerializer<ValidationErrorsAtPath> {
+class _$ValidationErrorsAtPathSerializer
+    implements PrimitiveSerializer<ValidationErrorsAtPath> {
   @override
-  final Iterable<Type> types = const [ValidationErrorsAtPath, _$ValidationErrorsAtPath];
+  final Iterable<Type> types = const [
+    ValidationErrorsAtPath,
+    _$ValidationErrorsAtPath
+  ];
 
   @override
   final String wireName = r'ValidationErrorsAtPath';
@@ -63,7 +71,9 @@ class _$ValidationErrorsAtPathSerializer implements PrimitiveSerializer<Validati
     ValidationErrorsAtPath object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -120,4 +130,3 @@ class _$ValidationErrorsAtPathSerializer implements PrimitiveSerializer<Validati
     return result.build();
   }
 }
-

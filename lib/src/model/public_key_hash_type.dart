@@ -10,15 +10,15 @@ import 'package:built_value/serializer.dart';
 part 'public_key_hash_type.g.dart';
 
 class PublicKeyHashType extends EnumClass {
-
   @BuiltValueEnumConst(wireName: r'EcdsaSecp256k1')
   static const PublicKeyHashType ecdsaSecp256k1 = _$ecdsaSecp256k1;
   @BuiltValueEnumConst(wireName: r'EddsaEd25519')
   static const PublicKeyHashType eddsaEd25519 = _$eddsaEd25519;
 
-  static Serializer<PublicKeyHashType> get serializer => _$publicKeyHashTypeSerializer;
+  static Serializer<PublicKeyHashType> get serializer =>
+      _$publicKeyHashTypeSerializer;
 
-  const PublicKeyHashType._(String name): super(name);
+  const PublicKeyHashType._(String name) : super(name);
 
   static BuiltSet<PublicKeyHashType> get values => _$values;
   static PublicKeyHashType valueOf(String name) => _$valueOf(name);
@@ -31,4 +31,3 @@ class PublicKeyHashType extends EnumClass {
 ///
 /// Trigger mixin generation by writing a line like this one next to your enum.
 abstract class PublicKeyHashTypeMixin = Object with _$PublicKeyHashTypeMixin;
-

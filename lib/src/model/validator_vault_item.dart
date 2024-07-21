@@ -12,10 +12,11 @@ part 'validator_vault_item.g.dart';
 ///
 /// Properties:
 /// * [balance] - String-encoded decimal representing the amount of a related fungible resource.
-/// * [lastChangedAtStateVersion] 
+/// * [lastChangedAtStateVersion]
 /// * [address] - Bech32m-encoded human readable version of the address.
 @BuiltValue()
-abstract class ValidatorVaultItem implements Built<ValidatorVaultItem, ValidatorVaultItemBuilder> {
+abstract class ValidatorVaultItem
+    implements Built<ValidatorVaultItem, ValidatorVaultItemBuilder> {
   /// String-encoded decimal representing the amount of a related fungible resource.
   @BuiltValueField(wireName: r'balance')
   String get balance;
@@ -29,16 +30,19 @@ abstract class ValidatorVaultItem implements Built<ValidatorVaultItem, Validator
 
   ValidatorVaultItem._();
 
-  factory ValidatorVaultItem([void updates(ValidatorVaultItemBuilder b)]) = _$ValidatorVaultItem;
+  factory ValidatorVaultItem([void updates(ValidatorVaultItemBuilder b)]) =
+      _$ValidatorVaultItem;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(ValidatorVaultItemBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<ValidatorVaultItem> get serializer => _$ValidatorVaultItemSerializer();
+  static Serializer<ValidatorVaultItem> get serializer =>
+      _$ValidatorVaultItemSerializer();
 }
 
-class _$ValidatorVaultItemSerializer implements PrimitiveSerializer<ValidatorVaultItem> {
+class _$ValidatorVaultItemSerializer
+    implements PrimitiveSerializer<ValidatorVaultItem> {
   @override
   final Iterable<Type> types = const [ValidatorVaultItem, _$ValidatorVaultItem];
 
@@ -73,7 +77,9 @@ class _$ValidatorVaultItemSerializer implements PrimitiveSerializer<ValidatorVau
     ValidatorVaultItem object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -137,4 +143,3 @@ class _$ValidatorVaultItemSerializer implements PrimitiveSerializer<ValidatorVau
     return result.build();
   }
 }
-

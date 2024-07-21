@@ -13,27 +13,37 @@ part 'metadata_origin_value.g.dart';
 /// MetadataOriginValue
 ///
 /// Properties:
-/// * [type] 
-/// * [value] 
+/// * [type]
+/// * [value]
 @BuiltValue()
-abstract class MetadataOriginValue implements MetadataTypedValue, Built<MetadataOriginValue, MetadataOriginValueBuilder> {
+abstract class MetadataOriginValue
+    implements
+        MetadataTypedValue,
+        Built<MetadataOriginValue, MetadataOriginValueBuilder> {
   @BuiltValueField(wireName: r'value')
   String get value;
 
   MetadataOriginValue._();
 
-  factory MetadataOriginValue([void updates(MetadataOriginValueBuilder b)]) = _$MetadataOriginValue;
+  factory MetadataOriginValue([void updates(MetadataOriginValueBuilder b)]) =
+      _$MetadataOriginValue;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(MetadataOriginValueBuilder b) => b..type=b.discriminatorValue;
+  static void _defaults(MetadataOriginValueBuilder b) =>
+      b..type = b.discriminatorValue as dynamic;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<MetadataOriginValue> get serializer => _$MetadataOriginValueSerializer();
+  static Serializer<MetadataOriginValue> get serializer =>
+      _$MetadataOriginValueSerializer();
 }
 
-class _$MetadataOriginValueSerializer implements PrimitiveSerializer<MetadataOriginValue> {
+class _$MetadataOriginValueSerializer
+    implements PrimitiveSerializer<MetadataOriginValue> {
   @override
-  final Iterable<Type> types = const [MetadataOriginValue, _$MetadataOriginValue];
+  final Iterable<Type> types = const [
+    MetadataOriginValue,
+    _$MetadataOriginValue
+  ];
 
   @override
   final String wireName = r'MetadataOriginValue';
@@ -61,7 +71,9 @@ class _$MetadataOriginValueSerializer implements PrimitiveSerializer<MetadataOri
     MetadataOriginValue object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -118,4 +130,3 @@ class _$MetadataOriginValueSerializer implements PrimitiveSerializer<MetadataOri
     return result.build();
   }
 }
-

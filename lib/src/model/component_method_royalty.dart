@@ -12,10 +12,11 @@ part 'component_method_royalty.g.dart';
 /// ComponentMethodRoyalty
 ///
 /// Properties:
-/// * [methodName] 
-/// * [royaltyAmount] 
+/// * [methodName]
+/// * [royaltyAmount]
 @BuiltValue()
-abstract class ComponentMethodRoyalty implements Built<ComponentMethodRoyalty, ComponentMethodRoyaltyBuilder> {
+abstract class ComponentMethodRoyalty
+    implements Built<ComponentMethodRoyalty, ComponentMethodRoyaltyBuilder> {
   @BuiltValueField(wireName: r'method_name')
   String get methodName;
 
@@ -24,18 +25,25 @@ abstract class ComponentMethodRoyalty implements Built<ComponentMethodRoyalty, C
 
   ComponentMethodRoyalty._();
 
-  factory ComponentMethodRoyalty([void updates(ComponentMethodRoyaltyBuilder b)]) = _$ComponentMethodRoyalty;
+  factory ComponentMethodRoyalty(
+          [void updates(ComponentMethodRoyaltyBuilder b)]) =
+      _$ComponentMethodRoyalty;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(ComponentMethodRoyaltyBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<ComponentMethodRoyalty> get serializer => _$ComponentMethodRoyaltySerializer();
+  static Serializer<ComponentMethodRoyalty> get serializer =>
+      _$ComponentMethodRoyaltySerializer();
 }
 
-class _$ComponentMethodRoyaltySerializer implements PrimitiveSerializer<ComponentMethodRoyalty> {
+class _$ComponentMethodRoyaltySerializer
+    implements PrimitiveSerializer<ComponentMethodRoyalty> {
   @override
-  final Iterable<Type> types = const [ComponentMethodRoyalty, _$ComponentMethodRoyalty];
+  final Iterable<Type> types = const [
+    ComponentMethodRoyalty,
+    _$ComponentMethodRoyalty
+  ];
 
   @override
   final String wireName = r'ComponentMethodRoyalty';
@@ -65,7 +73,9 @@ class _$ComponentMethodRoyaltySerializer implements PrimitiveSerializer<Componen
     ComponentMethodRoyalty object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -122,4 +132,3 @@ class _$ComponentMethodRoyaltySerializer implements PrimitiveSerializer<Componen
     return result.build();
   }
 }
-

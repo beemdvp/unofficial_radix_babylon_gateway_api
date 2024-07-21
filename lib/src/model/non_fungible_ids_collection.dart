@@ -15,17 +15,19 @@ part 'non_fungible_ids_collection.g.dart';
 /// Properties:
 /// * [totalCount] - Total number of items in underlying collection, fragment of which is available in `items` collection.
 /// * [nextCursor] - If specified, contains a cursor to query next page of the `items` collection.
-/// * [items] 
+/// * [items]
 @BuiltValue(instantiable: false)
 abstract class NonFungibleIdsCollection implements ResultSetCursorMixin {
   @BuiltValueField(wireName: r'items')
   BuiltList<String> get items;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<NonFungibleIdsCollection> get serializer => _$NonFungibleIdsCollectionSerializer();
+  static Serializer<NonFungibleIdsCollection> get serializer =>
+      _$NonFungibleIdsCollectionSerializer();
 }
 
-class _$NonFungibleIdsCollectionSerializer implements PrimitiveSerializer<NonFungibleIdsCollection> {
+class _$NonFungibleIdsCollectionSerializer
+    implements PrimitiveSerializer<NonFungibleIdsCollection> {
   @override
   final Iterable<Type> types = const [NonFungibleIdsCollection];
 
@@ -64,7 +66,9 @@ class _$NonFungibleIdsCollectionSerializer implements PrimitiveSerializer<NonFun
     NonFungibleIdsCollection object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   @override
@@ -73,27 +77,39 @@ class _$NonFungibleIdsCollectionSerializer implements PrimitiveSerializer<NonFun
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return serializers.deserialize(serialized, specifiedType: FullType($NonFungibleIdsCollection)) as $NonFungibleIdsCollection;
+    return serializers.deserialize(serialized,
+            specifiedType: FullType($NonFungibleIdsCollection))
+        as $NonFungibleIdsCollection;
   }
 }
 
 /// a concrete implementation of [NonFungibleIdsCollection], since [NonFungibleIdsCollection] is not instantiable
 @BuiltValue(instantiable: true)
-abstract class $NonFungibleIdsCollection implements NonFungibleIdsCollection, Built<$NonFungibleIdsCollection, $NonFungibleIdsCollectionBuilder> {
+abstract class $NonFungibleIdsCollection
+    implements
+        NonFungibleIdsCollection,
+        Built<$NonFungibleIdsCollection, $NonFungibleIdsCollectionBuilder> {
   $NonFungibleIdsCollection._();
 
-  factory $NonFungibleIdsCollection([void Function($NonFungibleIdsCollectionBuilder)? updates]) = _$$NonFungibleIdsCollection;
+  factory $NonFungibleIdsCollection(
+          [void Function($NonFungibleIdsCollectionBuilder)? updates]) =
+      _$$NonFungibleIdsCollection;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($NonFungibleIdsCollectionBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<$NonFungibleIdsCollection> get serializer => _$$NonFungibleIdsCollectionSerializer();
+  static Serializer<$NonFungibleIdsCollection> get serializer =>
+      _$$NonFungibleIdsCollectionSerializer();
 }
 
-class _$$NonFungibleIdsCollectionSerializer implements PrimitiveSerializer<$NonFungibleIdsCollection> {
+class _$$NonFungibleIdsCollectionSerializer
+    implements PrimitiveSerializer<$NonFungibleIdsCollection> {
   @override
-  final Iterable<Type> types = const [$NonFungibleIdsCollection, _$$NonFungibleIdsCollection];
+  final Iterable<Type> types = const [
+    $NonFungibleIdsCollection,
+    _$$NonFungibleIdsCollection
+  ];
 
   @override
   final String wireName = r'$NonFungibleIdsCollection';
@@ -104,7 +120,8 @@ class _$$NonFungibleIdsCollectionSerializer implements PrimitiveSerializer<$NonF
     $NonFungibleIdsCollection object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return serializers.serialize(object, specifiedType: FullType(NonFungibleIdsCollection))!;
+    return serializers.serialize(object,
+        specifiedType: FullType(NonFungibleIdsCollection))!;
   }
 
   void _deserializeProperties(
@@ -170,4 +187,3 @@ class _$$NonFungibleIdsCollectionSerializer implements PrimitiveSerializer<$NonF
     return result.build();
   }
 }
-

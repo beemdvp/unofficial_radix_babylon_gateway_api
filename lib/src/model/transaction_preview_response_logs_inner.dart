@@ -11,10 +11,13 @@ part 'transaction_preview_response_logs_inner.g.dart';
 /// TransactionPreviewResponseLogsInner
 ///
 /// Properties:
-/// * [level] 
-/// * [message] 
+/// * [level]
+/// * [message]
 @BuiltValue()
-abstract class TransactionPreviewResponseLogsInner implements Built<TransactionPreviewResponseLogsInner, TransactionPreviewResponseLogsInnerBuilder> {
+abstract class TransactionPreviewResponseLogsInner
+    implements
+        Built<TransactionPreviewResponseLogsInner,
+            TransactionPreviewResponseLogsInnerBuilder> {
   @BuiltValueField(wireName: r'level')
   String get level;
 
@@ -23,18 +26,25 @@ abstract class TransactionPreviewResponseLogsInner implements Built<TransactionP
 
   TransactionPreviewResponseLogsInner._();
 
-  factory TransactionPreviewResponseLogsInner([void updates(TransactionPreviewResponseLogsInnerBuilder b)]) = _$TransactionPreviewResponseLogsInner;
+  factory TransactionPreviewResponseLogsInner(
+          [void updates(TransactionPreviewResponseLogsInnerBuilder b)]) =
+      _$TransactionPreviewResponseLogsInner;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(TransactionPreviewResponseLogsInnerBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<TransactionPreviewResponseLogsInner> get serializer => _$TransactionPreviewResponseLogsInnerSerializer();
+  static Serializer<TransactionPreviewResponseLogsInner> get serializer =>
+      _$TransactionPreviewResponseLogsInnerSerializer();
 }
 
-class _$TransactionPreviewResponseLogsInnerSerializer implements PrimitiveSerializer<TransactionPreviewResponseLogsInner> {
+class _$TransactionPreviewResponseLogsInnerSerializer
+    implements PrimitiveSerializer<TransactionPreviewResponseLogsInner> {
   @override
-  final Iterable<Type> types = const [TransactionPreviewResponseLogsInner, _$TransactionPreviewResponseLogsInner];
+  final Iterable<Type> types = const [
+    TransactionPreviewResponseLogsInner,
+    _$TransactionPreviewResponseLogsInner
+  ];
 
   @override
   final String wireName = r'TransactionPreviewResponseLogsInner';
@@ -62,7 +72,9 @@ class _$TransactionPreviewResponseLogsInnerSerializer implements PrimitiveSerial
     TransactionPreviewResponseLogsInner object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -119,4 +131,3 @@ class _$TransactionPreviewResponseLogsInnerSerializer implements PrimitiveSerial
     return result.build();
   }
 }
-

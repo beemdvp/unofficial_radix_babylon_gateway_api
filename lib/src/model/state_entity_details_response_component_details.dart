@@ -16,16 +16,20 @@ part 'state_entity_details_response_component_details.g.dart';
 /// StateEntityDetailsResponseComponentDetails
 ///
 /// Properties:
-/// * [type] 
+/// * [type]
 /// * [packageAddress] - Bech32m-encoded human readable version of the address.
-/// * [blueprintName] 
-/// * [blueprintVersion] 
-/// * [state] - A representation of a component's inner state. If this entity is a `GenericComponent`, this field will be in a programmatic JSON structure (you can deserialize it as a `ProgrammaticScryptoSborValue`). Otherwise, for \"native\" components such as `Account`, `Validator`, `AccessController`, `OneResourcePool`, `TwoResourcePool`, and `MultiResourcePool`, this field will be a custom JSON model defined in the Core API schema. 
-/// * [roleAssignments] 
+/// * [blueprintName]
+/// * [blueprintVersion]
+/// * [state] - A representation of a component's inner state. If this entity is a `GenericComponent`, this field will be in a programmatic JSON structure (you can deserialize it as a `ProgrammaticScryptoSborValue`). Otherwise, for \"native\" components such as `Account`, `Validator`, `AccessController`, `OneResourcePool`, `TwoResourcePool`, and `MultiResourcePool`, this field will be a custom JSON model defined in the Core API schema.
+/// * [roleAssignments]
 /// * [royaltyVaultBalance] - String-encoded decimal representing the amount of a related fungible resource.
-/// * [royaltyConfig] 
+/// * [royaltyConfig]
 @BuiltValue()
-abstract class StateEntityDetailsResponseComponentDetails implements StateEntityDetailsResponseItemDetails, Built<StateEntityDetailsResponseComponentDetails, StateEntityDetailsResponseComponentDetailsBuilder> {
+abstract class StateEntityDetailsResponseComponentDetails
+    implements
+        StateEntityDetailsResponseItemDetails,
+        Built<StateEntityDetailsResponseComponentDetails,
+            StateEntityDetailsResponseComponentDetailsBuilder> {
   /// Bech32m-encoded human readable version of the address.
   @BuiltValueField(wireName: r'package_address')
   String? get packageAddress;
@@ -43,7 +47,7 @@ abstract class StateEntityDetailsResponseComponentDetails implements StateEntity
   @BuiltValueField(wireName: r'royalty_vault_balance')
   String? get royaltyVaultBalance;
 
-  /// A representation of a component's inner state. If this entity is a `GenericComponent`, this field will be in a programmatic JSON structure (you can deserialize it as a `ProgrammaticScryptoSborValue`). Otherwise, for \"native\" components such as `Account`, `Validator`, `AccessController`, `OneResourcePool`, `TwoResourcePool`, and `MultiResourcePool`, this field will be a custom JSON model defined in the Core API schema. 
+  /// A representation of a component's inner state. If this entity is a `GenericComponent`, this field will be in a programmatic JSON structure (you can deserialize it as a `ProgrammaticScryptoSborValue`). Otherwise, for \"native\" components such as `Account`, `Validator`, `AccessController`, `OneResourcePool`, `TwoResourcePool`, and `MultiResourcePool`, this field will be a custom JSON model defined in the Core API schema.
   @BuiltValueField(wireName: r'state')
   JsonObject? get state;
 
@@ -52,18 +56,27 @@ abstract class StateEntityDetailsResponseComponentDetails implements StateEntity
 
   StateEntityDetailsResponseComponentDetails._();
 
-  factory StateEntityDetailsResponseComponentDetails([void updates(StateEntityDetailsResponseComponentDetailsBuilder b)]) = _$StateEntityDetailsResponseComponentDetails;
+  factory StateEntityDetailsResponseComponentDetails(
+          [void updates(StateEntityDetailsResponseComponentDetailsBuilder b)]) =
+      _$StateEntityDetailsResponseComponentDetails;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(StateEntityDetailsResponseComponentDetailsBuilder b) => b..type=b.discriminatorValue;
+  static void _defaults(StateEntityDetailsResponseComponentDetailsBuilder b) =>
+      b..type = b.discriminatorValue as dynamic;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<StateEntityDetailsResponseComponentDetails> get serializer => _$StateEntityDetailsResponseComponentDetailsSerializer();
+  static Serializer<StateEntityDetailsResponseComponentDetails>
+      get serializer =>
+          _$StateEntityDetailsResponseComponentDetailsSerializer();
 }
 
-class _$StateEntityDetailsResponseComponentDetailsSerializer implements PrimitiveSerializer<StateEntityDetailsResponseComponentDetails> {
+class _$StateEntityDetailsResponseComponentDetailsSerializer
+    implements PrimitiveSerializer<StateEntityDetailsResponseComponentDetails> {
   @override
-  final Iterable<Type> types = const [StateEntityDetailsResponseComponentDetails, _$StateEntityDetailsResponseComponentDetails];
+  final Iterable<Type> types = const [
+    StateEntityDetailsResponseComponentDetails,
+    _$StateEntityDetailsResponseComponentDetails
+  ];
 
   @override
   final String wireName = r'StateEntityDetailsResponseComponentDetails';
@@ -131,7 +144,9 @@ class _$StateEntityDetailsResponseComponentDetailsSerializer implements Primitiv
     StateEntityDetailsResponseComponentDetails object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -198,7 +213,8 @@ class _$StateEntityDetailsResponseComponentDetailsSerializer implements Primitiv
         case r'type':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(StateEntityDetailsResponseItemDetailsType),
+            specifiedType:
+                const FullType(StateEntityDetailsResponseItemDetailsType),
           ) as StateEntityDetailsResponseItemDetailsType;
           result.type = valueDes;
           break;
@@ -230,4 +246,3 @@ class _$StateEntityDetailsResponseComponentDetailsSerializer implements Primitiv
     return result.build();
   }
 }
-

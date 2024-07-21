@@ -13,11 +13,15 @@ part 'account_authorized_depositors_resource_badge.g.dart';
 /// AccountAuthorizedDepositorsResourceBadge
 ///
 /// Properties:
-/// * [badgeType] 
+/// * [badgeType]
 /// * [resourceAddress] - Bech32m-encoded human readable version of the address.
 /// * [lastUpdatedAtStateVersion] - The most recent state version underlying object was modified at.
 @BuiltValue()
-abstract class AccountAuthorizedDepositorsResourceBadge implements AccountAuthorizedDepositorsResponseItem, Built<AccountAuthorizedDepositorsResourceBadge, AccountAuthorizedDepositorsResourceBadgeBuilder> {
+abstract class AccountAuthorizedDepositorsResourceBadge
+    implements
+        AccountAuthorizedDepositorsResponseItem,
+        Built<AccountAuthorizedDepositorsResourceBadge,
+            AccountAuthorizedDepositorsResourceBadgeBuilder> {
   /// Bech32m-encoded human readable version of the address.
   @BuiltValueField(wireName: r'resource_address')
   String get resourceAddress;
@@ -28,18 +32,26 @@ abstract class AccountAuthorizedDepositorsResourceBadge implements AccountAuthor
 
   AccountAuthorizedDepositorsResourceBadge._();
 
-  factory AccountAuthorizedDepositorsResourceBadge([void updates(AccountAuthorizedDepositorsResourceBadgeBuilder b)]) = _$AccountAuthorizedDepositorsResourceBadge;
+  factory AccountAuthorizedDepositorsResourceBadge(
+          [void updates(AccountAuthorizedDepositorsResourceBadgeBuilder b)]) =
+      _$AccountAuthorizedDepositorsResourceBadge;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(AccountAuthorizedDepositorsResourceBadgeBuilder b) => b..badgeType=b.discriminatorValue;
+  static void _defaults(AccountAuthorizedDepositorsResourceBadgeBuilder b) => b
+    ..badgeType = b.discriminatorValue as AccountAuthorizedDepositorBadgeType;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<AccountAuthorizedDepositorsResourceBadge> get serializer => _$AccountAuthorizedDepositorsResourceBadgeSerializer();
+  static Serializer<AccountAuthorizedDepositorsResourceBadge> get serializer =>
+      _$AccountAuthorizedDepositorsResourceBadgeSerializer();
 }
 
-class _$AccountAuthorizedDepositorsResourceBadgeSerializer implements PrimitiveSerializer<AccountAuthorizedDepositorsResourceBadge> {
+class _$AccountAuthorizedDepositorsResourceBadgeSerializer
+    implements PrimitiveSerializer<AccountAuthorizedDepositorsResourceBadge> {
   @override
-  final Iterable<Type> types = const [AccountAuthorizedDepositorsResourceBadge, _$AccountAuthorizedDepositorsResourceBadge];
+  final Iterable<Type> types = const [
+    AccountAuthorizedDepositorsResourceBadge,
+    _$AccountAuthorizedDepositorsResourceBadge
+  ];
 
   @override
   final String wireName = r'AccountAuthorizedDepositorsResourceBadge';
@@ -72,7 +84,9 @@ class _$AccountAuthorizedDepositorsResourceBadgeSerializer implements PrimitiveS
     AccountAuthorizedDepositorsResourceBadge object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -136,4 +150,3 @@ class _$AccountAuthorizedDepositorsResourceBadgeSerializer implements PrimitiveS
     return result.build();
   }
 }
-

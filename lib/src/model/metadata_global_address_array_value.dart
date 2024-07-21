@@ -14,27 +14,39 @@ part 'metadata_global_address_array_value.g.dart';
 /// MetadataGlobalAddressArrayValue
 ///
 /// Properties:
-/// * [type] 
-/// * [values] 
+/// * [type]
+/// * [values]
 @BuiltValue()
-abstract class MetadataGlobalAddressArrayValue implements MetadataTypedValue, Built<MetadataGlobalAddressArrayValue, MetadataGlobalAddressArrayValueBuilder> {
+abstract class MetadataGlobalAddressArrayValue
+    implements
+        MetadataTypedValue,
+        Built<MetadataGlobalAddressArrayValue,
+            MetadataGlobalAddressArrayValueBuilder> {
   @BuiltValueField(wireName: r'values')
   BuiltList<String> get values;
 
   MetadataGlobalAddressArrayValue._();
 
-  factory MetadataGlobalAddressArrayValue([void updates(MetadataGlobalAddressArrayValueBuilder b)]) = _$MetadataGlobalAddressArrayValue;
+  factory MetadataGlobalAddressArrayValue(
+          [void updates(MetadataGlobalAddressArrayValueBuilder b)]) =
+      _$MetadataGlobalAddressArrayValue;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(MetadataGlobalAddressArrayValueBuilder b) => b..type=b.discriminatorValue;
+  static void _defaults(MetadataGlobalAddressArrayValueBuilder b) =>
+      b..type = b.discriminatorValue as dynamic;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<MetadataGlobalAddressArrayValue> get serializer => _$MetadataGlobalAddressArrayValueSerializer();
+  static Serializer<MetadataGlobalAddressArrayValue> get serializer =>
+      _$MetadataGlobalAddressArrayValueSerializer();
 }
 
-class _$MetadataGlobalAddressArrayValueSerializer implements PrimitiveSerializer<MetadataGlobalAddressArrayValue> {
+class _$MetadataGlobalAddressArrayValueSerializer
+    implements PrimitiveSerializer<MetadataGlobalAddressArrayValue> {
   @override
-  final Iterable<Type> types = const [MetadataGlobalAddressArrayValue, _$MetadataGlobalAddressArrayValue];
+  final Iterable<Type> types = const [
+    MetadataGlobalAddressArrayValue,
+    _$MetadataGlobalAddressArrayValue
+  ];
 
   @override
   final String wireName = r'MetadataGlobalAddressArrayValue';
@@ -62,7 +74,9 @@ class _$MetadataGlobalAddressArrayValueSerializer implements PrimitiveSerializer
     MetadataGlobalAddressArrayValue object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -119,4 +133,3 @@ class _$MetadataGlobalAddressArrayValueSerializer implements PrimitiveSerializer
     return result.build();
   }
 }
-

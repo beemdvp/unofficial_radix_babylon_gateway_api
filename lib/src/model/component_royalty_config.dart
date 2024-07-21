@@ -13,10 +13,11 @@ part 'component_royalty_config.g.dart';
 /// ComponentRoyaltyConfig
 ///
 /// Properties:
-/// * [isEnabled] 
+/// * [isEnabled]
 /// * [methodRules] - The royalty rules by method. The array is only present if royalties are enabled.
 @BuiltValue()
-abstract class ComponentRoyaltyConfig implements Built<ComponentRoyaltyConfig, ComponentRoyaltyConfigBuilder> {
+abstract class ComponentRoyaltyConfig
+    implements Built<ComponentRoyaltyConfig, ComponentRoyaltyConfigBuilder> {
   @BuiltValueField(wireName: r'is_enabled')
   bool get isEnabled;
 
@@ -26,18 +27,25 @@ abstract class ComponentRoyaltyConfig implements Built<ComponentRoyaltyConfig, C
 
   ComponentRoyaltyConfig._();
 
-  factory ComponentRoyaltyConfig([void updates(ComponentRoyaltyConfigBuilder b)]) = _$ComponentRoyaltyConfig;
+  factory ComponentRoyaltyConfig(
+          [void updates(ComponentRoyaltyConfigBuilder b)]) =
+      _$ComponentRoyaltyConfig;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(ComponentRoyaltyConfigBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<ComponentRoyaltyConfig> get serializer => _$ComponentRoyaltyConfigSerializer();
+  static Serializer<ComponentRoyaltyConfig> get serializer =>
+      _$ComponentRoyaltyConfigSerializer();
 }
 
-class _$ComponentRoyaltyConfigSerializer implements PrimitiveSerializer<ComponentRoyaltyConfig> {
+class _$ComponentRoyaltyConfigSerializer
+    implements PrimitiveSerializer<ComponentRoyaltyConfig> {
   @override
-  final Iterable<Type> types = const [ComponentRoyaltyConfig, _$ComponentRoyaltyConfig];
+  final Iterable<Type> types = const [
+    ComponentRoyaltyConfig,
+    _$ComponentRoyaltyConfig
+  ];
 
   @override
   final String wireName = r'ComponentRoyaltyConfig';
@@ -56,7 +64,8 @@ class _$ComponentRoyaltyConfigSerializer implements PrimitiveSerializer<Componen
       yield r'method_rules';
       yield serializers.serialize(
         object.methodRules,
-        specifiedType: const FullType(BuiltList, [FullType(ComponentMethodRoyalty)]),
+        specifiedType:
+            const FullType(BuiltList, [FullType(ComponentMethodRoyalty)]),
       );
     }
   }
@@ -67,7 +76,9 @@ class _$ComponentRoyaltyConfigSerializer implements PrimitiveSerializer<Componen
     ComponentRoyaltyConfig object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -92,7 +103,8 @@ class _$ComponentRoyaltyConfigSerializer implements PrimitiveSerializer<Componen
         case r'method_rules':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltList, [FullType(ComponentMethodRoyalty)]),
+            specifiedType:
+                const FullType(BuiltList, [FullType(ComponentMethodRoyalty)]),
           ) as BuiltList<ComponentMethodRoyalty>;
           result.methodRules.replace(valueDes);
           break;
@@ -124,4 +136,3 @@ class _$ComponentRoyaltyConfigSerializer implements PrimitiveSerializer<Componen
     return result.build();
   }
 }
-

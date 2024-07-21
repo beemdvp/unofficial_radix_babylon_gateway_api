@@ -14,30 +14,42 @@ part 'state_entity_metadata_page_request.g.dart';
 /// StateEntityMetadataPageRequest
 ///
 /// Properties:
-/// * [atLedgerState] 
+/// * [atLedgerState]
 /// * [cursor] - This cursor allows forward pagination, by providing the cursor from the previous request.
 /// * [limitPerPage] - The page size requested.
 /// * [address] - Bech32m-encoded human readable version of the address.
 @BuiltValue()
-abstract class StateEntityMetadataPageRequest implements AtLedgerStateMixin, CursorLimitMixin, Built<StateEntityMetadataPageRequest, StateEntityMetadataPageRequestBuilder> {
+abstract class StateEntityMetadataPageRequest
+    implements
+        AtLedgerStateMixin,
+        CursorLimitMixin,
+        Built<StateEntityMetadataPageRequest,
+            StateEntityMetadataPageRequestBuilder> {
   /// Bech32m-encoded human readable version of the address.
   @BuiltValueField(wireName: r'address')
   String get address;
 
   StateEntityMetadataPageRequest._();
 
-  factory StateEntityMetadataPageRequest([void updates(StateEntityMetadataPageRequestBuilder b)]) = _$StateEntityMetadataPageRequest;
+  factory StateEntityMetadataPageRequest(
+          [void updates(StateEntityMetadataPageRequestBuilder b)]) =
+      _$StateEntityMetadataPageRequest;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(StateEntityMetadataPageRequestBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<StateEntityMetadataPageRequest> get serializer => _$StateEntityMetadataPageRequestSerializer();
+  static Serializer<StateEntityMetadataPageRequest> get serializer =>
+      _$StateEntityMetadataPageRequestSerializer();
 }
 
-class _$StateEntityMetadataPageRequestSerializer implements PrimitiveSerializer<StateEntityMetadataPageRequest> {
+class _$StateEntityMetadataPageRequestSerializer
+    implements PrimitiveSerializer<StateEntityMetadataPageRequest> {
   @override
-  final Iterable<Type> types = const [StateEntityMetadataPageRequest, _$StateEntityMetadataPageRequest];
+  final Iterable<Type> types = const [
+    StateEntityMetadataPageRequest,
+    _$StateEntityMetadataPageRequest
+  ];
 
   @override
   final String wireName = r'StateEntityMetadataPageRequest';
@@ -81,7 +93,9 @@ class _$StateEntityMetadataPageRequestSerializer implements PrimitiveSerializer<
     StateEntityMetadataPageRequest object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -155,4 +169,3 @@ class _$StateEntityMetadataPageRequestSerializer implements PrimitiveSerializer<
     return result.build();
   }
 }
-

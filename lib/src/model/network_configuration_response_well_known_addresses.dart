@@ -41,7 +41,10 @@ part 'network_configuration_response_well_known_addresses.g.dart';
 /// * [lockerPackage] - Bech32m-encoded human readable version of the address.
 /// * [transactionTracker] - Bech32m-encoded human readable version of the address.
 @BuiltValue()
-abstract class NetworkConfigurationResponseWellKnownAddresses implements Built<NetworkConfigurationResponseWellKnownAddresses, NetworkConfigurationResponseWellKnownAddressesBuilder> {
+abstract class NetworkConfigurationResponseWellKnownAddresses
+    implements
+        Built<NetworkConfigurationResponseWellKnownAddresses,
+            NetworkConfigurationResponseWellKnownAddressesBuilder> {
   /// Bech32m-encoded human readable version of the address.
   @BuiltValueField(wireName: r'xrd')
   String get xrd;
@@ -160,18 +163,30 @@ abstract class NetworkConfigurationResponseWellKnownAddresses implements Built<N
 
   NetworkConfigurationResponseWellKnownAddresses._();
 
-  factory NetworkConfigurationResponseWellKnownAddresses([void updates(NetworkConfigurationResponseWellKnownAddressesBuilder b)]) = _$NetworkConfigurationResponseWellKnownAddresses;
+  factory NetworkConfigurationResponseWellKnownAddresses(
+          [void updates(
+              NetworkConfigurationResponseWellKnownAddressesBuilder b)]) =
+      _$NetworkConfigurationResponseWellKnownAddresses;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(NetworkConfigurationResponseWellKnownAddressesBuilder b) => b;
+  static void _defaults(
+          NetworkConfigurationResponseWellKnownAddressesBuilder b) =>
+      b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<NetworkConfigurationResponseWellKnownAddresses> get serializer => _$NetworkConfigurationResponseWellKnownAddressesSerializer();
+  static Serializer<NetworkConfigurationResponseWellKnownAddresses>
+      get serializer =>
+          _$NetworkConfigurationResponseWellKnownAddressesSerializer();
 }
 
-class _$NetworkConfigurationResponseWellKnownAddressesSerializer implements PrimitiveSerializer<NetworkConfigurationResponseWellKnownAddresses> {
+class _$NetworkConfigurationResponseWellKnownAddressesSerializer
+    implements
+        PrimitiveSerializer<NetworkConfigurationResponseWellKnownAddresses> {
   @override
-  final Iterable<Type> types = const [NetworkConfigurationResponseWellKnownAddresses, _$NetworkConfigurationResponseWellKnownAddresses];
+  final Iterable<Type> types = const [
+    NetworkConfigurationResponseWellKnownAddresses,
+    _$NetworkConfigurationResponseWellKnownAddresses
+  ];
 
   @override
   final String wireName = r'NetworkConfigurationResponseWellKnownAddresses';
@@ -334,7 +349,9 @@ class _$NetworkConfigurationResponseWellKnownAddressesSerializer implements Prim
     NetworkConfigurationResponseWellKnownAddresses object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -580,4 +597,3 @@ class _$NetworkConfigurationResponseWellKnownAddressesSerializer implements Prim
     return result.build();
   }
 }
-

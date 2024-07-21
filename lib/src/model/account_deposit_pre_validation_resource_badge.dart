@@ -13,24 +13,36 @@ part 'account_deposit_pre_validation_resource_badge.g.dart';
 /// AccountDepositPreValidationResourceBadge
 ///
 /// Properties:
-/// * [badgeType] 
+/// * [badgeType]
 /// * [resourceAddress] - Bech32m-encoded human readable version of the address.
 @BuiltValue()
-abstract class AccountDepositPreValidationResourceBadge implements TransactionAccountDepositPreValidationAuthorizedDepositorBadge, Built<AccountDepositPreValidationResourceBadge, AccountDepositPreValidationResourceBadgeBuilder> {
+abstract class AccountDepositPreValidationResourceBadge
+    implements
+        TransactionAccountDepositPreValidationAuthorizedDepositorBadge,
+        Built<AccountDepositPreValidationResourceBadge,
+            AccountDepositPreValidationResourceBadgeBuilder> {
   AccountDepositPreValidationResourceBadge._();
 
-  factory AccountDepositPreValidationResourceBadge([void updates(AccountDepositPreValidationResourceBadgeBuilder b)]) = _$AccountDepositPreValidationResourceBadge;
+  factory AccountDepositPreValidationResourceBadge(
+          [void updates(AccountDepositPreValidationResourceBadgeBuilder b)]) =
+      _$AccountDepositPreValidationResourceBadge;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(AccountDepositPreValidationResourceBadgeBuilder b) => b..badgeType=b.discriminatorValue;
+  static void _defaults(AccountDepositPreValidationResourceBadgeBuilder b) => b
+    ..badgeType = b.discriminatorValue as AccountAuthorizedDepositorBadgeType;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<AccountDepositPreValidationResourceBadge> get serializer => _$AccountDepositPreValidationResourceBadgeSerializer();
+  static Serializer<AccountDepositPreValidationResourceBadge> get serializer =>
+      _$AccountDepositPreValidationResourceBadgeSerializer();
 }
 
-class _$AccountDepositPreValidationResourceBadgeSerializer implements PrimitiveSerializer<AccountDepositPreValidationResourceBadge> {
+class _$AccountDepositPreValidationResourceBadgeSerializer
+    implements PrimitiveSerializer<AccountDepositPreValidationResourceBadge> {
   @override
-  final Iterable<Type> types = const [AccountDepositPreValidationResourceBadge, _$AccountDepositPreValidationResourceBadge];
+  final Iterable<Type> types = const [
+    AccountDepositPreValidationResourceBadge,
+    _$AccountDepositPreValidationResourceBadge
+  ];
 
   @override
   final String wireName = r'AccountDepositPreValidationResourceBadge';
@@ -58,7 +70,9 @@ class _$AccountDepositPreValidationResourceBadgeSerializer implements PrimitiveS
     AccountDepositPreValidationResourceBadge object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -115,4 +129,3 @@ class _$AccountDepositPreValidationResourceBadgeSerializer implements PrimitiveS
     return result.build();
   }
 }
-

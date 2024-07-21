@@ -10,7 +10,6 @@ import 'package:built_value/serializer.dart';
 part 'metadata_value_type.g.dart';
 
 class MetadataValueType extends EnumClass {
-
   @BuiltValueEnumConst(wireName: r'String')
   static const MetadataValueType string = _$string;
   @BuiltValueEnumConst(wireName: r'Bool')
@@ -64,9 +63,11 @@ class MetadataValueType extends EnumClass {
   @BuiltValueEnumConst(wireName: r'PublicKeyArray')
   static const MetadataValueType publicKeyArray = _$publicKeyArray;
   @BuiltValueEnumConst(wireName: r'NonFungibleGlobalIdArray')
-  static const MetadataValueType nonFungibleGlobalIdArray = _$nonFungibleGlobalIdArray;
+  static const MetadataValueType nonFungibleGlobalIdArray =
+      _$nonFungibleGlobalIdArray;
   @BuiltValueEnumConst(wireName: r'NonFungibleLocalIdArray')
-  static const MetadataValueType nonFungibleLocalIdArray = _$nonFungibleLocalIdArray;
+  static const MetadataValueType nonFungibleLocalIdArray =
+      _$nonFungibleLocalIdArray;
   @BuiltValueEnumConst(wireName: r'InstantArray')
   static const MetadataValueType instantArray = _$instantArray;
   @BuiltValueEnumConst(wireName: r'UrlArray')
@@ -76,9 +77,10 @@ class MetadataValueType extends EnumClass {
   @BuiltValueEnumConst(wireName: r'PublicKeyHashArray')
   static const MetadataValueType publicKeyHashArray = _$publicKeyHashArray;
 
-  static Serializer<MetadataValueType> get serializer => _$metadataValueTypeSerializer;
+  static Serializer<MetadataValueType> get serializer =>
+      _$metadataValueTypeSerializer;
 
-  const MetadataValueType._(String name): super(name);
+  const MetadataValueType._(String name) : super(name);
 
   static BuiltSet<MetadataValueType> get values => _$values;
   static MetadataValueType valueOf(String name) => _$valueOf(name);
@@ -91,4 +93,3 @@ class MetadataValueType extends EnumClass {
 ///
 /// Trigger mixin generation by writing a line like this one next to your enum.
 abstract class MetadataValueTypeMixin = Object with _$MetadataValueTypeMixin;
-

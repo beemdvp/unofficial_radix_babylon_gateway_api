@@ -14,11 +14,14 @@ part 'component_entity_role_assignment_entry.g.dart';
 /// ComponentEntityRoleAssignmentEntry
 ///
 /// Properties:
-/// * [roleKey] 
-/// * [assignment] 
-/// * [updaterRoles] 
+/// * [roleKey]
+/// * [assignment]
+/// * [updaterRoles]
 @BuiltValue()
-abstract class ComponentEntityRoleAssignmentEntry implements Built<ComponentEntityRoleAssignmentEntry, ComponentEntityRoleAssignmentEntryBuilder> {
+abstract class ComponentEntityRoleAssignmentEntry
+    implements
+        Built<ComponentEntityRoleAssignmentEntry,
+            ComponentEntityRoleAssignmentEntryBuilder> {
   @BuiltValueField(wireName: r'role_key')
   RoleKey get roleKey;
 
@@ -30,18 +33,25 @@ abstract class ComponentEntityRoleAssignmentEntry implements Built<ComponentEnti
 
   ComponentEntityRoleAssignmentEntry._();
 
-  factory ComponentEntityRoleAssignmentEntry([void updates(ComponentEntityRoleAssignmentEntryBuilder b)]) = _$ComponentEntityRoleAssignmentEntry;
+  factory ComponentEntityRoleAssignmentEntry(
+          [void updates(ComponentEntityRoleAssignmentEntryBuilder b)]) =
+      _$ComponentEntityRoleAssignmentEntry;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(ComponentEntityRoleAssignmentEntryBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<ComponentEntityRoleAssignmentEntry> get serializer => _$ComponentEntityRoleAssignmentEntrySerializer();
+  static Serializer<ComponentEntityRoleAssignmentEntry> get serializer =>
+      _$ComponentEntityRoleAssignmentEntrySerializer();
 }
 
-class _$ComponentEntityRoleAssignmentEntrySerializer implements PrimitiveSerializer<ComponentEntityRoleAssignmentEntry> {
+class _$ComponentEntityRoleAssignmentEntrySerializer
+    implements PrimitiveSerializer<ComponentEntityRoleAssignmentEntry> {
   @override
-  final Iterable<Type> types = const [ComponentEntityRoleAssignmentEntry, _$ComponentEntityRoleAssignmentEntry];
+  final Iterable<Type> types = const [
+    ComponentEntityRoleAssignmentEntry,
+    _$ComponentEntityRoleAssignmentEntry
+  ];
 
   @override
   final String wireName = r'ComponentEntityRoleAssignmentEntry';
@@ -59,7 +69,8 @@ class _$ComponentEntityRoleAssignmentEntrySerializer implements PrimitiveSeriali
     yield r'assignment';
     yield serializers.serialize(
       object.assignment,
-      specifiedType: const FullType(ComponentEntityRoleAssignmentEntryAssignment),
+      specifiedType:
+          const FullType(ComponentEntityRoleAssignmentEntryAssignment),
     );
     if (object.updaterRoles != null) {
       yield r'updater_roles';
@@ -76,7 +87,9 @@ class _$ComponentEntityRoleAssignmentEntrySerializer implements PrimitiveSeriali
     ComponentEntityRoleAssignmentEntry object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -101,7 +114,8 @@ class _$ComponentEntityRoleAssignmentEntrySerializer implements PrimitiveSeriali
         case r'assignment':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(ComponentEntityRoleAssignmentEntryAssignment),
+            specifiedType:
+                const FullType(ComponentEntityRoleAssignmentEntryAssignment),
           ) as ComponentEntityRoleAssignmentEntryAssignment;
           result.assignment.replace(valueDes);
           break;
@@ -140,4 +154,3 @@ class _$ComponentEntityRoleAssignmentEntrySerializer implements PrimitiveSeriali
     return result.build();
   }
 }
-

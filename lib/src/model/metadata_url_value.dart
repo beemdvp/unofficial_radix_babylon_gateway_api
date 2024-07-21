@@ -13,25 +13,32 @@ part 'metadata_url_value.g.dart';
 /// MetadataUrlValue
 ///
 /// Properties:
-/// * [type] 
-/// * [value] 
+/// * [type]
+/// * [value]
 @BuiltValue()
-abstract class MetadataUrlValue implements MetadataTypedValue, Built<MetadataUrlValue, MetadataUrlValueBuilder> {
+abstract class MetadataUrlValue
+    implements
+        MetadataTypedValue,
+        Built<MetadataUrlValue, MetadataUrlValueBuilder> {
   @BuiltValueField(wireName: r'value')
   String get value;
 
   MetadataUrlValue._();
 
-  factory MetadataUrlValue([void updates(MetadataUrlValueBuilder b)]) = _$MetadataUrlValue;
+  factory MetadataUrlValue([void updates(MetadataUrlValueBuilder b)]) =
+      _$MetadataUrlValue;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(MetadataUrlValueBuilder b) => b..type=b.discriminatorValue;
+  static void _defaults(MetadataUrlValueBuilder b) =>
+      b..type = b.discriminatorValue as dynamic;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<MetadataUrlValue> get serializer => _$MetadataUrlValueSerializer();
+  static Serializer<MetadataUrlValue> get serializer =>
+      _$MetadataUrlValueSerializer();
 }
 
-class _$MetadataUrlValueSerializer implements PrimitiveSerializer<MetadataUrlValue> {
+class _$MetadataUrlValueSerializer
+    implements PrimitiveSerializer<MetadataUrlValue> {
   @override
   final Iterable<Type> types = const [MetadataUrlValue, _$MetadataUrlValue];
 
@@ -61,7 +68,9 @@ class _$MetadataUrlValueSerializer implements PrimitiveSerializer<MetadataUrlVal
     MetadataUrlValue object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -118,4 +127,3 @@ class _$MetadataUrlValueSerializer implements PrimitiveSerializer<MetadataUrlVal
     return result.build();
   }
 }
-

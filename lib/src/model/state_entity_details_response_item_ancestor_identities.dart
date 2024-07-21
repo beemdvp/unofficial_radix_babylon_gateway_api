@@ -15,7 +15,10 @@ part 'state_entity_details_response_item_ancestor_identities.g.dart';
 /// * [ownerAddress] - Bech32m-encoded human readable version of the address.
 /// * [globalAddress] - Bech32m-encoded human readable version of the address.
 @BuiltValue()
-abstract class StateEntityDetailsResponseItemAncestorIdentities implements Built<StateEntityDetailsResponseItemAncestorIdentities, StateEntityDetailsResponseItemAncestorIdentitiesBuilder> {
+abstract class StateEntityDetailsResponseItemAncestorIdentities
+    implements
+        Built<StateEntityDetailsResponseItemAncestorIdentities,
+            StateEntityDetailsResponseItemAncestorIdentitiesBuilder> {
   /// Bech32m-encoded human readable version of the address.
   @BuiltValueField(wireName: r'parent_address')
   String? get parentAddress;
@@ -30,18 +33,30 @@ abstract class StateEntityDetailsResponseItemAncestorIdentities implements Built
 
   StateEntityDetailsResponseItemAncestorIdentities._();
 
-  factory StateEntityDetailsResponseItemAncestorIdentities([void updates(StateEntityDetailsResponseItemAncestorIdentitiesBuilder b)]) = _$StateEntityDetailsResponseItemAncestorIdentities;
+  factory StateEntityDetailsResponseItemAncestorIdentities(
+          [void updates(
+              StateEntityDetailsResponseItemAncestorIdentitiesBuilder b)]) =
+      _$StateEntityDetailsResponseItemAncestorIdentities;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(StateEntityDetailsResponseItemAncestorIdentitiesBuilder b) => b;
+  static void _defaults(
+          StateEntityDetailsResponseItemAncestorIdentitiesBuilder b) =>
+      b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<StateEntityDetailsResponseItemAncestorIdentities> get serializer => _$StateEntityDetailsResponseItemAncestorIdentitiesSerializer();
+  static Serializer<StateEntityDetailsResponseItemAncestorIdentities>
+      get serializer =>
+          _$StateEntityDetailsResponseItemAncestorIdentitiesSerializer();
 }
 
-class _$StateEntityDetailsResponseItemAncestorIdentitiesSerializer implements PrimitiveSerializer<StateEntityDetailsResponseItemAncestorIdentities> {
+class _$StateEntityDetailsResponseItemAncestorIdentitiesSerializer
+    implements
+        PrimitiveSerializer<StateEntityDetailsResponseItemAncestorIdentities> {
   @override
-  final Iterable<Type> types = const [StateEntityDetailsResponseItemAncestorIdentities, _$StateEntityDetailsResponseItemAncestorIdentities];
+  final Iterable<Type> types = const [
+    StateEntityDetailsResponseItemAncestorIdentities,
+    _$StateEntityDetailsResponseItemAncestorIdentities
+  ];
 
   @override
   final String wireName = r'StateEntityDetailsResponseItemAncestorIdentities';
@@ -80,7 +95,9 @@ class _$StateEntityDetailsResponseItemAncestorIdentitiesSerializer implements Pr
     StateEntityDetailsResponseItemAncestorIdentities object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -144,4 +161,3 @@ class _$StateEntityDetailsResponseItemAncestorIdentitiesSerializer implements Pr
     return result.build();
   }
 }
-

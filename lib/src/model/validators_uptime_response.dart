@@ -14,27 +14,37 @@ part 'validators_uptime_response.g.dart';
 /// ValidatorsUptimeResponse
 ///
 /// Properties:
-/// * [ledgerState] 
-/// * [validators] 
+/// * [ledgerState]
+/// * [validators]
 @BuiltValue()
-abstract class ValidatorsUptimeResponse implements LedgerStateMixin, Built<ValidatorsUptimeResponse, ValidatorsUptimeResponseBuilder> {
+abstract class ValidatorsUptimeResponse
+    implements
+        LedgerStateMixin,
+        Built<ValidatorsUptimeResponse, ValidatorsUptimeResponseBuilder> {
   @BuiltValueField(wireName: r'validators')
   ValidatorUptimeCollection get validators;
 
   ValidatorsUptimeResponse._();
 
-  factory ValidatorsUptimeResponse([void updates(ValidatorsUptimeResponseBuilder b)]) = _$ValidatorsUptimeResponse;
+  factory ValidatorsUptimeResponse(
+          [void updates(ValidatorsUptimeResponseBuilder b)]) =
+      _$ValidatorsUptimeResponse;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(ValidatorsUptimeResponseBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<ValidatorsUptimeResponse> get serializer => _$ValidatorsUptimeResponseSerializer();
+  static Serializer<ValidatorsUptimeResponse> get serializer =>
+      _$ValidatorsUptimeResponseSerializer();
 }
 
-class _$ValidatorsUptimeResponseSerializer implements PrimitiveSerializer<ValidatorsUptimeResponse> {
+class _$ValidatorsUptimeResponseSerializer
+    implements PrimitiveSerializer<ValidatorsUptimeResponse> {
   @override
-  final Iterable<Type> types = const [ValidatorsUptimeResponse, _$ValidatorsUptimeResponse];
+  final Iterable<Type> types = const [
+    ValidatorsUptimeResponse,
+    _$ValidatorsUptimeResponse
+  ];
 
   @override
   final String wireName = r'ValidatorsUptimeResponse';
@@ -62,7 +72,9 @@ class _$ValidatorsUptimeResponseSerializer implements PrimitiveSerializer<Valida
     ValidatorsUptimeResponse object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -119,4 +131,3 @@ class _$ValidatorsUptimeResponseSerializer implements PrimitiveSerializer<Valida
     return result.build();
   }
 }
-

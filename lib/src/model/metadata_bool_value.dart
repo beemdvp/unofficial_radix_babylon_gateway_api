@@ -13,25 +13,32 @@ part 'metadata_bool_value.g.dart';
 /// MetadataBoolValue
 ///
 /// Properties:
-/// * [type] 
-/// * [value] 
+/// * [type]
+/// * [value]
 @BuiltValue()
-abstract class MetadataBoolValue implements MetadataTypedValue, Built<MetadataBoolValue, MetadataBoolValueBuilder> {
+abstract class MetadataBoolValue
+    implements
+        MetadataTypedValue,
+        Built<MetadataBoolValue, MetadataBoolValueBuilder> {
   @BuiltValueField(wireName: r'value')
   bool get value;
 
   MetadataBoolValue._();
 
-  factory MetadataBoolValue([void updates(MetadataBoolValueBuilder b)]) = _$MetadataBoolValue;
+  factory MetadataBoolValue([void updates(MetadataBoolValueBuilder b)]) =
+      _$MetadataBoolValue;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(MetadataBoolValueBuilder b) => b..type=b.discriminatorValue;
+  static void _defaults(MetadataBoolValueBuilder b) =>
+      b..type = b.discriminatorValue as dynamic;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<MetadataBoolValue> get serializer => _$MetadataBoolValueSerializer();
+  static Serializer<MetadataBoolValue> get serializer =>
+      _$MetadataBoolValueSerializer();
 }
 
-class _$MetadataBoolValueSerializer implements PrimitiveSerializer<MetadataBoolValue> {
+class _$MetadataBoolValueSerializer
+    implements PrimitiveSerializer<MetadataBoolValue> {
   @override
   final Iterable<Type> types = const [MetadataBoolValue, _$MetadataBoolValue];
 
@@ -61,7 +68,9 @@ class _$MetadataBoolValueSerializer implements PrimitiveSerializer<MetadataBoolV
     MetadataBoolValue object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -118,4 +127,3 @@ class _$MetadataBoolValueSerializer implements PrimitiveSerializer<MetadataBoolV
     return result.build();
   }
 }
-

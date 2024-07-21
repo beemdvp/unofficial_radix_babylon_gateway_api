@@ -13,30 +13,45 @@ part 'account_locker_vault_collection_item_non_fungible.g.dart';
 /// AccountLockerVaultCollectionItemNonFungible
 ///
 /// Properties:
-/// * [type] 
+/// * [type]
 /// * [resourceAddress] - Bech32m-encoded human readable version of the address.
 /// * [vaultAddress] - Bech32m-encoded human readable version of the address.
 /// * [lastUpdatedAtStateVersion] - The most recent state version underlying object was modified at.
-/// * [totalCount] 
+/// * [totalCount]
 @BuiltValue()
-abstract class AccountLockerVaultCollectionItemNonFungible implements AccountLockerVaultCollectionItem, Built<AccountLockerVaultCollectionItemNonFungible, AccountLockerVaultCollectionItemNonFungibleBuilder> {
+abstract class AccountLockerVaultCollectionItemNonFungible
+    implements
+        AccountLockerVaultCollectionItem,
+        Built<AccountLockerVaultCollectionItemNonFungible,
+            AccountLockerVaultCollectionItemNonFungibleBuilder> {
   @BuiltValueField(wireName: r'total_count')
   int get totalCount;
 
   AccountLockerVaultCollectionItemNonFungible._();
 
-  factory AccountLockerVaultCollectionItemNonFungible([void updates(AccountLockerVaultCollectionItemNonFungibleBuilder b)]) = _$AccountLockerVaultCollectionItemNonFungible;
+  factory AccountLockerVaultCollectionItemNonFungible(
+          [void updates(
+              AccountLockerVaultCollectionItemNonFungibleBuilder b)]) =
+      _$AccountLockerVaultCollectionItemNonFungible;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(AccountLockerVaultCollectionItemNonFungibleBuilder b) => b..type=b.discriminatorValue;
+  static void _defaults(AccountLockerVaultCollectionItemNonFungibleBuilder b) =>
+      b..type = b.discriminatorValue as AccountLockerVaultCollectionItemType;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<AccountLockerVaultCollectionItemNonFungible> get serializer => _$AccountLockerVaultCollectionItemNonFungibleSerializer();
+  static Serializer<AccountLockerVaultCollectionItemNonFungible>
+      get serializer =>
+          _$AccountLockerVaultCollectionItemNonFungibleSerializer();
 }
 
-class _$AccountLockerVaultCollectionItemNonFungibleSerializer implements PrimitiveSerializer<AccountLockerVaultCollectionItemNonFungible> {
+class _$AccountLockerVaultCollectionItemNonFungibleSerializer
+    implements
+        PrimitiveSerializer<AccountLockerVaultCollectionItemNonFungible> {
   @override
-  final Iterable<Type> types = const [AccountLockerVaultCollectionItemNonFungible, _$AccountLockerVaultCollectionItemNonFungible];
+  final Iterable<Type> types = const [
+    AccountLockerVaultCollectionItemNonFungible,
+    _$AccountLockerVaultCollectionItemNonFungible
+  ];
 
   @override
   final String wireName = r'AccountLockerVaultCollectionItemNonFungible';
@@ -79,7 +94,9 @@ class _$AccountLockerVaultCollectionItemNonFungibleSerializer implements Primiti
     AccountLockerVaultCollectionItemNonFungible object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -157,4 +174,3 @@ class _$AccountLockerVaultCollectionItemNonFungibleSerializer implements Primiti
     return result.build();
   }
 }
-

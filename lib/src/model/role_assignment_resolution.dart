@@ -10,15 +10,15 @@ import 'package:built_value/serializer.dart';
 part 'role_assignment_resolution.g.dart';
 
 class RoleAssignmentResolution extends EnumClass {
-
   @BuiltValueEnumConst(wireName: r'Explicit')
   static const RoleAssignmentResolution explicit = _$explicit;
   @BuiltValueEnumConst(wireName: r'Owner')
   static const RoleAssignmentResolution owner = _$owner;
 
-  static Serializer<RoleAssignmentResolution> get serializer => _$roleAssignmentResolutionSerializer;
+  static Serializer<RoleAssignmentResolution> get serializer =>
+      _$roleAssignmentResolutionSerializer;
 
-  const RoleAssignmentResolution._(String name): super(name);
+  const RoleAssignmentResolution._(String name) : super(name);
 
   static BuiltSet<RoleAssignmentResolution> get values => _$values;
   static RoleAssignmentResolution valueOf(String name) => _$valueOf(name);
@@ -30,5 +30,5 @@ class RoleAssignmentResolution extends EnumClass {
 /// corresponding Angular template.
 ///
 /// Trigger mixin generation by writing a line like this one next to your enum.
-abstract class RoleAssignmentResolutionMixin = Object with _$RoleAssignmentResolutionMixin;
-
+abstract class RoleAssignmentResolutionMixin = Object
+    with _$RoleAssignmentResolutionMixin;

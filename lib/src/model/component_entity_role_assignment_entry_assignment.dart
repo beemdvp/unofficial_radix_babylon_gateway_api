@@ -13,32 +13,47 @@ part 'component_entity_role_assignment_entry_assignment.g.dart';
 /// ComponentEntityRoleAssignmentEntryAssignment
 ///
 /// Properties:
-/// * [resolution] 
-/// * [explicitRule] - This type is defined in the Core API as `AccessRule`. See the Core API documentation for more details. 
+/// * [resolution]
+/// * [explicitRule] - This type is defined in the Core API as `AccessRule`. See the Core API documentation for more details.
 @BuiltValue()
-abstract class ComponentEntityRoleAssignmentEntryAssignment implements Built<ComponentEntityRoleAssignmentEntryAssignment, ComponentEntityRoleAssignmentEntryAssignmentBuilder> {
+abstract class ComponentEntityRoleAssignmentEntryAssignment
+    implements
+        Built<ComponentEntityRoleAssignmentEntryAssignment,
+            ComponentEntityRoleAssignmentEntryAssignmentBuilder> {
   @BuiltValueField(wireName: r'resolution')
   RoleAssignmentResolution get resolution;
   // enum resolutionEnum {  Explicit,  Owner,  };
 
-  /// This type is defined in the Core API as `AccessRule`. See the Core API documentation for more details. 
+  /// This type is defined in the Core API as `AccessRule`. See the Core API documentation for more details.
   @BuiltValueField(wireName: r'explicit_rule')
   JsonObject? get explicitRule;
 
   ComponentEntityRoleAssignmentEntryAssignment._();
 
-  factory ComponentEntityRoleAssignmentEntryAssignment([void updates(ComponentEntityRoleAssignmentEntryAssignmentBuilder b)]) = _$ComponentEntityRoleAssignmentEntryAssignment;
+  factory ComponentEntityRoleAssignmentEntryAssignment(
+          [void updates(
+              ComponentEntityRoleAssignmentEntryAssignmentBuilder b)]) =
+      _$ComponentEntityRoleAssignmentEntryAssignment;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(ComponentEntityRoleAssignmentEntryAssignmentBuilder b) => b;
+  static void _defaults(
+          ComponentEntityRoleAssignmentEntryAssignmentBuilder b) =>
+      b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<ComponentEntityRoleAssignmentEntryAssignment> get serializer => _$ComponentEntityRoleAssignmentEntryAssignmentSerializer();
+  static Serializer<ComponentEntityRoleAssignmentEntryAssignment>
+      get serializer =>
+          _$ComponentEntityRoleAssignmentEntryAssignmentSerializer();
 }
 
-class _$ComponentEntityRoleAssignmentEntryAssignmentSerializer implements PrimitiveSerializer<ComponentEntityRoleAssignmentEntryAssignment> {
+class _$ComponentEntityRoleAssignmentEntryAssignmentSerializer
+    implements
+        PrimitiveSerializer<ComponentEntityRoleAssignmentEntryAssignment> {
   @override
-  final Iterable<Type> types = const [ComponentEntityRoleAssignmentEntryAssignment, _$ComponentEntityRoleAssignmentEntryAssignment];
+  final Iterable<Type> types = const [
+    ComponentEntityRoleAssignmentEntryAssignment,
+    _$ComponentEntityRoleAssignmentEntryAssignment
+  ];
 
   @override
   final String wireName = r'ComponentEntityRoleAssignmentEntryAssignment';
@@ -68,7 +83,9 @@ class _$ComponentEntityRoleAssignmentEntryAssignmentSerializer implements Primit
     ComponentEntityRoleAssignmentEntryAssignment object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -125,4 +142,3 @@ class _$ComponentEntityRoleAssignmentEntryAssignmentSerializer implements Primit
     return result.build();
   }
 }
-

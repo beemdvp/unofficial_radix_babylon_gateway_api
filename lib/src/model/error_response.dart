@@ -14,10 +14,11 @@ part 'error_response.g.dart';
 /// Properties:
 /// * [message] - A human-readable error message.
 /// * [code] - A numeric code corresponding to the given error type.
-/// * [details] 
+/// * [details]
 /// * [traceId] - A unique request identifier to be used when reporting errors, to allow correlation with the Gateway API's error logs.
 @BuiltValue()
-abstract class ErrorResponse implements Built<ErrorResponse, ErrorResponseBuilder> {
+abstract class ErrorResponse
+    implements Built<ErrorResponse, ErrorResponseBuilder> {
   /// A human-readable error message.
   @BuiltValueField(wireName: r'message')
   String get message;
@@ -35,13 +36,15 @@ abstract class ErrorResponse implements Built<ErrorResponse, ErrorResponseBuilde
 
   ErrorResponse._();
 
-  factory ErrorResponse([void updates(ErrorResponseBuilder b)]) = _$ErrorResponse;
+  factory ErrorResponse([void updates(ErrorResponseBuilder b)]) =
+      _$ErrorResponse;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(ErrorResponseBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<ErrorResponse> get serializer => _$ErrorResponseSerializer();
+  static Serializer<ErrorResponse> get serializer =>
+      _$ErrorResponseSerializer();
 }
 
 class _$ErrorResponseSerializer implements PrimitiveSerializer<ErrorResponse> {
@@ -90,7 +93,9 @@ class _$ErrorResponseSerializer implements PrimitiveSerializer<ErrorResponse> {
     ErrorResponse object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -161,4 +166,3 @@ class _$ErrorResponseSerializer implements PrimitiveSerializer<ErrorResponse> {
     return result.build();
   }
 }
-

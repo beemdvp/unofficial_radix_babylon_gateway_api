@@ -18,17 +18,21 @@ part 'state_entity_details_response_package_details.g.dart';
 /// vm_type, code_hash_hex and code_hex are always going to be empty, use `codes` property which will return collection (it's possible after protocol update that package might have multiple codes)
 ///
 /// Properties:
-/// * [type] 
-/// * [codes] 
-/// * [vmType] 
+/// * [type]
+/// * [codes]
+/// * [vmType]
 /// * [codeHashHex] - Hex-encoded binary blob.
 /// * [codeHex] - Hex-encoded binary blob.
 /// * [royaltyVaultBalance] - String-encoded decimal representing the amount of a related fungible resource.
-/// * [blueprints] 
-/// * [schemas] 
-/// * [roleAssignments] 
+/// * [blueprints]
+/// * [schemas]
+/// * [roleAssignments]
 @BuiltValue()
-abstract class StateEntityDetailsResponsePackageDetails implements StateEntityDetailsResponseItemDetails, Built<StateEntityDetailsResponsePackageDetails, StateEntityDetailsResponsePackageDetailsBuilder> {
+abstract class StateEntityDetailsResponsePackageDetails
+    implements
+        StateEntityDetailsResponseItemDetails,
+        Built<StateEntityDetailsResponsePackageDetails,
+            StateEntityDetailsResponsePackageDetailsBuilder> {
   @BuiltValueField(wireName: r'codes')
   PackageCodeCollection get codes;
 
@@ -59,18 +63,26 @@ abstract class StateEntityDetailsResponsePackageDetails implements StateEntityDe
 
   StateEntityDetailsResponsePackageDetails._();
 
-  factory StateEntityDetailsResponsePackageDetails([void updates(StateEntityDetailsResponsePackageDetailsBuilder b)]) = _$StateEntityDetailsResponsePackageDetails;
+  factory StateEntityDetailsResponsePackageDetails(
+          [void updates(StateEntityDetailsResponsePackageDetailsBuilder b)]) =
+      _$StateEntityDetailsResponsePackageDetails;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(StateEntityDetailsResponsePackageDetailsBuilder b) => b..type=b.discriminatorValue;
+  static void _defaults(StateEntityDetailsResponsePackageDetailsBuilder b) =>
+      b..type = b.discriminatorValue as dynamic;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<StateEntityDetailsResponsePackageDetails> get serializer => _$StateEntityDetailsResponsePackageDetailsSerializer();
+  static Serializer<StateEntityDetailsResponsePackageDetails> get serializer =>
+      _$StateEntityDetailsResponsePackageDetailsSerializer();
 }
 
-class _$StateEntityDetailsResponsePackageDetailsSerializer implements PrimitiveSerializer<StateEntityDetailsResponsePackageDetails> {
+class _$StateEntityDetailsResponsePackageDetailsSerializer
+    implements PrimitiveSerializer<StateEntityDetailsResponsePackageDetails> {
   @override
-  final Iterable<Type> types = const [StateEntityDetailsResponsePackageDetails, _$StateEntityDetailsResponsePackageDetails];
+  final Iterable<Type> types = const [
+    StateEntityDetailsResponsePackageDetails,
+    _$StateEntityDetailsResponsePackageDetails
+  ];
 
   @override
   final String wireName = r'StateEntityDetailsResponsePackageDetails';
@@ -141,7 +153,9 @@ class _$StateEntityDetailsResponsePackageDetailsSerializer implements PrimitiveS
     StateEntityDetailsResponsePackageDetails object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -208,7 +222,8 @@ class _$StateEntityDetailsResponsePackageDetailsSerializer implements PrimitiveS
         case r'type':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(StateEntityDetailsResponseItemDetailsType),
+            specifiedType:
+                const FullType(StateEntityDetailsResponseItemDetailsType),
           ) as StateEntityDetailsResponseItemDetailsType;
           result.type = valueDes;
           break;
@@ -247,4 +262,3 @@ class _$StateEntityDetailsResponsePackageDetailsSerializer implements PrimitiveS
     return result.build();
   }
 }
-

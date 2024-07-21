@@ -14,30 +14,42 @@ part 'state_key_value_store_keys_request.g.dart';
 /// StateKeyValueStoreKeysRequest
 ///
 /// Properties:
-/// * [atLedgerState] 
+/// * [atLedgerState]
 /// * [cursor] - This cursor allows forward pagination, by providing the cursor from the previous request.
 /// * [limitPerPage] - The page size requested.
 /// * [keyValueStoreAddress] - Bech32m-encoded human readable version of the address.
 @BuiltValue()
-abstract class StateKeyValueStoreKeysRequest implements AtLedgerStateMixin, CursorLimitMixin, Built<StateKeyValueStoreKeysRequest, StateKeyValueStoreKeysRequestBuilder> {
+abstract class StateKeyValueStoreKeysRequest
+    implements
+        AtLedgerStateMixin,
+        CursorLimitMixin,
+        Built<StateKeyValueStoreKeysRequest,
+            StateKeyValueStoreKeysRequestBuilder> {
   /// Bech32m-encoded human readable version of the address.
   @BuiltValueField(wireName: r'key_value_store_address')
   String get keyValueStoreAddress;
 
   StateKeyValueStoreKeysRequest._();
 
-  factory StateKeyValueStoreKeysRequest([void updates(StateKeyValueStoreKeysRequestBuilder b)]) = _$StateKeyValueStoreKeysRequest;
+  factory StateKeyValueStoreKeysRequest(
+          [void updates(StateKeyValueStoreKeysRequestBuilder b)]) =
+      _$StateKeyValueStoreKeysRequest;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(StateKeyValueStoreKeysRequestBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<StateKeyValueStoreKeysRequest> get serializer => _$StateKeyValueStoreKeysRequestSerializer();
+  static Serializer<StateKeyValueStoreKeysRequest> get serializer =>
+      _$StateKeyValueStoreKeysRequestSerializer();
 }
 
-class _$StateKeyValueStoreKeysRequestSerializer implements PrimitiveSerializer<StateKeyValueStoreKeysRequest> {
+class _$StateKeyValueStoreKeysRequestSerializer
+    implements PrimitiveSerializer<StateKeyValueStoreKeysRequest> {
   @override
-  final Iterable<Type> types = const [StateKeyValueStoreKeysRequest, _$StateKeyValueStoreKeysRequest];
+  final Iterable<Type> types = const [
+    StateKeyValueStoreKeysRequest,
+    _$StateKeyValueStoreKeysRequest
+  ];
 
   @override
   final String wireName = r'StateKeyValueStoreKeysRequest';
@@ -81,7 +93,9 @@ class _$StateKeyValueStoreKeysRequestSerializer implements PrimitiveSerializer<S
     StateKeyValueStoreKeysRequest object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -155,4 +169,3 @@ class _$StateKeyValueStoreKeysRequestSerializer implements PrimitiveSerializer<S
     return result.build();
   }
 }
-

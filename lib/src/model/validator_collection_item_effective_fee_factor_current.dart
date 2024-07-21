@@ -13,25 +13,40 @@ part 'validator_collection_item_effective_fee_factor_current.g.dart';
 /// Properties:
 /// * [feeFactor] - String-encoded decimal representing the amount of a related fungible resource.
 @BuiltValue()
-abstract class ValidatorCollectionItemEffectiveFeeFactorCurrent implements Built<ValidatorCollectionItemEffectiveFeeFactorCurrent, ValidatorCollectionItemEffectiveFeeFactorCurrentBuilder> {
+abstract class ValidatorCollectionItemEffectiveFeeFactorCurrent
+    implements
+        Built<ValidatorCollectionItemEffectiveFeeFactorCurrent,
+            ValidatorCollectionItemEffectiveFeeFactorCurrentBuilder> {
   /// String-encoded decimal representing the amount of a related fungible resource.
   @BuiltValueField(wireName: r'fee_factor')
   String get feeFactor;
 
   ValidatorCollectionItemEffectiveFeeFactorCurrent._();
 
-  factory ValidatorCollectionItemEffectiveFeeFactorCurrent([void updates(ValidatorCollectionItemEffectiveFeeFactorCurrentBuilder b)]) = _$ValidatorCollectionItemEffectiveFeeFactorCurrent;
+  factory ValidatorCollectionItemEffectiveFeeFactorCurrent(
+          [void updates(
+              ValidatorCollectionItemEffectiveFeeFactorCurrentBuilder b)]) =
+      _$ValidatorCollectionItemEffectiveFeeFactorCurrent;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(ValidatorCollectionItemEffectiveFeeFactorCurrentBuilder b) => b;
+  static void _defaults(
+          ValidatorCollectionItemEffectiveFeeFactorCurrentBuilder b) =>
+      b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<ValidatorCollectionItemEffectiveFeeFactorCurrent> get serializer => _$ValidatorCollectionItemEffectiveFeeFactorCurrentSerializer();
+  static Serializer<ValidatorCollectionItemEffectiveFeeFactorCurrent>
+      get serializer =>
+          _$ValidatorCollectionItemEffectiveFeeFactorCurrentSerializer();
 }
 
-class _$ValidatorCollectionItemEffectiveFeeFactorCurrentSerializer implements PrimitiveSerializer<ValidatorCollectionItemEffectiveFeeFactorCurrent> {
+class _$ValidatorCollectionItemEffectiveFeeFactorCurrentSerializer
+    implements
+        PrimitiveSerializer<ValidatorCollectionItemEffectiveFeeFactorCurrent> {
   @override
-  final Iterable<Type> types = const [ValidatorCollectionItemEffectiveFeeFactorCurrent, _$ValidatorCollectionItemEffectiveFeeFactorCurrent];
+  final Iterable<Type> types = const [
+    ValidatorCollectionItemEffectiveFeeFactorCurrent,
+    _$ValidatorCollectionItemEffectiveFeeFactorCurrent
+  ];
 
   @override
   final String wireName = r'ValidatorCollectionItemEffectiveFeeFactorCurrent';
@@ -54,7 +69,9 @@ class _$ValidatorCollectionItemEffectiveFeeFactorCurrentSerializer implements Pr
     ValidatorCollectionItemEffectiveFeeFactorCurrent object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -104,4 +121,3 @@ class _$ValidatorCollectionItemEffectiveFeeFactorCurrentSerializer implements Pr
     return result.build();
   }
 }
-

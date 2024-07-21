@@ -16,17 +16,20 @@ part 'account_authorized_depositors_collection.g.dart';
 /// Properties:
 /// * [totalCount] - Total number of items in underlying collection, fragment of which is available in `items` collection.
 /// * [nextCursor] - If specified, contains a cursor to query next page of the `items` collection.
-/// * [items] 
+/// * [items]
 @BuiltValue(instantiable: false)
-abstract class AccountAuthorizedDepositorsCollection implements ResultSetCursorMixin {
+abstract class AccountAuthorizedDepositorsCollection
+    implements ResultSetCursorMixin {
   @BuiltValueField(wireName: r'items')
   BuiltList<AccountAuthorizedDepositorsResponseItem> get items;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<AccountAuthorizedDepositorsCollection> get serializer => _$AccountAuthorizedDepositorsCollectionSerializer();
+  static Serializer<AccountAuthorizedDepositorsCollection> get serializer =>
+      _$AccountAuthorizedDepositorsCollectionSerializer();
 }
 
-class _$AccountAuthorizedDepositorsCollectionSerializer implements PrimitiveSerializer<AccountAuthorizedDepositorsCollection> {
+class _$AccountAuthorizedDepositorsCollectionSerializer
+    implements PrimitiveSerializer<AccountAuthorizedDepositorsCollection> {
   @override
   final Iterable<Type> types = const [AccountAuthorizedDepositorsCollection];
 
@@ -55,7 +58,8 @@ class _$AccountAuthorizedDepositorsCollectionSerializer implements PrimitiveSeri
     yield r'items';
     yield serializers.serialize(
       object.items,
-      specifiedType: const FullType(BuiltList, [FullType(AccountAuthorizedDepositorsResponseItem)]),
+      specifiedType: const FullType(
+          BuiltList, [FullType(AccountAuthorizedDepositorsResponseItem)]),
     );
   }
 
@@ -65,7 +69,9 @@ class _$AccountAuthorizedDepositorsCollectionSerializer implements PrimitiveSeri
     AccountAuthorizedDepositorsCollection object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   @override
@@ -74,27 +80,40 @@ class _$AccountAuthorizedDepositorsCollectionSerializer implements PrimitiveSeri
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return serializers.deserialize(serialized, specifiedType: FullType($AccountAuthorizedDepositorsCollection)) as $AccountAuthorizedDepositorsCollection;
+    return serializers.deserialize(serialized,
+            specifiedType: FullType($AccountAuthorizedDepositorsCollection))
+        as $AccountAuthorizedDepositorsCollection;
   }
 }
 
 /// a concrete implementation of [AccountAuthorizedDepositorsCollection], since [AccountAuthorizedDepositorsCollection] is not instantiable
 @BuiltValue(instantiable: true)
-abstract class $AccountAuthorizedDepositorsCollection implements AccountAuthorizedDepositorsCollection, Built<$AccountAuthorizedDepositorsCollection, $AccountAuthorizedDepositorsCollectionBuilder> {
+abstract class $AccountAuthorizedDepositorsCollection
+    implements
+        AccountAuthorizedDepositorsCollection,
+        Built<$AccountAuthorizedDepositorsCollection,
+            $AccountAuthorizedDepositorsCollectionBuilder> {
   $AccountAuthorizedDepositorsCollection._();
 
-  factory $AccountAuthorizedDepositorsCollection([void Function($AccountAuthorizedDepositorsCollectionBuilder)? updates]) = _$$AccountAuthorizedDepositorsCollection;
+  factory $AccountAuthorizedDepositorsCollection(
+      [void Function($AccountAuthorizedDepositorsCollectionBuilder)?
+          updates]) = _$$AccountAuthorizedDepositorsCollection;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($AccountAuthorizedDepositorsCollectionBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<$AccountAuthorizedDepositorsCollection> get serializer => _$$AccountAuthorizedDepositorsCollectionSerializer();
+  static Serializer<$AccountAuthorizedDepositorsCollection> get serializer =>
+      _$$AccountAuthorizedDepositorsCollectionSerializer();
 }
 
-class _$$AccountAuthorizedDepositorsCollectionSerializer implements PrimitiveSerializer<$AccountAuthorizedDepositorsCollection> {
+class _$$AccountAuthorizedDepositorsCollectionSerializer
+    implements PrimitiveSerializer<$AccountAuthorizedDepositorsCollection> {
   @override
-  final Iterable<Type> types = const [$AccountAuthorizedDepositorsCollection, _$$AccountAuthorizedDepositorsCollection];
+  final Iterable<Type> types = const [
+    $AccountAuthorizedDepositorsCollection,
+    _$$AccountAuthorizedDepositorsCollection
+  ];
 
   @override
   final String wireName = r'$AccountAuthorizedDepositorsCollection';
@@ -105,7 +124,8 @@ class _$$AccountAuthorizedDepositorsCollectionSerializer implements PrimitiveSer
     $AccountAuthorizedDepositorsCollection object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return serializers.serialize(object, specifiedType: FullType(AccountAuthorizedDepositorsCollection))!;
+    return serializers.serialize(object,
+        specifiedType: FullType(AccountAuthorizedDepositorsCollection))!;
   }
 
   void _deserializeProperties(
@@ -139,7 +159,8 @@ class _$$AccountAuthorizedDepositorsCollectionSerializer implements PrimitiveSer
         case r'items':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltList, [FullType(AccountAuthorizedDepositorsResponseItem)]),
+            specifiedType: const FullType(
+                BuiltList, [FullType(AccountAuthorizedDepositorsResponseItem)]),
           ) as BuiltList<AccountAuthorizedDepositorsResponseItem>;
           result.items.replace(valueDes);
           break;
@@ -171,4 +192,3 @@ class _$$AccountAuthorizedDepositorsCollectionSerializer implements PrimitiveSer
     return result.build();
   }
 }
-

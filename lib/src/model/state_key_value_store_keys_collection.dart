@@ -16,17 +16,20 @@ part 'state_key_value_store_keys_collection.g.dart';
 /// Properties:
 /// * [totalCount] - Total number of items in underlying collection, fragment of which is available in `items` collection.
 /// * [nextCursor] - If specified, contains a cursor to query next page of the `items` collection.
-/// * [items] 
+/// * [items]
 @BuiltValue(instantiable: false)
-abstract class StateKeyValueStoreKeysCollection implements ResultSetCursorMixin {
+abstract class StateKeyValueStoreKeysCollection
+    implements ResultSetCursorMixin {
   @BuiltValueField(wireName: r'items')
   BuiltList<StateKeyValueStoreKeysResponseItem> get items;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<StateKeyValueStoreKeysCollection> get serializer => _$StateKeyValueStoreKeysCollectionSerializer();
+  static Serializer<StateKeyValueStoreKeysCollection> get serializer =>
+      _$StateKeyValueStoreKeysCollectionSerializer();
 }
 
-class _$StateKeyValueStoreKeysCollectionSerializer implements PrimitiveSerializer<StateKeyValueStoreKeysCollection> {
+class _$StateKeyValueStoreKeysCollectionSerializer
+    implements PrimitiveSerializer<StateKeyValueStoreKeysCollection> {
   @override
   final Iterable<Type> types = const [StateKeyValueStoreKeysCollection];
 
@@ -55,7 +58,8 @@ class _$StateKeyValueStoreKeysCollectionSerializer implements PrimitiveSerialize
     yield r'items';
     yield serializers.serialize(
       object.items,
-      specifiedType: const FullType(BuiltList, [FullType(StateKeyValueStoreKeysResponseItem)]),
+      specifiedType: const FullType(
+          BuiltList, [FullType(StateKeyValueStoreKeysResponseItem)]),
     );
   }
 
@@ -65,7 +69,9 @@ class _$StateKeyValueStoreKeysCollectionSerializer implements PrimitiveSerialize
     StateKeyValueStoreKeysCollection object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   @override
@@ -74,27 +80,40 @@ class _$StateKeyValueStoreKeysCollectionSerializer implements PrimitiveSerialize
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return serializers.deserialize(serialized, specifiedType: FullType($StateKeyValueStoreKeysCollection)) as $StateKeyValueStoreKeysCollection;
+    return serializers.deserialize(serialized,
+            specifiedType: FullType($StateKeyValueStoreKeysCollection))
+        as $StateKeyValueStoreKeysCollection;
   }
 }
 
 /// a concrete implementation of [StateKeyValueStoreKeysCollection], since [StateKeyValueStoreKeysCollection] is not instantiable
 @BuiltValue(instantiable: true)
-abstract class $StateKeyValueStoreKeysCollection implements StateKeyValueStoreKeysCollection, Built<$StateKeyValueStoreKeysCollection, $StateKeyValueStoreKeysCollectionBuilder> {
+abstract class $StateKeyValueStoreKeysCollection
+    implements
+        StateKeyValueStoreKeysCollection,
+        Built<$StateKeyValueStoreKeysCollection,
+            $StateKeyValueStoreKeysCollectionBuilder> {
   $StateKeyValueStoreKeysCollection._();
 
-  factory $StateKeyValueStoreKeysCollection([void Function($StateKeyValueStoreKeysCollectionBuilder)? updates]) = _$$StateKeyValueStoreKeysCollection;
+  factory $StateKeyValueStoreKeysCollection(
+          [void Function($StateKeyValueStoreKeysCollectionBuilder)? updates]) =
+      _$$StateKeyValueStoreKeysCollection;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($StateKeyValueStoreKeysCollectionBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<$StateKeyValueStoreKeysCollection> get serializer => _$$StateKeyValueStoreKeysCollectionSerializer();
+  static Serializer<$StateKeyValueStoreKeysCollection> get serializer =>
+      _$$StateKeyValueStoreKeysCollectionSerializer();
 }
 
-class _$$StateKeyValueStoreKeysCollectionSerializer implements PrimitiveSerializer<$StateKeyValueStoreKeysCollection> {
+class _$$StateKeyValueStoreKeysCollectionSerializer
+    implements PrimitiveSerializer<$StateKeyValueStoreKeysCollection> {
   @override
-  final Iterable<Type> types = const [$StateKeyValueStoreKeysCollection, _$$StateKeyValueStoreKeysCollection];
+  final Iterable<Type> types = const [
+    $StateKeyValueStoreKeysCollection,
+    _$$StateKeyValueStoreKeysCollection
+  ];
 
   @override
   final String wireName = r'$StateKeyValueStoreKeysCollection';
@@ -105,7 +124,8 @@ class _$$StateKeyValueStoreKeysCollectionSerializer implements PrimitiveSerializ
     $StateKeyValueStoreKeysCollection object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return serializers.serialize(object, specifiedType: FullType(StateKeyValueStoreKeysCollection))!;
+    return serializers.serialize(object,
+        specifiedType: FullType(StateKeyValueStoreKeysCollection))!;
   }
 
   void _deserializeProperties(
@@ -139,7 +159,8 @@ class _$$StateKeyValueStoreKeysCollectionSerializer implements PrimitiveSerializ
         case r'items':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltList, [FullType(StateKeyValueStoreKeysResponseItem)]),
+            specifiedType: const FullType(
+                BuiltList, [FullType(StateKeyValueStoreKeysResponseItem)]),
           ) as BuiltList<StateKeyValueStoreKeysResponseItem>;
           result.items.replace(valueDes);
           break;
@@ -171,4 +192,3 @@ class _$$StateKeyValueStoreKeysCollectionSerializer implements PrimitiveSerializ
     return result.build();
   }
 }
-

@@ -13,12 +13,16 @@ part 'account_authorized_depositors_non_fungible_badge.g.dart';
 /// AccountAuthorizedDepositorsNonFungibleBadge
 ///
 /// Properties:
-/// * [badgeType] 
+/// * [badgeType]
 /// * [resourceAddress] - Bech32m-encoded human readable version of the address.
 /// * [nonFungibleId] - String-encoded non-fungible ID.
 /// * [lastUpdatedAtStateVersion] - The most recent state version underlying object was modified at.
 @BuiltValue()
-abstract class AccountAuthorizedDepositorsNonFungibleBadge implements AccountAuthorizedDepositorsResponseItem, Built<AccountAuthorizedDepositorsNonFungibleBadge, AccountAuthorizedDepositorsNonFungibleBadgeBuilder> {
+abstract class AccountAuthorizedDepositorsNonFungibleBadge
+    implements
+        AccountAuthorizedDepositorsResponseItem,
+        Built<AccountAuthorizedDepositorsNonFungibleBadge,
+            AccountAuthorizedDepositorsNonFungibleBadgeBuilder> {
   /// Bech32m-encoded human readable version of the address.
   @BuiltValueField(wireName: r'resource_address')
   String get resourceAddress;
@@ -33,18 +37,32 @@ abstract class AccountAuthorizedDepositorsNonFungibleBadge implements AccountAut
 
   AccountAuthorizedDepositorsNonFungibleBadge._();
 
-  factory AccountAuthorizedDepositorsNonFungibleBadge([void updates(AccountAuthorizedDepositorsNonFungibleBadgeBuilder b)]) = _$AccountAuthorizedDepositorsNonFungibleBadge;
+  factory AccountAuthorizedDepositorsNonFungibleBadge(
+          [void updates(
+              AccountAuthorizedDepositorsNonFungibleBadgeBuilder b)]) =
+      _$AccountAuthorizedDepositorsNonFungibleBadge;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(AccountAuthorizedDepositorsNonFungibleBadgeBuilder b) => b..badgeType=b.discriminatorValue;
+  static void _defaults(
+          AccountAuthorizedDepositorsNonFungibleBadgeBuilder b) =>
+      b
+        ..badgeType =
+            b.discriminatorValue as AccountAuthorizedDepositorBadgeType;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<AccountAuthorizedDepositorsNonFungibleBadge> get serializer => _$AccountAuthorizedDepositorsNonFungibleBadgeSerializer();
+  static Serializer<AccountAuthorizedDepositorsNonFungibleBadge>
+      get serializer =>
+          _$AccountAuthorizedDepositorsNonFungibleBadgeSerializer();
 }
 
-class _$AccountAuthorizedDepositorsNonFungibleBadgeSerializer implements PrimitiveSerializer<AccountAuthorizedDepositorsNonFungibleBadge> {
+class _$AccountAuthorizedDepositorsNonFungibleBadgeSerializer
+    implements
+        PrimitiveSerializer<AccountAuthorizedDepositorsNonFungibleBadge> {
   @override
-  final Iterable<Type> types = const [AccountAuthorizedDepositorsNonFungibleBadge, _$AccountAuthorizedDepositorsNonFungibleBadge];
+  final Iterable<Type> types = const [
+    AccountAuthorizedDepositorsNonFungibleBadge,
+    _$AccountAuthorizedDepositorsNonFungibleBadge
+  ];
 
   @override
   final String wireName = r'AccountAuthorizedDepositorsNonFungibleBadge';
@@ -82,7 +100,9 @@ class _$AccountAuthorizedDepositorsNonFungibleBadgeSerializer implements Primiti
     AccountAuthorizedDepositorsNonFungibleBadge object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -153,4 +173,3 @@ class _$AccountAuthorizedDepositorsNonFungibleBadgeSerializer implements Primiti
     return result.build();
   }
 }
-

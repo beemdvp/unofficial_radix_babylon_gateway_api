@@ -17,7 +17,8 @@ part 'not_synced_up_error.g.dart';
 /// * [currentSyncDelaySeconds] - The current delay between the Gateway DB and the network ledger round timestamp.
 /// * [maxAllowedSyncDelaySeconds] - The maximum allowed delay between the Gateway DB and the network ledger round timestamp for this `request_type`.
 @BuiltValue()
-abstract class NotSyncedUpError implements GatewayError, Built<NotSyncedUpError, NotSyncedUpErrorBuilder> {
+abstract class NotSyncedUpError
+    implements GatewayError, Built<NotSyncedUpError, NotSyncedUpErrorBuilder> {
   /// The request type that triggered this exception.
   @BuiltValueField(wireName: r'request_type')
   String get requestType;
@@ -32,16 +33,20 @@ abstract class NotSyncedUpError implements GatewayError, Built<NotSyncedUpError,
 
   NotSyncedUpError._();
 
-  factory NotSyncedUpError([void updates(NotSyncedUpErrorBuilder b)]) = _$NotSyncedUpError;
+  factory NotSyncedUpError([void updates(NotSyncedUpErrorBuilder b)]) =
+      _$NotSyncedUpError;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(NotSyncedUpErrorBuilder b) => b..type=b.discriminatorValue;
+  static void _defaults(NotSyncedUpErrorBuilder b) =>
+      b..type = b.discriminatorValue;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<NotSyncedUpError> get serializer => _$NotSyncedUpErrorSerializer();
+  static Serializer<NotSyncedUpError> get serializer =>
+      _$NotSyncedUpErrorSerializer();
 }
 
-class _$NotSyncedUpErrorSerializer implements PrimitiveSerializer<NotSyncedUpError> {
+class _$NotSyncedUpErrorSerializer
+    implements PrimitiveSerializer<NotSyncedUpError> {
   @override
   final Iterable<Type> types = const [NotSyncedUpError, _$NotSyncedUpError];
 
@@ -81,7 +86,9 @@ class _$NotSyncedUpErrorSerializer implements PrimitiveSerializer<NotSyncedUpErr
     NotSyncedUpError object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -152,4 +159,3 @@ class _$NotSyncedUpErrorSerializer implements PrimitiveSerializer<NotSyncedUpErr
     return result.build();
   }
 }
-

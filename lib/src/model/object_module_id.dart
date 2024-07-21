@@ -10,7 +10,6 @@ import 'package:built_value/serializer.dart';
 part 'object_module_id.g.dart';
 
 class ObjectModuleId extends EnumClass {
-
   @BuiltValueEnumConst(wireName: r'Main')
   static const ObjectModuleId main = _$main;
   @BuiltValueEnumConst(wireName: r'Metadata')
@@ -20,9 +19,10 @@ class ObjectModuleId extends EnumClass {
   @BuiltValueEnumConst(wireName: r'RoleAssignment')
   static const ObjectModuleId roleAssignment = _$roleAssignment;
 
-  static Serializer<ObjectModuleId> get serializer => _$objectModuleIdSerializer;
+  static Serializer<ObjectModuleId> get serializer =>
+      _$objectModuleIdSerializer;
 
-  const ObjectModuleId._(String name): super(name);
+  const ObjectModuleId._(String name) : super(name);
 
   static BuiltSet<ObjectModuleId> get values => _$values;
   static ObjectModuleId valueOf(String name) => _$valueOf(name);
@@ -35,4 +35,3 @@ class ObjectModuleId extends EnumClass {
 ///
 /// Trigger mixin generation by writing a line like this one next to your enum.
 abstract class ObjectModuleIdMixin = Object with _$ObjectModuleIdMixin;
-

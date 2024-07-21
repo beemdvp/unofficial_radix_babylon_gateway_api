@@ -36,12 +36,14 @@ void main() {
     });
 
     // BuiltList<String> manifestAccountsWithdrawnFromFilter
-    test('to test the property `manifestAccountsWithdrawnFromFilter`', () async {
+    test('to test the property `manifestAccountsWithdrawnFromFilter`',
+        () async {
       // TODO
     });
 
     // BuiltList<String> manifestAccountsDepositedIntoFilter
-    test('to test the property `manifestAccountsDepositedIntoFilter`', () async {
+    test('to test the property `manifestAccountsDepositedIntoFilter`',
+        () async {
       // TODO
     });
 
@@ -66,12 +68,14 @@ void main() {
     });
 
     // BuiltList<String> accountsWithManifestOwnerMethodCalls
-    test('to test the property `accountsWithManifestOwnerMethodCalls`', () async {
+    test('to test the property `accountsWithManifestOwnerMethodCalls`',
+        () async {
       // TODO
     });
 
     // BuiltList<String> accountsWithoutManifestOwnerMethodCalls
-    test('to test the property `accountsWithoutManifestOwnerMethodCalls`', () async {
+    test('to test the property `accountsWithoutManifestOwnerMethodCalls`',
+        () async {
       // TODO
     });
 
@@ -90,6 +94,5 @@ void main() {
     test('to test the property `optIns`', () async {
       // TODO
     });
-
   });
 }

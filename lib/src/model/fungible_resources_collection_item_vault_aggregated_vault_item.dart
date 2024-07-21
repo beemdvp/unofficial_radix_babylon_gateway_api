@@ -15,7 +15,10 @@ part 'fungible_resources_collection_item_vault_aggregated_vault_item.g.dart';
 /// * [amount] - String-encoded decimal representing the amount of a related fungible resource.
 /// * [lastUpdatedAtStateVersion] - The most recent state version underlying object was modified at.
 @BuiltValue()
-abstract class FungibleResourcesCollectionItemVaultAggregatedVaultItem implements Built<FungibleResourcesCollectionItemVaultAggregatedVaultItem, FungibleResourcesCollectionItemVaultAggregatedVaultItemBuilder> {
+abstract class FungibleResourcesCollectionItemVaultAggregatedVaultItem
+    implements
+        Built<FungibleResourcesCollectionItemVaultAggregatedVaultItem,
+            FungibleResourcesCollectionItemVaultAggregatedVaultItemBuilder> {
   /// Bech32m-encoded human readable version of the address.
   @BuiltValueField(wireName: r'vault_address')
   String get vaultAddress;
@@ -30,21 +33,35 @@ abstract class FungibleResourcesCollectionItemVaultAggregatedVaultItem implement
 
   FungibleResourcesCollectionItemVaultAggregatedVaultItem._();
 
-  factory FungibleResourcesCollectionItemVaultAggregatedVaultItem([void updates(FungibleResourcesCollectionItemVaultAggregatedVaultItemBuilder b)]) = _$FungibleResourcesCollectionItemVaultAggregatedVaultItem;
+  factory FungibleResourcesCollectionItemVaultAggregatedVaultItem(
+      [void updates(
+          FungibleResourcesCollectionItemVaultAggregatedVaultItemBuilder
+              b)]) = _$FungibleResourcesCollectionItemVaultAggregatedVaultItem;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(FungibleResourcesCollectionItemVaultAggregatedVaultItemBuilder b) => b;
+  static void _defaults(
+          FungibleResourcesCollectionItemVaultAggregatedVaultItemBuilder b) =>
+      b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<FungibleResourcesCollectionItemVaultAggregatedVaultItem> get serializer => _$FungibleResourcesCollectionItemVaultAggregatedVaultItemSerializer();
+  static Serializer<FungibleResourcesCollectionItemVaultAggregatedVaultItem>
+      get serializer =>
+          _$FungibleResourcesCollectionItemVaultAggregatedVaultItemSerializer();
 }
 
-class _$FungibleResourcesCollectionItemVaultAggregatedVaultItemSerializer implements PrimitiveSerializer<FungibleResourcesCollectionItemVaultAggregatedVaultItem> {
+class _$FungibleResourcesCollectionItemVaultAggregatedVaultItemSerializer
+    implements
+        PrimitiveSerializer<
+            FungibleResourcesCollectionItemVaultAggregatedVaultItem> {
   @override
-  final Iterable<Type> types = const [FungibleResourcesCollectionItemVaultAggregatedVaultItem, _$FungibleResourcesCollectionItemVaultAggregatedVaultItem];
+  final Iterable<Type> types = const [
+    FungibleResourcesCollectionItemVaultAggregatedVaultItem,
+    _$FungibleResourcesCollectionItemVaultAggregatedVaultItem
+  ];
 
   @override
-  final String wireName = r'FungibleResourcesCollectionItemVaultAggregatedVaultItem';
+  final String wireName =
+      r'FungibleResourcesCollectionItemVaultAggregatedVaultItem';
 
   Iterable<Object?> _serializeProperties(
     Serializers serializers,
@@ -74,7 +91,9 @@ class _$FungibleResourcesCollectionItemVaultAggregatedVaultItemSerializer implem
     FungibleResourcesCollectionItemVaultAggregatedVaultItem object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -82,7 +101,8 @@ class _$FungibleResourcesCollectionItemVaultAggregatedVaultItemSerializer implem
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
     required List<Object?> serializedList,
-    required FungibleResourcesCollectionItemVaultAggregatedVaultItemBuilder result,
+    required FungibleResourcesCollectionItemVaultAggregatedVaultItemBuilder
+        result,
     required List<Object?> unhandled,
   }) {
     for (var i = 0; i < serializedList.length; i += 2) {
@@ -124,7 +144,8 @@ class _$FungibleResourcesCollectionItemVaultAggregatedVaultItemSerializer implem
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = FungibleResourcesCollectionItemVaultAggregatedVaultItemBuilder();
+    final result =
+        FungibleResourcesCollectionItemVaultAggregatedVaultItemBuilder();
     final serializedList = (serialized as Iterable<Object?>).toList();
     final unhandled = <Object?>[];
     _deserializeProperties(
@@ -138,4 +159,3 @@ class _$FungibleResourcesCollectionItemVaultAggregatedVaultItemSerializer implem
     return result.build();
   }
 }
-

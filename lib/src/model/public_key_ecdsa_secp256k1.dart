@@ -13,28 +13,39 @@ part 'public_key_ecdsa_secp256k1.g.dart';
 /// PublicKeyEcdsaSecp256k1
 ///
 /// Properties:
-/// * [keyType] 
+/// * [keyType]
 /// * [keyHex] - The hex-encoded compressed ECDSA Secp256k1 public key (33 bytes)
 @BuiltValue()
-abstract class PublicKeyEcdsaSecp256k1 implements PublicKey, Built<PublicKeyEcdsaSecp256k1, PublicKeyEcdsaSecp256k1Builder> {
+abstract class PublicKeyEcdsaSecp256k1
+    implements
+        PublicKey,
+        Built<PublicKeyEcdsaSecp256k1, PublicKeyEcdsaSecp256k1Builder> {
   /// The hex-encoded compressed ECDSA Secp256k1 public key (33 bytes)
   @BuiltValueField(wireName: r'key_hex')
   String get keyHex;
 
   PublicKeyEcdsaSecp256k1._();
 
-  factory PublicKeyEcdsaSecp256k1([void updates(PublicKeyEcdsaSecp256k1Builder b)]) = _$PublicKeyEcdsaSecp256k1;
+  factory PublicKeyEcdsaSecp256k1(
+          [void updates(PublicKeyEcdsaSecp256k1Builder b)]) =
+      _$PublicKeyEcdsaSecp256k1;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(PublicKeyEcdsaSecp256k1Builder b) => b..keyType=b.discriminatorValue;
+  static void _defaults(PublicKeyEcdsaSecp256k1Builder b) =>
+      b..keyType = b.discriminatorValue as dynamic;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<PublicKeyEcdsaSecp256k1> get serializer => _$PublicKeyEcdsaSecp256k1Serializer();
+  static Serializer<PublicKeyEcdsaSecp256k1> get serializer =>
+      _$PublicKeyEcdsaSecp256k1Serializer();
 }
 
-class _$PublicKeyEcdsaSecp256k1Serializer implements PrimitiveSerializer<PublicKeyEcdsaSecp256k1> {
+class _$PublicKeyEcdsaSecp256k1Serializer
+    implements PrimitiveSerializer<PublicKeyEcdsaSecp256k1> {
   @override
-  final Iterable<Type> types = const [PublicKeyEcdsaSecp256k1, _$PublicKeyEcdsaSecp256k1];
+  final Iterable<Type> types = const [
+    PublicKeyEcdsaSecp256k1,
+    _$PublicKeyEcdsaSecp256k1
+  ];
 
   @override
   final String wireName = r'PublicKeyEcdsaSecp256k1';
@@ -62,7 +73,9 @@ class _$PublicKeyEcdsaSecp256k1Serializer implements PrimitiveSerializer<PublicK
     PublicKeyEcdsaSecp256k1 object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -119,4 +132,3 @@ class _$PublicKeyEcdsaSecp256k1Serializer implements PrimitiveSerializer<PublicK
     return result.build();
   }
 }
-

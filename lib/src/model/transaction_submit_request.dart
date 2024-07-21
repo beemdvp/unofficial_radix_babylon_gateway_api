@@ -13,25 +13,34 @@ part 'transaction_submit_request.g.dart';
 /// Properties:
 /// * [notarizedTransactionHex] - Hex-encoded notarized transaction payload which can be submitted.
 @BuiltValue()
-abstract class TransactionSubmitRequest implements Built<TransactionSubmitRequest, TransactionSubmitRequestBuilder> {
+abstract class TransactionSubmitRequest
+    implements
+        Built<TransactionSubmitRequest, TransactionSubmitRequestBuilder> {
   /// Hex-encoded notarized transaction payload which can be submitted.
   @BuiltValueField(wireName: r'notarized_transaction_hex')
   String get notarizedTransactionHex;
 
   TransactionSubmitRequest._();
 
-  factory TransactionSubmitRequest([void updates(TransactionSubmitRequestBuilder b)]) = _$TransactionSubmitRequest;
+  factory TransactionSubmitRequest(
+          [void updates(TransactionSubmitRequestBuilder b)]) =
+      _$TransactionSubmitRequest;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(TransactionSubmitRequestBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<TransactionSubmitRequest> get serializer => _$TransactionSubmitRequestSerializer();
+  static Serializer<TransactionSubmitRequest> get serializer =>
+      _$TransactionSubmitRequestSerializer();
 }
 
-class _$TransactionSubmitRequestSerializer implements PrimitiveSerializer<TransactionSubmitRequest> {
+class _$TransactionSubmitRequestSerializer
+    implements PrimitiveSerializer<TransactionSubmitRequest> {
   @override
-  final Iterable<Type> types = const [TransactionSubmitRequest, _$TransactionSubmitRequest];
+  final Iterable<Type> types = const [
+    TransactionSubmitRequest,
+    _$TransactionSubmitRequest
+  ];
 
   @override
   final String wireName = r'TransactionSubmitRequest';
@@ -54,7 +63,9 @@ class _$TransactionSubmitRequestSerializer implements PrimitiveSerializer<Transa
     TransactionSubmitRequest object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -104,4 +115,3 @@ class _$TransactionSubmitRequestSerializer implements PrimitiveSerializer<Transa
     return result.build();
   }
 }
-

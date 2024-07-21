@@ -11,11 +11,14 @@ part 'transaction_preview_request_flags.g.dart';
 /// TransactionPreviewRequestFlags
 ///
 /// Properties:
-/// * [useFreeCredit] 
-/// * [assumeAllSignatureProofs] 
-/// * [skipEpochCheck] 
+/// * [useFreeCredit]
+/// * [assumeAllSignatureProofs]
+/// * [skipEpochCheck]
 @BuiltValue()
-abstract class TransactionPreviewRequestFlags implements Built<TransactionPreviewRequestFlags, TransactionPreviewRequestFlagsBuilder> {
+abstract class TransactionPreviewRequestFlags
+    implements
+        Built<TransactionPreviewRequestFlags,
+            TransactionPreviewRequestFlagsBuilder> {
   @BuiltValueField(wireName: r'use_free_credit')
   bool get useFreeCredit;
 
@@ -27,18 +30,25 @@ abstract class TransactionPreviewRequestFlags implements Built<TransactionPrevie
 
   TransactionPreviewRequestFlags._();
 
-  factory TransactionPreviewRequestFlags([void updates(TransactionPreviewRequestFlagsBuilder b)]) = _$TransactionPreviewRequestFlags;
+  factory TransactionPreviewRequestFlags(
+          [void updates(TransactionPreviewRequestFlagsBuilder b)]) =
+      _$TransactionPreviewRequestFlags;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(TransactionPreviewRequestFlagsBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<TransactionPreviewRequestFlags> get serializer => _$TransactionPreviewRequestFlagsSerializer();
+  static Serializer<TransactionPreviewRequestFlags> get serializer =>
+      _$TransactionPreviewRequestFlagsSerializer();
 }
 
-class _$TransactionPreviewRequestFlagsSerializer implements PrimitiveSerializer<TransactionPreviewRequestFlags> {
+class _$TransactionPreviewRequestFlagsSerializer
+    implements PrimitiveSerializer<TransactionPreviewRequestFlags> {
   @override
-  final Iterable<Type> types = const [TransactionPreviewRequestFlags, _$TransactionPreviewRequestFlags];
+  final Iterable<Type> types = const [
+    TransactionPreviewRequestFlags,
+    _$TransactionPreviewRequestFlags
+  ];
 
   @override
   final String wireName = r'TransactionPreviewRequestFlags';
@@ -71,7 +81,9 @@ class _$TransactionPreviewRequestFlagsSerializer implements PrimitiveSerializer<
     TransactionPreviewRequestFlags object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -135,4 +147,3 @@ class _$TransactionPreviewRequestFlagsSerializer implements PrimitiveSerializer<
     return result.build();
   }
 }
-

@@ -13,29 +13,47 @@ part 'account_deposit_pre_validation_non_fungible_badge.g.dart';
 /// AccountDepositPreValidationNonFungibleBadge
 ///
 /// Properties:
-/// * [badgeType] 
+/// * [badgeType]
 /// * [resourceAddress] - Bech32m-encoded human readable version of the address.
 /// * [nonFungibleId] - String-encoded non-fungible ID.
 @BuiltValue()
-abstract class AccountDepositPreValidationNonFungibleBadge implements TransactionAccountDepositPreValidationAuthorizedDepositorBadge, Built<AccountDepositPreValidationNonFungibleBadge, AccountDepositPreValidationNonFungibleBadgeBuilder> {
+abstract class AccountDepositPreValidationNonFungibleBadge
+    implements
+        TransactionAccountDepositPreValidationAuthorizedDepositorBadge,
+        Built<AccountDepositPreValidationNonFungibleBadge,
+            AccountDepositPreValidationNonFungibleBadgeBuilder> {
   /// String-encoded non-fungible ID.
   @BuiltValueField(wireName: r'non_fungible_id')
   String get nonFungibleId;
 
   AccountDepositPreValidationNonFungibleBadge._();
 
-  factory AccountDepositPreValidationNonFungibleBadge([void updates(AccountDepositPreValidationNonFungibleBadgeBuilder b)]) = _$AccountDepositPreValidationNonFungibleBadge;
+  factory AccountDepositPreValidationNonFungibleBadge(
+          [void updates(
+              AccountDepositPreValidationNonFungibleBadgeBuilder b)]) =
+      _$AccountDepositPreValidationNonFungibleBadge;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(AccountDepositPreValidationNonFungibleBadgeBuilder b) => b..badgeType=b.discriminatorValue;
+  static void _defaults(
+          AccountDepositPreValidationNonFungibleBadgeBuilder b) =>
+      b
+        ..badgeType =
+            b.discriminatorValue as AccountAuthorizedDepositorBadgeType;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<AccountDepositPreValidationNonFungibleBadge> get serializer => _$AccountDepositPreValidationNonFungibleBadgeSerializer();
+  static Serializer<AccountDepositPreValidationNonFungibleBadge>
+      get serializer =>
+          _$AccountDepositPreValidationNonFungibleBadgeSerializer();
 }
 
-class _$AccountDepositPreValidationNonFungibleBadgeSerializer implements PrimitiveSerializer<AccountDepositPreValidationNonFungibleBadge> {
+class _$AccountDepositPreValidationNonFungibleBadgeSerializer
+    implements
+        PrimitiveSerializer<AccountDepositPreValidationNonFungibleBadge> {
   @override
-  final Iterable<Type> types = const [AccountDepositPreValidationNonFungibleBadge, _$AccountDepositPreValidationNonFungibleBadge];
+  final Iterable<Type> types = const [
+    AccountDepositPreValidationNonFungibleBadge,
+    _$AccountDepositPreValidationNonFungibleBadge
+  ];
 
   @override
   final String wireName = r'AccountDepositPreValidationNonFungibleBadge';
@@ -68,7 +86,9 @@ class _$AccountDepositPreValidationNonFungibleBadgeSerializer implements Primiti
     AccountDepositPreValidationNonFungibleBadge object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -132,4 +152,3 @@ class _$AccountDepositPreValidationNonFungibleBadgeSerializer implements Primiti
     return result.build();
   }
 }
-

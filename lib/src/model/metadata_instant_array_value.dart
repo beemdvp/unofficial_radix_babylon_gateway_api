@@ -14,11 +14,14 @@ part 'metadata_instant_array_value.g.dart';
 /// MetadataInstantArrayValue
 ///
 /// Properties:
-/// * [type] 
-/// * [values] 
-/// * [valuesUnixTimestampSeconds] 
+/// * [type]
+/// * [values]
+/// * [valuesUnixTimestampSeconds]
 @BuiltValue()
-abstract class MetadataInstantArrayValue implements MetadataTypedValue, Built<MetadataInstantArrayValue, MetadataInstantArrayValueBuilder> {
+abstract class MetadataInstantArrayValue
+    implements
+        MetadataTypedValue,
+        Built<MetadataInstantArrayValue, MetadataInstantArrayValueBuilder> {
   @BuiltValueField(wireName: r'values')
   BuiltList<String> get values;
 
@@ -27,18 +30,26 @@ abstract class MetadataInstantArrayValue implements MetadataTypedValue, Built<Me
 
   MetadataInstantArrayValue._();
 
-  factory MetadataInstantArrayValue([void updates(MetadataInstantArrayValueBuilder b)]) = _$MetadataInstantArrayValue;
+  factory MetadataInstantArrayValue(
+          [void updates(MetadataInstantArrayValueBuilder b)]) =
+      _$MetadataInstantArrayValue;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(MetadataInstantArrayValueBuilder b) => b..type=b.discriminatorValue;
+  static void _defaults(MetadataInstantArrayValueBuilder b) =>
+      b..type = b.discriminatorValue as dynamic;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<MetadataInstantArrayValue> get serializer => _$MetadataInstantArrayValueSerializer();
+  static Serializer<MetadataInstantArrayValue> get serializer =>
+      _$MetadataInstantArrayValueSerializer();
 }
 
-class _$MetadataInstantArrayValueSerializer implements PrimitiveSerializer<MetadataInstantArrayValue> {
+class _$MetadataInstantArrayValueSerializer
+    implements PrimitiveSerializer<MetadataInstantArrayValue> {
   @override
-  final Iterable<Type> types = const [MetadataInstantArrayValue, _$MetadataInstantArrayValue];
+  final Iterable<Type> types = const [
+    MetadataInstantArrayValue,
+    _$MetadataInstantArrayValue
+  ];
 
   @override
   final String wireName = r'MetadataInstantArrayValue';
@@ -71,7 +82,9 @@ class _$MetadataInstantArrayValueSerializer implements PrimitiveSerializer<Metad
     MetadataInstantArrayValue object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -135,4 +148,3 @@ class _$MetadataInstantArrayValueSerializer implements PrimitiveSerializer<Metad
     return result.build();
   }
 }
-

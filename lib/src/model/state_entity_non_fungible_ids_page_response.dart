@@ -15,14 +15,19 @@ part 'state_entity_non_fungible_ids_page_response.g.dart';
 /// StateEntityNonFungibleIdsPageResponse
 ///
 /// Properties:
-/// * [ledgerState] 
+/// * [ledgerState]
 /// * [totalCount] - Total number of items in underlying collection, fragment of which is available in `items` collection.
 /// * [nextCursor] - If specified, contains a cursor to query next page of the `items` collection.
-/// * [items] 
+/// * [items]
 /// * [address] - Bech32m-encoded human readable version of the address.
 /// * [resourceAddress] - Bech32m-encoded human readable version of the address.
 @BuiltValue()
-abstract class StateEntityNonFungibleIdsPageResponse implements LedgerStateMixin, NonFungibleIdsCollection, Built<StateEntityNonFungibleIdsPageResponse, StateEntityNonFungibleIdsPageResponseBuilder> {
+abstract class StateEntityNonFungibleIdsPageResponse
+    implements
+        LedgerStateMixin,
+        NonFungibleIdsCollection,
+        Built<StateEntityNonFungibleIdsPageResponse,
+            StateEntityNonFungibleIdsPageResponseBuilder> {
   /// Bech32m-encoded human readable version of the address.
   @BuiltValueField(wireName: r'address')
   String get address;
@@ -33,18 +38,25 @@ abstract class StateEntityNonFungibleIdsPageResponse implements LedgerStateMixin
 
   StateEntityNonFungibleIdsPageResponse._();
 
-  factory StateEntityNonFungibleIdsPageResponse([void updates(StateEntityNonFungibleIdsPageResponseBuilder b)]) = _$StateEntityNonFungibleIdsPageResponse;
+  factory StateEntityNonFungibleIdsPageResponse(
+          [void updates(StateEntityNonFungibleIdsPageResponseBuilder b)]) =
+      _$StateEntityNonFungibleIdsPageResponse;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(StateEntityNonFungibleIdsPageResponseBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<StateEntityNonFungibleIdsPageResponse> get serializer => _$StateEntityNonFungibleIdsPageResponseSerializer();
+  static Serializer<StateEntityNonFungibleIdsPageResponse> get serializer =>
+      _$StateEntityNonFungibleIdsPageResponseSerializer();
 }
 
-class _$StateEntityNonFungibleIdsPageResponseSerializer implements PrimitiveSerializer<StateEntityNonFungibleIdsPageResponse> {
+class _$StateEntityNonFungibleIdsPageResponseSerializer
+    implements PrimitiveSerializer<StateEntityNonFungibleIdsPageResponse> {
   @override
-  final Iterable<Type> types = const [StateEntityNonFungibleIdsPageResponse, _$StateEntityNonFungibleIdsPageResponse];
+  final Iterable<Type> types = const [
+    StateEntityNonFungibleIdsPageResponse,
+    _$StateEntityNonFungibleIdsPageResponse
+  ];
 
   @override
   final String wireName = r'StateEntityNonFungibleIdsPageResponse';
@@ -96,7 +108,9 @@ class _$StateEntityNonFungibleIdsPageResponseSerializer implements PrimitiveSeri
     StateEntityNonFungibleIdsPageResponse object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -183,4 +197,3 @@ class _$StateEntityNonFungibleIdsPageResponseSerializer implements PrimitiveSeri
     return result.build();
   }
 }
-

@@ -19,7 +19,7 @@ void main() {
       // TODO
     });
 
-    // The proposer round timestamp of the consensus round when this transaction was committed to ledger. This is not guaranteed to be strictly increasing, as it is computed as an average across the validator set. If this is significantly behind the current timestamp, the Network Gateway is likely reporting out-dated information, or the network has stalled. 
+    // The proposer round timestamp of the consensus round when this transaction was committed to ledger. This is not guaranteed to be strictly increasing, as it is computed as an average across the validator set. If this is significantly behind the current timestamp, the Network Gateway is likely reporting out-dated information, or the network has stalled.
     // String proposerRoundTimestamp
     test('to test the property `proposerRoundTimestamp`', () async {
       // TODO
@@ -36,6 +36,5 @@ void main() {
     test('to test the property `round`', () async {
       // TODO
     });
-
   });
 }

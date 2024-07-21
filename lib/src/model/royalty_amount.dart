@@ -13,9 +13,10 @@ part 'royalty_amount.g.dart';
 ///
 /// Properties:
 /// * [amount] - String-encoded decimal representing the amount of a related fungible resource.
-/// * [unit] 
+/// * [unit]
 @BuiltValue()
-abstract class RoyaltyAmount implements Built<RoyaltyAmount, RoyaltyAmountBuilder> {
+abstract class RoyaltyAmount
+    implements Built<RoyaltyAmount, RoyaltyAmountBuilder> {
   /// String-encoded decimal representing the amount of a related fungible resource.
   @BuiltValueField(wireName: r'amount')
   String get amount;
@@ -26,13 +27,15 @@ abstract class RoyaltyAmount implements Built<RoyaltyAmount, RoyaltyAmountBuilde
 
   RoyaltyAmount._();
 
-  factory RoyaltyAmount([void updates(RoyaltyAmountBuilder b)]) = _$RoyaltyAmount;
+  factory RoyaltyAmount([void updates(RoyaltyAmountBuilder b)]) =
+      _$RoyaltyAmount;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(RoyaltyAmountBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<RoyaltyAmount> get serializer => _$RoyaltyAmountSerializer();
+  static Serializer<RoyaltyAmount> get serializer =>
+      _$RoyaltyAmountSerializer();
 }
 
 class _$RoyaltyAmountSerializer implements PrimitiveSerializer<RoyaltyAmount> {
@@ -65,7 +68,9 @@ class _$RoyaltyAmountSerializer implements PrimitiveSerializer<RoyaltyAmount> {
     RoyaltyAmount object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -124,17 +129,18 @@ class _$RoyaltyAmountSerializer implements PrimitiveSerializer<RoyaltyAmount> {
 }
 
 class RoyaltyAmountUnitEnum extends EnumClass {
-
   @BuiltValueEnumConst(wireName: r'XRD')
   static const RoyaltyAmountUnitEnum XRD = _$royaltyAmountUnitEnum_XRD;
   @BuiltValueEnumConst(wireName: r'USD')
   static const RoyaltyAmountUnitEnum USD = _$royaltyAmountUnitEnum_USD;
 
-  static Serializer<RoyaltyAmountUnitEnum> get serializer => _$royaltyAmountUnitEnumSerializer;
+  static Serializer<RoyaltyAmountUnitEnum> get serializer =>
+      _$royaltyAmountUnitEnumSerializer;
 
-  const RoyaltyAmountUnitEnum._(String name): super(name);
+  const RoyaltyAmountUnitEnum._(String name) : super(name);
 
-  static BuiltSet<RoyaltyAmountUnitEnum> get values => _$royaltyAmountUnitEnumValues;
-  static RoyaltyAmountUnitEnum valueOf(String name) => _$royaltyAmountUnitEnumValueOf(name);
+  static BuiltSet<RoyaltyAmountUnitEnum> get values =>
+      _$royaltyAmountUnitEnumValues;
+  static RoyaltyAmountUnitEnum valueOf(String name) =>
+      _$royaltyAmountUnitEnumValueOf(name);
 }
-

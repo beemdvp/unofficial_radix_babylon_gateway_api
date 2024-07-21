@@ -17,21 +17,33 @@ part 'account_locker_not_found_error.g.dart';
 /// * [lockerAddress] - Bech32m-encoded human readable version of the address.
 /// * [accountAddress] - Bech32m-encoded human readable version of the address.
 @BuiltValue()
-abstract class AccountLockerNotFoundError implements AccountLockerAddress, GatewayError, Built<AccountLockerNotFoundError, AccountLockerNotFoundErrorBuilder> {
+abstract class AccountLockerNotFoundError
+    implements
+        AccountLockerAddress,
+        GatewayError,
+        Built<AccountLockerNotFoundError, AccountLockerNotFoundErrorBuilder> {
   AccountLockerNotFoundError._();
 
-  factory AccountLockerNotFoundError([void updates(AccountLockerNotFoundErrorBuilder b)]) = _$AccountLockerNotFoundError;
+  factory AccountLockerNotFoundError(
+          [void updates(AccountLockerNotFoundErrorBuilder b)]) =
+      _$AccountLockerNotFoundError;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(AccountLockerNotFoundErrorBuilder b) => b..type=b.discriminatorValue;
+  static void _defaults(AccountLockerNotFoundErrorBuilder b) =>
+      b..type = b.discriminatorValue;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<AccountLockerNotFoundError> get serializer => _$AccountLockerNotFoundErrorSerializer();
+  static Serializer<AccountLockerNotFoundError> get serializer =>
+      _$AccountLockerNotFoundErrorSerializer();
 }
 
-class _$AccountLockerNotFoundErrorSerializer implements PrimitiveSerializer<AccountLockerNotFoundError> {
+class _$AccountLockerNotFoundErrorSerializer
+    implements PrimitiveSerializer<AccountLockerNotFoundError> {
   @override
-  final Iterable<Type> types = const [AccountLockerNotFoundError, _$AccountLockerNotFoundError];
+  final Iterable<Type> types = const [
+    AccountLockerNotFoundError,
+    _$AccountLockerNotFoundError
+  ];
 
   @override
   final String wireName = r'AccountLockerNotFoundError';
@@ -64,7 +76,9 @@ class _$AccountLockerNotFoundErrorSerializer implements PrimitiveSerializer<Acco
     AccountLockerNotFoundError object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -128,4 +142,3 @@ class _$AccountLockerNotFoundErrorSerializer implements PrimitiveSerializer<Acco
     return result.build();
   }
 }
-

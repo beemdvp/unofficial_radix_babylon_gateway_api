@@ -12,12 +12,15 @@ part 'state_non_fungible_details_response_item.g.dart';
 /// StateNonFungibleDetailsResponseItem
 ///
 /// Properties:
-/// * [isBurned] 
+/// * [isBurned]
 /// * [nonFungibleId] - String-encoded non-fungible ID.
-/// * [data] 
+/// * [data]
 /// * [lastUpdatedAtStateVersion] - The most recent state version underlying object was modified at.
 @BuiltValue()
-abstract class StateNonFungibleDetailsResponseItem implements Built<StateNonFungibleDetailsResponseItem, StateNonFungibleDetailsResponseItemBuilder> {
+abstract class StateNonFungibleDetailsResponseItem
+    implements
+        Built<StateNonFungibleDetailsResponseItem,
+            StateNonFungibleDetailsResponseItemBuilder> {
   @BuiltValueField(wireName: r'is_burned')
   bool get isBurned;
 
@@ -34,18 +37,25 @@ abstract class StateNonFungibleDetailsResponseItem implements Built<StateNonFung
 
   StateNonFungibleDetailsResponseItem._();
 
-  factory StateNonFungibleDetailsResponseItem([void updates(StateNonFungibleDetailsResponseItemBuilder b)]) = _$StateNonFungibleDetailsResponseItem;
+  factory StateNonFungibleDetailsResponseItem(
+          [void updates(StateNonFungibleDetailsResponseItemBuilder b)]) =
+      _$StateNonFungibleDetailsResponseItem;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(StateNonFungibleDetailsResponseItemBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<StateNonFungibleDetailsResponseItem> get serializer => _$StateNonFungibleDetailsResponseItemSerializer();
+  static Serializer<StateNonFungibleDetailsResponseItem> get serializer =>
+      _$StateNonFungibleDetailsResponseItemSerializer();
 }
 
-class _$StateNonFungibleDetailsResponseItemSerializer implements PrimitiveSerializer<StateNonFungibleDetailsResponseItem> {
+class _$StateNonFungibleDetailsResponseItemSerializer
+    implements PrimitiveSerializer<StateNonFungibleDetailsResponseItem> {
   @override
-  final Iterable<Type> types = const [StateNonFungibleDetailsResponseItem, _$StateNonFungibleDetailsResponseItem];
+  final Iterable<Type> types = const [
+    StateNonFungibleDetailsResponseItem,
+    _$StateNonFungibleDetailsResponseItem
+  ];
 
   @override
   final String wireName = r'StateNonFungibleDetailsResponseItem';
@@ -85,7 +95,9 @@ class _$StateNonFungibleDetailsResponseItemSerializer implements PrimitiveSerial
     StateNonFungibleDetailsResponseItem object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -156,4 +168,3 @@ class _$StateNonFungibleDetailsResponseItemSerializer implements PrimitiveSerial
     return result.build();
   }
 }
-

@@ -13,10 +13,13 @@ part 'validator_collection_item_effective_fee_factor.g.dart';
 /// ValidatorCollectionItemEffectiveFeeFactor
 ///
 /// Properties:
-/// * [current] 
-/// * [pending] 
+/// * [current]
+/// * [pending]
 @BuiltValue()
-abstract class ValidatorCollectionItemEffectiveFeeFactor implements Built<ValidatorCollectionItemEffectiveFeeFactor, ValidatorCollectionItemEffectiveFeeFactorBuilder> {
+abstract class ValidatorCollectionItemEffectiveFeeFactor
+    implements
+        Built<ValidatorCollectionItemEffectiveFeeFactor,
+            ValidatorCollectionItemEffectiveFeeFactorBuilder> {
   @BuiltValueField(wireName: r'current')
   ValidatorCollectionItemEffectiveFeeFactorCurrent get current;
 
@@ -25,18 +28,26 @@ abstract class ValidatorCollectionItemEffectiveFeeFactor implements Built<Valida
 
   ValidatorCollectionItemEffectiveFeeFactor._();
 
-  factory ValidatorCollectionItemEffectiveFeeFactor([void updates(ValidatorCollectionItemEffectiveFeeFactorBuilder b)]) = _$ValidatorCollectionItemEffectiveFeeFactor;
+  factory ValidatorCollectionItemEffectiveFeeFactor(
+          [void updates(ValidatorCollectionItemEffectiveFeeFactorBuilder b)]) =
+      _$ValidatorCollectionItemEffectiveFeeFactor;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(ValidatorCollectionItemEffectiveFeeFactorBuilder b) => b;
+  static void _defaults(ValidatorCollectionItemEffectiveFeeFactorBuilder b) =>
+      b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<ValidatorCollectionItemEffectiveFeeFactor> get serializer => _$ValidatorCollectionItemEffectiveFeeFactorSerializer();
+  static Serializer<ValidatorCollectionItemEffectiveFeeFactor> get serializer =>
+      _$ValidatorCollectionItemEffectiveFeeFactorSerializer();
 }
 
-class _$ValidatorCollectionItemEffectiveFeeFactorSerializer implements PrimitiveSerializer<ValidatorCollectionItemEffectiveFeeFactor> {
+class _$ValidatorCollectionItemEffectiveFeeFactorSerializer
+    implements PrimitiveSerializer<ValidatorCollectionItemEffectiveFeeFactor> {
   @override
-  final Iterable<Type> types = const [ValidatorCollectionItemEffectiveFeeFactor, _$ValidatorCollectionItemEffectiveFeeFactor];
+  final Iterable<Type> types = const [
+    ValidatorCollectionItemEffectiveFeeFactor,
+    _$ValidatorCollectionItemEffectiveFeeFactor
+  ];
 
   @override
   final String wireName = r'ValidatorCollectionItemEffectiveFeeFactor';
@@ -49,13 +60,15 @@ class _$ValidatorCollectionItemEffectiveFeeFactorSerializer implements Primitive
     yield r'current';
     yield serializers.serialize(
       object.current,
-      specifiedType: const FullType(ValidatorCollectionItemEffectiveFeeFactorCurrent),
+      specifiedType:
+          const FullType(ValidatorCollectionItemEffectiveFeeFactorCurrent),
     );
     if (object.pending != null) {
       yield r'pending';
       yield serializers.serialize(
         object.pending,
-        specifiedType: const FullType.nullable(ValidatorCollectionItemEffectiveFeeFactorPending),
+        specifiedType: const FullType.nullable(
+            ValidatorCollectionItemEffectiveFeeFactorPending),
       );
     }
   }
@@ -66,7 +79,9 @@ class _$ValidatorCollectionItemEffectiveFeeFactorSerializer implements Primitive
     ValidatorCollectionItemEffectiveFeeFactor object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -84,14 +99,16 @@ class _$ValidatorCollectionItemEffectiveFeeFactorSerializer implements Primitive
         case r'current':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(ValidatorCollectionItemEffectiveFeeFactorCurrent),
+            specifiedType: const FullType(
+                ValidatorCollectionItemEffectiveFeeFactorCurrent),
           ) as ValidatorCollectionItemEffectiveFeeFactorCurrent;
           result.current.replace(valueDes);
           break;
         case r'pending':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(ValidatorCollectionItemEffectiveFeeFactorPending),
+            specifiedType: const FullType.nullable(
+                ValidatorCollectionItemEffectiveFeeFactorPending),
           ) as ValidatorCollectionItemEffectiveFeeFactorPending?;
           if (valueDes == null) continue;
           result.pending.replace(valueDes);
@@ -124,4 +141,3 @@ class _$ValidatorCollectionItemEffectiveFeeFactorSerializer implements Primitive
     return result.build();
   }
 }
-

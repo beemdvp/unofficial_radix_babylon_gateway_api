@@ -13,26 +13,35 @@ part 'validator_uptime_collection.g.dart';
 /// ValidatorUptimeCollection
 ///
 /// Properties:
-/// * [items] 
+/// * [items]
 @BuiltValue()
-abstract class ValidatorUptimeCollection implements Built<ValidatorUptimeCollection, ValidatorUptimeCollectionBuilder> {
+abstract class ValidatorUptimeCollection
+    implements
+        Built<ValidatorUptimeCollection, ValidatorUptimeCollectionBuilder> {
   @BuiltValueField(wireName: r'items')
   BuiltList<ValidatorUptimeCollectionItem> get items;
 
   ValidatorUptimeCollection._();
 
-  factory ValidatorUptimeCollection([void updates(ValidatorUptimeCollectionBuilder b)]) = _$ValidatorUptimeCollection;
+  factory ValidatorUptimeCollection(
+          [void updates(ValidatorUptimeCollectionBuilder b)]) =
+      _$ValidatorUptimeCollection;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(ValidatorUptimeCollectionBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<ValidatorUptimeCollection> get serializer => _$ValidatorUptimeCollectionSerializer();
+  static Serializer<ValidatorUptimeCollection> get serializer =>
+      _$ValidatorUptimeCollectionSerializer();
 }
 
-class _$ValidatorUptimeCollectionSerializer implements PrimitiveSerializer<ValidatorUptimeCollection> {
+class _$ValidatorUptimeCollectionSerializer
+    implements PrimitiveSerializer<ValidatorUptimeCollection> {
   @override
-  final Iterable<Type> types = const [ValidatorUptimeCollection, _$ValidatorUptimeCollection];
+  final Iterable<Type> types = const [
+    ValidatorUptimeCollection,
+    _$ValidatorUptimeCollection
+  ];
 
   @override
   final String wireName = r'ValidatorUptimeCollection';
@@ -45,7 +54,8 @@ class _$ValidatorUptimeCollectionSerializer implements PrimitiveSerializer<Valid
     yield r'items';
     yield serializers.serialize(
       object.items,
-      specifiedType: const FullType(BuiltList, [FullType(ValidatorUptimeCollectionItem)]),
+      specifiedType:
+          const FullType(BuiltList, [FullType(ValidatorUptimeCollectionItem)]),
     );
   }
 
@@ -55,7 +65,9 @@ class _$ValidatorUptimeCollectionSerializer implements PrimitiveSerializer<Valid
     ValidatorUptimeCollection object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -73,7 +85,8 @@ class _$ValidatorUptimeCollectionSerializer implements PrimitiveSerializer<Valid
         case r'items':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltList, [FullType(ValidatorUptimeCollectionItem)]),
+            specifiedType: const FullType(
+                BuiltList, [FullType(ValidatorUptimeCollectionItem)]),
           ) as BuiltList<ValidatorUptimeCollectionItem>;
           result.items.replace(valueDes);
           break;
@@ -105,4 +118,3 @@ class _$ValidatorUptimeCollectionSerializer implements PrimitiveSerializer<Valid
     return result.build();
   }
 }
-

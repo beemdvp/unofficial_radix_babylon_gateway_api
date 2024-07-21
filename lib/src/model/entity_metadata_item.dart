@@ -13,11 +13,12 @@ part 'entity_metadata_item.g.dart';
 ///
 /// Properties:
 /// * [key] - Entity metadata key.
-/// * [value] 
-/// * [isLocked] 
+/// * [value]
+/// * [isLocked]
 /// * [lastUpdatedAtStateVersion] - The most recent state version underlying object was modified at.
 @BuiltValue()
-abstract class EntityMetadataItem implements Built<EntityMetadataItem, EntityMetadataItemBuilder> {
+abstract class EntityMetadataItem
+    implements Built<EntityMetadataItem, EntityMetadataItemBuilder> {
   /// Entity metadata key.
   @BuiltValueField(wireName: r'key')
   String get key;
@@ -34,16 +35,19 @@ abstract class EntityMetadataItem implements Built<EntityMetadataItem, EntityMet
 
   EntityMetadataItem._();
 
-  factory EntityMetadataItem([void updates(EntityMetadataItemBuilder b)]) = _$EntityMetadataItem;
+  factory EntityMetadataItem([void updates(EntityMetadataItemBuilder b)]) =
+      _$EntityMetadataItem;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(EntityMetadataItemBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<EntityMetadataItem> get serializer => _$EntityMetadataItemSerializer();
+  static Serializer<EntityMetadataItem> get serializer =>
+      _$EntityMetadataItemSerializer();
 }
 
-class _$EntityMetadataItemSerializer implements PrimitiveSerializer<EntityMetadataItem> {
+class _$EntityMetadataItemSerializer
+    implements PrimitiveSerializer<EntityMetadataItem> {
   @override
   final Iterable<Type> types = const [EntityMetadataItem, _$EntityMetadataItem];
 
@@ -83,7 +87,9 @@ class _$EntityMetadataItemSerializer implements PrimitiveSerializer<EntityMetada
     EntityMetadataItem object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -154,4 +160,3 @@ class _$EntityMetadataItemSerializer implements PrimitiveSerializer<EntityMetada
     return result.build();
   }
 }
-

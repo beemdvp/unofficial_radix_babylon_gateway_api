@@ -14,27 +14,39 @@ part 'metadata_non_fungible_local_id_array_value.g.dart';
 /// MetadataNonFungibleLocalIdArrayValue
 ///
 /// Properties:
-/// * [type] 
-/// * [values] 
+/// * [type]
+/// * [values]
 @BuiltValue()
-abstract class MetadataNonFungibleLocalIdArrayValue implements MetadataTypedValue, Built<MetadataNonFungibleLocalIdArrayValue, MetadataNonFungibleLocalIdArrayValueBuilder> {
+abstract class MetadataNonFungibleLocalIdArrayValue
+    implements
+        MetadataTypedValue,
+        Built<MetadataNonFungibleLocalIdArrayValue,
+            MetadataNonFungibleLocalIdArrayValueBuilder> {
   @BuiltValueField(wireName: r'values')
   BuiltList<String> get values;
 
   MetadataNonFungibleLocalIdArrayValue._();
 
-  factory MetadataNonFungibleLocalIdArrayValue([void updates(MetadataNonFungibleLocalIdArrayValueBuilder b)]) = _$MetadataNonFungibleLocalIdArrayValue;
+  factory MetadataNonFungibleLocalIdArrayValue(
+          [void updates(MetadataNonFungibleLocalIdArrayValueBuilder b)]) =
+      _$MetadataNonFungibleLocalIdArrayValue;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(MetadataNonFungibleLocalIdArrayValueBuilder b) => b..type=b.discriminatorValue;
+  static void _defaults(MetadataNonFungibleLocalIdArrayValueBuilder b) =>
+      b..type = b.discriminatorValue as dynamic;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<MetadataNonFungibleLocalIdArrayValue> get serializer => _$MetadataNonFungibleLocalIdArrayValueSerializer();
+  static Serializer<MetadataNonFungibleLocalIdArrayValue> get serializer =>
+      _$MetadataNonFungibleLocalIdArrayValueSerializer();
 }
 
-class _$MetadataNonFungibleLocalIdArrayValueSerializer implements PrimitiveSerializer<MetadataNonFungibleLocalIdArrayValue> {
+class _$MetadataNonFungibleLocalIdArrayValueSerializer
+    implements PrimitiveSerializer<MetadataNonFungibleLocalIdArrayValue> {
   @override
-  final Iterable<Type> types = const [MetadataNonFungibleLocalIdArrayValue, _$MetadataNonFungibleLocalIdArrayValue];
+  final Iterable<Type> types = const [
+    MetadataNonFungibleLocalIdArrayValue,
+    _$MetadataNonFungibleLocalIdArrayValue
+  ];
 
   @override
   final String wireName = r'MetadataNonFungibleLocalIdArrayValue';
@@ -62,7 +74,9 @@ class _$MetadataNonFungibleLocalIdArrayValueSerializer implements PrimitiveSeria
     MetadataNonFungibleLocalIdArrayValue object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -119,4 +133,3 @@ class _$MetadataNonFungibleLocalIdArrayValueSerializer implements PrimitiveSeria
     return result.build();
   }
 }
-

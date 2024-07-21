@@ -13,10 +13,11 @@ part 'blueprint_royalty_config.g.dart';
 /// BlueprintRoyaltyConfig
 ///
 /// Properties:
-/// * [isEnabled] 
+/// * [isEnabled]
 /// * [methodRules] - The royalty rules by method. The array is only present if royalties are enabled.
 @BuiltValue()
-abstract class BlueprintRoyaltyConfig implements Built<BlueprintRoyaltyConfig, BlueprintRoyaltyConfigBuilder> {
+abstract class BlueprintRoyaltyConfig
+    implements Built<BlueprintRoyaltyConfig, BlueprintRoyaltyConfigBuilder> {
   @BuiltValueField(wireName: r'is_enabled')
   bool get isEnabled;
 
@@ -26,18 +27,25 @@ abstract class BlueprintRoyaltyConfig implements Built<BlueprintRoyaltyConfig, B
 
   BlueprintRoyaltyConfig._();
 
-  factory BlueprintRoyaltyConfig([void updates(BlueprintRoyaltyConfigBuilder b)]) = _$BlueprintRoyaltyConfig;
+  factory BlueprintRoyaltyConfig(
+          [void updates(BlueprintRoyaltyConfigBuilder b)]) =
+      _$BlueprintRoyaltyConfig;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(BlueprintRoyaltyConfigBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<BlueprintRoyaltyConfig> get serializer => _$BlueprintRoyaltyConfigSerializer();
+  static Serializer<BlueprintRoyaltyConfig> get serializer =>
+      _$BlueprintRoyaltyConfigSerializer();
 }
 
-class _$BlueprintRoyaltyConfigSerializer implements PrimitiveSerializer<BlueprintRoyaltyConfig> {
+class _$BlueprintRoyaltyConfigSerializer
+    implements PrimitiveSerializer<BlueprintRoyaltyConfig> {
   @override
-  final Iterable<Type> types = const [BlueprintRoyaltyConfig, _$BlueprintRoyaltyConfig];
+  final Iterable<Type> types = const [
+    BlueprintRoyaltyConfig,
+    _$BlueprintRoyaltyConfig
+  ];
 
   @override
   final String wireName = r'BlueprintRoyaltyConfig';
@@ -56,7 +64,8 @@ class _$BlueprintRoyaltyConfigSerializer implements PrimitiveSerializer<Blueprin
       yield r'method_rules';
       yield serializers.serialize(
         object.methodRules,
-        specifiedType: const FullType(BuiltList, [FullType(BlueprintMethodRoyalty)]),
+        specifiedType:
+            const FullType(BuiltList, [FullType(BlueprintMethodRoyalty)]),
       );
     }
   }
@@ -67,7 +76,9 @@ class _$BlueprintRoyaltyConfigSerializer implements PrimitiveSerializer<Blueprin
     BlueprintRoyaltyConfig object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -92,7 +103,8 @@ class _$BlueprintRoyaltyConfigSerializer implements PrimitiveSerializer<Blueprin
         case r'method_rules':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltList, [FullType(BlueprintMethodRoyalty)]),
+            specifiedType:
+                const FullType(BuiltList, [FullType(BlueprintMethodRoyalty)]),
           ) as BuiltList<BlueprintMethodRoyalty>;
           result.methodRules.replace(valueDes);
           break;
@@ -124,4 +136,3 @@ class _$BlueprintRoyaltyConfigSerializer implements PrimitiveSerializer<Blueprin
     return result.build();
   }
 }
-

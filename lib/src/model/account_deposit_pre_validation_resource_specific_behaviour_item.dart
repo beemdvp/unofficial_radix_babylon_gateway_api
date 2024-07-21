@@ -12,9 +12,12 @@ part 'account_deposit_pre_validation_resource_specific_behaviour_item.g.dart';
 ///
 /// Properties:
 /// * [resourceAddress] - Bech32m-encoded human readable version of the address.
-/// * [allowsTryDeposit] 
+/// * [allowsTryDeposit]
 @BuiltValue()
-abstract class AccountDepositPreValidationResourceSpecificBehaviourItem implements Built<AccountDepositPreValidationResourceSpecificBehaviourItem, AccountDepositPreValidationResourceSpecificBehaviourItemBuilder> {
+abstract class AccountDepositPreValidationResourceSpecificBehaviourItem
+    implements
+        Built<AccountDepositPreValidationResourceSpecificBehaviourItem,
+            AccountDepositPreValidationResourceSpecificBehaviourItemBuilder> {
   /// Bech32m-encoded human readable version of the address.
   @BuiltValueField(wireName: r'resource_address')
   String get resourceAddress;
@@ -24,21 +27,35 @@ abstract class AccountDepositPreValidationResourceSpecificBehaviourItem implemen
 
   AccountDepositPreValidationResourceSpecificBehaviourItem._();
 
-  factory AccountDepositPreValidationResourceSpecificBehaviourItem([void updates(AccountDepositPreValidationResourceSpecificBehaviourItemBuilder b)]) = _$AccountDepositPreValidationResourceSpecificBehaviourItem;
+  factory AccountDepositPreValidationResourceSpecificBehaviourItem(
+      [void updates(
+          AccountDepositPreValidationResourceSpecificBehaviourItemBuilder
+              b)]) = _$AccountDepositPreValidationResourceSpecificBehaviourItem;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(AccountDepositPreValidationResourceSpecificBehaviourItemBuilder b) => b;
+  static void _defaults(
+          AccountDepositPreValidationResourceSpecificBehaviourItemBuilder b) =>
+      b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<AccountDepositPreValidationResourceSpecificBehaviourItem> get serializer => _$AccountDepositPreValidationResourceSpecificBehaviourItemSerializer();
+  static Serializer<AccountDepositPreValidationResourceSpecificBehaviourItem>
+      get serializer =>
+          _$AccountDepositPreValidationResourceSpecificBehaviourItemSerializer();
 }
 
-class _$AccountDepositPreValidationResourceSpecificBehaviourItemSerializer implements PrimitiveSerializer<AccountDepositPreValidationResourceSpecificBehaviourItem> {
+class _$AccountDepositPreValidationResourceSpecificBehaviourItemSerializer
+    implements
+        PrimitiveSerializer<
+            AccountDepositPreValidationResourceSpecificBehaviourItem> {
   @override
-  final Iterable<Type> types = const [AccountDepositPreValidationResourceSpecificBehaviourItem, _$AccountDepositPreValidationResourceSpecificBehaviourItem];
+  final Iterable<Type> types = const [
+    AccountDepositPreValidationResourceSpecificBehaviourItem,
+    _$AccountDepositPreValidationResourceSpecificBehaviourItem
+  ];
 
   @override
-  final String wireName = r'AccountDepositPreValidationResourceSpecificBehaviourItem';
+  final String wireName =
+      r'AccountDepositPreValidationResourceSpecificBehaviourItem';
 
   Iterable<Object?> _serializeProperties(
     Serializers serializers,
@@ -63,7 +80,9 @@ class _$AccountDepositPreValidationResourceSpecificBehaviourItemSerializer imple
     AccountDepositPreValidationResourceSpecificBehaviourItem object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -71,7 +90,8 @@ class _$AccountDepositPreValidationResourceSpecificBehaviourItemSerializer imple
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
     required List<Object?> serializedList,
-    required AccountDepositPreValidationResourceSpecificBehaviourItemBuilder result,
+    required AccountDepositPreValidationResourceSpecificBehaviourItemBuilder
+        result,
     required List<Object?> unhandled,
   }) {
     for (var i = 0; i < serializedList.length; i += 2) {
@@ -106,7 +126,8 @@ class _$AccountDepositPreValidationResourceSpecificBehaviourItemSerializer imple
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = AccountDepositPreValidationResourceSpecificBehaviourItemBuilder();
+    final result =
+        AccountDepositPreValidationResourceSpecificBehaviourItemBuilder();
     final serializedList = (serialized as Iterable<Object?>).toList();
     final unhandled = <Object?>[];
     _deserializeProperties(
@@ -120,4 +141,3 @@ class _$AccountDepositPreValidationResourceSpecificBehaviourItemSerializer imple
     return result.build();
   }
 }
-

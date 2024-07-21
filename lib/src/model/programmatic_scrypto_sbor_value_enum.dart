@@ -14,14 +14,18 @@ part 'programmatic_scrypto_sbor_value_enum.g.dart';
 /// ProgrammaticScryptoSborValueEnum
 ///
 /// Properties:
-/// * [kind] 
-/// * [typeName] - The name of the type of this value. This is only output when a schema is present and the type has a name. This property is ignored when the value is used as an input to the API. 
-/// * [fieldName] - The name of the field which hosts this value. This property is only included if this value is a child of a `Tuple` or `Enum` with named fields. This property is ignored when the value is used as an input to the API. 
-/// * [variantId] 
-/// * [variantName] 
-/// * [fields] 
+/// * [kind]
+/// * [typeName] - The name of the type of this value. This is only output when a schema is present and the type has a name. This property is ignored when the value is used as an input to the API.
+/// * [fieldName] - The name of the field which hosts this value. This property is only included if this value is a child of a `Tuple` or `Enum` with named fields. This property is ignored when the value is used as an input to the API.
+/// * [variantId]
+/// * [variantName]
+/// * [fields]
 @BuiltValue()
-abstract class ProgrammaticScryptoSborValueEnum implements ProgrammaticScryptoSborValue, Built<ProgrammaticScryptoSborValueEnum, ProgrammaticScryptoSborValueEnumBuilder> {
+abstract class ProgrammaticScryptoSborValueEnum
+    implements
+        ProgrammaticScryptoSborValue,
+        Built<ProgrammaticScryptoSborValueEnum,
+            ProgrammaticScryptoSborValueEnumBuilder> {
   @BuiltValueField(wireName: r'variant_id')
   int get variantId;
 
@@ -33,18 +37,26 @@ abstract class ProgrammaticScryptoSborValueEnum implements ProgrammaticScryptoSb
 
   ProgrammaticScryptoSborValueEnum._();
 
-  factory ProgrammaticScryptoSborValueEnum([void updates(ProgrammaticScryptoSborValueEnumBuilder b)]) = _$ProgrammaticScryptoSborValueEnum;
+  factory ProgrammaticScryptoSborValueEnum(
+          [void updates(ProgrammaticScryptoSborValueEnumBuilder b)]) =
+      _$ProgrammaticScryptoSborValueEnum;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(ProgrammaticScryptoSborValueEnumBuilder b) => b..kind=b.discriminatorValue;
+  static void _defaults(ProgrammaticScryptoSborValueEnumBuilder b) =>
+      b..kind = b.discriminatorValue as dynamic;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<ProgrammaticScryptoSborValueEnum> get serializer => _$ProgrammaticScryptoSborValueEnumSerializer();
+  static Serializer<ProgrammaticScryptoSborValueEnum> get serializer =>
+      _$ProgrammaticScryptoSborValueEnumSerializer();
 }
 
-class _$ProgrammaticScryptoSborValueEnumSerializer implements PrimitiveSerializer<ProgrammaticScryptoSborValueEnum> {
+class _$ProgrammaticScryptoSborValueEnumSerializer
+    implements PrimitiveSerializer<ProgrammaticScryptoSborValueEnum> {
   @override
-  final Iterable<Type> types = const [ProgrammaticScryptoSborValueEnum, _$ProgrammaticScryptoSborValueEnum];
+  final Iterable<Type> types = const [
+    ProgrammaticScryptoSborValueEnum,
+    _$ProgrammaticScryptoSborValueEnum
+  ];
 
   @override
   final String wireName = r'ProgrammaticScryptoSborValueEnum';
@@ -83,7 +95,8 @@ class _$ProgrammaticScryptoSborValueEnumSerializer implements PrimitiveSerialize
     yield r'fields';
     yield serializers.serialize(
       object.fields,
-      specifiedType: const FullType(BuiltList, [FullType(ProgrammaticScryptoSborValue)]),
+      specifiedType:
+          const FullType(BuiltList, [FullType(ProgrammaticScryptoSborValue)]),
     );
     yield r'kind';
     yield serializers.serialize(
@@ -98,7 +111,9 @@ class _$ProgrammaticScryptoSborValueEnumSerializer implements PrimitiveSerialize
     ProgrammaticScryptoSborValueEnum object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -146,7 +161,8 @@ class _$ProgrammaticScryptoSborValueEnumSerializer implements PrimitiveSerialize
         case r'fields':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltList, [FullType(ProgrammaticScryptoSborValue)]),
+            specifiedType: const FullType(
+                BuiltList, [FullType(ProgrammaticScryptoSborValue)]),
           ) as BuiltList<ProgrammaticScryptoSborValue>;
           result.fields.replace(valueDes);
           break;
@@ -185,4 +201,3 @@ class _$ProgrammaticScryptoSborValueEnumSerializer implements PrimitiveSerialize
     return result.build();
   }
 }
-

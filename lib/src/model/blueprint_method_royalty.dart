@@ -12,10 +12,11 @@ part 'blueprint_method_royalty.g.dart';
 /// BlueprintMethodRoyalty
 ///
 /// Properties:
-/// * [methodName] 
-/// * [royaltyAmount] 
+/// * [methodName]
+/// * [royaltyAmount]
 @BuiltValue()
-abstract class BlueprintMethodRoyalty implements Built<BlueprintMethodRoyalty, BlueprintMethodRoyaltyBuilder> {
+abstract class BlueprintMethodRoyalty
+    implements Built<BlueprintMethodRoyalty, BlueprintMethodRoyaltyBuilder> {
   @BuiltValueField(wireName: r'method_name')
   String get methodName;
 
@@ -24,18 +25,25 @@ abstract class BlueprintMethodRoyalty implements Built<BlueprintMethodRoyalty, B
 
   BlueprintMethodRoyalty._();
 
-  factory BlueprintMethodRoyalty([void updates(BlueprintMethodRoyaltyBuilder b)]) = _$BlueprintMethodRoyalty;
+  factory BlueprintMethodRoyalty(
+          [void updates(BlueprintMethodRoyaltyBuilder b)]) =
+      _$BlueprintMethodRoyalty;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(BlueprintMethodRoyaltyBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<BlueprintMethodRoyalty> get serializer => _$BlueprintMethodRoyaltySerializer();
+  static Serializer<BlueprintMethodRoyalty> get serializer =>
+      _$BlueprintMethodRoyaltySerializer();
 }
 
-class _$BlueprintMethodRoyaltySerializer implements PrimitiveSerializer<BlueprintMethodRoyalty> {
+class _$BlueprintMethodRoyaltySerializer
+    implements PrimitiveSerializer<BlueprintMethodRoyalty> {
   @override
-  final Iterable<Type> types = const [BlueprintMethodRoyalty, _$BlueprintMethodRoyalty];
+  final Iterable<Type> types = const [
+    BlueprintMethodRoyalty,
+    _$BlueprintMethodRoyalty
+  ];
 
   @override
   final String wireName = r'BlueprintMethodRoyalty';
@@ -65,7 +73,9 @@ class _$BlueprintMethodRoyaltySerializer implements PrimitiveSerializer<Blueprin
     BlueprintMethodRoyalty object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -122,4 +132,3 @@ class _$BlueprintMethodRoyaltySerializer implements PrimitiveSerializer<Blueprin
     return result.build();
   }
 }
-

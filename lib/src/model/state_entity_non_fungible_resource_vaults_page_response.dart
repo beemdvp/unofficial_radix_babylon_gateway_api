@@ -16,14 +16,19 @@ part 'state_entity_non_fungible_resource_vaults_page_response.g.dart';
 /// StateEntityNonFungibleResourceVaultsPageResponse
 ///
 /// Properties:
-/// * [ledgerState] 
+/// * [ledgerState]
 /// * [totalCount] - Total number of items in underlying collection, fragment of which is available in `items` collection.
 /// * [nextCursor] - If specified, contains a cursor to query next page of the `items` collection.
-/// * [items] 
+/// * [items]
 /// * [address] - Bech32m-encoded human readable version of the address.
 /// * [resourceAddress] - Bech32m-encoded human readable version of the address.
 @BuiltValue()
-abstract class StateEntityNonFungibleResourceVaultsPageResponse implements LedgerStateMixin, NonFungibleResourcesCollectionItemVaultAggregatedVault, Built<StateEntityNonFungibleResourceVaultsPageResponse, StateEntityNonFungibleResourceVaultsPageResponseBuilder> {
+abstract class StateEntityNonFungibleResourceVaultsPageResponse
+    implements
+        LedgerStateMixin,
+        NonFungibleResourcesCollectionItemVaultAggregatedVault,
+        Built<StateEntityNonFungibleResourceVaultsPageResponse,
+            StateEntityNonFungibleResourceVaultsPageResponseBuilder> {
   /// Bech32m-encoded human readable version of the address.
   @BuiltValueField(wireName: r'address')
   String get address;
@@ -34,18 +39,30 @@ abstract class StateEntityNonFungibleResourceVaultsPageResponse implements Ledge
 
   StateEntityNonFungibleResourceVaultsPageResponse._();
 
-  factory StateEntityNonFungibleResourceVaultsPageResponse([void updates(StateEntityNonFungibleResourceVaultsPageResponseBuilder b)]) = _$StateEntityNonFungibleResourceVaultsPageResponse;
+  factory StateEntityNonFungibleResourceVaultsPageResponse(
+          [void updates(
+              StateEntityNonFungibleResourceVaultsPageResponseBuilder b)]) =
+      _$StateEntityNonFungibleResourceVaultsPageResponse;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(StateEntityNonFungibleResourceVaultsPageResponseBuilder b) => b;
+  static void _defaults(
+          StateEntityNonFungibleResourceVaultsPageResponseBuilder b) =>
+      b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<StateEntityNonFungibleResourceVaultsPageResponse> get serializer => _$StateEntityNonFungibleResourceVaultsPageResponseSerializer();
+  static Serializer<StateEntityNonFungibleResourceVaultsPageResponse>
+      get serializer =>
+          _$StateEntityNonFungibleResourceVaultsPageResponseSerializer();
 }
 
-class _$StateEntityNonFungibleResourceVaultsPageResponseSerializer implements PrimitiveSerializer<StateEntityNonFungibleResourceVaultsPageResponse> {
+class _$StateEntityNonFungibleResourceVaultsPageResponseSerializer
+    implements
+        PrimitiveSerializer<StateEntityNonFungibleResourceVaultsPageResponse> {
   @override
-  final Iterable<Type> types = const [StateEntityNonFungibleResourceVaultsPageResponse, _$StateEntityNonFungibleResourceVaultsPageResponse];
+  final Iterable<Type> types = const [
+    StateEntityNonFungibleResourceVaultsPageResponse,
+    _$StateEntityNonFungibleResourceVaultsPageResponse
+  ];
 
   @override
   final String wireName = r'StateEntityNonFungibleResourceVaultsPageResponse';
@@ -77,7 +94,9 @@ class _$StateEntityNonFungibleResourceVaultsPageResponseSerializer implements Pr
     yield r'items';
     yield serializers.serialize(
       object.items,
-      specifiedType: const FullType(BuiltList, [FullType(NonFungibleResourcesCollectionItemVaultAggregatedVaultItem)]),
+      specifiedType: const FullType(BuiltList, [
+        FullType(NonFungibleResourcesCollectionItemVaultAggregatedVaultItem)
+      ]),
     );
     yield r'resource_address';
     yield serializers.serialize(
@@ -97,7 +116,9 @@ class _$StateEntityNonFungibleResourceVaultsPageResponseSerializer implements Pr
     StateEntityNonFungibleResourceVaultsPageResponse object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -138,8 +159,12 @@ class _$StateEntityNonFungibleResourceVaultsPageResponseSerializer implements Pr
         case r'items':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltList, [FullType(NonFungibleResourcesCollectionItemVaultAggregatedVaultItem)]),
-          ) as BuiltList<NonFungibleResourcesCollectionItemVaultAggregatedVaultItem>;
+            specifiedType: const FullType(BuiltList, [
+              FullType(
+                  NonFungibleResourcesCollectionItemVaultAggregatedVaultItem)
+            ]),
+          ) as BuiltList<
+              NonFungibleResourcesCollectionItemVaultAggregatedVaultItem>;
           result.items.replace(valueDes);
           break;
         case r'resource_address':
@@ -184,4 +209,3 @@ class _$StateEntityNonFungibleResourceVaultsPageResponseSerializer implements Pr
     return result.build();
   }
 }
-

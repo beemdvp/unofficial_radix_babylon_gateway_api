@@ -16,17 +16,19 @@ part 'entity_metadata_collection.g.dart';
 /// Properties:
 /// * [totalCount] - Total number of items in underlying collection, fragment of which is available in `items` collection.
 /// * [nextCursor] - If specified, contains a cursor to query next page of the `items` collection.
-/// * [items] 
+/// * [items]
 @BuiltValue(instantiable: false)
 abstract class EntityMetadataCollection implements ResultSetCursorMixin {
   @BuiltValueField(wireName: r'items')
   BuiltList<EntityMetadataItem> get items;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<EntityMetadataCollection> get serializer => _$EntityMetadataCollectionSerializer();
+  static Serializer<EntityMetadataCollection> get serializer =>
+      _$EntityMetadataCollectionSerializer();
 }
 
-class _$EntityMetadataCollectionSerializer implements PrimitiveSerializer<EntityMetadataCollection> {
+class _$EntityMetadataCollectionSerializer
+    implements PrimitiveSerializer<EntityMetadataCollection> {
   @override
   final Iterable<Type> types = const [EntityMetadataCollection];
 
@@ -65,7 +67,9 @@ class _$EntityMetadataCollectionSerializer implements PrimitiveSerializer<Entity
     EntityMetadataCollection object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   @override
@@ -74,27 +78,39 @@ class _$EntityMetadataCollectionSerializer implements PrimitiveSerializer<Entity
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return serializers.deserialize(serialized, specifiedType: FullType($EntityMetadataCollection)) as $EntityMetadataCollection;
+    return serializers.deserialize(serialized,
+            specifiedType: FullType($EntityMetadataCollection))
+        as $EntityMetadataCollection;
   }
 }
 
 /// a concrete implementation of [EntityMetadataCollection], since [EntityMetadataCollection] is not instantiable
 @BuiltValue(instantiable: true)
-abstract class $EntityMetadataCollection implements EntityMetadataCollection, Built<$EntityMetadataCollection, $EntityMetadataCollectionBuilder> {
+abstract class $EntityMetadataCollection
+    implements
+        EntityMetadataCollection,
+        Built<$EntityMetadataCollection, $EntityMetadataCollectionBuilder> {
   $EntityMetadataCollection._();
 
-  factory $EntityMetadataCollection([void Function($EntityMetadataCollectionBuilder)? updates]) = _$$EntityMetadataCollection;
+  factory $EntityMetadataCollection(
+          [void Function($EntityMetadataCollectionBuilder)? updates]) =
+      _$$EntityMetadataCollection;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($EntityMetadataCollectionBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<$EntityMetadataCollection> get serializer => _$$EntityMetadataCollectionSerializer();
+  static Serializer<$EntityMetadataCollection> get serializer =>
+      _$$EntityMetadataCollectionSerializer();
 }
 
-class _$$EntityMetadataCollectionSerializer implements PrimitiveSerializer<$EntityMetadataCollection> {
+class _$$EntityMetadataCollectionSerializer
+    implements PrimitiveSerializer<$EntityMetadataCollection> {
   @override
-  final Iterable<Type> types = const [$EntityMetadataCollection, _$$EntityMetadataCollection];
+  final Iterable<Type> types = const [
+    $EntityMetadataCollection,
+    _$$EntityMetadataCollection
+  ];
 
   @override
   final String wireName = r'$EntityMetadataCollection';
@@ -105,7 +121,8 @@ class _$$EntityMetadataCollectionSerializer implements PrimitiveSerializer<$Enti
     $EntityMetadataCollection object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return serializers.serialize(object, specifiedType: FullType(EntityMetadataCollection))!;
+    return serializers.serialize(object,
+        specifiedType: FullType(EntityMetadataCollection))!;
   }
 
   void _deserializeProperties(
@@ -139,7 +156,8 @@ class _$$EntityMetadataCollectionSerializer implements PrimitiveSerializer<$Enti
         case r'items':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltList, [FullType(EntityMetadataItem)]),
+            specifiedType:
+                const FullType(BuiltList, [FullType(EntityMetadataItem)]),
           ) as BuiltList<EntityMetadataItem>;
           result.items.replace(valueDes);
           break;
@@ -171,4 +189,3 @@ class _$$EntityMetadataCollectionSerializer implements PrimitiveSerializer<$Enti
     return result.build();
   }
 }
-

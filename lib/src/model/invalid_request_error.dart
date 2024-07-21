@@ -17,25 +17,35 @@ part 'invalid_request_error.g.dart';
 /// * [type] - The type of error. Each subtype may have its own additional structured fields.
 /// * [validationErrors] - One or more validation errors which occurred when validating the request.
 @BuiltValue()
-abstract class InvalidRequestError implements GatewayError, Built<InvalidRequestError, InvalidRequestErrorBuilder> {
+abstract class InvalidRequestError
+    implements
+        GatewayError,
+        Built<InvalidRequestError, InvalidRequestErrorBuilder> {
   /// One or more validation errors which occurred when validating the request.
   @BuiltValueField(wireName: r'validation_errors')
   BuiltList<ValidationErrorsAtPath> get validationErrors;
 
   InvalidRequestError._();
 
-  factory InvalidRequestError([void updates(InvalidRequestErrorBuilder b)]) = _$InvalidRequestError;
+  factory InvalidRequestError([void updates(InvalidRequestErrorBuilder b)]) =
+      _$InvalidRequestError;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(InvalidRequestErrorBuilder b) => b..type=b.discriminatorValue;
+  static void _defaults(InvalidRequestErrorBuilder b) =>
+      b..type = b.discriminatorValue;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<InvalidRequestError> get serializer => _$InvalidRequestErrorSerializer();
+  static Serializer<InvalidRequestError> get serializer =>
+      _$InvalidRequestErrorSerializer();
 }
 
-class _$InvalidRequestErrorSerializer implements PrimitiveSerializer<InvalidRequestError> {
+class _$InvalidRequestErrorSerializer
+    implements PrimitiveSerializer<InvalidRequestError> {
   @override
-  final Iterable<Type> types = const [InvalidRequestError, _$InvalidRequestError];
+  final Iterable<Type> types = const [
+    InvalidRequestError,
+    _$InvalidRequestError
+  ];
 
   @override
   final String wireName = r'InvalidRequestError';
@@ -53,7 +63,8 @@ class _$InvalidRequestErrorSerializer implements PrimitiveSerializer<InvalidRequ
     yield r'validation_errors';
     yield serializers.serialize(
       object.validationErrors,
-      specifiedType: const FullType(BuiltList, [FullType(ValidationErrorsAtPath)]),
+      specifiedType:
+          const FullType(BuiltList, [FullType(ValidationErrorsAtPath)]),
     );
   }
 
@@ -63,7 +74,9 @@ class _$InvalidRequestErrorSerializer implements PrimitiveSerializer<InvalidRequ
     InvalidRequestError object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -88,7 +101,8 @@ class _$InvalidRequestErrorSerializer implements PrimitiveSerializer<InvalidRequ
         case r'validation_errors':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltList, [FullType(ValidationErrorsAtPath)]),
+            specifiedType:
+                const FullType(BuiltList, [FullType(ValidationErrorsAtPath)]),
           ) as BuiltList<ValidationErrorsAtPath>;
           result.validationErrors.replace(valueDes);
           break;
@@ -120,4 +134,3 @@ class _$InvalidRequestErrorSerializer implements PrimitiveSerializer<InvalidRequ
     return result.build();
   }
 }
-

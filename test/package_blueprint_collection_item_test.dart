@@ -17,7 +17,7 @@ void main() {
       // TODO
     });
 
-    // This type is defined in the Core API as `BlueprintDefinition`. See the Core API documentation for more details. 
+    // This type is defined in the Core API as `BlueprintDefinition`. See the Core API documentation for more details.
     // JsonObject definition
     test('to test the property `definition`', () async {
       // TODO
@@ -28,7 +28,7 @@ void main() {
       // TODO
     });
 
-    // This type is defined in the Core API as `AuthConfig`. See the Core API documentation for more details. 
+    // This type is defined in the Core API as `AuthConfig`. See the Core API documentation for more details.
     // JsonObject authTemplate
     test('to test the property `authTemplate`', () async {
       // TODO
@@ -48,6 +48,5 @@ void main() {
     test('to test the property `royaltyConfigIsLocked`', () async {
       // TODO
     });
-
   });
 }

@@ -10,15 +10,15 @@ import 'package:built_value/serializer.dart';
 part 'account_resource_preference_rule.g.dart';
 
 class AccountResourcePreferenceRule extends EnumClass {
-
   @BuiltValueEnumConst(wireName: r'Allowed')
   static const AccountResourcePreferenceRule allowed = _$allowed;
   @BuiltValueEnumConst(wireName: r'Disallowed')
   static const AccountResourcePreferenceRule disallowed = _$disallowed;
 
-  static Serializer<AccountResourcePreferenceRule> get serializer => _$accountResourcePreferenceRuleSerializer;
+  static Serializer<AccountResourcePreferenceRule> get serializer =>
+      _$accountResourcePreferenceRuleSerializer;
 
-  const AccountResourcePreferenceRule._(String name): super(name);
+  const AccountResourcePreferenceRule._(String name) : super(name);
 
   static BuiltSet<AccountResourcePreferenceRule> get values => _$values;
   static AccountResourcePreferenceRule valueOf(String name) => _$valueOf(name);
@@ -30,5 +30,5 @@ class AccountResourcePreferenceRule extends EnumClass {
 /// corresponding Angular template.
 ///
 /// Trigger mixin generation by writing a line like this one next to your enum.
-abstract class AccountResourcePreferenceRuleMixin = Object with _$AccountResourcePreferenceRuleMixin;
-
+abstract class AccountResourcePreferenceRuleMixin = Object
+    with _$AccountResourcePreferenceRuleMixin;

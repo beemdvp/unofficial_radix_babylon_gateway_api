@@ -14,7 +14,7 @@ part 'result_set_cursor_mixin.g.dart';
 /// * [totalCount] - Total number of items in underlying collection, fragment of which is available in `items` collection.
 /// * [nextCursor] - If specified, contains a cursor to query next page of the `items` collection.
 @BuiltValue(instantiable: false)
-abstract class ResultSetCursorMixin  {
+abstract class ResultSetCursorMixin {
   /// Total number of items in underlying collection, fragment of which is available in `items` collection.
   @BuiltValueField(wireName: r'total_count')
   int? get totalCount;
@@ -24,10 +24,12 @@ abstract class ResultSetCursorMixin  {
   String? get nextCursor;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<ResultSetCursorMixin> get serializer => _$ResultSetCursorMixinSerializer();
+  static Serializer<ResultSetCursorMixin> get serializer =>
+      _$ResultSetCursorMixinSerializer();
 }
 
-class _$ResultSetCursorMixinSerializer implements PrimitiveSerializer<ResultSetCursorMixin> {
+class _$ResultSetCursorMixinSerializer
+    implements PrimitiveSerializer<ResultSetCursorMixin> {
   @override
   final Iterable<Type> types = const [ResultSetCursorMixin];
 
@@ -61,7 +63,9 @@ class _$ResultSetCursorMixinSerializer implements PrimitiveSerializer<ResultSetC
     ResultSetCursorMixin object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   @override
@@ -70,27 +74,39 @@ class _$ResultSetCursorMixinSerializer implements PrimitiveSerializer<ResultSetC
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return serializers.deserialize(serialized, specifiedType: FullType($ResultSetCursorMixin)) as $ResultSetCursorMixin;
+    return serializers.deserialize(serialized,
+            specifiedType: FullType($ResultSetCursorMixin))
+        as $ResultSetCursorMixin;
   }
 }
 
 /// a concrete implementation of [ResultSetCursorMixin], since [ResultSetCursorMixin] is not instantiable
 @BuiltValue(instantiable: true)
-abstract class $ResultSetCursorMixin implements ResultSetCursorMixin, Built<$ResultSetCursorMixin, $ResultSetCursorMixinBuilder> {
+abstract class $ResultSetCursorMixin
+    implements
+        ResultSetCursorMixin,
+        Built<$ResultSetCursorMixin, $ResultSetCursorMixinBuilder> {
   $ResultSetCursorMixin._();
 
-  factory $ResultSetCursorMixin([void Function($ResultSetCursorMixinBuilder)? updates]) = _$$ResultSetCursorMixin;
+  factory $ResultSetCursorMixin(
+          [void Function($ResultSetCursorMixinBuilder)? updates]) =
+      _$$ResultSetCursorMixin;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($ResultSetCursorMixinBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<$ResultSetCursorMixin> get serializer => _$$ResultSetCursorMixinSerializer();
+  static Serializer<$ResultSetCursorMixin> get serializer =>
+      _$$ResultSetCursorMixinSerializer();
 }
 
-class _$$ResultSetCursorMixinSerializer implements PrimitiveSerializer<$ResultSetCursorMixin> {
+class _$$ResultSetCursorMixinSerializer
+    implements PrimitiveSerializer<$ResultSetCursorMixin> {
   @override
-  final Iterable<Type> types = const [$ResultSetCursorMixin, _$$ResultSetCursorMixin];
+  final Iterable<Type> types = const [
+    $ResultSetCursorMixin,
+    _$$ResultSetCursorMixin
+  ];
 
   @override
   final String wireName = r'$ResultSetCursorMixin';
@@ -101,7 +117,8 @@ class _$$ResultSetCursorMixinSerializer implements PrimitiveSerializer<$ResultSe
     $ResultSetCursorMixin object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return serializers.serialize(object, specifiedType: FullType(ResultSetCursorMixin))!;
+    return serializers.serialize(object,
+        specifiedType: FullType(ResultSetCursorMixin))!;
   }
 
   void _deserializeProperties(
@@ -160,4 +177,3 @@ class _$$ResultSetCursorMixinSerializer implements PrimitiveSerializer<$ResultSe
     return result.build();
   }
 }
-

@@ -14,11 +14,15 @@ part 'state_entity_details_response_non_fungible_vault_details.g.dart';
 /// StateEntityDetailsResponseNonFungibleVaultDetails
 ///
 /// Properties:
-/// * [type] 
+/// * [type]
 /// * [resourceAddress] - Bech32m-encoded human readable version of the address.
-/// * [balance] 
+/// * [balance]
 @BuiltValue()
-abstract class StateEntityDetailsResponseNonFungibleVaultDetails implements StateEntityDetailsResponseItemDetails, Built<StateEntityDetailsResponseNonFungibleVaultDetails, StateEntityDetailsResponseNonFungibleVaultDetailsBuilder> {
+abstract class StateEntityDetailsResponseNonFungibleVaultDetails
+    implements
+        StateEntityDetailsResponseItemDetails,
+        Built<StateEntityDetailsResponseNonFungibleVaultDetails,
+            StateEntityDetailsResponseNonFungibleVaultDetailsBuilder> {
   @BuiltValueField(wireName: r'balance')
   NonFungibleResourcesCollectionItemVaultAggregatedVaultItem get balance;
 
@@ -28,18 +32,30 @@ abstract class StateEntityDetailsResponseNonFungibleVaultDetails implements Stat
 
   StateEntityDetailsResponseNonFungibleVaultDetails._();
 
-  factory StateEntityDetailsResponseNonFungibleVaultDetails([void updates(StateEntityDetailsResponseNonFungibleVaultDetailsBuilder b)]) = _$StateEntityDetailsResponseNonFungibleVaultDetails;
+  factory StateEntityDetailsResponseNonFungibleVaultDetails(
+          [void updates(
+              StateEntityDetailsResponseNonFungibleVaultDetailsBuilder b)]) =
+      _$StateEntityDetailsResponseNonFungibleVaultDetails;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(StateEntityDetailsResponseNonFungibleVaultDetailsBuilder b) => b..type=b.discriminatorValue;
+  static void _defaults(
+          StateEntityDetailsResponseNonFungibleVaultDetailsBuilder b) =>
+      b..type = b.discriminatorValue as dynamic;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<StateEntityDetailsResponseNonFungibleVaultDetails> get serializer => _$StateEntityDetailsResponseNonFungibleVaultDetailsSerializer();
+  static Serializer<StateEntityDetailsResponseNonFungibleVaultDetails>
+      get serializer =>
+          _$StateEntityDetailsResponseNonFungibleVaultDetailsSerializer();
 }
 
-class _$StateEntityDetailsResponseNonFungibleVaultDetailsSerializer implements PrimitiveSerializer<StateEntityDetailsResponseNonFungibleVaultDetails> {
+class _$StateEntityDetailsResponseNonFungibleVaultDetailsSerializer
+    implements
+        PrimitiveSerializer<StateEntityDetailsResponseNonFungibleVaultDetails> {
   @override
-  final Iterable<Type> types = const [StateEntityDetailsResponseNonFungibleVaultDetails, _$StateEntityDetailsResponseNonFungibleVaultDetails];
+  final Iterable<Type> types = const [
+    StateEntityDetailsResponseNonFungibleVaultDetails,
+    _$StateEntityDetailsResponseNonFungibleVaultDetails
+  ];
 
   @override
   final String wireName = r'StateEntityDetailsResponseNonFungibleVaultDetails';
@@ -52,7 +68,8 @@ class _$StateEntityDetailsResponseNonFungibleVaultDetailsSerializer implements P
     yield r'balance';
     yield serializers.serialize(
       object.balance,
-      specifiedType: const FullType(NonFungibleResourcesCollectionItemVaultAggregatedVaultItem),
+      specifiedType: const FullType(
+          NonFungibleResourcesCollectionItemVaultAggregatedVaultItem),
     );
     yield r'type';
     yield serializers.serialize(
@@ -72,7 +89,9 @@ class _$StateEntityDetailsResponseNonFungibleVaultDetailsSerializer implements P
     StateEntityDetailsResponseNonFungibleVaultDetails object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -90,14 +109,16 @@ class _$StateEntityDetailsResponseNonFungibleVaultDetailsSerializer implements P
         case r'balance':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(NonFungibleResourcesCollectionItemVaultAggregatedVaultItem),
+            specifiedType: const FullType(
+                NonFungibleResourcesCollectionItemVaultAggregatedVaultItem),
           ) as NonFungibleResourcesCollectionItemVaultAggregatedVaultItem;
           result.balance.replace(valueDes);
           break;
         case r'type':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(StateEntityDetailsResponseItemDetailsType),
+            specifiedType:
+                const FullType(StateEntityDetailsResponseItemDetailsType),
           ) as StateEntityDetailsResponseItemDetailsType;
           result.type = valueDes;
           break;
@@ -136,4 +157,3 @@ class _$StateEntityDetailsResponseNonFungibleVaultDetailsSerializer implements P
     return result.build();
   }
 }
-

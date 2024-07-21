@@ -14,11 +14,14 @@ part 'state_non_fungible_ids_response.g.dart';
 /// StateNonFungibleIdsResponse
 ///
 /// Properties:
-/// * [ledgerState] 
+/// * [ledgerState]
 /// * [resourceAddress] - Bech32m-encoded human readable version of the address.
-/// * [nonFungibleIds] 
+/// * [nonFungibleIds]
 @BuiltValue()
-abstract class StateNonFungibleIdsResponse implements LedgerStateMixin, Built<StateNonFungibleIdsResponse, StateNonFungibleIdsResponseBuilder> {
+abstract class StateNonFungibleIdsResponse
+    implements
+        LedgerStateMixin,
+        Built<StateNonFungibleIdsResponse, StateNonFungibleIdsResponseBuilder> {
   /// Bech32m-encoded human readable version of the address.
   @BuiltValueField(wireName: r'resource_address')
   String get resourceAddress;
@@ -28,18 +31,25 @@ abstract class StateNonFungibleIdsResponse implements LedgerStateMixin, Built<St
 
   StateNonFungibleIdsResponse._();
 
-  factory StateNonFungibleIdsResponse([void updates(StateNonFungibleIdsResponseBuilder b)]) = _$StateNonFungibleIdsResponse;
+  factory StateNonFungibleIdsResponse(
+          [void updates(StateNonFungibleIdsResponseBuilder b)]) =
+      _$StateNonFungibleIdsResponse;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(StateNonFungibleIdsResponseBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<StateNonFungibleIdsResponse> get serializer => _$StateNonFungibleIdsResponseSerializer();
+  static Serializer<StateNonFungibleIdsResponse> get serializer =>
+      _$StateNonFungibleIdsResponseSerializer();
 }
 
-class _$StateNonFungibleIdsResponseSerializer implements PrimitiveSerializer<StateNonFungibleIdsResponse> {
+class _$StateNonFungibleIdsResponseSerializer
+    implements PrimitiveSerializer<StateNonFungibleIdsResponse> {
   @override
-  final Iterable<Type> types = const [StateNonFungibleIdsResponse, _$StateNonFungibleIdsResponse];
+  final Iterable<Type> types = const [
+    StateNonFungibleIdsResponse,
+    _$StateNonFungibleIdsResponse
+  ];
 
   @override
   final String wireName = r'StateNonFungibleIdsResponse';
@@ -72,7 +82,9 @@ class _$StateNonFungibleIdsResponseSerializer implements PrimitiveSerializer<Sta
     StateNonFungibleIdsResponse object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -136,4 +148,3 @@ class _$StateNonFungibleIdsResponseSerializer implements PrimitiveSerializer<Sta
     return result.build();
   }
 }
-

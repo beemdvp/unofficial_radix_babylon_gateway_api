@@ -10,15 +10,15 @@ import 'package:built_value/serializer.dart';
 part 'resource_aggregation_level.g.dart';
 
 class ResourceAggregationLevel extends EnumClass {
-
   @BuiltValueEnumConst(wireName: r'Global')
   static const ResourceAggregationLevel global = _$global;
   @BuiltValueEnumConst(wireName: r'Vault')
   static const ResourceAggregationLevel vault = _$vault;
 
-  static Serializer<ResourceAggregationLevel> get serializer => _$resourceAggregationLevelSerializer;
+  static Serializer<ResourceAggregationLevel> get serializer =>
+      _$resourceAggregationLevelSerializer;
 
-  const ResourceAggregationLevel._(String name): super(name);
+  const ResourceAggregationLevel._(String name) : super(name);
 
   static BuiltSet<ResourceAggregationLevel> get values => _$values;
   static ResourceAggregationLevel valueOf(String name) => _$valueOf(name);
@@ -30,5 +30,5 @@ class ResourceAggregationLevel extends EnumClass {
 /// corresponding Angular template.
 ///
 /// Trigger mixin generation by writing a line like this one next to your enum.
-abstract class ResourceAggregationLevelMixin = Object with _$ResourceAggregationLevelMixin;
-
+abstract class ResourceAggregationLevelMixin = Object
+    with _$ResourceAggregationLevelMixin;

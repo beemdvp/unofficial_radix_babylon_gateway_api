@@ -13,27 +13,37 @@ part 'metadata_decimal_value.g.dart';
 /// MetadataDecimalValue
 ///
 /// Properties:
-/// * [type] 
-/// * [value] 
+/// * [type]
+/// * [value]
 @BuiltValue()
-abstract class MetadataDecimalValue implements MetadataTypedValue, Built<MetadataDecimalValue, MetadataDecimalValueBuilder> {
+abstract class MetadataDecimalValue
+    implements
+        MetadataTypedValue,
+        Built<MetadataDecimalValue, MetadataDecimalValueBuilder> {
   @BuiltValueField(wireName: r'value')
   String get value;
 
   MetadataDecimalValue._();
 
-  factory MetadataDecimalValue([void updates(MetadataDecimalValueBuilder b)]) = _$MetadataDecimalValue;
+  factory MetadataDecimalValue([void updates(MetadataDecimalValueBuilder b)]) =
+      _$MetadataDecimalValue;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(MetadataDecimalValueBuilder b) => b..type=b.discriminatorValue;
+  static void _defaults(MetadataDecimalValueBuilder b) =>
+      b..type = b.discriminatorValue as dynamic;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<MetadataDecimalValue> get serializer => _$MetadataDecimalValueSerializer();
+  static Serializer<MetadataDecimalValue> get serializer =>
+      _$MetadataDecimalValueSerializer();
 }
 
-class _$MetadataDecimalValueSerializer implements PrimitiveSerializer<MetadataDecimalValue> {
+class _$MetadataDecimalValueSerializer
+    implements PrimitiveSerializer<MetadataDecimalValue> {
   @override
-  final Iterable<Type> types = const [MetadataDecimalValue, _$MetadataDecimalValue];
+  final Iterable<Type> types = const [
+    MetadataDecimalValue,
+    _$MetadataDecimalValue
+  ];
 
   @override
   final String wireName = r'MetadataDecimalValue';
@@ -61,7 +71,9 @@ class _$MetadataDecimalValueSerializer implements PrimitiveSerializer<MetadataDe
     MetadataDecimalValue object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -118,4 +130,3 @@ class _$MetadataDecimalValueSerializer implements PrimitiveSerializer<MetadataDe
     return result.build();
   }
 }
-

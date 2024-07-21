@@ -16,26 +16,35 @@ part 'validator_collection.g.dart';
 /// Properties:
 /// * [totalCount] - Total number of items in underlying collection, fragment of which is available in `items` collection.
 /// * [nextCursor] - If specified, contains a cursor to query next page of the `items` collection.
-/// * [items] 
+/// * [items]
 @BuiltValue()
-abstract class ValidatorCollection implements ResultSetCursorMixin, Built<ValidatorCollection, ValidatorCollectionBuilder> {
+abstract class ValidatorCollection
+    implements
+        ResultSetCursorMixin,
+        Built<ValidatorCollection, ValidatorCollectionBuilder> {
   @BuiltValueField(wireName: r'items')
   BuiltList<ValidatorCollectionItem> get items;
 
   ValidatorCollection._();
 
-  factory ValidatorCollection([void updates(ValidatorCollectionBuilder b)]) = _$ValidatorCollection;
+  factory ValidatorCollection([void updates(ValidatorCollectionBuilder b)]) =
+      _$ValidatorCollection;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(ValidatorCollectionBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<ValidatorCollection> get serializer => _$ValidatorCollectionSerializer();
+  static Serializer<ValidatorCollection> get serializer =>
+      _$ValidatorCollectionSerializer();
 }
 
-class _$ValidatorCollectionSerializer implements PrimitiveSerializer<ValidatorCollection> {
+class _$ValidatorCollectionSerializer
+    implements PrimitiveSerializer<ValidatorCollection> {
   @override
-  final Iterable<Type> types = const [ValidatorCollection, _$ValidatorCollection];
+  final Iterable<Type> types = const [
+    ValidatorCollection,
+    _$ValidatorCollection
+  ];
 
   @override
   final String wireName = r'ValidatorCollection';
@@ -62,7 +71,8 @@ class _$ValidatorCollectionSerializer implements PrimitiveSerializer<ValidatorCo
     yield r'items';
     yield serializers.serialize(
       object.items,
-      specifiedType: const FullType(BuiltList, [FullType(ValidatorCollectionItem)]),
+      specifiedType:
+          const FullType(BuiltList, [FullType(ValidatorCollectionItem)]),
     );
   }
 
@@ -72,7 +82,9 @@ class _$ValidatorCollectionSerializer implements PrimitiveSerializer<ValidatorCo
     ValidatorCollection object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -106,7 +118,8 @@ class _$ValidatorCollectionSerializer implements PrimitiveSerializer<ValidatorCo
         case r'items':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltList, [FullType(ValidatorCollectionItem)]),
+            specifiedType:
+                const FullType(BuiltList, [FullType(ValidatorCollectionItem)]),
           ) as BuiltList<ValidatorCollectionItem>;
           result.items.replace(valueDes);
           break;
@@ -138,4 +151,3 @@ class _$ValidatorCollectionSerializer implements PrimitiveSerializer<ValidatorCo
     return result.build();
   }
 }
-

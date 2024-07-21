@@ -16,30 +16,41 @@ part 'stream_transactions_response.g.dart';
 /// StreamTransactionsResponse
 ///
 /// Properties:
-/// * [ledgerState] 
+/// * [ledgerState]
 /// * [totalCount] - Total number of items in underlying collection, fragment of which is available in `items` collection.
 /// * [nextCursor] - If specified, contains a cursor to query next page of the `items` collection.
 /// * [items] - The page of user transactions.
 @BuiltValue()
-abstract class StreamTransactionsResponse implements LedgerStateMixin, ResultSetCursorMixin, Built<StreamTransactionsResponse, StreamTransactionsResponseBuilder> {
+abstract class StreamTransactionsResponse
+    implements
+        LedgerStateMixin,
+        ResultSetCursorMixin,
+        Built<StreamTransactionsResponse, StreamTransactionsResponseBuilder> {
   /// The page of user transactions.
   @BuiltValueField(wireName: r'items')
   BuiltList<CommittedTransactionInfo> get items;
 
   StreamTransactionsResponse._();
 
-  factory StreamTransactionsResponse([void updates(StreamTransactionsResponseBuilder b)]) = _$StreamTransactionsResponse;
+  factory StreamTransactionsResponse(
+          [void updates(StreamTransactionsResponseBuilder b)]) =
+      _$StreamTransactionsResponse;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(StreamTransactionsResponseBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<StreamTransactionsResponse> get serializer => _$StreamTransactionsResponseSerializer();
+  static Serializer<StreamTransactionsResponse> get serializer =>
+      _$StreamTransactionsResponseSerializer();
 }
 
-class _$StreamTransactionsResponseSerializer implements PrimitiveSerializer<StreamTransactionsResponse> {
+class _$StreamTransactionsResponseSerializer
+    implements PrimitiveSerializer<StreamTransactionsResponse> {
   @override
-  final Iterable<Type> types = const [StreamTransactionsResponse, _$StreamTransactionsResponse];
+  final Iterable<Type> types = const [
+    StreamTransactionsResponse,
+    _$StreamTransactionsResponse
+  ];
 
   @override
   final String wireName = r'StreamTransactionsResponse';
@@ -66,7 +77,8 @@ class _$StreamTransactionsResponseSerializer implements PrimitiveSerializer<Stre
     yield r'items';
     yield serializers.serialize(
       object.items,
-      specifiedType: const FullType(BuiltList, [FullType(CommittedTransactionInfo)]),
+      specifiedType:
+          const FullType(BuiltList, [FullType(CommittedTransactionInfo)]),
     );
     yield r'ledger_state';
     yield serializers.serialize(
@@ -81,7 +93,9 @@ class _$StreamTransactionsResponseSerializer implements PrimitiveSerializer<Stre
     StreamTransactionsResponse object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -115,7 +129,8 @@ class _$StreamTransactionsResponseSerializer implements PrimitiveSerializer<Stre
         case r'items':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltList, [FullType(CommittedTransactionInfo)]),
+            specifiedType:
+                const FullType(BuiltList, [FullType(CommittedTransactionInfo)]),
           ) as BuiltList<CommittedTransactionInfo>;
           result.items.replace(valueDes);
           break;
@@ -154,4 +169,3 @@ class _$StreamTransactionsResponseSerializer implements PrimitiveSerializer<Stre
     return result.build();
   }
 }
-

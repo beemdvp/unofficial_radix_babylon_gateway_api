@@ -44,9 +44,9 @@ part 'metadata_typed_value.g.dart';
 /// MetadataTypedValue
 ///
 /// Properties:
-/// * [type] 
+/// * [type]
 @BuiltValue(instantiable: false)
-abstract class MetadataTypedValue  {
+abstract class MetadataTypedValue {
   @BuiltValueField(wireName: r'type')
   MetadataValueType get type;
   // enum typeEnum {  String,  Bool,  U8,  U32,  U64,  I32,  I64,  Decimal,  GlobalAddress,  PublicKey,  NonFungibleGlobalId,  NonFungibleLocalId,  Instant,  Url,  Origin,  PublicKeyHash,  StringArray,  BoolArray,  U8Array,  U32Array,  U64Array,  I32Array,  I64Array,  DecimalArray,  GlobalAddressArray,  PublicKeyArray,  NonFungibleGlobalIdArray,  NonFungibleLocalIdArray,  InstantArray,  UrlArray,  OriginArray,  PublicKeyHashArray,  };
@@ -89,213 +89,217 @@ abstract class MetadataTypedValue  {
   };
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<MetadataTypedValue> get serializer => _$MetadataTypedValueSerializer();
+  static Serializer<MetadataTypedValue> get serializer =>
+      _$MetadataTypedValueSerializer();
 }
 
 extension MetadataTypedValueDiscriminatorExt on MetadataTypedValue {
-    String? get discriminatorValue {
-        if (this is MetadataBoolValue) {
-            return r'Bool';
-        }
-        if (this is MetadataBoolArrayValue) {
-            return r'BoolArray';
-        }
-        if (this is MetadataDecimalValue) {
-            return r'Decimal';
-        }
-        if (this is MetadataDecimalArrayValue) {
-            return r'DecimalArray';
-        }
-        if (this is MetadataGlobalAddressValue) {
-            return r'GlobalAddress';
-        }
-        if (this is MetadataGlobalAddressArrayValue) {
-            return r'GlobalAddressArray';
-        }
-        if (this is MetadataI32Value) {
-            return r'I32';
-        }
-        if (this is MetadataI32ArrayValue) {
-            return r'I32Array';
-        }
-        if (this is MetadataI64Value) {
-            return r'I64';
-        }
-        if (this is MetadataI64ArrayValue) {
-            return r'I64Array';
-        }
-        if (this is MetadataInstantValue) {
-            return r'Instant';
-        }
-        if (this is MetadataInstantArrayValue) {
-            return r'InstantArray';
-        }
-        if (this is MetadataNonFungibleGlobalIdValue) {
-            return r'NonFungibleGlobalId';
-        }
-        if (this is MetadataNonFungibleGlobalIdArrayValue) {
-            return r'NonFungibleGlobalIdArray';
-        }
-        if (this is MetadataNonFungibleLocalIdValue) {
-            return r'NonFungibleLocalId';
-        }
-        if (this is MetadataNonFungibleLocalIdArrayValue) {
-            return r'NonFungibleLocalIdArray';
-        }
-        if (this is MetadataOriginValue) {
-            return r'Origin';
-        }
-        if (this is MetadataOriginArrayValue) {
-            return r'OriginArray';
-        }
-        if (this is MetadataPublicKeyValue) {
-            return r'PublicKey';
-        }
-        if (this is MetadataPublicKeyArrayValue) {
-            return r'PublicKeyArray';
-        }
-        if (this is MetadataPublicKeyHashValue) {
-            return r'PublicKeyHash';
-        }
-        if (this is MetadataPublicKeyHashArrayValue) {
-            return r'PublicKeyHashArray';
-        }
-        if (this is MetadataStringValue) {
-            return r'String';
-        }
-        if (this is MetadataStringArrayValue) {
-            return r'StringArray';
-        }
-        if (this is MetadataU32Value) {
-            return r'U32';
-        }
-        if (this is MetadataU32ArrayValue) {
-            return r'U32Array';
-        }
-        if (this is MetadataU64Value) {
-            return r'U64';
-        }
-        if (this is MetadataU64ArrayValue) {
-            return r'U64Array';
-        }
-        if (this is MetadataU8Value) {
-            return r'U8';
-        }
-        if (this is MetadataU8ArrayValue) {
-            return r'U8Array';
-        }
-        if (this is MetadataUrlValue) {
-            return r'Url';
-        }
-        if (this is MetadataUrlArrayValue) {
-            return r'UrlArray';
-        }
-        return null;
+  String? get discriminatorValue {
+    if (this is MetadataBoolValue) {
+      return r'Bool';
     }
-}
-extension MetadataTypedValueBuilderDiscriminatorExt on MetadataTypedValueBuilder {
-    String? get discriminatorValue {
-        if (this is MetadataBoolValueBuilder) {
-            return r'Bool';
-        }
-        if (this is MetadataBoolArrayValueBuilder) {
-            return r'BoolArray';
-        }
-        if (this is MetadataDecimalValueBuilder) {
-            return r'Decimal';
-        }
-        if (this is MetadataDecimalArrayValueBuilder) {
-            return r'DecimalArray';
-        }
-        if (this is MetadataGlobalAddressValueBuilder) {
-            return r'GlobalAddress';
-        }
-        if (this is MetadataGlobalAddressArrayValueBuilder) {
-            return r'GlobalAddressArray';
-        }
-        if (this is MetadataI32ValueBuilder) {
-            return r'I32';
-        }
-        if (this is MetadataI32ArrayValueBuilder) {
-            return r'I32Array';
-        }
-        if (this is MetadataI64ValueBuilder) {
-            return r'I64';
-        }
-        if (this is MetadataI64ArrayValueBuilder) {
-            return r'I64Array';
-        }
-        if (this is MetadataInstantValueBuilder) {
-            return r'Instant';
-        }
-        if (this is MetadataInstantArrayValueBuilder) {
-            return r'InstantArray';
-        }
-        if (this is MetadataNonFungibleGlobalIdValueBuilder) {
-            return r'NonFungibleGlobalId';
-        }
-        if (this is MetadataNonFungibleGlobalIdArrayValueBuilder) {
-            return r'NonFungibleGlobalIdArray';
-        }
-        if (this is MetadataNonFungibleLocalIdValueBuilder) {
-            return r'NonFungibleLocalId';
-        }
-        if (this is MetadataNonFungibleLocalIdArrayValueBuilder) {
-            return r'NonFungibleLocalIdArray';
-        }
-        if (this is MetadataOriginValueBuilder) {
-            return r'Origin';
-        }
-        if (this is MetadataOriginArrayValueBuilder) {
-            return r'OriginArray';
-        }
-        if (this is MetadataPublicKeyValueBuilder) {
-            return r'PublicKey';
-        }
-        if (this is MetadataPublicKeyArrayValueBuilder) {
-            return r'PublicKeyArray';
-        }
-        if (this is MetadataPublicKeyHashValueBuilder) {
-            return r'PublicKeyHash';
-        }
-        if (this is MetadataPublicKeyHashArrayValueBuilder) {
-            return r'PublicKeyHashArray';
-        }
-        if (this is MetadataStringValueBuilder) {
-            return r'String';
-        }
-        if (this is MetadataStringArrayValueBuilder) {
-            return r'StringArray';
-        }
-        if (this is MetadataU32ValueBuilder) {
-            return r'U32';
-        }
-        if (this is MetadataU32ArrayValueBuilder) {
-            return r'U32Array';
-        }
-        if (this is MetadataU64ValueBuilder) {
-            return r'U64';
-        }
-        if (this is MetadataU64ArrayValueBuilder) {
-            return r'U64Array';
-        }
-        if (this is MetadataU8ValueBuilder) {
-            return r'U8';
-        }
-        if (this is MetadataU8ArrayValueBuilder) {
-            return r'U8Array';
-        }
-        if (this is MetadataUrlValueBuilder) {
-            return r'Url';
-        }
-        if (this is MetadataUrlArrayValueBuilder) {
-            return r'UrlArray';
-        }
-        return null;
+    if (this is MetadataBoolArrayValue) {
+      return r'BoolArray';
     }
+    if (this is MetadataDecimalValue) {
+      return r'Decimal';
+    }
+    if (this is MetadataDecimalArrayValue) {
+      return r'DecimalArray';
+    }
+    if (this is MetadataGlobalAddressValue) {
+      return r'GlobalAddress';
+    }
+    if (this is MetadataGlobalAddressArrayValue) {
+      return r'GlobalAddressArray';
+    }
+    if (this is MetadataI32Value) {
+      return r'I32';
+    }
+    if (this is MetadataI32ArrayValue) {
+      return r'I32Array';
+    }
+    if (this is MetadataI64Value) {
+      return r'I64';
+    }
+    if (this is MetadataI64ArrayValue) {
+      return r'I64Array';
+    }
+    if (this is MetadataInstantValue) {
+      return r'Instant';
+    }
+    if (this is MetadataInstantArrayValue) {
+      return r'InstantArray';
+    }
+    if (this is MetadataNonFungibleGlobalIdValue) {
+      return r'NonFungibleGlobalId';
+    }
+    if (this is MetadataNonFungibleGlobalIdArrayValue) {
+      return r'NonFungibleGlobalIdArray';
+    }
+    if (this is MetadataNonFungibleLocalIdValue) {
+      return r'NonFungibleLocalId';
+    }
+    if (this is MetadataNonFungibleLocalIdArrayValue) {
+      return r'NonFungibleLocalIdArray';
+    }
+    if (this is MetadataOriginValue) {
+      return r'Origin';
+    }
+    if (this is MetadataOriginArrayValue) {
+      return r'OriginArray';
+    }
+    if (this is MetadataPublicKeyValue) {
+      return r'PublicKey';
+    }
+    if (this is MetadataPublicKeyArrayValue) {
+      return r'PublicKeyArray';
+    }
+    if (this is MetadataPublicKeyHashValue) {
+      return r'PublicKeyHash';
+    }
+    if (this is MetadataPublicKeyHashArrayValue) {
+      return r'PublicKeyHashArray';
+    }
+    if (this is MetadataStringValue) {
+      return r'String';
+    }
+    if (this is MetadataStringArrayValue) {
+      return r'StringArray';
+    }
+    if (this is MetadataU32Value) {
+      return r'U32';
+    }
+    if (this is MetadataU32ArrayValue) {
+      return r'U32Array';
+    }
+    if (this is MetadataU64Value) {
+      return r'U64';
+    }
+    if (this is MetadataU64ArrayValue) {
+      return r'U64Array';
+    }
+    if (this is MetadataU8Value) {
+      return r'U8';
+    }
+    if (this is MetadataU8ArrayValue) {
+      return r'U8Array';
+    }
+    if (this is MetadataUrlValue) {
+      return r'Url';
+    }
+    if (this is MetadataUrlArrayValue) {
+      return r'UrlArray';
+    }
+    return null;
+  }
 }
 
-class _$MetadataTypedValueSerializer implements PrimitiveSerializer<MetadataTypedValue> {
+extension MetadataTypedValueBuilderDiscriminatorExt
+    on MetadataTypedValueBuilder {
+  String? get discriminatorValue {
+    if (this is MetadataBoolValueBuilder) {
+      return r'Bool';
+    }
+    if (this is MetadataBoolArrayValueBuilder) {
+      return r'BoolArray';
+    }
+    if (this is MetadataDecimalValueBuilder) {
+      return r'Decimal';
+    }
+    if (this is MetadataDecimalArrayValueBuilder) {
+      return r'DecimalArray';
+    }
+    if (this is MetadataGlobalAddressValueBuilder) {
+      return r'GlobalAddress';
+    }
+    if (this is MetadataGlobalAddressArrayValueBuilder) {
+      return r'GlobalAddressArray';
+    }
+    if (this is MetadataI32ValueBuilder) {
+      return r'I32';
+    }
+    if (this is MetadataI32ArrayValueBuilder) {
+      return r'I32Array';
+    }
+    if (this is MetadataI64ValueBuilder) {
+      return r'I64';
+    }
+    if (this is MetadataI64ArrayValueBuilder) {
+      return r'I64Array';
+    }
+    if (this is MetadataInstantValueBuilder) {
+      return r'Instant';
+    }
+    if (this is MetadataInstantArrayValueBuilder) {
+      return r'InstantArray';
+    }
+    if (this is MetadataNonFungibleGlobalIdValueBuilder) {
+      return r'NonFungibleGlobalId';
+    }
+    if (this is MetadataNonFungibleGlobalIdArrayValueBuilder) {
+      return r'NonFungibleGlobalIdArray';
+    }
+    if (this is MetadataNonFungibleLocalIdValueBuilder) {
+      return r'NonFungibleLocalId';
+    }
+    if (this is MetadataNonFungibleLocalIdArrayValueBuilder) {
+      return r'NonFungibleLocalIdArray';
+    }
+    if (this is MetadataOriginValueBuilder) {
+      return r'Origin';
+    }
+    if (this is MetadataOriginArrayValueBuilder) {
+      return r'OriginArray';
+    }
+    if (this is MetadataPublicKeyValueBuilder) {
+      return r'PublicKey';
+    }
+    if (this is MetadataPublicKeyArrayValueBuilder) {
+      return r'PublicKeyArray';
+    }
+    if (this is MetadataPublicKeyHashValueBuilder) {
+      return r'PublicKeyHash';
+    }
+    if (this is MetadataPublicKeyHashArrayValueBuilder) {
+      return r'PublicKeyHashArray';
+    }
+    if (this is MetadataStringValueBuilder) {
+      return r'String';
+    }
+    if (this is MetadataStringArrayValueBuilder) {
+      return r'StringArray';
+    }
+    if (this is MetadataU32ValueBuilder) {
+      return r'U32';
+    }
+    if (this is MetadataU32ArrayValueBuilder) {
+      return r'U32Array';
+    }
+    if (this is MetadataU64ValueBuilder) {
+      return r'U64';
+    }
+    if (this is MetadataU64ArrayValueBuilder) {
+      return r'U64Array';
+    }
+    if (this is MetadataU8ValueBuilder) {
+      return r'U8';
+    }
+    if (this is MetadataU8ArrayValueBuilder) {
+      return r'U8Array';
+    }
+    if (this is MetadataUrlValueBuilder) {
+      return r'Url';
+    }
+    if (this is MetadataUrlArrayValueBuilder) {
+      return r'UrlArray';
+    }
+    return null;
+  }
+}
+
+class _$MetadataTypedValueSerializer
+    implements PrimitiveSerializer<MetadataTypedValue> {
   @override
   final Iterable<Type> types = const [MetadataTypedValue];
 
@@ -321,102 +325,136 @@ class _$MetadataTypedValueSerializer implements PrimitiveSerializer<MetadataType
     FullType specifiedType = FullType.unspecified,
   }) {
     if (object is MetadataBoolValue) {
-      return serializers.serialize(object, specifiedType: FullType(MetadataBoolValue))!;
+      return serializers.serialize(object,
+          specifiedType: FullType(MetadataBoolValue))!;
     }
     if (object is MetadataBoolArrayValue) {
-      return serializers.serialize(object, specifiedType: FullType(MetadataBoolArrayValue))!;
+      return serializers.serialize(object,
+          specifiedType: FullType(MetadataBoolArrayValue))!;
     }
     if (object is MetadataDecimalValue) {
-      return serializers.serialize(object, specifiedType: FullType(MetadataDecimalValue))!;
+      return serializers.serialize(object,
+          specifiedType: FullType(MetadataDecimalValue))!;
     }
     if (object is MetadataDecimalArrayValue) {
-      return serializers.serialize(object, specifiedType: FullType(MetadataDecimalArrayValue))!;
+      return serializers.serialize(object,
+          specifiedType: FullType(MetadataDecimalArrayValue))!;
     }
     if (object is MetadataGlobalAddressValue) {
-      return serializers.serialize(object, specifiedType: FullType(MetadataGlobalAddressValue))!;
+      return serializers.serialize(object,
+          specifiedType: FullType(MetadataGlobalAddressValue))!;
     }
     if (object is MetadataGlobalAddressArrayValue) {
-      return serializers.serialize(object, specifiedType: FullType(MetadataGlobalAddressArrayValue))!;
+      return serializers.serialize(object,
+          specifiedType: FullType(MetadataGlobalAddressArrayValue))!;
     }
     if (object is MetadataI32Value) {
-      return serializers.serialize(object, specifiedType: FullType(MetadataI32Value))!;
+      return serializers.serialize(object,
+          specifiedType: FullType(MetadataI32Value))!;
     }
     if (object is MetadataI32ArrayValue) {
-      return serializers.serialize(object, specifiedType: FullType(MetadataI32ArrayValue))!;
+      return serializers.serialize(object,
+          specifiedType: FullType(MetadataI32ArrayValue))!;
     }
     if (object is MetadataI64Value) {
-      return serializers.serialize(object, specifiedType: FullType(MetadataI64Value))!;
+      return serializers.serialize(object,
+          specifiedType: FullType(MetadataI64Value))!;
     }
     if (object is MetadataI64ArrayValue) {
-      return serializers.serialize(object, specifiedType: FullType(MetadataI64ArrayValue))!;
+      return serializers.serialize(object,
+          specifiedType: FullType(MetadataI64ArrayValue))!;
     }
     if (object is MetadataInstantValue) {
-      return serializers.serialize(object, specifiedType: FullType(MetadataInstantValue))!;
+      return serializers.serialize(object,
+          specifiedType: FullType(MetadataInstantValue))!;
     }
     if (object is MetadataInstantArrayValue) {
-      return serializers.serialize(object, specifiedType: FullType(MetadataInstantArrayValue))!;
+      return serializers.serialize(object,
+          specifiedType: FullType(MetadataInstantArrayValue))!;
     }
     if (object is MetadataNonFungibleGlobalIdValue) {
-      return serializers.serialize(object, specifiedType: FullType(MetadataNonFungibleGlobalIdValue))!;
+      return serializers.serialize(object,
+          specifiedType: FullType(MetadataNonFungibleGlobalIdValue))!;
     }
     if (object is MetadataNonFungibleGlobalIdArrayValue) {
-      return serializers.serialize(object, specifiedType: FullType(MetadataNonFungibleGlobalIdArrayValue))!;
+      return serializers.serialize(object,
+          specifiedType: FullType(MetadataNonFungibleGlobalIdArrayValue))!;
     }
     if (object is MetadataNonFungibleLocalIdValue) {
-      return serializers.serialize(object, specifiedType: FullType(MetadataNonFungibleLocalIdValue))!;
+      return serializers.serialize(object,
+          specifiedType: FullType(MetadataNonFungibleLocalIdValue))!;
     }
     if (object is MetadataNonFungibleLocalIdArrayValue) {
-      return serializers.serialize(object, specifiedType: FullType(MetadataNonFungibleLocalIdArrayValue))!;
+      return serializers.serialize(object,
+          specifiedType: FullType(MetadataNonFungibleLocalIdArrayValue))!;
     }
     if (object is MetadataOriginValue) {
-      return serializers.serialize(object, specifiedType: FullType(MetadataOriginValue))!;
+      return serializers.serialize(object,
+          specifiedType: FullType(MetadataOriginValue))!;
     }
     if (object is MetadataOriginArrayValue) {
-      return serializers.serialize(object, specifiedType: FullType(MetadataOriginArrayValue))!;
+      return serializers.serialize(object,
+          specifiedType: FullType(MetadataOriginArrayValue))!;
     }
     if (object is MetadataPublicKeyValue) {
-      return serializers.serialize(object, specifiedType: FullType(MetadataPublicKeyValue))!;
+      return serializers.serialize(object,
+          specifiedType: FullType(MetadataPublicKeyValue))!;
     }
     if (object is MetadataPublicKeyArrayValue) {
-      return serializers.serialize(object, specifiedType: FullType(MetadataPublicKeyArrayValue))!;
+      return serializers.serialize(object,
+          specifiedType: FullType(MetadataPublicKeyArrayValue))!;
     }
     if (object is MetadataPublicKeyHashValue) {
-      return serializers.serialize(object, specifiedType: FullType(MetadataPublicKeyHashValue))!;
+      return serializers.serialize(object,
+          specifiedType: FullType(MetadataPublicKeyHashValue))!;
     }
     if (object is MetadataPublicKeyHashArrayValue) {
-      return serializers.serialize(object, specifiedType: FullType(MetadataPublicKeyHashArrayValue))!;
+      return serializers.serialize(object,
+          specifiedType: FullType(MetadataPublicKeyHashArrayValue))!;
     }
     if (object is MetadataStringValue) {
-      return serializers.serialize(object, specifiedType: FullType(MetadataStringValue))!;
+      return serializers.serialize(object,
+          specifiedType: FullType(MetadataStringValue))!;
     }
     if (object is MetadataStringArrayValue) {
-      return serializers.serialize(object, specifiedType: FullType(MetadataStringArrayValue))!;
+      return serializers.serialize(object,
+          specifiedType: FullType(MetadataStringArrayValue))!;
     }
     if (object is MetadataU32Value) {
-      return serializers.serialize(object, specifiedType: FullType(MetadataU32Value))!;
+      return serializers.serialize(object,
+          specifiedType: FullType(MetadataU32Value))!;
     }
     if (object is MetadataU32ArrayValue) {
-      return serializers.serialize(object, specifiedType: FullType(MetadataU32ArrayValue))!;
+      return serializers.serialize(object,
+          specifiedType: FullType(MetadataU32ArrayValue))!;
     }
     if (object is MetadataU64Value) {
-      return serializers.serialize(object, specifiedType: FullType(MetadataU64Value))!;
+      return serializers.serialize(object,
+          specifiedType: FullType(MetadataU64Value))!;
     }
     if (object is MetadataU64ArrayValue) {
-      return serializers.serialize(object, specifiedType: FullType(MetadataU64ArrayValue))!;
+      return serializers.serialize(object,
+          specifiedType: FullType(MetadataU64ArrayValue))!;
     }
     if (object is MetadataU8Value) {
-      return serializers.serialize(object, specifiedType: FullType(MetadataU8Value))!;
+      return serializers.serialize(object,
+          specifiedType: FullType(MetadataU8Value))!;
     }
     if (object is MetadataU8ArrayValue) {
-      return serializers.serialize(object, specifiedType: FullType(MetadataU8ArrayValue))!;
+      return serializers.serialize(object,
+          specifiedType: FullType(MetadataU8ArrayValue))!;
     }
     if (object is MetadataUrlValue) {
-      return serializers.serialize(object, specifiedType: FullType(MetadataUrlValue))!;
+      return serializers.serialize(object,
+          specifiedType: FullType(MetadataUrlValue))!;
     }
     if (object is MetadataUrlArrayValue) {
-      return serializers.serialize(object, specifiedType: FullType(MetadataUrlArrayValue))!;
+      return serializers.serialize(object,
+          specifiedType: FullType(MetadataUrlArrayValue))!;
     }
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   @override
@@ -426,96 +464,167 @@ class _$MetadataTypedValueSerializer implements PrimitiveSerializer<MetadataType
     FullType specifiedType = FullType.unspecified,
   }) {
     final serializedList = (serialized as Iterable<Object?>).toList();
-    final discIndex = serializedList.indexOf(MetadataTypedValue.discriminatorFieldName) + 1;
-    final discValue = serializers.deserialize(serializedList[discIndex], specifiedType: FullType(String)) as String;
+    final discIndex =
+        serializedList.indexOf(MetadataTypedValue.discriminatorFieldName) + 1;
+    final discValue = serializers.deserialize(serializedList[discIndex],
+        specifiedType: FullType(String)) as String;
     switch (discValue) {
       case r'Bool':
-        return serializers.deserialize(serialized, specifiedType: FullType(MetadataBoolValue)) as MetadataBoolValue;
+        return serializers.deserialize(serialized,
+            specifiedType: FullType(MetadataBoolValue)) as MetadataBoolValue;
       case r'BoolArray':
-        return serializers.deserialize(serialized, specifiedType: FullType(MetadataBoolArrayValue)) as MetadataBoolArrayValue;
+        return serializers.deserialize(serialized,
+                specifiedType: FullType(MetadataBoolArrayValue))
+            as MetadataBoolArrayValue;
       case r'Decimal':
-        return serializers.deserialize(serialized, specifiedType: FullType(MetadataDecimalValue)) as MetadataDecimalValue;
+        return serializers.deserialize(serialized,
+                specifiedType: FullType(MetadataDecimalValue))
+            as MetadataDecimalValue;
       case r'DecimalArray':
-        return serializers.deserialize(serialized, specifiedType: FullType(MetadataDecimalArrayValue)) as MetadataDecimalArrayValue;
+        return serializers.deserialize(serialized,
+                specifiedType: FullType(MetadataDecimalArrayValue))
+            as MetadataDecimalArrayValue;
       case r'GlobalAddress':
-        return serializers.deserialize(serialized, specifiedType: FullType(MetadataGlobalAddressValue)) as MetadataGlobalAddressValue;
+        return serializers.deserialize(serialized,
+                specifiedType: FullType(MetadataGlobalAddressValue))
+            as MetadataGlobalAddressValue;
       case r'GlobalAddressArray':
-        return serializers.deserialize(serialized, specifiedType: FullType(MetadataGlobalAddressArrayValue)) as MetadataGlobalAddressArrayValue;
+        return serializers.deserialize(serialized,
+                specifiedType: FullType(MetadataGlobalAddressArrayValue))
+            as MetadataGlobalAddressArrayValue;
       case r'I32':
-        return serializers.deserialize(serialized, specifiedType: FullType(MetadataI32Value)) as MetadataI32Value;
+        return serializers.deserialize(serialized,
+            specifiedType: FullType(MetadataI32Value)) as MetadataI32Value;
       case r'I32Array':
-        return serializers.deserialize(serialized, specifiedType: FullType(MetadataI32ArrayValue)) as MetadataI32ArrayValue;
+        return serializers.deserialize(serialized,
+                specifiedType: FullType(MetadataI32ArrayValue))
+            as MetadataI32ArrayValue;
       case r'I64':
-        return serializers.deserialize(serialized, specifiedType: FullType(MetadataI64Value)) as MetadataI64Value;
+        return serializers.deserialize(serialized,
+            specifiedType: FullType(MetadataI64Value)) as MetadataI64Value;
       case r'I64Array':
-        return serializers.deserialize(serialized, specifiedType: FullType(MetadataI64ArrayValue)) as MetadataI64ArrayValue;
+        return serializers.deserialize(serialized,
+                specifiedType: FullType(MetadataI64ArrayValue))
+            as MetadataI64ArrayValue;
       case r'Instant':
-        return serializers.deserialize(serialized, specifiedType: FullType(MetadataInstantValue)) as MetadataInstantValue;
+        return serializers.deserialize(serialized,
+                specifiedType: FullType(MetadataInstantValue))
+            as MetadataInstantValue;
       case r'InstantArray':
-        return serializers.deserialize(serialized, specifiedType: FullType(MetadataInstantArrayValue)) as MetadataInstantArrayValue;
+        return serializers.deserialize(serialized,
+                specifiedType: FullType(MetadataInstantArrayValue))
+            as MetadataInstantArrayValue;
       case r'NonFungibleGlobalId':
-        return serializers.deserialize(serialized, specifiedType: FullType(MetadataNonFungibleGlobalIdValue)) as MetadataNonFungibleGlobalIdValue;
+        return serializers.deserialize(serialized,
+                specifiedType: FullType(MetadataNonFungibleGlobalIdValue))
+            as MetadataNonFungibleGlobalIdValue;
       case r'NonFungibleGlobalIdArray':
-        return serializers.deserialize(serialized, specifiedType: FullType(MetadataNonFungibleGlobalIdArrayValue)) as MetadataNonFungibleGlobalIdArrayValue;
+        return serializers.deserialize(serialized,
+                specifiedType: FullType(MetadataNonFungibleGlobalIdArrayValue))
+            as MetadataNonFungibleGlobalIdArrayValue;
       case r'NonFungibleLocalId':
-        return serializers.deserialize(serialized, specifiedType: FullType(MetadataNonFungibleLocalIdValue)) as MetadataNonFungibleLocalIdValue;
+        return serializers.deserialize(serialized,
+                specifiedType: FullType(MetadataNonFungibleLocalIdValue))
+            as MetadataNonFungibleLocalIdValue;
       case r'NonFungibleLocalIdArray':
-        return serializers.deserialize(serialized, specifiedType: FullType(MetadataNonFungibleLocalIdArrayValue)) as MetadataNonFungibleLocalIdArrayValue;
+        return serializers.deserialize(serialized,
+                specifiedType: FullType(MetadataNonFungibleLocalIdArrayValue))
+            as MetadataNonFungibleLocalIdArrayValue;
       case r'Origin':
-        return serializers.deserialize(serialized, specifiedType: FullType(MetadataOriginValue)) as MetadataOriginValue;
+        return serializers.deserialize(serialized,
+                specifiedType: FullType(MetadataOriginValue))
+            as MetadataOriginValue;
       case r'OriginArray':
-        return serializers.deserialize(serialized, specifiedType: FullType(MetadataOriginArrayValue)) as MetadataOriginArrayValue;
+        return serializers.deserialize(serialized,
+                specifiedType: FullType(MetadataOriginArrayValue))
+            as MetadataOriginArrayValue;
       case r'PublicKey':
-        return serializers.deserialize(serialized, specifiedType: FullType(MetadataPublicKeyValue)) as MetadataPublicKeyValue;
+        return serializers.deserialize(serialized,
+                specifiedType: FullType(MetadataPublicKeyValue))
+            as MetadataPublicKeyValue;
       case r'PublicKeyArray':
-        return serializers.deserialize(serialized, specifiedType: FullType(MetadataPublicKeyArrayValue)) as MetadataPublicKeyArrayValue;
+        return serializers.deserialize(serialized,
+                specifiedType: FullType(MetadataPublicKeyArrayValue))
+            as MetadataPublicKeyArrayValue;
       case r'PublicKeyHash':
-        return serializers.deserialize(serialized, specifiedType: FullType(MetadataPublicKeyHashValue)) as MetadataPublicKeyHashValue;
+        return serializers.deserialize(serialized,
+                specifiedType: FullType(MetadataPublicKeyHashValue))
+            as MetadataPublicKeyHashValue;
       case r'PublicKeyHashArray':
-        return serializers.deserialize(serialized, specifiedType: FullType(MetadataPublicKeyHashArrayValue)) as MetadataPublicKeyHashArrayValue;
+        return serializers.deserialize(serialized,
+                specifiedType: FullType(MetadataPublicKeyHashArrayValue))
+            as MetadataPublicKeyHashArrayValue;
       case r'String':
-        return serializers.deserialize(serialized, specifiedType: FullType(MetadataStringValue)) as MetadataStringValue;
+        return serializers.deserialize(serialized,
+                specifiedType: FullType(MetadataStringValue))
+            as MetadataStringValue;
       case r'StringArray':
-        return serializers.deserialize(serialized, specifiedType: FullType(MetadataStringArrayValue)) as MetadataStringArrayValue;
+        return serializers.deserialize(serialized,
+                specifiedType: FullType(MetadataStringArrayValue))
+            as MetadataStringArrayValue;
       case r'U32':
-        return serializers.deserialize(serialized, specifiedType: FullType(MetadataU32Value)) as MetadataU32Value;
+        return serializers.deserialize(serialized,
+            specifiedType: FullType(MetadataU32Value)) as MetadataU32Value;
       case r'U32Array':
-        return serializers.deserialize(serialized, specifiedType: FullType(MetadataU32ArrayValue)) as MetadataU32ArrayValue;
+        return serializers.deserialize(serialized,
+                specifiedType: FullType(MetadataU32ArrayValue))
+            as MetadataU32ArrayValue;
       case r'U64':
-        return serializers.deserialize(serialized, specifiedType: FullType(MetadataU64Value)) as MetadataU64Value;
+        return serializers.deserialize(serialized,
+            specifiedType: FullType(MetadataU64Value)) as MetadataU64Value;
       case r'U64Array':
-        return serializers.deserialize(serialized, specifiedType: FullType(MetadataU64ArrayValue)) as MetadataU64ArrayValue;
+        return serializers.deserialize(serialized,
+                specifiedType: FullType(MetadataU64ArrayValue))
+            as MetadataU64ArrayValue;
       case r'U8':
-        return serializers.deserialize(serialized, specifiedType: FullType(MetadataU8Value)) as MetadataU8Value;
+        return serializers.deserialize(serialized,
+            specifiedType: FullType(MetadataU8Value)) as MetadataU8Value;
       case r'U8Array':
-        return serializers.deserialize(serialized, specifiedType: FullType(MetadataU8ArrayValue)) as MetadataU8ArrayValue;
+        return serializers.deserialize(serialized,
+                specifiedType: FullType(MetadataU8ArrayValue))
+            as MetadataU8ArrayValue;
       case r'Url':
-        return serializers.deserialize(serialized, specifiedType: FullType(MetadataUrlValue)) as MetadataUrlValue;
+        return serializers.deserialize(serialized,
+            specifiedType: FullType(MetadataUrlValue)) as MetadataUrlValue;
       case r'UrlArray':
-        return serializers.deserialize(serialized, specifiedType: FullType(MetadataUrlArrayValue)) as MetadataUrlArrayValue;
+        return serializers.deserialize(serialized,
+                specifiedType: FullType(MetadataUrlArrayValue))
+            as MetadataUrlArrayValue;
       default:
-        return serializers.deserialize(serialized, specifiedType: FullType($MetadataTypedValue)) as $MetadataTypedValue;
+        return serializers.deserialize(serialized,
+                specifiedType: FullType($MetadataTypedValue))
+            as $MetadataTypedValue;
     }
   }
 }
 
 /// a concrete implementation of [MetadataTypedValue], since [MetadataTypedValue] is not instantiable
 @BuiltValue(instantiable: true)
-abstract class $MetadataTypedValue implements MetadataTypedValue, Built<$MetadataTypedValue, $MetadataTypedValueBuilder> {
+abstract class $MetadataTypedValue
+    implements
+        MetadataTypedValue,
+        Built<$MetadataTypedValue, $MetadataTypedValueBuilder> {
   $MetadataTypedValue._();
 
-  factory $MetadataTypedValue([void Function($MetadataTypedValueBuilder)? updates]) = _$$MetadataTypedValue;
+  factory $MetadataTypedValue(
+          [void Function($MetadataTypedValueBuilder)? updates]) =
+      _$$MetadataTypedValue;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($MetadataTypedValueBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<$MetadataTypedValue> get serializer => _$$MetadataTypedValueSerializer();
+  static Serializer<$MetadataTypedValue> get serializer =>
+      _$$MetadataTypedValueSerializer();
 }
 
-class _$$MetadataTypedValueSerializer implements PrimitiveSerializer<$MetadataTypedValue> {
+class _$$MetadataTypedValueSerializer
+    implements PrimitiveSerializer<$MetadataTypedValue> {
   @override
-  final Iterable<Type> types = const [$MetadataTypedValue, _$$MetadataTypedValue];
+  final Iterable<Type> types = const [
+    $MetadataTypedValue,
+    _$$MetadataTypedValue
+  ];
 
   @override
   final String wireName = r'$MetadataTypedValue';
@@ -526,7 +635,8 @@ class _$$MetadataTypedValueSerializer implements PrimitiveSerializer<$MetadataTy
     $MetadataTypedValue object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return serializers.serialize(object, specifiedType: FullType(MetadataTypedValue))!;
+    return serializers.serialize(object,
+        specifiedType: FullType(MetadataTypedValue))!;
   }
 
   void _deserializeProperties(
@@ -576,4 +686,3 @@ class _$$MetadataTypedValueSerializer implements PrimitiveSerializer<$MetadataTy
     return result.build();
   }
 }
-

@@ -16,12 +16,16 @@ part 'state_non_fungible_data_response.g.dart';
 /// StateNonFungibleDataResponse
 ///
 /// Properties:
-/// * [ledgerState] 
+/// * [ledgerState]
 /// * [resourceAddress] - Bech32m-encoded human readable version of the address.
-/// * [nonFungibleIdType] 
-/// * [nonFungibleIds] 
+/// * [nonFungibleIdType]
+/// * [nonFungibleIds]
 @BuiltValue()
-abstract class StateNonFungibleDataResponse implements LedgerStateMixin, Built<StateNonFungibleDataResponse, StateNonFungibleDataResponseBuilder> {
+abstract class StateNonFungibleDataResponse
+    implements
+        LedgerStateMixin,
+        Built<StateNonFungibleDataResponse,
+            StateNonFungibleDataResponseBuilder> {
   /// Bech32m-encoded human readable version of the address.
   @BuiltValueField(wireName: r'resource_address')
   String get resourceAddress;
@@ -35,18 +39,25 @@ abstract class StateNonFungibleDataResponse implements LedgerStateMixin, Built<S
 
   StateNonFungibleDataResponse._();
 
-  factory StateNonFungibleDataResponse([void updates(StateNonFungibleDataResponseBuilder b)]) = _$StateNonFungibleDataResponse;
+  factory StateNonFungibleDataResponse(
+          [void updates(StateNonFungibleDataResponseBuilder b)]) =
+      _$StateNonFungibleDataResponse;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(StateNonFungibleDataResponseBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<StateNonFungibleDataResponse> get serializer => _$StateNonFungibleDataResponseSerializer();
+  static Serializer<StateNonFungibleDataResponse> get serializer =>
+      _$StateNonFungibleDataResponseSerializer();
 }
 
-class _$StateNonFungibleDataResponseSerializer implements PrimitiveSerializer<StateNonFungibleDataResponse> {
+class _$StateNonFungibleDataResponseSerializer
+    implements PrimitiveSerializer<StateNonFungibleDataResponse> {
   @override
-  final Iterable<Type> types = const [StateNonFungibleDataResponse, _$StateNonFungibleDataResponse];
+  final Iterable<Type> types = const [
+    StateNonFungibleDataResponse,
+    _$StateNonFungibleDataResponse
+  ];
 
   @override
   final String wireName = r'StateNonFungibleDataResponse';
@@ -69,7 +80,8 @@ class _$StateNonFungibleDataResponseSerializer implements PrimitiveSerializer<St
     yield r'non_fungible_ids';
     yield serializers.serialize(
       object.nonFungibleIds,
-      specifiedType: const FullType(BuiltList, [FullType(StateNonFungibleDetailsResponseItem)]),
+      specifiedType: const FullType(
+          BuiltList, [FullType(StateNonFungibleDetailsResponseItem)]),
     );
     yield r'ledger_state';
     yield serializers.serialize(
@@ -84,7 +96,9 @@ class _$StateNonFungibleDataResponseSerializer implements PrimitiveSerializer<St
     StateNonFungibleDataResponse object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -116,7 +130,8 @@ class _$StateNonFungibleDataResponseSerializer implements PrimitiveSerializer<St
         case r'non_fungible_ids':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltList, [FullType(StateNonFungibleDetailsResponseItem)]),
+            specifiedType: const FullType(
+                BuiltList, [FullType(StateNonFungibleDetailsResponseItem)]),
           ) as BuiltList<StateNonFungibleDetailsResponseItem>;
           result.nonFungibleIds.replace(valueDes);
           break;
@@ -155,4 +170,3 @@ class _$StateNonFungibleDataResponseSerializer implements PrimitiveSerializer<St
     return result.build();
   }
 }
-

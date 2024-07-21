@@ -17,16 +17,19 @@ part 'transaction_status_response.g.dart';
 /// TransactionStatusResponse
 ///
 /// Properties:
-/// * [ledgerState] 
-/// * [status] 
-/// * [intentStatus] 
-/// * [intentStatusDescription] - An additional description to clarify the intent status. 
-/// * [knownPayloads] 
-/// * [committedStateVersion] - If the intent was committed, this gives the state version when this intent was committed. 
+/// * [ledgerState]
+/// * [status]
+/// * [intentStatus]
+/// * [intentStatusDescription] - An additional description to clarify the intent status.
+/// * [knownPayloads]
+/// * [committedStateVersion] - If the intent was committed, this gives the state version when this intent was committed.
 /// * [permanentlyRejectsAtEpoch] - The epoch number at which the transaction is guaranteed to get permanently rejected by the Network due to exceeded epoch range defined when submitting transaction.
-/// * [errorMessage] - The most relevant error message received, due to a rejection or commit as failure. Please note that presence of an error message doesn't imply that the intent will definitely reject or fail. This could represent a temporary error (such as out of fees), or an error with a payload which doesn't end up being committed. 
+/// * [errorMessage] - The most relevant error message received, due to a rejection or commit as failure. Please note that presence of an error message doesn't imply that the intent will definitely reject or fail. This could represent a temporary error (such as out of fees), or an error with a payload which doesn't end up being committed.
 @BuiltValue()
-abstract class TransactionStatusResponse implements LedgerStateMixin, Built<TransactionStatusResponse, TransactionStatusResponseBuilder> {
+abstract class TransactionStatusResponse
+    implements
+        LedgerStateMixin,
+        Built<TransactionStatusResponse, TransactionStatusResponseBuilder> {
   @BuiltValueField(wireName: r'known_payloads')
   BuiltList<TransactionStatusResponseKnownPayloadItem> get knownPayloads;
 
@@ -34,11 +37,11 @@ abstract class TransactionStatusResponse implements LedgerStateMixin, Built<Tran
   TransactionIntentStatus get intentStatus;
   // enum intentStatusEnum {  Unknown,  CommittedSuccess,  CommittedFailure,  CommitPendingOutcomeUnknown,  PermanentlyRejected,  LikelyButNotCertainRejection,  Pending,  };
 
-  /// The most relevant error message received, due to a rejection or commit as failure. Please note that presence of an error message doesn't imply that the intent will definitely reject or fail. This could represent a temporary error (such as out of fees), or an error with a payload which doesn't end up being committed. 
+  /// The most relevant error message received, due to a rejection or commit as failure. Please note that presence of an error message doesn't imply that the intent will definitely reject or fail. This could represent a temporary error (such as out of fees), or an error with a payload which doesn't end up being committed.
   @BuiltValueField(wireName: r'error_message')
   String? get errorMessage;
 
-  /// If the intent was committed, this gives the state version when this intent was committed. 
+  /// If the intent was committed, this gives the state version when this intent was committed.
   @BuiltValueField(wireName: r'committed_state_version')
   int? get committedStateVersion;
 
@@ -46,7 +49,7 @@ abstract class TransactionStatusResponse implements LedgerStateMixin, Built<Tran
   @BuiltValueField(wireName: r'permanently_rejects_at_epoch')
   int? get permanentlyRejectsAtEpoch;
 
-  /// An additional description to clarify the intent status. 
+  /// An additional description to clarify the intent status.
   @BuiltValueField(wireName: r'intent_status_description')
   String get intentStatusDescription;
 
@@ -56,18 +59,25 @@ abstract class TransactionStatusResponse implements LedgerStateMixin, Built<Tran
 
   TransactionStatusResponse._();
 
-  factory TransactionStatusResponse([void updates(TransactionStatusResponseBuilder b)]) = _$TransactionStatusResponse;
+  factory TransactionStatusResponse(
+          [void updates(TransactionStatusResponseBuilder b)]) =
+      _$TransactionStatusResponse;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(TransactionStatusResponseBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<TransactionStatusResponse> get serializer => _$TransactionStatusResponseSerializer();
+  static Serializer<TransactionStatusResponse> get serializer =>
+      _$TransactionStatusResponseSerializer();
 }
 
-class _$TransactionStatusResponseSerializer implements PrimitiveSerializer<TransactionStatusResponse> {
+class _$TransactionStatusResponseSerializer
+    implements PrimitiveSerializer<TransactionStatusResponse> {
   @override
-  final Iterable<Type> types = const [TransactionStatusResponse, _$TransactionStatusResponse];
+  final Iterable<Type> types = const [
+    TransactionStatusResponse,
+    _$TransactionStatusResponse
+  ];
 
   @override
   final String wireName = r'TransactionStatusResponse';
@@ -80,7 +90,8 @@ class _$TransactionStatusResponseSerializer implements PrimitiveSerializer<Trans
     yield r'known_payloads';
     yield serializers.serialize(
       object.knownPayloads,
-      specifiedType: const FullType(BuiltList, [FullType(TransactionStatusResponseKnownPayloadItem)]),
+      specifiedType: const FullType(
+          BuiltList, [FullType(TransactionStatusResponseKnownPayloadItem)]),
     );
     yield r'intent_status';
     yield serializers.serialize(
@@ -131,7 +142,9 @@ class _$TransactionStatusResponseSerializer implements PrimitiveSerializer<Trans
     TransactionStatusResponse object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -149,7 +162,8 @@ class _$TransactionStatusResponseSerializer implements PrimitiveSerializer<Trans
         case r'known_payloads':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltList, [FullType(TransactionStatusResponseKnownPayloadItem)]),
+            specifiedType: const FullType(BuiltList,
+                [FullType(TransactionStatusResponseKnownPayloadItem)]),
           ) as BuiltList<TransactionStatusResponseKnownPayloadItem>;
           result.knownPayloads.replace(valueDes);
           break;
@@ -233,4 +247,3 @@ class _$TransactionStatusResponseSerializer implements PrimitiveSerializer<Trans
     return result.build();
   }
 }
-

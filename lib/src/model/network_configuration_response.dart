@@ -14,9 +14,12 @@ part 'network_configuration_response.g.dart';
 /// Properties:
 /// * [networkId] - The logical id of the network
 /// * [networkName] - The logical name of the network
-/// * [wellKnownAddresses] 
+/// * [wellKnownAddresses]
 @BuiltValue()
-abstract class NetworkConfigurationResponse implements Built<NetworkConfigurationResponse, NetworkConfigurationResponseBuilder> {
+abstract class NetworkConfigurationResponse
+    implements
+        Built<NetworkConfigurationResponse,
+            NetworkConfigurationResponseBuilder> {
   /// The logical id of the network
   @BuiltValueField(wireName: r'network_id')
   int get networkId;
@@ -30,18 +33,25 @@ abstract class NetworkConfigurationResponse implements Built<NetworkConfiguratio
 
   NetworkConfigurationResponse._();
 
-  factory NetworkConfigurationResponse([void updates(NetworkConfigurationResponseBuilder b)]) = _$NetworkConfigurationResponse;
+  factory NetworkConfigurationResponse(
+          [void updates(NetworkConfigurationResponseBuilder b)]) =
+      _$NetworkConfigurationResponse;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(NetworkConfigurationResponseBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<NetworkConfigurationResponse> get serializer => _$NetworkConfigurationResponseSerializer();
+  static Serializer<NetworkConfigurationResponse> get serializer =>
+      _$NetworkConfigurationResponseSerializer();
 }
 
-class _$NetworkConfigurationResponseSerializer implements PrimitiveSerializer<NetworkConfigurationResponse> {
+class _$NetworkConfigurationResponseSerializer
+    implements PrimitiveSerializer<NetworkConfigurationResponse> {
   @override
-  final Iterable<Type> types = const [NetworkConfigurationResponse, _$NetworkConfigurationResponse];
+  final Iterable<Type> types = const [
+    NetworkConfigurationResponse,
+    _$NetworkConfigurationResponse
+  ];
 
   @override
   final String wireName = r'NetworkConfigurationResponse';
@@ -64,7 +74,8 @@ class _$NetworkConfigurationResponseSerializer implements PrimitiveSerializer<Ne
     yield r'well_known_addresses';
     yield serializers.serialize(
       object.wellKnownAddresses,
-      specifiedType: const FullType(NetworkConfigurationResponseWellKnownAddresses),
+      specifiedType:
+          const FullType(NetworkConfigurationResponseWellKnownAddresses),
     );
   }
 
@@ -74,7 +85,9 @@ class _$NetworkConfigurationResponseSerializer implements PrimitiveSerializer<Ne
     NetworkConfigurationResponse object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -106,7 +119,8 @@ class _$NetworkConfigurationResponseSerializer implements PrimitiveSerializer<Ne
         case r'well_known_addresses':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(NetworkConfigurationResponseWellKnownAddresses),
+            specifiedType:
+                const FullType(NetworkConfigurationResponseWellKnownAddresses),
           ) as NetworkConfigurationResponseWellKnownAddresses;
           result.wellKnownAddresses.replace(valueDes);
           break;
@@ -138,4 +152,3 @@ class _$NetworkConfigurationResponseSerializer implements PrimitiveSerializer<Ne
     return result.build();
   }
 }
-

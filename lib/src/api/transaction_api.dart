@@ -21,7 +21,6 @@ import 'package:unofficial_babylon_gateway_api/src/model/transaction_submit_requ
 import 'package:unofficial_babylon_gateway_api/src/model/transaction_submit_response.dart';
 
 class TransactionApi {
-
   final Dio _dio;
 
   final Serializers _serializers;
@@ -29,10 +28,10 @@ class TransactionApi {
   const TransactionApi(this._dio, this._serializers);
 
   /// PreValidate deposit of resources to an account
-  /// Helper endpoint that allows pre-validation if a deposit of certain resources to a given account can succeed or not. It is only meant for pre-validation usage, it does not guarantee that execution will succeed. 
+  /// Helper endpoint that allows pre-validation if a deposit of certain resources to a given account can succeed or not. It is only meant for pre-validation usage, it does not guarantee that execution will succeed.
   ///
   /// Parameters:
-  /// * [accountDepositPreValidationRequest] 
+  /// * [accountDepositPreValidationRequest]
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -42,8 +41,10 @@ class TransactionApi {
   ///
   /// Returns a [Future] containing a [Response] with a [AccountDepositPreValidationResponse] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<AccountDepositPreValidationResponse>> accountDepositPreValidation({ 
-    required AccountDepositPreValidationRequest accountDepositPreValidationRequest,
+  Future<Response<AccountDepositPreValidationResponse>>
+      accountDepositPreValidation({
+    required AccountDepositPreValidationRequest
+        accountDepositPreValidationRequest,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -69,11 +70,11 @@ class TransactionApi {
 
     try {
       const _type = FullType(AccountDepositPreValidationRequest);
-      _bodyData = _serializers.serialize(accountDepositPreValidationRequest, specifiedType: _type);
-
-    } catch(error, stackTrace) {
+      _bodyData = _serializers.serialize(accountDepositPreValidationRequest,
+          specifiedType: _type);
+    } catch (error, stackTrace) {
       throw DioException(
-         requestOptions: _options.compose(
+        requestOptions: _options.compose(
           _dio.options,
           _path,
         ),
@@ -96,11 +97,13 @@ class TransactionApi {
 
     try {
       final rawResponse = _response.data;
-      _responseData = rawResponse == null ? null : _serializers.deserialize(
-        rawResponse,
-        specifiedType: const FullType(AccountDepositPreValidationResponse),
-      ) as AccountDepositPreValidationResponse;
-
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType:
+                  const FullType(AccountDepositPreValidationResponse),
+            ) as AccountDepositPreValidationResponse;
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -124,10 +127,10 @@ class TransactionApi {
   }
 
   /// Get Committed Transaction Details
-  /// Returns the committed details and receipt of the transaction for a given transaction identifier. Transaction identifiers which don&#39;t correspond to a committed transaction will return a &#x60;TransactionNotFoundError&#x60;. 
+  /// Returns the committed details and receipt of the transaction for a given transaction identifier. Transaction identifiers which don&#39;t correspond to a committed transaction will return a &#x60;TransactionNotFoundError&#x60;.
   ///
   /// Parameters:
-  /// * [transactionCommittedDetailsRequest] 
+  /// * [transactionCommittedDetailsRequest]
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -137,8 +140,10 @@ class TransactionApi {
   ///
   /// Returns a [Future] containing a [Response] with a [TransactionCommittedDetailsResponse] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<TransactionCommittedDetailsResponse>> transactionCommittedDetails({ 
-    required TransactionCommittedDetailsRequest transactionCommittedDetailsRequest,
+  Future<Response<TransactionCommittedDetailsResponse>>
+      transactionCommittedDetails({
+    required TransactionCommittedDetailsRequest
+        transactionCommittedDetailsRequest,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -164,11 +169,11 @@ class TransactionApi {
 
     try {
       const _type = FullType(TransactionCommittedDetailsRequest);
-      _bodyData = _serializers.serialize(transactionCommittedDetailsRequest, specifiedType: _type);
-
-    } catch(error, stackTrace) {
+      _bodyData = _serializers.serialize(transactionCommittedDetailsRequest,
+          specifiedType: _type);
+    } catch (error, stackTrace) {
       throw DioException(
-         requestOptions: _options.compose(
+        requestOptions: _options.compose(
           _dio.options,
           _path,
         ),
@@ -191,11 +196,13 @@ class TransactionApi {
 
     try {
       final rawResponse = _response.data;
-      _responseData = rawResponse == null ? null : _serializers.deserialize(
-        rawResponse,
-        specifiedType: const FullType(TransactionCommittedDetailsResponse),
-      ) as TransactionCommittedDetailsResponse;
-
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType:
+                  const FullType(TransactionCommittedDetailsResponse),
+            ) as TransactionCommittedDetailsResponse;
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -219,7 +226,7 @@ class TransactionApi {
   }
 
   /// Get Construction Metadata
-  /// Returns information needed to construct a new transaction including current &#x60;epoch&#x60; number. 
+  /// Returns information needed to construct a new transaction including current &#x60;epoch&#x60; number.
   ///
   /// Parameters:
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
@@ -231,7 +238,7 @@ class TransactionApi {
   ///
   /// Returns a [Future] containing a [Response] with a [TransactionConstructionResponse] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<TransactionConstructionResponse>> transactionConstruction({ 
+  Future<Response<TransactionConstructionResponse>> transactionConstruction({
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -264,11 +271,12 @@ class TransactionApi {
 
     try {
       final rawResponse = _response.data;
-      _responseData = rawResponse == null ? null : _serializers.deserialize(
-        rawResponse,
-        specifiedType: const FullType(TransactionConstructionResponse),
-      ) as TransactionConstructionResponse;
-
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(TransactionConstructionResponse),
+            ) as TransactionConstructionResponse;
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -292,10 +300,10 @@ class TransactionApi {
   }
 
   /// Preview Transaction
-  /// Previews transaction against the network. This endpoint is effectively a proxy towards the Core API &#x60;/v0/transaction/preview&#x60; endpoint. See the Core API documentation for more details. 
+  /// Previews transaction against the network. This endpoint is effectively a proxy towards the Core API &#x60;/v0/transaction/preview&#x60; endpoint. See the Core API documentation for more details.
   ///
   /// Parameters:
-  /// * [transactionPreviewRequest] 
+  /// * [transactionPreviewRequest]
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -305,7 +313,7 @@ class TransactionApi {
   ///
   /// Returns a [Future] containing a [Response] with a [TransactionPreviewResponse] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<TransactionPreviewResponse>> transactionPreview({ 
+  Future<Response<TransactionPreviewResponse>> transactionPreview({
     required TransactionPreviewRequest transactionPreviewRequest,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -332,11 +340,11 @@ class TransactionApi {
 
     try {
       const _type = FullType(TransactionPreviewRequest);
-      _bodyData = _serializers.serialize(transactionPreviewRequest, specifiedType: _type);
-
-    } catch(error, stackTrace) {
+      _bodyData = _serializers.serialize(transactionPreviewRequest,
+          specifiedType: _type);
+    } catch (error, stackTrace) {
       throw DioException(
-         requestOptions: _options.compose(
+        requestOptions: _options.compose(
           _dio.options,
           _path,
         ),
@@ -359,11 +367,12 @@ class TransactionApi {
 
     try {
       final rawResponse = _response.data;
-      _responseData = rawResponse == null ? null : _serializers.deserialize(
-        rawResponse,
-        specifiedType: const FullType(TransactionPreviewResponse),
-      ) as TransactionPreviewResponse;
-
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(TransactionPreviewResponse),
+            ) as TransactionPreviewResponse;
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -387,10 +396,10 @@ class TransactionApi {
   }
 
   /// Get Transaction Status
-  /// Returns overall transaction status and all of its known payloads based on supplied intent hash. 
+  /// Returns overall transaction status and all of its known payloads based on supplied intent hash.
   ///
   /// Parameters:
-  /// * [transactionStatusRequest] 
+  /// * [transactionStatusRequest]
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -400,7 +409,7 @@ class TransactionApi {
   ///
   /// Returns a [Future] containing a [Response] with a [TransactionStatusResponse] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<TransactionStatusResponse>> transactionStatus({ 
+  Future<Response<TransactionStatusResponse>> transactionStatus({
     required TransactionStatusRequest transactionStatusRequest,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -427,11 +436,11 @@ class TransactionApi {
 
     try {
       const _type = FullType(TransactionStatusRequest);
-      _bodyData = _serializers.serialize(transactionStatusRequest, specifiedType: _type);
-
-    } catch(error, stackTrace) {
+      _bodyData = _serializers.serialize(transactionStatusRequest,
+          specifiedType: _type);
+    } catch (error, stackTrace) {
       throw DioException(
-         requestOptions: _options.compose(
+        requestOptions: _options.compose(
           _dio.options,
           _path,
         ),
@@ -454,11 +463,12 @@ class TransactionApi {
 
     try {
       final rawResponse = _response.data;
-      _responseData = rawResponse == null ? null : _serializers.deserialize(
-        rawResponse,
-        specifiedType: const FullType(TransactionStatusResponse),
-      ) as TransactionStatusResponse;
-
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(TransactionStatusResponse),
+            ) as TransactionStatusResponse;
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -482,10 +492,10 @@ class TransactionApi {
   }
 
   /// Submit Transaction
-  /// Submits a signed transaction payload to the network. 
+  /// Submits a signed transaction payload to the network.
   ///
   /// Parameters:
-  /// * [transactionSubmitRequest] 
+  /// * [transactionSubmitRequest]
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -495,7 +505,7 @@ class TransactionApi {
   ///
   /// Returns a [Future] containing a [Response] with a [TransactionSubmitResponse] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<TransactionSubmitResponse>> transactionSubmit({ 
+  Future<Response<TransactionSubmitResponse>> transactionSubmit({
     required TransactionSubmitRequest transactionSubmitRequest,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -522,11 +532,11 @@ class TransactionApi {
 
     try {
       const _type = FullType(TransactionSubmitRequest);
-      _bodyData = _serializers.serialize(transactionSubmitRequest, specifiedType: _type);
-
-    } catch(error, stackTrace) {
+      _bodyData = _serializers.serialize(transactionSubmitRequest,
+          specifiedType: _type);
+    } catch (error, stackTrace) {
       throw DioException(
-         requestOptions: _options.compose(
+        requestOptions: _options.compose(
           _dio.options,
           _path,
         ),
@@ -549,11 +559,12 @@ class TransactionApi {
 
     try {
       final rawResponse = _response.data;
-      _responseData = rawResponse == null ? null : _serializers.deserialize(
-        rawResponse,
-        specifiedType: const FullType(TransactionSubmitResponse),
-      ) as TransactionSubmitResponse;
-
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(TransactionSubmitResponse),
+            ) as TransactionSubmitResponse;
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -575,5 +586,4 @@ class TransactionApi {
       extra: _response.extra,
     );
   }
-
 }

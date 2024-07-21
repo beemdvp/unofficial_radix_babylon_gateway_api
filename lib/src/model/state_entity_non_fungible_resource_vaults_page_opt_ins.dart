@@ -13,25 +13,40 @@ part 'state_entity_non_fungible_resource_vaults_page_opt_ins.g.dart';
 /// Properties:
 /// * [nonFungibleIncludeNfids] - if set to `true`, first page of non fungible ids are returned for each non fungible resource, with cursor which can be later used at `/state/entity/page/non-fungible-vault/ids` endpoint.
 @BuiltValue()
-abstract class StateEntityNonFungibleResourceVaultsPageOptIns implements Built<StateEntityNonFungibleResourceVaultsPageOptIns, StateEntityNonFungibleResourceVaultsPageOptInsBuilder> {
+abstract class StateEntityNonFungibleResourceVaultsPageOptIns
+    implements
+        Built<StateEntityNonFungibleResourceVaultsPageOptIns,
+            StateEntityNonFungibleResourceVaultsPageOptInsBuilder> {
   /// if set to `true`, first page of non fungible ids are returned for each non fungible resource, with cursor which can be later used at `/state/entity/page/non-fungible-vault/ids` endpoint.
   @BuiltValueField(wireName: r'non_fungible_include_nfids')
   bool? get nonFungibleIncludeNfids;
 
   StateEntityNonFungibleResourceVaultsPageOptIns._();
 
-  factory StateEntityNonFungibleResourceVaultsPageOptIns([void updates(StateEntityNonFungibleResourceVaultsPageOptInsBuilder b)]) = _$StateEntityNonFungibleResourceVaultsPageOptIns;
+  factory StateEntityNonFungibleResourceVaultsPageOptIns(
+          [void updates(
+              StateEntityNonFungibleResourceVaultsPageOptInsBuilder b)]) =
+      _$StateEntityNonFungibleResourceVaultsPageOptIns;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(StateEntityNonFungibleResourceVaultsPageOptInsBuilder b) => b;
+  static void _defaults(
+          StateEntityNonFungibleResourceVaultsPageOptInsBuilder b) =>
+      b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<StateEntityNonFungibleResourceVaultsPageOptIns> get serializer => _$StateEntityNonFungibleResourceVaultsPageOptInsSerializer();
+  static Serializer<StateEntityNonFungibleResourceVaultsPageOptIns>
+      get serializer =>
+          _$StateEntityNonFungibleResourceVaultsPageOptInsSerializer();
 }
 
-class _$StateEntityNonFungibleResourceVaultsPageOptInsSerializer implements PrimitiveSerializer<StateEntityNonFungibleResourceVaultsPageOptIns> {
+class _$StateEntityNonFungibleResourceVaultsPageOptInsSerializer
+    implements
+        PrimitiveSerializer<StateEntityNonFungibleResourceVaultsPageOptIns> {
   @override
-  final Iterable<Type> types = const [StateEntityNonFungibleResourceVaultsPageOptIns, _$StateEntityNonFungibleResourceVaultsPageOptIns];
+  final Iterable<Type> types = const [
+    StateEntityNonFungibleResourceVaultsPageOptIns,
+    _$StateEntityNonFungibleResourceVaultsPageOptIns
+  ];
 
   @override
   final String wireName = r'StateEntityNonFungibleResourceVaultsPageOptIns';
@@ -56,7 +71,9 @@ class _$StateEntityNonFungibleResourceVaultsPageOptInsSerializer implements Prim
     StateEntityNonFungibleResourceVaultsPageOptIns object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -106,4 +123,3 @@ class _$StateEntityNonFungibleResourceVaultsPageOptInsSerializer implements Prim
     return result.build();
   }
 }
-

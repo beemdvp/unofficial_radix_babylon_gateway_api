@@ -14,10 +14,13 @@ part 'account_deposit_pre_validation_request.g.dart';
 ///
 /// Properties:
 /// * [accountAddress] - Bech32m-encoded human readable version of the address.
-/// * [resourceAddresses] 
-/// * [badge] 
+/// * [resourceAddresses]
+/// * [badge]
 @BuiltValue()
-abstract class AccountDepositPreValidationRequest implements Built<AccountDepositPreValidationRequest, AccountDepositPreValidationRequestBuilder> {
+abstract class AccountDepositPreValidationRequest
+    implements
+        Built<AccountDepositPreValidationRequest,
+            AccountDepositPreValidationRequestBuilder> {
   /// Bech32m-encoded human readable version of the address.
   @BuiltValueField(wireName: r'account_address')
   String get accountAddress;
@@ -30,18 +33,25 @@ abstract class AccountDepositPreValidationRequest implements Built<AccountDeposi
 
   AccountDepositPreValidationRequest._();
 
-  factory AccountDepositPreValidationRequest([void updates(AccountDepositPreValidationRequestBuilder b)]) = _$AccountDepositPreValidationRequest;
+  factory AccountDepositPreValidationRequest(
+          [void updates(AccountDepositPreValidationRequestBuilder b)]) =
+      _$AccountDepositPreValidationRequest;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(AccountDepositPreValidationRequestBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<AccountDepositPreValidationRequest> get serializer => _$AccountDepositPreValidationRequestSerializer();
+  static Serializer<AccountDepositPreValidationRequest> get serializer =>
+      _$AccountDepositPreValidationRequestSerializer();
 }
 
-class _$AccountDepositPreValidationRequestSerializer implements PrimitiveSerializer<AccountDepositPreValidationRequest> {
+class _$AccountDepositPreValidationRequestSerializer
+    implements PrimitiveSerializer<AccountDepositPreValidationRequest> {
   @override
-  final Iterable<Type> types = const [AccountDepositPreValidationRequest, _$AccountDepositPreValidationRequest];
+  final Iterable<Type> types = const [
+    AccountDepositPreValidationRequest,
+    _$AccountDepositPreValidationRequest
+  ];
 
   @override
   final String wireName = r'AccountDepositPreValidationRequest';
@@ -65,7 +75,8 @@ class _$AccountDepositPreValidationRequestSerializer implements PrimitiveSeriali
       yield r'badge';
       yield serializers.serialize(
         object.badge,
-        specifiedType: const FullType(TransactionAccountDepositPreValidationAuthorizedDepositorBadge),
+        specifiedType: const FullType(
+            TransactionAccountDepositPreValidationAuthorizedDepositorBadge),
       );
     }
   }
@@ -76,7 +87,9 @@ class _$AccountDepositPreValidationRequestSerializer implements PrimitiveSeriali
     AccountDepositPreValidationRequest object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -108,7 +121,8 @@ class _$AccountDepositPreValidationRequestSerializer implements PrimitiveSeriali
         case r'badge':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(TransactionAccountDepositPreValidationAuthorizedDepositorBadge),
+            specifiedType: const FullType(
+                TransactionAccountDepositPreValidationAuthorizedDepositorBadge),
           ) as TransactionAccountDepositPreValidationAuthorizedDepositorBadge;
           result.badge = valueDes;
           break;
@@ -140,4 +154,3 @@ class _$AccountDepositPreValidationRequestSerializer implements PrimitiveSeriali
     return result.build();
   }
 }
-

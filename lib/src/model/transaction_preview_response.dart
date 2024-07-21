@@ -15,16 +15,18 @@ part 'transaction_preview_response.g.dart';
 ///
 /// Properties:
 /// * [encodedReceipt] - Hex-encoded binary blob.
-/// * [receipt] - This type is defined in the Core API as `TransactionReceipt`. See the Core API documentation for more details. 
-/// * [resourceChanges] 
-/// * [logs] 
+/// * [receipt] - This type is defined in the Core API as `TransactionReceipt`. See the Core API documentation for more details.
+/// * [resourceChanges]
+/// * [logs]
 @BuiltValue()
-abstract class TransactionPreviewResponse implements Built<TransactionPreviewResponse, TransactionPreviewResponseBuilder> {
+abstract class TransactionPreviewResponse
+    implements
+        Built<TransactionPreviewResponse, TransactionPreviewResponseBuilder> {
   /// Hex-encoded binary blob.
   @BuiltValueField(wireName: r'encoded_receipt')
   String get encodedReceipt;
 
-  /// This type is defined in the Core API as `TransactionReceipt`. See the Core API documentation for more details. 
+  /// This type is defined in the Core API as `TransactionReceipt`. See the Core API documentation for more details.
   @BuiltValueField(wireName: r'receipt')
   JsonObject get receipt;
 
@@ -36,18 +38,25 @@ abstract class TransactionPreviewResponse implements Built<TransactionPreviewRes
 
   TransactionPreviewResponse._();
 
-  factory TransactionPreviewResponse([void updates(TransactionPreviewResponseBuilder b)]) = _$TransactionPreviewResponse;
+  factory TransactionPreviewResponse(
+          [void updates(TransactionPreviewResponseBuilder b)]) =
+      _$TransactionPreviewResponse;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(TransactionPreviewResponseBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<TransactionPreviewResponse> get serializer => _$TransactionPreviewResponseSerializer();
+  static Serializer<TransactionPreviewResponse> get serializer =>
+      _$TransactionPreviewResponseSerializer();
 }
 
-class _$TransactionPreviewResponseSerializer implements PrimitiveSerializer<TransactionPreviewResponse> {
+class _$TransactionPreviewResponseSerializer
+    implements PrimitiveSerializer<TransactionPreviewResponse> {
   @override
-  final Iterable<Type> types = const [TransactionPreviewResponse, _$TransactionPreviewResponse];
+  final Iterable<Type> types = const [
+    TransactionPreviewResponse,
+    _$TransactionPreviewResponse
+  ];
 
   @override
   final String wireName = r'TransactionPreviewResponse';
@@ -75,7 +84,8 @@ class _$TransactionPreviewResponseSerializer implements PrimitiveSerializer<Tran
     yield r'logs';
     yield serializers.serialize(
       object.logs,
-      specifiedType: const FullType(BuiltList, [FullType(TransactionPreviewResponseLogsInner)]),
+      specifiedType: const FullType(
+          BuiltList, [FullType(TransactionPreviewResponseLogsInner)]),
     );
   }
 
@@ -85,7 +95,9 @@ class _$TransactionPreviewResponseSerializer implements PrimitiveSerializer<Tran
     TransactionPreviewResponse object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -124,7 +136,8 @@ class _$TransactionPreviewResponseSerializer implements PrimitiveSerializer<Tran
         case r'logs':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltList, [FullType(TransactionPreviewResponseLogsInner)]),
+            specifiedType: const FullType(
+                BuiltList, [FullType(TransactionPreviewResponseLogsInner)]),
           ) as BuiltList<TransactionPreviewResponseLogsInner>;
           result.logs.replace(valueDes);
           break;
@@ -156,4 +169,3 @@ class _$TransactionPreviewResponseSerializer implements PrimitiveSerializer<Tran
     return result.build();
   }
 }
-

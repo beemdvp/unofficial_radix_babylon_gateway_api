@@ -16,31 +16,43 @@ part 'state_entity_metadata_page_response.g.dart';
 /// StateEntityMetadataPageResponse
 ///
 /// Properties:
-/// * [ledgerState] 
+/// * [ledgerState]
 /// * [totalCount] - Total number of items in underlying collection, fragment of which is available in `items` collection.
 /// * [nextCursor] - If specified, contains a cursor to query next page of the `items` collection.
-/// * [items] 
+/// * [items]
 /// * [address] - Bech32m-encoded human readable version of the address.
 @BuiltValue()
-abstract class StateEntityMetadataPageResponse implements EntityMetadataCollection, LedgerStateMixin, Built<StateEntityMetadataPageResponse, StateEntityMetadataPageResponseBuilder> {
+abstract class StateEntityMetadataPageResponse
+    implements
+        EntityMetadataCollection,
+        LedgerStateMixin,
+        Built<StateEntityMetadataPageResponse,
+            StateEntityMetadataPageResponseBuilder> {
   /// Bech32m-encoded human readable version of the address.
   @BuiltValueField(wireName: r'address')
   String get address;
 
   StateEntityMetadataPageResponse._();
 
-  factory StateEntityMetadataPageResponse([void updates(StateEntityMetadataPageResponseBuilder b)]) = _$StateEntityMetadataPageResponse;
+  factory StateEntityMetadataPageResponse(
+          [void updates(StateEntityMetadataPageResponseBuilder b)]) =
+      _$StateEntityMetadataPageResponse;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(StateEntityMetadataPageResponseBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<StateEntityMetadataPageResponse> get serializer => _$StateEntityMetadataPageResponseSerializer();
+  static Serializer<StateEntityMetadataPageResponse> get serializer =>
+      _$StateEntityMetadataPageResponseSerializer();
 }
 
-class _$StateEntityMetadataPageResponseSerializer implements PrimitiveSerializer<StateEntityMetadataPageResponse> {
+class _$StateEntityMetadataPageResponseSerializer
+    implements PrimitiveSerializer<StateEntityMetadataPageResponse> {
   @override
-  final Iterable<Type> types = const [StateEntityMetadataPageResponse, _$StateEntityMetadataPageResponse];
+  final Iterable<Type> types = const [
+    StateEntityMetadataPageResponse,
+    _$StateEntityMetadataPageResponse
+  ];
 
   @override
   final String wireName = r'StateEntityMetadataPageResponse';
@@ -87,7 +99,9 @@ class _$StateEntityMetadataPageResponseSerializer implements PrimitiveSerializer
     StateEntityMetadataPageResponse object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -128,7 +142,8 @@ class _$StateEntityMetadataPageResponseSerializer implements PrimitiveSerializer
         case r'items':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltList, [FullType(EntityMetadataItem)]),
+            specifiedType:
+                const FullType(BuiltList, [FullType(EntityMetadataItem)]),
           ) as BuiltList<EntityMetadataItem>;
           result.items.replace(valueDes);
           break;
@@ -167,4 +182,3 @@ class _$StateEntityMetadataPageResponseSerializer implements PrimitiveSerializer
     return result.build();
   }
 }
-

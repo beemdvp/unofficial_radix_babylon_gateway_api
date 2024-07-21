@@ -16,31 +16,43 @@ part 'state_key_value_store_keys_response.g.dart';
 /// StateKeyValueStoreKeysResponse
 ///
 /// Properties:
-/// * [ledgerState] 
+/// * [ledgerState]
 /// * [totalCount] - Total number of items in underlying collection, fragment of which is available in `items` collection.
 /// * [nextCursor] - If specified, contains a cursor to query next page of the `items` collection.
-/// * [items] 
+/// * [items]
 /// * [keyValueStoreAddress] - Bech32m-encoded human readable version of the address.
 @BuiltValue()
-abstract class StateKeyValueStoreKeysResponse implements LedgerStateMixin, StateKeyValueStoreKeysCollection, Built<StateKeyValueStoreKeysResponse, StateKeyValueStoreKeysResponseBuilder> {
+abstract class StateKeyValueStoreKeysResponse
+    implements
+        LedgerStateMixin,
+        StateKeyValueStoreKeysCollection,
+        Built<StateKeyValueStoreKeysResponse,
+            StateKeyValueStoreKeysResponseBuilder> {
   /// Bech32m-encoded human readable version of the address.
   @BuiltValueField(wireName: r'key_value_store_address')
   String get keyValueStoreAddress;
 
   StateKeyValueStoreKeysResponse._();
 
-  factory StateKeyValueStoreKeysResponse([void updates(StateKeyValueStoreKeysResponseBuilder b)]) = _$StateKeyValueStoreKeysResponse;
+  factory StateKeyValueStoreKeysResponse(
+          [void updates(StateKeyValueStoreKeysResponseBuilder b)]) =
+      _$StateKeyValueStoreKeysResponse;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(StateKeyValueStoreKeysResponseBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<StateKeyValueStoreKeysResponse> get serializer => _$StateKeyValueStoreKeysResponseSerializer();
+  static Serializer<StateKeyValueStoreKeysResponse> get serializer =>
+      _$StateKeyValueStoreKeysResponseSerializer();
 }
 
-class _$StateKeyValueStoreKeysResponseSerializer implements PrimitiveSerializer<StateKeyValueStoreKeysResponse> {
+class _$StateKeyValueStoreKeysResponseSerializer
+    implements PrimitiveSerializer<StateKeyValueStoreKeysResponse> {
   @override
-  final Iterable<Type> types = const [StateKeyValueStoreKeysResponse, _$StateKeyValueStoreKeysResponse];
+  final Iterable<Type> types = const [
+    StateKeyValueStoreKeysResponse,
+    _$StateKeyValueStoreKeysResponse
+  ];
 
   @override
   final String wireName = r'StateKeyValueStoreKeysResponse';
@@ -72,7 +84,8 @@ class _$StateKeyValueStoreKeysResponseSerializer implements PrimitiveSerializer<
     yield r'items';
     yield serializers.serialize(
       object.items,
-      specifiedType: const FullType(BuiltList, [FullType(StateKeyValueStoreKeysResponseItem)]),
+      specifiedType: const FullType(
+          BuiltList, [FullType(StateKeyValueStoreKeysResponseItem)]),
     );
     yield r'ledger_state';
     yield serializers.serialize(
@@ -87,7 +100,9 @@ class _$StateKeyValueStoreKeysResponseSerializer implements PrimitiveSerializer<
     StateKeyValueStoreKeysResponse object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -128,7 +143,8 @@ class _$StateKeyValueStoreKeysResponseSerializer implements PrimitiveSerializer<
         case r'items':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltList, [FullType(StateKeyValueStoreKeysResponseItem)]),
+            specifiedType: const FullType(
+                BuiltList, [FullType(StateKeyValueStoreKeysResponseItem)]),
           ) as BuiltList<StateKeyValueStoreKeysResponseItem>;
           result.items.replace(valueDes);
           break;
@@ -167,4 +183,3 @@ class _$StateKeyValueStoreKeysResponseSerializer implements PrimitiveSerializer<
     return result.build();
   }
 }
-

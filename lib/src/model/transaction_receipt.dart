@@ -15,46 +15,47 @@ part 'transaction_receipt.g.dart';
 /// TransactionReceipt
 ///
 /// Properties:
-/// * [status] 
-/// * [feeSummary] - This type is defined in the Core API as `FeeSummary`. See the Core API documentation for more details. 
-/// * [costingParameters] 
-/// * [feeDestination] - This type is defined in the Core API as `FeeDestination`. See the Core API documentation for more details. 
-/// * [feeSource] - This type is defined in the Core API as `FeeSource`. See the Core API documentation for more details. 
-/// * [stateUpdates] - This type is defined in the Core API as `StateUpdates`. See the Core API documentation for more details. 
-/// * [nextEpoch] - Information (number and active validator list) about new epoch if occured. This type is defined in the Core API as `NextEpoch`. See the Core API documentation for more details. 
-/// * [output] - The manifest line-by-line engine return data (only present if `status` is `CommittedSuccess`). This type is defined in the Core API as `SborData`. See the Core API documentation for more details. 
+/// * [status]
+/// * [feeSummary] - This type is defined in the Core API as `FeeSummary`. See the Core API documentation for more details.
+/// * [costingParameters]
+/// * [feeDestination] - This type is defined in the Core API as `FeeDestination`. See the Core API documentation for more details.
+/// * [feeSource] - This type is defined in the Core API as `FeeSource`. See the Core API documentation for more details.
+/// * [stateUpdates] - This type is defined in the Core API as `StateUpdates`. See the Core API documentation for more details.
+/// * [nextEpoch] - Information (number and active validator list) about new epoch if occured. This type is defined in the Core API as `NextEpoch`. See the Core API documentation for more details.
+/// * [output] - The manifest line-by-line engine return data (only present if `status` is `CommittedSuccess`). This type is defined in the Core API as `SborData`. See the Core API documentation for more details.
 /// * [events] - Events emitted by a transaction.
 /// * [errorMessage] - Error message (only present if status is `Failed` or `Rejected`)
 @BuiltValue()
-abstract class TransactionReceipt implements Built<TransactionReceipt, TransactionReceiptBuilder> {
+abstract class TransactionReceipt
+    implements Built<TransactionReceipt, TransactionReceiptBuilder> {
   @BuiltValueField(wireName: r'status')
   TransactionStatus? get status;
   // enum statusEnum {  Unknown,  CommittedSuccess,  CommittedFailure,  Pending,  Rejected,  };
 
-  /// This type is defined in the Core API as `FeeSummary`. See the Core API documentation for more details. 
+  /// This type is defined in the Core API as `FeeSummary`. See the Core API documentation for more details.
   @BuiltValueField(wireName: r'fee_summary')
   JsonObject? get feeSummary;
 
   @BuiltValueField(wireName: r'costing_parameters')
   JsonObject? get costingParameters;
 
-  /// This type is defined in the Core API as `FeeDestination`. See the Core API documentation for more details. 
+  /// This type is defined in the Core API as `FeeDestination`. See the Core API documentation for more details.
   @BuiltValueField(wireName: r'fee_destination')
   JsonObject? get feeDestination;
 
-  /// This type is defined in the Core API as `FeeSource`. See the Core API documentation for more details. 
+  /// This type is defined in the Core API as `FeeSource`. See the Core API documentation for more details.
   @BuiltValueField(wireName: r'fee_source')
   JsonObject? get feeSource;
 
-  /// This type is defined in the Core API as `StateUpdates`. See the Core API documentation for more details. 
+  /// This type is defined in the Core API as `StateUpdates`. See the Core API documentation for more details.
   @BuiltValueField(wireName: r'state_updates')
   JsonObject? get stateUpdates;
 
-  /// Information (number and active validator list) about new epoch if occured. This type is defined in the Core API as `NextEpoch`. See the Core API documentation for more details. 
+  /// Information (number and active validator list) about new epoch if occured. This type is defined in the Core API as `NextEpoch`. See the Core API documentation for more details.
   @BuiltValueField(wireName: r'next_epoch')
   JsonObject? get nextEpoch;
 
-  /// The manifest line-by-line engine return data (only present if `status` is `CommittedSuccess`). This type is defined in the Core API as `SborData`. See the Core API documentation for more details. 
+  /// The manifest line-by-line engine return data (only present if `status` is `CommittedSuccess`). This type is defined in the Core API as `SborData`. See the Core API documentation for more details.
   @BuiltValueField(wireName: r'output')
   JsonObject? get output;
 
@@ -68,16 +69,19 @@ abstract class TransactionReceipt implements Built<TransactionReceipt, Transacti
 
   TransactionReceipt._();
 
-  factory TransactionReceipt([void updates(TransactionReceiptBuilder b)]) = _$TransactionReceipt;
+  factory TransactionReceipt([void updates(TransactionReceiptBuilder b)]) =
+      _$TransactionReceipt;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(TransactionReceiptBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<TransactionReceipt> get serializer => _$TransactionReceiptSerializer();
+  static Serializer<TransactionReceipt> get serializer =>
+      _$TransactionReceiptSerializer();
 }
 
-class _$TransactionReceiptSerializer implements PrimitiveSerializer<TransactionReceipt> {
+class _$TransactionReceiptSerializer
+    implements PrimitiveSerializer<TransactionReceipt> {
   @override
   final Iterable<Type> types = const [TransactionReceipt, _$TransactionReceipt];
 
@@ -167,7 +171,9 @@ class _$TransactionReceiptSerializer implements PrimitiveSerializer<TransactionR
     TransactionReceipt object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -281,4 +287,3 @@ class _$TransactionReceiptSerializer implements PrimitiveSerializer<TransactionR
     return result.build();
   }
 }
-

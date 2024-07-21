@@ -15,27 +15,40 @@ part 'state_account_locker_page_vaults_request.g.dart';
 /// StateAccountLockerPageVaultsRequest
 ///
 /// Properties:
-/// * [atLedgerState] 
+/// * [atLedgerState]
 /// * [cursor] - This cursor allows forward pagination, by providing the cursor from the previous request.
 /// * [limitPerPage] - The page size requested.
 /// * [lockerAddress] - Bech32m-encoded human readable version of the address.
 /// * [accountAddress] - Bech32m-encoded human readable version of the address.
 @BuiltValue()
-abstract class StateAccountLockerPageVaultsRequest implements AccountLockerAddress, AtLedgerStateMixin, CursorLimitMixin, Built<StateAccountLockerPageVaultsRequest, StateAccountLockerPageVaultsRequestBuilder> {
+abstract class StateAccountLockerPageVaultsRequest
+    implements
+        AccountLockerAddress,
+        AtLedgerStateMixin,
+        CursorLimitMixin,
+        Built<StateAccountLockerPageVaultsRequest,
+            StateAccountLockerPageVaultsRequestBuilder> {
   StateAccountLockerPageVaultsRequest._();
 
-  factory StateAccountLockerPageVaultsRequest([void updates(StateAccountLockerPageVaultsRequestBuilder b)]) = _$StateAccountLockerPageVaultsRequest;
+  factory StateAccountLockerPageVaultsRequest(
+          [void updates(StateAccountLockerPageVaultsRequestBuilder b)]) =
+      _$StateAccountLockerPageVaultsRequest;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(StateAccountLockerPageVaultsRequestBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<StateAccountLockerPageVaultsRequest> get serializer => _$StateAccountLockerPageVaultsRequestSerializer();
+  static Serializer<StateAccountLockerPageVaultsRequest> get serializer =>
+      _$StateAccountLockerPageVaultsRequestSerializer();
 }
 
-class _$StateAccountLockerPageVaultsRequestSerializer implements PrimitiveSerializer<StateAccountLockerPageVaultsRequest> {
+class _$StateAccountLockerPageVaultsRequestSerializer
+    implements PrimitiveSerializer<StateAccountLockerPageVaultsRequest> {
   @override
-  final Iterable<Type> types = const [StateAccountLockerPageVaultsRequest, _$StateAccountLockerPageVaultsRequest];
+  final Iterable<Type> types = const [
+    StateAccountLockerPageVaultsRequest,
+    _$StateAccountLockerPageVaultsRequest
+  ];
 
   @override
   final String wireName = r'StateAccountLockerPageVaultsRequest';
@@ -84,7 +97,9 @@ class _$StateAccountLockerPageVaultsRequestSerializer implements PrimitiveSerial
     StateAccountLockerPageVaultsRequest object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -165,4 +180,3 @@ class _$StateAccountLockerPageVaultsRequestSerializer implements PrimitiveSerial
     return result.build();
   }
 }
-

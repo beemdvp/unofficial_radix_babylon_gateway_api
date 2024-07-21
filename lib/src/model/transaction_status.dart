@@ -10,26 +10,30 @@ import 'package:built_value/serializer.dart';
 part 'transaction_status.g.dart';
 
 class TransactionStatus extends EnumClass {
-
-  /// A top-level intent status, left in for backwards compatibility. It doesn't give much information. Rejected means PermanentRejection. 
+  /// A top-level intent status, left in for backwards compatibility. It doesn't give much information. Rejected means PermanentRejection.
   @BuiltValueEnumConst(wireName: r'Unknown')
   static const TransactionStatus unknown = _$unknown;
-  /// A top-level intent status, left in for backwards compatibility. It doesn't give much information. Rejected means PermanentRejection. 
+
+  /// A top-level intent status, left in for backwards compatibility. It doesn't give much information. Rejected means PermanentRejection.
   @BuiltValueEnumConst(wireName: r'CommittedSuccess')
   static const TransactionStatus committedSuccess = _$committedSuccess;
-  /// A top-level intent status, left in for backwards compatibility. It doesn't give much information. Rejected means PermanentRejection. 
+
+  /// A top-level intent status, left in for backwards compatibility. It doesn't give much information. Rejected means PermanentRejection.
   @BuiltValueEnumConst(wireName: r'CommittedFailure')
   static const TransactionStatus committedFailure = _$committedFailure;
-  /// A top-level intent status, left in for backwards compatibility. It doesn't give much information. Rejected means PermanentRejection. 
+
+  /// A top-level intent status, left in for backwards compatibility. It doesn't give much information. Rejected means PermanentRejection.
   @BuiltValueEnumConst(wireName: r'Pending')
   static const TransactionStatus pending = _$pending;
-  /// A top-level intent status, left in for backwards compatibility. It doesn't give much information. Rejected means PermanentRejection. 
+
+  /// A top-level intent status, left in for backwards compatibility. It doesn't give much information. Rejected means PermanentRejection.
   @BuiltValueEnumConst(wireName: r'Rejected')
   static const TransactionStatus rejected = _$rejected;
 
-  static Serializer<TransactionStatus> get serializer => _$transactionStatusSerializer;
+  static Serializer<TransactionStatus> get serializer =>
+      _$transactionStatusSerializer;
 
-  const TransactionStatus._(String name): super(name);
+  const TransactionStatus._(String name) : super(name);
 
   static BuiltSet<TransactionStatus> get values => _$values;
   static TransactionStatus valueOf(String name) => _$valueOf(name);
@@ -42,4 +46,3 @@ class TransactionStatus extends EnumClass {
 ///
 /// Trigger mixin generation by writing a line like this one next to your enum.
 abstract class TransactionStatusMixin = Object with _$TransactionStatusMixin;
-

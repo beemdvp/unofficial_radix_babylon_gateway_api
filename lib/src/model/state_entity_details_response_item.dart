@@ -17,14 +17,17 @@ part 'state_entity_details_response_item.g.dart';
 ///
 /// Properties:
 /// * [address] - Bech32m-encoded human readable version of the address.
-/// * [fungibleResources] 
-/// * [nonFungibleResources] 
-/// * [ancestorIdentities] 
-/// * [metadata] 
-/// * [explicitMetadata] 
-/// * [details] 
+/// * [fungibleResources]
+/// * [nonFungibleResources]
+/// * [ancestorIdentities]
+/// * [metadata]
+/// * [explicitMetadata]
+/// * [details]
 @BuiltValue()
-abstract class StateEntityDetailsResponseItem implements Built<StateEntityDetailsResponseItem, StateEntityDetailsResponseItemBuilder> {
+abstract class StateEntityDetailsResponseItem
+    implements
+        Built<StateEntityDetailsResponseItem,
+            StateEntityDetailsResponseItemBuilder> {
   /// Bech32m-encoded human readable version of the address.
   @BuiltValueField(wireName: r'address')
   String get address;
@@ -49,18 +52,25 @@ abstract class StateEntityDetailsResponseItem implements Built<StateEntityDetail
 
   StateEntityDetailsResponseItem._();
 
-  factory StateEntityDetailsResponseItem([void updates(StateEntityDetailsResponseItemBuilder b)]) = _$StateEntityDetailsResponseItem;
+  factory StateEntityDetailsResponseItem(
+          [void updates(StateEntityDetailsResponseItemBuilder b)]) =
+      _$StateEntityDetailsResponseItem;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(StateEntityDetailsResponseItemBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<StateEntityDetailsResponseItem> get serializer => _$StateEntityDetailsResponseItemSerializer();
+  static Serializer<StateEntityDetailsResponseItem> get serializer =>
+      _$StateEntityDetailsResponseItemSerializer();
 }
 
-class _$StateEntityDetailsResponseItemSerializer implements PrimitiveSerializer<StateEntityDetailsResponseItem> {
+class _$StateEntityDetailsResponseItemSerializer
+    implements PrimitiveSerializer<StateEntityDetailsResponseItem> {
   @override
-  final Iterable<Type> types = const [StateEntityDetailsResponseItem, _$StateEntityDetailsResponseItem];
+  final Iterable<Type> types = const [
+    StateEntityDetailsResponseItem,
+    _$StateEntityDetailsResponseItem
+  ];
 
   @override
   final String wireName = r'StateEntityDetailsResponseItem';
@@ -93,7 +103,8 @@ class _$StateEntityDetailsResponseItemSerializer implements PrimitiveSerializer<
       yield r'ancestor_identities';
       yield serializers.serialize(
         object.ancestorIdentities,
-        specifiedType: const FullType(StateEntityDetailsResponseItemAncestorIdentities),
+        specifiedType:
+            const FullType(StateEntityDetailsResponseItemAncestorIdentities),
       );
     }
     yield r'metadata';
@@ -123,7 +134,9 @@ class _$StateEntityDetailsResponseItemSerializer implements PrimitiveSerializer<
     StateEntityDetailsResponseItem object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -162,7 +175,8 @@ class _$StateEntityDetailsResponseItemSerializer implements PrimitiveSerializer<
         case r'ancestor_identities':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(StateEntityDetailsResponseItemAncestorIdentities),
+            specifiedType: const FullType(
+                StateEntityDetailsResponseItemAncestorIdentities),
           ) as StateEntityDetailsResponseItemAncestorIdentities;
           result.ancestorIdentities.replace(valueDes);
           break;
@@ -183,7 +197,8 @@ class _$StateEntityDetailsResponseItemSerializer implements PrimitiveSerializer<
         case r'details':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(StateEntityDetailsResponseItemDetails),
+            specifiedType:
+                const FullType(StateEntityDetailsResponseItemDetails),
           ) as StateEntityDetailsResponseItemDetails;
           result.details = valueDes;
           break;
@@ -215,4 +230,3 @@ class _$StateEntityDetailsResponseItemSerializer implements PrimitiveSerializer<
     return result.build();
   }
 }
-

@@ -16,31 +16,43 @@ part 'state_package_blueprint_page_response.g.dart';
 /// StatePackageBlueprintPageResponse
 ///
 /// Properties:
-/// * [ledgerState] 
+/// * [ledgerState]
 /// * [totalCount] - Total number of items in underlying collection, fragment of which is available in `items` collection.
 /// * [nextCursor] - If specified, contains a cursor to query next page of the `items` collection.
-/// * [items] 
+/// * [items]
 /// * [packageAddress] - Bech32m-encoded human readable version of the address.
 @BuiltValue()
-abstract class StatePackageBlueprintPageResponse implements LedgerStateMixin, PackageBlueprintCollection, Built<StatePackageBlueprintPageResponse, StatePackageBlueprintPageResponseBuilder> {
+abstract class StatePackageBlueprintPageResponse
+    implements
+        LedgerStateMixin,
+        PackageBlueprintCollection,
+        Built<StatePackageBlueprintPageResponse,
+            StatePackageBlueprintPageResponseBuilder> {
   /// Bech32m-encoded human readable version of the address.
   @BuiltValueField(wireName: r'package_address')
   String get packageAddress;
 
   StatePackageBlueprintPageResponse._();
 
-  factory StatePackageBlueprintPageResponse([void updates(StatePackageBlueprintPageResponseBuilder b)]) = _$StatePackageBlueprintPageResponse;
+  factory StatePackageBlueprintPageResponse(
+          [void updates(StatePackageBlueprintPageResponseBuilder b)]) =
+      _$StatePackageBlueprintPageResponse;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(StatePackageBlueprintPageResponseBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<StatePackageBlueprintPageResponse> get serializer => _$StatePackageBlueprintPageResponseSerializer();
+  static Serializer<StatePackageBlueprintPageResponse> get serializer =>
+      _$StatePackageBlueprintPageResponseSerializer();
 }
 
-class _$StatePackageBlueprintPageResponseSerializer implements PrimitiveSerializer<StatePackageBlueprintPageResponse> {
+class _$StatePackageBlueprintPageResponseSerializer
+    implements PrimitiveSerializer<StatePackageBlueprintPageResponse> {
   @override
-  final Iterable<Type> types = const [StatePackageBlueprintPageResponse, _$StatePackageBlueprintPageResponse];
+  final Iterable<Type> types = const [
+    StatePackageBlueprintPageResponse,
+    _$StatePackageBlueprintPageResponse
+  ];
 
   @override
   final String wireName = r'StatePackageBlueprintPageResponse';
@@ -72,7 +84,8 @@ class _$StatePackageBlueprintPageResponseSerializer implements PrimitiveSerializ
     yield r'items';
     yield serializers.serialize(
       object.items,
-      specifiedType: const FullType(BuiltList, [FullType(PackageBlueprintCollectionItem)]),
+      specifiedType:
+          const FullType(BuiltList, [FullType(PackageBlueprintCollectionItem)]),
     );
     yield r'ledger_state';
     yield serializers.serialize(
@@ -87,7 +100,9 @@ class _$StatePackageBlueprintPageResponseSerializer implements PrimitiveSerializ
     StatePackageBlueprintPageResponse object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -128,7 +143,8 @@ class _$StatePackageBlueprintPageResponseSerializer implements PrimitiveSerializ
         case r'items':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltList, [FullType(PackageBlueprintCollectionItem)]),
+            specifiedType: const FullType(
+                BuiltList, [FullType(PackageBlueprintCollectionItem)]),
           ) as BuiltList<PackageBlueprintCollectionItem>;
           result.items.replace(valueDes);
           break;
@@ -167,4 +183,3 @@ class _$StatePackageBlueprintPageResponseSerializer implements PrimitiveSerializ
     return result.build();
   }
 }
-

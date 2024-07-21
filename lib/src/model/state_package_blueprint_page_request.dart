@@ -14,30 +14,42 @@ part 'state_package_blueprint_page_request.g.dart';
 /// StatePackageBlueprintPageRequest
 ///
 /// Properties:
-/// * [atLedgerState] 
+/// * [atLedgerState]
 /// * [cursor] - This cursor allows forward pagination, by providing the cursor from the previous request.
 /// * [limitPerPage] - The page size requested.
 /// * [packageAddress] - Bech32m-encoded human readable version of the address.
 @BuiltValue()
-abstract class StatePackageBlueprintPageRequest implements AtLedgerStateMixin, CursorLimitMixin, Built<StatePackageBlueprintPageRequest, StatePackageBlueprintPageRequestBuilder> {
+abstract class StatePackageBlueprintPageRequest
+    implements
+        AtLedgerStateMixin,
+        CursorLimitMixin,
+        Built<StatePackageBlueprintPageRequest,
+            StatePackageBlueprintPageRequestBuilder> {
   /// Bech32m-encoded human readable version of the address.
   @BuiltValueField(wireName: r'package_address')
   String get packageAddress;
 
   StatePackageBlueprintPageRequest._();
 
-  factory StatePackageBlueprintPageRequest([void updates(StatePackageBlueprintPageRequestBuilder b)]) = _$StatePackageBlueprintPageRequest;
+  factory StatePackageBlueprintPageRequest(
+          [void updates(StatePackageBlueprintPageRequestBuilder b)]) =
+      _$StatePackageBlueprintPageRequest;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(StatePackageBlueprintPageRequestBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<StatePackageBlueprintPageRequest> get serializer => _$StatePackageBlueprintPageRequestSerializer();
+  static Serializer<StatePackageBlueprintPageRequest> get serializer =>
+      _$StatePackageBlueprintPageRequestSerializer();
 }
 
-class _$StatePackageBlueprintPageRequestSerializer implements PrimitiveSerializer<StatePackageBlueprintPageRequest> {
+class _$StatePackageBlueprintPageRequestSerializer
+    implements PrimitiveSerializer<StatePackageBlueprintPageRequest> {
   @override
-  final Iterable<Type> types = const [StatePackageBlueprintPageRequest, _$StatePackageBlueprintPageRequest];
+  final Iterable<Type> types = const [
+    StatePackageBlueprintPageRequest,
+    _$StatePackageBlueprintPageRequest
+  ];
 
   @override
   final String wireName = r'StatePackageBlueprintPageRequest';
@@ -81,7 +93,9 @@ class _$StatePackageBlueprintPageRequestSerializer implements PrimitiveSerialize
     StatePackageBlueprintPageRequest object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -155,4 +169,3 @@ class _$StatePackageBlueprintPageRequestSerializer implements PrimitiveSerialize
     return result.build();
   }
 }
-

@@ -67,11 +67,10 @@ void main() {
       // TODO
     });
 
-    // if set to `true`, returns the fungible and non-fungible balance changes.  **Warning!** This opt-in might be missing for recently committed transactions, in that case a `null` value will be returned. Retry the request until non-null value is returned. 
+    // if set to `true`, returns the fungible and non-fungible balance changes.  **Warning!** This opt-in might be missing for recently committed transactions, in that case a `null` value will be returned. Retry the request until non-null value is returned.
     // bool balanceChanges (default value: false)
     test('to test the property `balanceChanges`', () async {
       // TODO
     });
-
   });
 }

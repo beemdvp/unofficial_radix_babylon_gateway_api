@@ -22,7 +22,7 @@ void main() {
       // TODO
     });
 
-    // An additional description to clarify the intent status. 
+    // An additional description to clarify the intent status.
     // String intentStatusDescription
     test('to test the property `intentStatusDescription`', () async {
       // TODO
@@ -33,7 +33,7 @@ void main() {
       // TODO
     });
 
-    // If the intent was committed, this gives the state version when this intent was committed. 
+    // If the intent was committed, this gives the state version when this intent was committed.
     // int committedStateVersion
     test('to test the property `committedStateVersion`', () async {
       // TODO
@@ -45,11 +45,10 @@ void main() {
       // TODO
     });
 
-    // The most relevant error message received, due to a rejection or commit as failure. Please note that presence of an error message doesn't imply that the intent will definitely reject or fail. This could represent a temporary error (such as out of fees), or an error with a payload which doesn't end up being committed. 
+    // The most relevant error message received, due to a rejection or commit as failure. Please note that presence of an error message doesn't imply that the intent will definitely reject or fail. This could represent a temporary error (such as out of fees), or an error with a payload which doesn't end up being committed.
     // String errorMessage
     test('to test the property `errorMessage`', () async {
       // TODO
     });
-
   });
 }

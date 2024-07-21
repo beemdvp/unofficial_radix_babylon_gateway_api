@@ -13,27 +13,38 @@ part 'metadata_global_address_value.g.dart';
 /// MetadataGlobalAddressValue
 ///
 /// Properties:
-/// * [type] 
-/// * [value] 
+/// * [type]
+/// * [value]
 @BuiltValue()
-abstract class MetadataGlobalAddressValue implements MetadataTypedValue, Built<MetadataGlobalAddressValue, MetadataGlobalAddressValueBuilder> {
+abstract class MetadataGlobalAddressValue
+    implements
+        MetadataTypedValue,
+        Built<MetadataGlobalAddressValue, MetadataGlobalAddressValueBuilder> {
   @BuiltValueField(wireName: r'value')
   String get value;
 
   MetadataGlobalAddressValue._();
 
-  factory MetadataGlobalAddressValue([void updates(MetadataGlobalAddressValueBuilder b)]) = _$MetadataGlobalAddressValue;
+  factory MetadataGlobalAddressValue(
+          [void updates(MetadataGlobalAddressValueBuilder b)]) =
+      _$MetadataGlobalAddressValue;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(MetadataGlobalAddressValueBuilder b) => b..type=b.discriminatorValue;
+  static void _defaults(MetadataGlobalAddressValueBuilder b) =>
+      b..type = b.discriminatorValue as dynamic;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<MetadataGlobalAddressValue> get serializer => _$MetadataGlobalAddressValueSerializer();
+  static Serializer<MetadataGlobalAddressValue> get serializer =>
+      _$MetadataGlobalAddressValueSerializer();
 }
 
-class _$MetadataGlobalAddressValueSerializer implements PrimitiveSerializer<MetadataGlobalAddressValue> {
+class _$MetadataGlobalAddressValueSerializer
+    implements PrimitiveSerializer<MetadataGlobalAddressValue> {
   @override
-  final Iterable<Type> types = const [MetadataGlobalAddressValue, _$MetadataGlobalAddressValue];
+  final Iterable<Type> types = const [
+    MetadataGlobalAddressValue,
+    _$MetadataGlobalAddressValue
+  ];
 
   @override
   final String wireName = r'MetadataGlobalAddressValue';
@@ -61,7 +72,9 @@ class _$MetadataGlobalAddressValueSerializer implements PrimitiveSerializer<Meta
     MetadataGlobalAddressValue object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -118,4 +131,3 @@ class _$MetadataGlobalAddressValueSerializer implements PrimitiveSerializer<Meta
     return result.build();
   }
 }
-

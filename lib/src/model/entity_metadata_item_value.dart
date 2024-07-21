@@ -15,27 +15,37 @@ part 'entity_metadata_item_value.g.dart';
 ///
 /// Properties:
 /// * [rawHex] - Hex-encoded binary blob.
-/// * [programmaticJson] 
-/// * [typed] 
+/// * [programmaticJson]
+/// * [typed]
 @BuiltValue()
-abstract class EntityMetadataItemValue implements ScryptoSborValue, Built<EntityMetadataItemValue, EntityMetadataItemValueBuilder> {
+abstract class EntityMetadataItemValue
+    implements
+        ScryptoSborValue,
+        Built<EntityMetadataItemValue, EntityMetadataItemValueBuilder> {
   @BuiltValueField(wireName: r'typed')
   MetadataTypedValue get typed;
 
   EntityMetadataItemValue._();
 
-  factory EntityMetadataItemValue([void updates(EntityMetadataItemValueBuilder b)]) = _$EntityMetadataItemValue;
+  factory EntityMetadataItemValue(
+          [void updates(EntityMetadataItemValueBuilder b)]) =
+      _$EntityMetadataItemValue;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(EntityMetadataItemValueBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<EntityMetadataItemValue> get serializer => _$EntityMetadataItemValueSerializer();
+  static Serializer<EntityMetadataItemValue> get serializer =>
+      _$EntityMetadataItemValueSerializer();
 }
 
-class _$EntityMetadataItemValueSerializer implements PrimitiveSerializer<EntityMetadataItemValue> {
+class _$EntityMetadataItemValueSerializer
+    implements PrimitiveSerializer<EntityMetadataItemValue> {
   @override
-  final Iterable<Type> types = const [EntityMetadataItemValue, _$EntityMetadataItemValue];
+  final Iterable<Type> types = const [
+    EntityMetadataItemValue,
+    _$EntityMetadataItemValue
+  ];
 
   @override
   final String wireName = r'EntityMetadataItemValue';
@@ -68,7 +78,9 @@ class _$EntityMetadataItemValueSerializer implements PrimitiveSerializer<EntityM
     EntityMetadataItemValue object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -132,4 +144,3 @@ class _$EntityMetadataItemValueSerializer implements PrimitiveSerializer<EntityM
     return result.build();
   }
 }
-

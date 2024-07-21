@@ -13,29 +13,41 @@ part 'programmatic_scrypto_sbor_value_i8.g.dart';
 /// ProgrammaticScryptoSborValueI8
 ///
 /// Properties:
-/// * [kind] 
-/// * [typeName] - The name of the type of this value. This is only output when a schema is present and the type has a name. This property is ignored when the value is used as an input to the API. 
-/// * [fieldName] - The name of the field which hosts this value. This property is only included if this value is a child of a `Tuple` or `Enum` with named fields. This property is ignored when the value is used as an input to the API. 
-/// * [value] 
+/// * [kind]
+/// * [typeName] - The name of the type of this value. This is only output when a schema is present and the type has a name. This property is ignored when the value is used as an input to the API.
+/// * [fieldName] - The name of the field which hosts this value. This property is only included if this value is a child of a `Tuple` or `Enum` with named fields. This property is ignored when the value is used as an input to the API.
+/// * [value]
 @BuiltValue()
-abstract class ProgrammaticScryptoSborValueI8 implements ProgrammaticScryptoSborValue, Built<ProgrammaticScryptoSborValueI8, ProgrammaticScryptoSborValueI8Builder> {
+abstract class ProgrammaticScryptoSborValueI8
+    implements
+        ProgrammaticScryptoSborValue,
+        Built<ProgrammaticScryptoSborValueI8,
+            ProgrammaticScryptoSborValueI8Builder> {
   @BuiltValueField(wireName: r'value')
   String get value;
 
   ProgrammaticScryptoSborValueI8._();
 
-  factory ProgrammaticScryptoSborValueI8([void updates(ProgrammaticScryptoSborValueI8Builder b)]) = _$ProgrammaticScryptoSborValueI8;
+  factory ProgrammaticScryptoSborValueI8(
+          [void updates(ProgrammaticScryptoSborValueI8Builder b)]) =
+      _$ProgrammaticScryptoSborValueI8;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(ProgrammaticScryptoSborValueI8Builder b) => b..kind=b.discriminatorValue;
+  static void _defaults(ProgrammaticScryptoSborValueI8Builder b) =>
+      b..kind = b.discriminatorValue as dynamic;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<ProgrammaticScryptoSborValueI8> get serializer => _$ProgrammaticScryptoSborValueI8Serializer();
+  static Serializer<ProgrammaticScryptoSborValueI8> get serializer =>
+      _$ProgrammaticScryptoSborValueI8Serializer();
 }
 
-class _$ProgrammaticScryptoSborValueI8Serializer implements PrimitiveSerializer<ProgrammaticScryptoSborValueI8> {
+class _$ProgrammaticScryptoSborValueI8Serializer
+    implements PrimitiveSerializer<ProgrammaticScryptoSborValueI8> {
   @override
-  final Iterable<Type> types = const [ProgrammaticScryptoSborValueI8, _$ProgrammaticScryptoSborValueI8];
+  final Iterable<Type> types = const [
+    ProgrammaticScryptoSborValueI8,
+    _$ProgrammaticScryptoSborValueI8
+  ];
 
   @override
   final String wireName = r'ProgrammaticScryptoSborValueI8';
@@ -77,7 +89,9 @@ class _$ProgrammaticScryptoSborValueI8Serializer implements PrimitiveSerializer<
     ProgrammaticScryptoSborValueI8 object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -150,4 +164,3 @@ class _$ProgrammaticScryptoSborValueI8Serializer implements PrimitiveSerializer<
     return result.build();
   }
 }
-

@@ -15,16 +15,19 @@ part 'transaction_status_response_known_payload_item.g.dart';
 ///
 /// Properties:
 /// * [payloadHash] - Bech32m-encoded hash.
-/// * [status] 
-/// * [payloadStatus] 
-/// * [payloadStatusDescription] - An additional description to clarify the payload status. 
-/// * [errorMessage] - The initial error message received for a rejection or failure during transaction execution. This will typically be the useful error message, explaining the root cause of the issue. Please note that presence of an error message doesn't imply that this payload will definitely reject or fail. This could represent an error during a temporary rejection (such as out of fees) which then gets resolved (e.g. by depositing money to pay the fee), allowing the transaction to be committed. 
-/// * [latestErrorMessage] - The latest error message received for a rejection or failure during transaction execution, this is only returned if it is different from the initial error message. This is more current than the initial error message, but may be less useful, as it could be a message regarding the expiry of the transaction at the end of its epoch validity window. Please note that presence of an error message doesn't imply that this payload will definitely reject or fail. This could represent an error during a temporary rejection (such as out of fees) which then gets resolved (e.g. by depositing money to pay the fee), allowing the transaction to be committed. 
-/// * [handlingStatus] 
-/// * [handlingStatusReason] - Additional reason for why the Gateway has its current handling status. 
-/// * [submissionError] - The most recent error message received when submitting this transaction to the network. Please note that the presence of an error message doesn't imply that this transaction payload will definitely reject or fail. This could be a transient error. 
+/// * [status]
+/// * [payloadStatus]
+/// * [payloadStatusDescription] - An additional description to clarify the payload status.
+/// * [errorMessage] - The initial error message received for a rejection or failure during transaction execution. This will typically be the useful error message, explaining the root cause of the issue. Please note that presence of an error message doesn't imply that this payload will definitely reject or fail. This could represent an error during a temporary rejection (such as out of fees) which then gets resolved (e.g. by depositing money to pay the fee), allowing the transaction to be committed.
+/// * [latestErrorMessage] - The latest error message received for a rejection or failure during transaction execution, this is only returned if it is different from the initial error message. This is more current than the initial error message, but may be less useful, as it could be a message regarding the expiry of the transaction at the end of its epoch validity window. Please note that presence of an error message doesn't imply that this payload will definitely reject or fail. This could represent an error during a temporary rejection (such as out of fees) which then gets resolved (e.g. by depositing money to pay the fee), allowing the transaction to be committed.
+/// * [handlingStatus]
+/// * [handlingStatusReason] - Additional reason for why the Gateway has its current handling status.
+/// * [submissionError] - The most recent error message received when submitting this transaction to the network. Please note that the presence of an error message doesn't imply that this transaction payload will definitely reject or fail. This could be a transient error.
 @BuiltValue()
-abstract class TransactionStatusResponseKnownPayloadItem implements Built<TransactionStatusResponseKnownPayloadItem, TransactionStatusResponseKnownPayloadItemBuilder> {
+abstract class TransactionStatusResponseKnownPayloadItem
+    implements
+        Built<TransactionStatusResponseKnownPayloadItem,
+            TransactionStatusResponseKnownPayloadItemBuilder> {
   /// Bech32m-encoded hash.
   @BuiltValueField(wireName: r'payload_hash')
   String get payloadHash;
@@ -37,15 +40,15 @@ abstract class TransactionStatusResponseKnownPayloadItem implements Built<Transa
   TransactionPayloadStatus? get payloadStatus;
   // enum payloadStatusEnum {  Unknown,  CommittedSuccess,  CommittedFailure,  CommitPendingOutcomeUnknown,  PermanentlyRejected,  TemporarilyRejected,  Pending,  };
 
-  /// An additional description to clarify the payload status. 
+  /// An additional description to clarify the payload status.
   @BuiltValueField(wireName: r'payload_status_description')
   String? get payloadStatusDescription;
 
-  /// The initial error message received for a rejection or failure during transaction execution. This will typically be the useful error message, explaining the root cause of the issue. Please note that presence of an error message doesn't imply that this payload will definitely reject or fail. This could represent an error during a temporary rejection (such as out of fees) which then gets resolved (e.g. by depositing money to pay the fee), allowing the transaction to be committed. 
+  /// The initial error message received for a rejection or failure during transaction execution. This will typically be the useful error message, explaining the root cause of the issue. Please note that presence of an error message doesn't imply that this payload will definitely reject or fail. This could represent an error during a temporary rejection (such as out of fees) which then gets resolved (e.g. by depositing money to pay the fee), allowing the transaction to be committed.
   @BuiltValueField(wireName: r'error_message')
   String? get errorMessage;
 
-  /// The latest error message received for a rejection or failure during transaction execution, this is only returned if it is different from the initial error message. This is more current than the initial error message, but may be less useful, as it could be a message regarding the expiry of the transaction at the end of its epoch validity window. Please note that presence of an error message doesn't imply that this payload will definitely reject or fail. This could represent an error during a temporary rejection (such as out of fees) which then gets resolved (e.g. by depositing money to pay the fee), allowing the transaction to be committed. 
+  /// The latest error message received for a rejection or failure during transaction execution, this is only returned if it is different from the initial error message. This is more current than the initial error message, but may be less useful, as it could be a message regarding the expiry of the transaction at the end of its epoch validity window. Please note that presence of an error message doesn't imply that this payload will definitely reject or fail. This could represent an error during a temporary rejection (such as out of fees) which then gets resolved (e.g. by depositing money to pay the fee), allowing the transaction to be committed.
   @BuiltValueField(wireName: r'latest_error_message')
   String? get latestErrorMessage;
 
@@ -53,28 +56,36 @@ abstract class TransactionStatusResponseKnownPayloadItem implements Built<Transa
   TransactionPayloadGatewayHandlingStatus? get handlingStatus;
   // enum handlingStatusEnum {  HandlingSubmission,  Concluded,  };
 
-  /// Additional reason for why the Gateway has its current handling status. 
+  /// Additional reason for why the Gateway has its current handling status.
   @BuiltValueField(wireName: r'handling_status_reason')
   String? get handlingStatusReason;
 
-  /// The most recent error message received when submitting this transaction to the network. Please note that the presence of an error message doesn't imply that this transaction payload will definitely reject or fail. This could be a transient error. 
+  /// The most recent error message received when submitting this transaction to the network. Please note that the presence of an error message doesn't imply that this transaction payload will definitely reject or fail. This could be a transient error.
   @BuiltValueField(wireName: r'submission_error')
   String? get submissionError;
 
   TransactionStatusResponseKnownPayloadItem._();
 
-  factory TransactionStatusResponseKnownPayloadItem([void updates(TransactionStatusResponseKnownPayloadItemBuilder b)]) = _$TransactionStatusResponseKnownPayloadItem;
+  factory TransactionStatusResponseKnownPayloadItem(
+          [void updates(TransactionStatusResponseKnownPayloadItemBuilder b)]) =
+      _$TransactionStatusResponseKnownPayloadItem;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(TransactionStatusResponseKnownPayloadItemBuilder b) => b;
+  static void _defaults(TransactionStatusResponseKnownPayloadItemBuilder b) =>
+      b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<TransactionStatusResponseKnownPayloadItem> get serializer => _$TransactionStatusResponseKnownPayloadItemSerializer();
+  static Serializer<TransactionStatusResponseKnownPayloadItem> get serializer =>
+      _$TransactionStatusResponseKnownPayloadItemSerializer();
 }
 
-class _$TransactionStatusResponseKnownPayloadItemSerializer implements PrimitiveSerializer<TransactionStatusResponseKnownPayloadItem> {
+class _$TransactionStatusResponseKnownPayloadItemSerializer
+    implements PrimitiveSerializer<TransactionStatusResponseKnownPayloadItem> {
   @override
-  final Iterable<Type> types = const [TransactionStatusResponseKnownPayloadItem, _$TransactionStatusResponseKnownPayloadItem];
+  final Iterable<Type> types = const [
+    TransactionStatusResponseKnownPayloadItem,
+    _$TransactionStatusResponseKnownPayloadItem
+  ];
 
   @override
   final String wireName = r'TransactionStatusResponseKnownPayloadItem';
@@ -151,7 +162,9 @@ class _$TransactionStatusResponseKnownPayloadItemSerializer implements Primitive
     TransactionStatusResponseKnownPayloadItem object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -213,7 +226,8 @@ class _$TransactionStatusResponseKnownPayloadItemSerializer implements Primitive
         case r'handling_status':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(TransactionPayloadGatewayHandlingStatus),
+            specifiedType:
+                const FullType(TransactionPayloadGatewayHandlingStatus),
           ) as TransactionPayloadGatewayHandlingStatus;
           result.handlingStatus = valueDes;
           break;
@@ -261,4 +275,3 @@ class _$TransactionStatusResponseKnownPayloadItemSerializer implements Primitive
     return result.build();
   }
 }
-

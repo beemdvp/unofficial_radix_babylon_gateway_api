@@ -12,7 +12,7 @@ void main() {
       // TODO
     });
 
-    // This type is defined in the Core API as `EventEmitterIdentifier`. See the Core API documentation for more details. 
+    // This type is defined in the Core API as `EventEmitterIdentifier`. See the Core API documentation for more details.
     // JsonObject emitter
     test('to test the property `emitter`', () async {
       // TODO
@@ -22,6 +22,5 @@ void main() {
     test('to test the property `data`', () async {
       // TODO
     });
-
   });
 }

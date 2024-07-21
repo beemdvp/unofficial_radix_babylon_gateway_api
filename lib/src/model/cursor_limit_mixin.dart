@@ -14,7 +14,7 @@ part 'cursor_limit_mixin.g.dart';
 /// * [cursor] - This cursor allows forward pagination, by providing the cursor from the previous request.
 /// * [limitPerPage] - The page size requested.
 @BuiltValue(instantiable: false)
-abstract class CursorLimitMixin  {
+abstract class CursorLimitMixin {
   /// This cursor allows forward pagination, by providing the cursor from the previous request.
   @BuiltValueField(wireName: r'cursor')
   String? get cursor;
@@ -24,10 +24,12 @@ abstract class CursorLimitMixin  {
   int? get limitPerPage;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<CursorLimitMixin> get serializer => _$CursorLimitMixinSerializer();
+  static Serializer<CursorLimitMixin> get serializer =>
+      _$CursorLimitMixinSerializer();
 }
 
-class _$CursorLimitMixinSerializer implements PrimitiveSerializer<CursorLimitMixin> {
+class _$CursorLimitMixinSerializer
+    implements PrimitiveSerializer<CursorLimitMixin> {
   @override
   final Iterable<Type> types = const [CursorLimitMixin];
 
@@ -61,7 +63,9 @@ class _$CursorLimitMixinSerializer implements PrimitiveSerializer<CursorLimitMix
     CursorLimitMixin object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   @override
@@ -70,25 +74,32 @@ class _$CursorLimitMixinSerializer implements PrimitiveSerializer<CursorLimitMix
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return serializers.deserialize(serialized, specifiedType: FullType($CursorLimitMixin)) as $CursorLimitMixin;
+    return serializers.deserialize(serialized,
+        specifiedType: FullType($CursorLimitMixin)) as $CursorLimitMixin;
   }
 }
 
 /// a concrete implementation of [CursorLimitMixin], since [CursorLimitMixin] is not instantiable
 @BuiltValue(instantiable: true)
-abstract class $CursorLimitMixin implements CursorLimitMixin, Built<$CursorLimitMixin, $CursorLimitMixinBuilder> {
+abstract class $CursorLimitMixin
+    implements
+        CursorLimitMixin,
+        Built<$CursorLimitMixin, $CursorLimitMixinBuilder> {
   $CursorLimitMixin._();
 
-  factory $CursorLimitMixin([void Function($CursorLimitMixinBuilder)? updates]) = _$$CursorLimitMixin;
+  factory $CursorLimitMixin(
+      [void Function($CursorLimitMixinBuilder)? updates]) = _$$CursorLimitMixin;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($CursorLimitMixinBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<$CursorLimitMixin> get serializer => _$$CursorLimitMixinSerializer();
+  static Serializer<$CursorLimitMixin> get serializer =>
+      _$$CursorLimitMixinSerializer();
 }
 
-class _$$CursorLimitMixinSerializer implements PrimitiveSerializer<$CursorLimitMixin> {
+class _$$CursorLimitMixinSerializer
+    implements PrimitiveSerializer<$CursorLimitMixin> {
   @override
   final Iterable<Type> types = const [$CursorLimitMixin, _$$CursorLimitMixin];
 
@@ -101,7 +112,8 @@ class _$$CursorLimitMixinSerializer implements PrimitiveSerializer<$CursorLimitM
     $CursorLimitMixin object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return serializers.serialize(object, specifiedType: FullType(CursorLimitMixin))!;
+    return serializers.serialize(object,
+        specifiedType: FullType(CursorLimitMixin))!;
   }
 
   void _deserializeProperties(
@@ -160,4 +172,3 @@ class _$$CursorLimitMixinSerializer implements PrimitiveSerializer<$CursorLimitM
     return result.build();
   }
 }
-

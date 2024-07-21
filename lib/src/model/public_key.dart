@@ -14,9 +14,9 @@ part 'public_key.g.dart';
 /// PublicKey
 ///
 /// Properties:
-/// * [keyType] 
+/// * [keyType]
 @BuiltValue(instantiable: false)
-abstract class PublicKey  {
+abstract class PublicKey {
   @BuiltValueField(wireName: r'key_type')
   PublicKeyType get keyType;
   // enum keyTypeEnum {  EcdsaSecp256k1,  EddsaEd25519,  };
@@ -33,26 +33,27 @@ abstract class PublicKey  {
 }
 
 extension PublicKeyDiscriminatorExt on PublicKey {
-    String? get discriminatorValue {
-        if (this is PublicKeyEcdsaSecp256k1) {
-            return r'EcdsaSecp256k1';
-        }
-        if (this is PublicKeyEddsaEd25519) {
-            return r'EddsaEd25519';
-        }
-        return null;
+  String? get discriminatorValue {
+    if (this is PublicKeyEcdsaSecp256k1) {
+      return r'EcdsaSecp256k1';
     }
+    if (this is PublicKeyEddsaEd25519) {
+      return r'EddsaEd25519';
+    }
+    return null;
+  }
 }
+
 extension PublicKeyBuilderDiscriminatorExt on PublicKeyBuilder {
-    String? get discriminatorValue {
-        if (this is PublicKeyEcdsaSecp256k1Builder) {
-            return r'EcdsaSecp256k1';
-        }
-        if (this is PublicKeyEddsaEd25519Builder) {
-            return r'EddsaEd25519';
-        }
-        return null;
+  String? get discriminatorValue {
+    if (this is PublicKeyEcdsaSecp256k1Builder) {
+      return r'EcdsaSecp256k1';
     }
+    if (this is PublicKeyEddsaEd25519Builder) {
+      return r'EddsaEd25519';
+    }
+    return null;
+  }
 }
 
 class _$PublicKeySerializer implements PrimitiveSerializer<PublicKey> {
@@ -81,12 +82,16 @@ class _$PublicKeySerializer implements PrimitiveSerializer<PublicKey> {
     FullType specifiedType = FullType.unspecified,
   }) {
     if (object is PublicKeyEcdsaSecp256k1) {
-      return serializers.serialize(object, specifiedType: FullType(PublicKeyEcdsaSecp256k1))!;
+      return serializers.serialize(object,
+          specifiedType: FullType(PublicKeyEcdsaSecp256k1))!;
     }
     if (object is PublicKeyEddsaEd25519) {
-      return serializers.serialize(object, specifiedType: FullType(PublicKeyEddsaEd25519))!;
+      return serializers.serialize(object,
+          specifiedType: FullType(PublicKeyEddsaEd25519))!;
     }
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   @override
@@ -96,25 +101,34 @@ class _$PublicKeySerializer implements PrimitiveSerializer<PublicKey> {
     FullType specifiedType = FullType.unspecified,
   }) {
     final serializedList = (serialized as Iterable<Object?>).toList();
-    final discIndex = serializedList.indexOf(PublicKey.discriminatorFieldName) + 1;
-    final discValue = serializers.deserialize(serializedList[discIndex], specifiedType: FullType(String)) as String;
+    final discIndex =
+        serializedList.indexOf(PublicKey.discriminatorFieldName) + 1;
+    final discValue = serializers.deserialize(serializedList[discIndex],
+        specifiedType: FullType(String)) as String;
     switch (discValue) {
       case r'EcdsaSecp256k1':
-        return serializers.deserialize(serialized, specifiedType: FullType(PublicKeyEcdsaSecp256k1)) as PublicKeyEcdsaSecp256k1;
+        return serializers.deserialize(serialized,
+                specifiedType: FullType(PublicKeyEcdsaSecp256k1))
+            as PublicKeyEcdsaSecp256k1;
       case r'EddsaEd25519':
-        return serializers.deserialize(serialized, specifiedType: FullType(PublicKeyEddsaEd25519)) as PublicKeyEddsaEd25519;
+        return serializers.deserialize(serialized,
+                specifiedType: FullType(PublicKeyEddsaEd25519))
+            as PublicKeyEddsaEd25519;
       default:
-        return serializers.deserialize(serialized, specifiedType: FullType($PublicKey)) as $PublicKey;
+        return serializers.deserialize(serialized,
+            specifiedType: FullType($PublicKey)) as $PublicKey;
     }
   }
 }
 
 /// a concrete implementation of [PublicKey], since [PublicKey] is not instantiable
 @BuiltValue(instantiable: true)
-abstract class $PublicKey implements PublicKey, Built<$PublicKey, $PublicKeyBuilder> {
+abstract class $PublicKey
+    implements PublicKey, Built<$PublicKey, $PublicKeyBuilder> {
   $PublicKey._();
 
-  factory $PublicKey([void Function($PublicKeyBuilder)? updates]) = _$$PublicKey;
+  factory $PublicKey([void Function($PublicKeyBuilder)? updates]) =
+      _$$PublicKey;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($PublicKeyBuilder b) => b;
@@ -186,4 +200,3 @@ class _$$PublicKeySerializer implements PrimitiveSerializer<$PublicKey> {
     return result.build();
   }
 }
-

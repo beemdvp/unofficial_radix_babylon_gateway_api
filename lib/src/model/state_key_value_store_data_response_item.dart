@@ -12,12 +12,15 @@ part 'state_key_value_store_data_response_item.g.dart';
 /// StateKeyValueStoreDataResponseItem
 ///
 /// Properties:
-/// * [key] 
-/// * [value] 
+/// * [key]
+/// * [value]
 /// * [lastUpdatedAtStateVersion] - The most recent state version underlying object was modified at.
-/// * [isLocked] 
+/// * [isLocked]
 @BuiltValue()
-abstract class StateKeyValueStoreDataResponseItem implements Built<StateKeyValueStoreDataResponseItem, StateKeyValueStoreDataResponseItemBuilder> {
+abstract class StateKeyValueStoreDataResponseItem
+    implements
+        Built<StateKeyValueStoreDataResponseItem,
+            StateKeyValueStoreDataResponseItemBuilder> {
   @BuiltValueField(wireName: r'key')
   ScryptoSborValue get key;
 
@@ -33,18 +36,25 @@ abstract class StateKeyValueStoreDataResponseItem implements Built<StateKeyValue
 
   StateKeyValueStoreDataResponseItem._();
 
-  factory StateKeyValueStoreDataResponseItem([void updates(StateKeyValueStoreDataResponseItemBuilder b)]) = _$StateKeyValueStoreDataResponseItem;
+  factory StateKeyValueStoreDataResponseItem(
+          [void updates(StateKeyValueStoreDataResponseItemBuilder b)]) =
+      _$StateKeyValueStoreDataResponseItem;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(StateKeyValueStoreDataResponseItemBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<StateKeyValueStoreDataResponseItem> get serializer => _$StateKeyValueStoreDataResponseItemSerializer();
+  static Serializer<StateKeyValueStoreDataResponseItem> get serializer =>
+      _$StateKeyValueStoreDataResponseItemSerializer();
 }
 
-class _$StateKeyValueStoreDataResponseItemSerializer implements PrimitiveSerializer<StateKeyValueStoreDataResponseItem> {
+class _$StateKeyValueStoreDataResponseItemSerializer
+    implements PrimitiveSerializer<StateKeyValueStoreDataResponseItem> {
   @override
-  final Iterable<Type> types = const [StateKeyValueStoreDataResponseItem, _$StateKeyValueStoreDataResponseItem];
+  final Iterable<Type> types = const [
+    StateKeyValueStoreDataResponseItem,
+    _$StateKeyValueStoreDataResponseItem
+  ];
 
   @override
   final String wireName = r'StateKeyValueStoreDataResponseItem';
@@ -82,7 +92,9 @@ class _$StateKeyValueStoreDataResponseItemSerializer implements PrimitiveSeriali
     StateKeyValueStoreDataResponseItem object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -153,4 +165,3 @@ class _$StateKeyValueStoreDataResponseItemSerializer implements PrimitiveSeriali
     return result.build();
   }
 }
-

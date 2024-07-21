@@ -14,13 +14,18 @@ part 'state_entity_fungible_resource_vaults_page_request.g.dart';
 /// StateEntityFungibleResourceVaultsPageRequest
 ///
 /// Properties:
-/// * [atLedgerState] 
+/// * [atLedgerState]
 /// * [cursor] - This cursor allows forward pagination, by providing the cursor from the previous request.
 /// * [limitPerPage] - The page size requested.
 /// * [address] - Bech32m-encoded human readable version of the address.
 /// * [resourceAddress] - Bech32m-encoded human readable version of the address.
 @BuiltValue()
-abstract class StateEntityFungibleResourceVaultsPageRequest implements AtLedgerStateMixin, CursorLimitMixin, Built<StateEntityFungibleResourceVaultsPageRequest, StateEntityFungibleResourceVaultsPageRequestBuilder> {
+abstract class StateEntityFungibleResourceVaultsPageRequest
+    implements
+        AtLedgerStateMixin,
+        CursorLimitMixin,
+        Built<StateEntityFungibleResourceVaultsPageRequest,
+            StateEntityFungibleResourceVaultsPageRequestBuilder> {
   /// Bech32m-encoded human readable version of the address.
   @BuiltValueField(wireName: r'address')
   String get address;
@@ -31,18 +36,30 @@ abstract class StateEntityFungibleResourceVaultsPageRequest implements AtLedgerS
 
   StateEntityFungibleResourceVaultsPageRequest._();
 
-  factory StateEntityFungibleResourceVaultsPageRequest([void updates(StateEntityFungibleResourceVaultsPageRequestBuilder b)]) = _$StateEntityFungibleResourceVaultsPageRequest;
+  factory StateEntityFungibleResourceVaultsPageRequest(
+          [void updates(
+              StateEntityFungibleResourceVaultsPageRequestBuilder b)]) =
+      _$StateEntityFungibleResourceVaultsPageRequest;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(StateEntityFungibleResourceVaultsPageRequestBuilder b) => b;
+  static void _defaults(
+          StateEntityFungibleResourceVaultsPageRequestBuilder b) =>
+      b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<StateEntityFungibleResourceVaultsPageRequest> get serializer => _$StateEntityFungibleResourceVaultsPageRequestSerializer();
+  static Serializer<StateEntityFungibleResourceVaultsPageRequest>
+      get serializer =>
+          _$StateEntityFungibleResourceVaultsPageRequestSerializer();
 }
 
-class _$StateEntityFungibleResourceVaultsPageRequestSerializer implements PrimitiveSerializer<StateEntityFungibleResourceVaultsPageRequest> {
+class _$StateEntityFungibleResourceVaultsPageRequestSerializer
+    implements
+        PrimitiveSerializer<StateEntityFungibleResourceVaultsPageRequest> {
   @override
-  final Iterable<Type> types = const [StateEntityFungibleResourceVaultsPageRequest, _$StateEntityFungibleResourceVaultsPageRequest];
+  final Iterable<Type> types = const [
+    StateEntityFungibleResourceVaultsPageRequest,
+    _$StateEntityFungibleResourceVaultsPageRequest
+  ];
 
   @override
   final String wireName = r'StateEntityFungibleResourceVaultsPageRequest';
@@ -91,7 +108,9 @@ class _$StateEntityFungibleResourceVaultsPageRequestSerializer implements Primit
     StateEntityFungibleResourceVaultsPageRequest object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -172,4 +191,3 @@ class _$StateEntityFungibleResourceVaultsPageRequestSerializer implements Primit
     return result.build();
   }
 }
-

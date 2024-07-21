@@ -13,7 +13,7 @@ void main() {
       // TODO
     });
 
-    // This type is defined in the Core API as `TransactionReceipt`. See the Core API documentation for more details. 
+    // This type is defined in the Core API as `TransactionReceipt`. See the Core API documentation for more details.
     // JsonObject receipt
     test('to test the property `receipt`', () async {
       // TODO
@@ -28,6 +28,5 @@ void main() {
     test('to test the property `logs`', () async {
       // TODO
     });
-
   });
 }

@@ -14,7 +14,10 @@ part 'metadata_non_fungible_global_id_array_value_all_of_values.g.dart';
 /// * [resourceAddress] - Bech32m-encoded human readable version of the address.
 /// * [nonFungibleId] - String-encoded non-fungible ID.
 @BuiltValue()
-abstract class MetadataNonFungibleGlobalIdArrayValueAllOfValues implements Built<MetadataNonFungibleGlobalIdArrayValueAllOfValues, MetadataNonFungibleGlobalIdArrayValueAllOfValuesBuilder> {
+abstract class MetadataNonFungibleGlobalIdArrayValueAllOfValues
+    implements
+        Built<MetadataNonFungibleGlobalIdArrayValueAllOfValues,
+            MetadataNonFungibleGlobalIdArrayValueAllOfValuesBuilder> {
   /// Bech32m-encoded human readable version of the address.
   @BuiltValueField(wireName: r'resource_address')
   String get resourceAddress;
@@ -25,18 +28,30 @@ abstract class MetadataNonFungibleGlobalIdArrayValueAllOfValues implements Built
 
   MetadataNonFungibleGlobalIdArrayValueAllOfValues._();
 
-  factory MetadataNonFungibleGlobalIdArrayValueAllOfValues([void updates(MetadataNonFungibleGlobalIdArrayValueAllOfValuesBuilder b)]) = _$MetadataNonFungibleGlobalIdArrayValueAllOfValues;
+  factory MetadataNonFungibleGlobalIdArrayValueAllOfValues(
+          [void updates(
+              MetadataNonFungibleGlobalIdArrayValueAllOfValuesBuilder b)]) =
+      _$MetadataNonFungibleGlobalIdArrayValueAllOfValues;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(MetadataNonFungibleGlobalIdArrayValueAllOfValuesBuilder b) => b;
+  static void _defaults(
+          MetadataNonFungibleGlobalIdArrayValueAllOfValuesBuilder b) =>
+      b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<MetadataNonFungibleGlobalIdArrayValueAllOfValues> get serializer => _$MetadataNonFungibleGlobalIdArrayValueAllOfValuesSerializer();
+  static Serializer<MetadataNonFungibleGlobalIdArrayValueAllOfValues>
+      get serializer =>
+          _$MetadataNonFungibleGlobalIdArrayValueAllOfValuesSerializer();
 }
 
-class _$MetadataNonFungibleGlobalIdArrayValueAllOfValuesSerializer implements PrimitiveSerializer<MetadataNonFungibleGlobalIdArrayValueAllOfValues> {
+class _$MetadataNonFungibleGlobalIdArrayValueAllOfValuesSerializer
+    implements
+        PrimitiveSerializer<MetadataNonFungibleGlobalIdArrayValueAllOfValues> {
   @override
-  final Iterable<Type> types = const [MetadataNonFungibleGlobalIdArrayValueAllOfValues, _$MetadataNonFungibleGlobalIdArrayValueAllOfValues];
+  final Iterable<Type> types = const [
+    MetadataNonFungibleGlobalIdArrayValueAllOfValues,
+    _$MetadataNonFungibleGlobalIdArrayValueAllOfValues
+  ];
 
   @override
   final String wireName = r'MetadataNonFungibleGlobalIdArrayValueAllOfValues';
@@ -64,7 +79,9 @@ class _$MetadataNonFungibleGlobalIdArrayValueAllOfValuesSerializer implements Pr
     MetadataNonFungibleGlobalIdArrayValueAllOfValues object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -121,4 +138,3 @@ class _$MetadataNonFungibleGlobalIdArrayValueAllOfValuesSerializer implements Pr
     return result.build();
   }
 }
-

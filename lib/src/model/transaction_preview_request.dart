@@ -18,14 +18,16 @@ part 'transaction_preview_request.g.dart';
 /// * [blobsHex] - An array of hex-encoded blob data (optional)
 /// * [startEpochInclusive] - An integer between `0` and `10^10`, marking the epoch at which the transaction starts being valid
 /// * [endEpochExclusive] - An integer between `0` and `10^10`, marking the epoch at which the transaction is no longer valid
-/// * [notaryPublicKey] 
+/// * [notaryPublicKey]
 /// * [notaryIsSignatory] - Whether the notary should count as a signatory (optional, default false)
 /// * [tipPercentage] - An integer between `0` and `65535`, giving the validator tip as a percentage amount. A value of `1` corresponds to 1% of the fee.
 /// * [nonce] - A decimal-string-encoded integer between `0` and `2^32 - 1`, used to ensure the transaction intent is unique.
 /// * [signerPublicKeys] - A list of public keys to be used as transaction signers
-/// * [flags] 
+/// * [flags]
 @BuiltValue()
-abstract class TransactionPreviewRequest implements Built<TransactionPreviewRequest, TransactionPreviewRequestBuilder> {
+abstract class TransactionPreviewRequest
+    implements
+        Built<TransactionPreviewRequest, TransactionPreviewRequestBuilder> {
   /// A text-representation of a transaction manifest
   @BuiltValueField(wireName: r'manifest')
   String get manifest;
@@ -66,18 +68,25 @@ abstract class TransactionPreviewRequest implements Built<TransactionPreviewRequ
 
   TransactionPreviewRequest._();
 
-  factory TransactionPreviewRequest([void updates(TransactionPreviewRequestBuilder b)]) = _$TransactionPreviewRequest;
+  factory TransactionPreviewRequest(
+          [void updates(TransactionPreviewRequestBuilder b)]) =
+      _$TransactionPreviewRequest;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(TransactionPreviewRequestBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<TransactionPreviewRequest> get serializer => _$TransactionPreviewRequestSerializer();
+  static Serializer<TransactionPreviewRequest> get serializer =>
+      _$TransactionPreviewRequestSerializer();
 }
 
-class _$TransactionPreviewRequestSerializer implements PrimitiveSerializer<TransactionPreviewRequest> {
+class _$TransactionPreviewRequestSerializer
+    implements PrimitiveSerializer<TransactionPreviewRequest> {
   @override
-  final Iterable<Type> types = const [TransactionPreviewRequest, _$TransactionPreviewRequest];
+  final Iterable<Type> types = const [
+    TransactionPreviewRequest,
+    _$TransactionPreviewRequest
+  ];
 
   @override
   final String wireName = r'TransactionPreviewRequest';
@@ -151,7 +160,9 @@ class _$TransactionPreviewRequestSerializer implements PrimitiveSerializer<Trans
     TransactionPreviewRequest object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -264,4 +275,3 @@ class _$TransactionPreviewRequestSerializer implements PrimitiveSerializer<Trans
     return result.build();
   }
 }
-

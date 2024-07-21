@@ -14,11 +14,15 @@ part 'transaction_committed_details_request.g.dart';
 /// TransactionCommittedDetailsRequest
 ///
 /// Properties:
-/// * [atLedgerState] 
+/// * [atLedgerState]
 /// * [intentHash] - Bech32m-encoded hash.
-/// * [optIns] 
+/// * [optIns]
 @BuiltValue()
-abstract class TransactionCommittedDetailsRequest implements AtLedgerStateMixin, Built<TransactionCommittedDetailsRequest, TransactionCommittedDetailsRequestBuilder> {
+abstract class TransactionCommittedDetailsRequest
+    implements
+        AtLedgerStateMixin,
+        Built<TransactionCommittedDetailsRequest,
+            TransactionCommittedDetailsRequestBuilder> {
   @BuiltValueField(wireName: r'opt_ins')
   TransactionDetailsOptIns? get optIns;
 
@@ -28,18 +32,25 @@ abstract class TransactionCommittedDetailsRequest implements AtLedgerStateMixin,
 
   TransactionCommittedDetailsRequest._();
 
-  factory TransactionCommittedDetailsRequest([void updates(TransactionCommittedDetailsRequestBuilder b)]) = _$TransactionCommittedDetailsRequest;
+  factory TransactionCommittedDetailsRequest(
+          [void updates(TransactionCommittedDetailsRequestBuilder b)]) =
+      _$TransactionCommittedDetailsRequest;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(TransactionCommittedDetailsRequestBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<TransactionCommittedDetailsRequest> get serializer => _$TransactionCommittedDetailsRequestSerializer();
+  static Serializer<TransactionCommittedDetailsRequest> get serializer =>
+      _$TransactionCommittedDetailsRequestSerializer();
 }
 
-class _$TransactionCommittedDetailsRequestSerializer implements PrimitiveSerializer<TransactionCommittedDetailsRequest> {
+class _$TransactionCommittedDetailsRequestSerializer
+    implements PrimitiveSerializer<TransactionCommittedDetailsRequest> {
   @override
-  final Iterable<Type> types = const [TransactionCommittedDetailsRequest, _$TransactionCommittedDetailsRequest];
+  final Iterable<Type> types = const [
+    TransactionCommittedDetailsRequest,
+    _$TransactionCommittedDetailsRequest
+  ];
 
   @override
   final String wireName = r'TransactionCommittedDetailsRequest';
@@ -76,7 +87,9 @@ class _$TransactionCommittedDetailsRequestSerializer implements PrimitiveSeriali
     TransactionCommittedDetailsRequest object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -141,4 +154,3 @@ class _$TransactionCommittedDetailsRequestSerializer implements PrimitiveSeriali
     return result.build();
   }
 }
-

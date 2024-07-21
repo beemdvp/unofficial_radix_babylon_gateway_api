@@ -13,28 +13,39 @@ part 'public_key_hash_eddsa_ed25519.g.dart';
 /// PublicKeyHashEddsaEd25519
 ///
 /// Properties:
-/// * [keyHashType] 
+/// * [keyHashType]
 /// * [hashHex] - Hex-encoded SHA-256 hash.
 @BuiltValue()
-abstract class PublicKeyHashEddsaEd25519 implements PublicKeyHash, Built<PublicKeyHashEddsaEd25519, PublicKeyHashEddsaEd25519Builder> {
+abstract class PublicKeyHashEddsaEd25519
+    implements
+        PublicKeyHash,
+        Built<PublicKeyHashEddsaEd25519, PublicKeyHashEddsaEd25519Builder> {
   /// Hex-encoded SHA-256 hash.
   @BuiltValueField(wireName: r'hash_hex')
   String get hashHex;
 
   PublicKeyHashEddsaEd25519._();
 
-  factory PublicKeyHashEddsaEd25519([void updates(PublicKeyHashEddsaEd25519Builder b)]) = _$PublicKeyHashEddsaEd25519;
+  factory PublicKeyHashEddsaEd25519(
+          [void updates(PublicKeyHashEddsaEd25519Builder b)]) =
+      _$PublicKeyHashEddsaEd25519;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(PublicKeyHashEddsaEd25519Builder b) => b..keyHashType=b.discriminatorValue;
+  static void _defaults(PublicKeyHashEddsaEd25519Builder b) =>
+      b..keyHashType = b.discriminatorValue as dynamic;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<PublicKeyHashEddsaEd25519> get serializer => _$PublicKeyHashEddsaEd25519Serializer();
+  static Serializer<PublicKeyHashEddsaEd25519> get serializer =>
+      _$PublicKeyHashEddsaEd25519Serializer();
 }
 
-class _$PublicKeyHashEddsaEd25519Serializer implements PrimitiveSerializer<PublicKeyHashEddsaEd25519> {
+class _$PublicKeyHashEddsaEd25519Serializer
+    implements PrimitiveSerializer<PublicKeyHashEddsaEd25519> {
   @override
-  final Iterable<Type> types = const [PublicKeyHashEddsaEd25519, _$PublicKeyHashEddsaEd25519];
+  final Iterable<Type> types = const [
+    PublicKeyHashEddsaEd25519,
+    _$PublicKeyHashEddsaEd25519
+  ];
 
   @override
   final String wireName = r'PublicKeyHashEddsaEd25519';
@@ -62,7 +73,9 @@ class _$PublicKeyHashEddsaEd25519Serializer implements PrimitiveSerializer<Publi
     PublicKeyHashEddsaEd25519 object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -119,4 +132,3 @@ class _$PublicKeyHashEddsaEd25519Serializer implements PrimitiveSerializer<Publi
     return result.build();
   }
 }
-

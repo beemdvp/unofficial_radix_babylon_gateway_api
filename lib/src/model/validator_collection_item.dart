@@ -17,16 +17,17 @@ part 'validator_collection_item.g.dart';
 ///
 /// Properties:
 /// * [address] - Bech32m-encoded human readable version of the address.
-/// * [stakeVault] 
-/// * [pendingXrdWithdrawVault] 
-/// * [lockedOwnerStakeUnitVault] 
-/// * [pendingOwnerStakeUnitUnlockVault] 
-/// * [state] - Validator inner state representation. This type is defined in the Core API as `ValidatorFieldStateValue`. See the Core API documentation for more details. 
-/// * [activeInEpoch] 
-/// * [metadata] 
-/// * [effectiveFeeFactor] 
+/// * [stakeVault]
+/// * [pendingXrdWithdrawVault]
+/// * [lockedOwnerStakeUnitVault]
+/// * [pendingOwnerStakeUnitUnlockVault]
+/// * [state] - Validator inner state representation. This type is defined in the Core API as `ValidatorFieldStateValue`. See the Core API documentation for more details.
+/// * [activeInEpoch]
+/// * [metadata]
+/// * [effectiveFeeFactor]
 @BuiltValue()
-abstract class ValidatorCollectionItem implements Built<ValidatorCollectionItem, ValidatorCollectionItemBuilder> {
+abstract class ValidatorCollectionItem
+    implements Built<ValidatorCollectionItem, ValidatorCollectionItemBuilder> {
   /// Bech32m-encoded human readable version of the address.
   @BuiltValueField(wireName: r'address')
   String get address;
@@ -43,7 +44,7 @@ abstract class ValidatorCollectionItem implements Built<ValidatorCollectionItem,
   @BuiltValueField(wireName: r'pending_owner_stake_unit_unlock_vault')
   ValidatorVaultItem get pendingOwnerStakeUnitUnlockVault;
 
-  /// Validator inner state representation. This type is defined in the Core API as `ValidatorFieldStateValue`. See the Core API documentation for more details. 
+  /// Validator inner state representation. This type is defined in the Core API as `ValidatorFieldStateValue`. See the Core API documentation for more details.
   @BuiltValueField(wireName: r'state')
   JsonObject? get state;
 
@@ -58,18 +59,25 @@ abstract class ValidatorCollectionItem implements Built<ValidatorCollectionItem,
 
   ValidatorCollectionItem._();
 
-  factory ValidatorCollectionItem([void updates(ValidatorCollectionItemBuilder b)]) = _$ValidatorCollectionItem;
+  factory ValidatorCollectionItem(
+          [void updates(ValidatorCollectionItemBuilder b)]) =
+      _$ValidatorCollectionItem;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(ValidatorCollectionItemBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<ValidatorCollectionItem> get serializer => _$ValidatorCollectionItemSerializer();
+  static Serializer<ValidatorCollectionItem> get serializer =>
+      _$ValidatorCollectionItemSerializer();
 }
 
-class _$ValidatorCollectionItemSerializer implements PrimitiveSerializer<ValidatorCollectionItem> {
+class _$ValidatorCollectionItemSerializer
+    implements PrimitiveSerializer<ValidatorCollectionItem> {
   @override
-  final Iterable<Type> types = const [ValidatorCollectionItem, _$ValidatorCollectionItem];
+  final Iterable<Type> types = const [
+    ValidatorCollectionItem,
+    _$ValidatorCollectionItem
+  ];
 
   @override
   final String wireName = r'ValidatorCollectionItem';
@@ -105,10 +113,12 @@ class _$ValidatorCollectionItemSerializer implements PrimitiveSerializer<Validat
       specifiedType: const FullType(ValidatorVaultItem),
     );
     yield r'state';
-    yield object.state == null ? null : serializers.serialize(
-      object.state,
-      specifiedType: const FullType.nullable(JsonObject),
-    );
+    yield object.state == null
+        ? null
+        : serializers.serialize(
+            object.state,
+            specifiedType: const FullType.nullable(JsonObject),
+          );
     if (object.activeInEpoch != null) {
       yield r'active_in_epoch';
       yield serializers.serialize(
@@ -134,7 +144,9 @@ class _$ValidatorCollectionItemSerializer implements PrimitiveSerializer<Validat
     ValidatorCollectionItem object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -209,7 +221,8 @@ class _$ValidatorCollectionItemSerializer implements PrimitiveSerializer<Validat
         case r'effective_fee_factor':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(ValidatorCollectionItemEffectiveFeeFactor),
+            specifiedType:
+                const FullType(ValidatorCollectionItemEffectiveFeeFactor),
           ) as ValidatorCollectionItemEffectiveFeeFactor;
           result.effectiveFeeFactor.replace(valueDes);
           break;
@@ -241,4 +254,3 @@ class _$ValidatorCollectionItemSerializer implements PrimitiveSerializer<Validat
     return result.build();
   }
 }
-

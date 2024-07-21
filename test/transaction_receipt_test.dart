@@ -12,7 +12,7 @@ void main() {
       // TODO
     });
 
-    // This type is defined in the Core API as `FeeSummary`. See the Core API documentation for more details. 
+    // This type is defined in the Core API as `FeeSummary`. See the Core API documentation for more details.
     // JsonObject feeSummary
     test('to test the property `feeSummary`', () async {
       // TODO
@@ -23,31 +23,31 @@ void main() {
       // TODO
     });
 
-    // This type is defined in the Core API as `FeeDestination`. See the Core API documentation for more details. 
+    // This type is defined in the Core API as `FeeDestination`. See the Core API documentation for more details.
     // JsonObject feeDestination
     test('to test the property `feeDestination`', () async {
       // TODO
     });
 
-    // This type is defined in the Core API as `FeeSource`. See the Core API documentation for more details. 
+    // This type is defined in the Core API as `FeeSource`. See the Core API documentation for more details.
     // JsonObject feeSource
     test('to test the property `feeSource`', () async {
       // TODO
     });
 
-    // This type is defined in the Core API as `StateUpdates`. See the Core API documentation for more details. 
+    // This type is defined in the Core API as `StateUpdates`. See the Core API documentation for more details.
     // JsonObject stateUpdates
     test('to test the property `stateUpdates`', () async {
       // TODO
     });
 
-    // Information (number and active validator list) about new epoch if occured. This type is defined in the Core API as `NextEpoch`. See the Core API documentation for more details. 
+    // Information (number and active validator list) about new epoch if occured. This type is defined in the Core API as `NextEpoch`. See the Core API documentation for more details.
     // JsonObject nextEpoch
     test('to test the property `nextEpoch`', () async {
       // TODO
     });
 
-    // The manifest line-by-line engine return data (only present if `status` is `CommittedSuccess`). This type is defined in the Core API as `SborData`. See the Core API documentation for more details. 
+    // The manifest line-by-line engine return data (only present if `status` is `CommittedSuccess`). This type is defined in the Core API as `SborData`. See the Core API documentation for more details.
     // JsonObject output
     test('to test the property `output`', () async {
       // TODO
@@ -64,6 +64,5 @@ void main() {
     test('to test the property `errorMessage`', () async {
       // TODO
     });
-
   });
 }

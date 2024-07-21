@@ -10,7 +10,6 @@ import 'package:built_value/serializer.dart';
 part 'package_vm_type.g.dart';
 
 class PackageVmType extends EnumClass {
-
   @BuiltValueEnumConst(wireName: r'Native')
   static const PackageVmType native_ = _$native_;
   @BuiltValueEnumConst(wireName: r'ScryptoV1')
@@ -18,7 +17,7 @@ class PackageVmType extends EnumClass {
 
   static Serializer<PackageVmType> get serializer => _$packageVmTypeSerializer;
 
-  const PackageVmType._(String name): super(name);
+  const PackageVmType._(String name) : super(name);
 
   static BuiltSet<PackageVmType> get values => _$values;
   static PackageVmType valueOf(String name) => _$valueOf(name);
@@ -31,4 +30,3 @@ class PackageVmType extends EnumClass {
 ///
 /// Trigger mixin generation by writing a line like this one next to your enum.
 abstract class PackageVmTypeMixin = Object with _$PackageVmTypeMixin;
-

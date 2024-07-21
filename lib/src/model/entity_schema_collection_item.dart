@@ -14,7 +14,9 @@ part 'entity_schema_collection_item.g.dart';
 /// * [schemaHashHex] - Hex-encoded binary blob.
 /// * [schemaHex] - Hex-encoded binary blob.
 @BuiltValue()
-abstract class EntitySchemaCollectionItem implements Built<EntitySchemaCollectionItem, EntitySchemaCollectionItemBuilder> {
+abstract class EntitySchemaCollectionItem
+    implements
+        Built<EntitySchemaCollectionItem, EntitySchemaCollectionItemBuilder> {
   /// Hex-encoded binary blob.
   @BuiltValueField(wireName: r'schema_hash_hex')
   String get schemaHashHex;
@@ -25,18 +27,25 @@ abstract class EntitySchemaCollectionItem implements Built<EntitySchemaCollectio
 
   EntitySchemaCollectionItem._();
 
-  factory EntitySchemaCollectionItem([void updates(EntitySchemaCollectionItemBuilder b)]) = _$EntitySchemaCollectionItem;
+  factory EntitySchemaCollectionItem(
+          [void updates(EntitySchemaCollectionItemBuilder b)]) =
+      _$EntitySchemaCollectionItem;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(EntitySchemaCollectionItemBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<EntitySchemaCollectionItem> get serializer => _$EntitySchemaCollectionItemSerializer();
+  static Serializer<EntitySchemaCollectionItem> get serializer =>
+      _$EntitySchemaCollectionItemSerializer();
 }
 
-class _$EntitySchemaCollectionItemSerializer implements PrimitiveSerializer<EntitySchemaCollectionItem> {
+class _$EntitySchemaCollectionItemSerializer
+    implements PrimitiveSerializer<EntitySchemaCollectionItem> {
   @override
-  final Iterable<Type> types = const [EntitySchemaCollectionItem, _$EntitySchemaCollectionItem];
+  final Iterable<Type> types = const [
+    EntitySchemaCollectionItem,
+    _$EntitySchemaCollectionItem
+  ];
 
   @override
   final String wireName = r'EntitySchemaCollectionItem';
@@ -64,7 +73,9 @@ class _$EntitySchemaCollectionItemSerializer implements PrimitiveSerializer<Enti
     EntitySchemaCollectionItem object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -121,4 +132,3 @@ class _$EntitySchemaCollectionItemSerializer implements PrimitiveSerializer<Enti
     return result.build();
   }
 }
-

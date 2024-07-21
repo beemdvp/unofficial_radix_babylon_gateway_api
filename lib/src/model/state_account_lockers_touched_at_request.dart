@@ -15,27 +15,38 @@ part 'state_account_lockers_touched_at_request.g.dart';
 /// StateAccountLockersTouchedAtRequest
 ///
 /// Properties:
-/// * [atLedgerState] 
-/// * [accountLockers] 
+/// * [atLedgerState]
+/// * [accountLockers]
 @BuiltValue()
-abstract class StateAccountLockersTouchedAtRequest implements AtLedgerStateMixin, Built<StateAccountLockersTouchedAtRequest, StateAccountLockersTouchedAtRequestBuilder> {
+abstract class StateAccountLockersTouchedAtRequest
+    implements
+        AtLedgerStateMixin,
+        Built<StateAccountLockersTouchedAtRequest,
+            StateAccountLockersTouchedAtRequestBuilder> {
   @BuiltValueField(wireName: r'account_lockers')
   BuiltList<AccountLockerAddress> get accountLockers;
 
   StateAccountLockersTouchedAtRequest._();
 
-  factory StateAccountLockersTouchedAtRequest([void updates(StateAccountLockersTouchedAtRequestBuilder b)]) = _$StateAccountLockersTouchedAtRequest;
+  factory StateAccountLockersTouchedAtRequest(
+          [void updates(StateAccountLockersTouchedAtRequestBuilder b)]) =
+      _$StateAccountLockersTouchedAtRequest;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(StateAccountLockersTouchedAtRequestBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<StateAccountLockersTouchedAtRequest> get serializer => _$StateAccountLockersTouchedAtRequestSerializer();
+  static Serializer<StateAccountLockersTouchedAtRequest> get serializer =>
+      _$StateAccountLockersTouchedAtRequestSerializer();
 }
 
-class _$StateAccountLockersTouchedAtRequestSerializer implements PrimitiveSerializer<StateAccountLockersTouchedAtRequest> {
+class _$StateAccountLockersTouchedAtRequestSerializer
+    implements PrimitiveSerializer<StateAccountLockersTouchedAtRequest> {
   @override
-  final Iterable<Type> types = const [StateAccountLockersTouchedAtRequest, _$StateAccountLockersTouchedAtRequest];
+  final Iterable<Type> types = const [
+    StateAccountLockersTouchedAtRequest,
+    _$StateAccountLockersTouchedAtRequest
+  ];
 
   @override
   final String wireName = r'StateAccountLockersTouchedAtRequest';
@@ -48,7 +59,8 @@ class _$StateAccountLockersTouchedAtRequestSerializer implements PrimitiveSerial
     yield r'account_lockers';
     yield serializers.serialize(
       object.accountLockers,
-      specifiedType: const FullType(BuiltList, [FullType(AccountLockerAddress)]),
+      specifiedType:
+          const FullType(BuiltList, [FullType(AccountLockerAddress)]),
     );
     if (object.atLedgerState != null) {
       yield r'at_ledger_state';
@@ -65,7 +77,9 @@ class _$StateAccountLockersTouchedAtRequestSerializer implements PrimitiveSerial
     StateAccountLockersTouchedAtRequest object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -83,7 +97,8 @@ class _$StateAccountLockersTouchedAtRequestSerializer implements PrimitiveSerial
         case r'account_lockers':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltList, [FullType(AccountLockerAddress)]),
+            specifiedType:
+                const FullType(BuiltList, [FullType(AccountLockerAddress)]),
           ) as BuiltList<AccountLockerAddress>;
           result.accountLockers.replace(valueDes);
           break;
@@ -123,4 +138,3 @@ class _$StateAccountLockersTouchedAtRequestSerializer implements PrimitiveSerial
     return result.build();
   }
 }
-

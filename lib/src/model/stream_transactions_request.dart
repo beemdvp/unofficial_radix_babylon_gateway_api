@@ -19,24 +19,29 @@ part 'stream_transactions_request.g.dart';
 /// StreamTransactionsRequest
 ///
 /// Properties:
-/// * [atLedgerState] 
-/// * [fromLedgerState] 
+/// * [atLedgerState]
+/// * [fromLedgerState]
 /// * [cursor] - This cursor allows forward pagination, by providing the cursor from the previous request.
 /// * [limitPerPage] - The page size requested.
 /// * [kindFilter] - Limit returned transactions by their kind. Defaults to `user`.
-/// * [manifestAccountsWithdrawnFromFilter] 
-/// * [manifestAccountsDepositedIntoFilter] 
-/// * [manifestBadgesPresentedFilter] 
-/// * [manifestResourcesFilter] 
-/// * [affectedGlobalEntitiesFilter] 
-/// * [eventsFilter] 
-/// * [accountsWithManifestOwnerMethodCalls] 
-/// * [accountsWithoutManifestOwnerMethodCalls] 
-/// * [manifestClassFilter] 
+/// * [manifestAccountsWithdrawnFromFilter]
+/// * [manifestAccountsDepositedIntoFilter]
+/// * [manifestBadgesPresentedFilter]
+/// * [manifestResourcesFilter]
+/// * [affectedGlobalEntitiesFilter]
+/// * [eventsFilter]
+/// * [accountsWithManifestOwnerMethodCalls]
+/// * [accountsWithoutManifestOwnerMethodCalls]
+/// * [manifestClassFilter]
 /// * [order] - Configures the order of returned result set. Defaults to `desc`.
-/// * [optIns] 
+/// * [optIns]
 @BuiltValue()
-abstract class StreamTransactionsRequest implements AtLedgerStateMixin, CursorLimitMixin, FromLedgerStateMixin, Built<StreamTransactionsRequest, StreamTransactionsRequestBuilder> {
+abstract class StreamTransactionsRequest
+    implements
+        AtLedgerStateMixin,
+        CursorLimitMixin,
+        FromLedgerStateMixin,
+        Built<StreamTransactionsRequest, StreamTransactionsRequestBuilder> {
   @BuiltValueField(wireName: r'manifest_class_filter')
   StreamTransactionsRequestAllOfManifestClassFilter? get manifestClassFilter;
 
@@ -79,18 +84,25 @@ abstract class StreamTransactionsRequest implements AtLedgerStateMixin, CursorLi
 
   StreamTransactionsRequest._();
 
-  factory StreamTransactionsRequest([void updates(StreamTransactionsRequestBuilder b)]) = _$StreamTransactionsRequest;
+  factory StreamTransactionsRequest(
+          [void updates(StreamTransactionsRequestBuilder b)]) =
+      _$StreamTransactionsRequest;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(StreamTransactionsRequestBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<StreamTransactionsRequest> get serializer => _$StreamTransactionsRequestSerializer();
+  static Serializer<StreamTransactionsRequest> get serializer =>
+      _$StreamTransactionsRequestSerializer();
 }
 
-class _$StreamTransactionsRequestSerializer implements PrimitiveSerializer<StreamTransactionsRequest> {
+class _$StreamTransactionsRequestSerializer
+    implements PrimitiveSerializer<StreamTransactionsRequest> {
   @override
-  final Iterable<Type> types = const [StreamTransactionsRequest, _$StreamTransactionsRequest];
+  final Iterable<Type> types = const [
+    StreamTransactionsRequest,
+    _$StreamTransactionsRequest
+  ];
 
   @override
   final String wireName = r'StreamTransactionsRequest';
@@ -153,7 +165,8 @@ class _$StreamTransactionsRequestSerializer implements PrimitiveSerializer<Strea
       yield r'manifest_class_filter';
       yield serializers.serialize(
         object.manifestClassFilter,
-        specifiedType: const FullType(StreamTransactionsRequestAllOfManifestClassFilter),
+        specifiedType:
+            const FullType(StreamTransactionsRequestAllOfManifestClassFilter),
       );
     }
     if (object.accountsWithManifestOwnerMethodCalls != null) {
@@ -174,7 +187,8 @@ class _$StreamTransactionsRequestSerializer implements PrimitiveSerializer<Strea
       yield r'events_filter';
       yield serializers.serialize(
         object.eventsFilter,
-        specifiedType: const FullType(BuiltList, [FullType(StreamTransactionsRequestEventFilterItem)]),
+        specifiedType: const FullType(
+            BuiltList, [FullType(StreamTransactionsRequestEventFilterItem)]),
       );
     }
     if (object.affectedGlobalEntitiesFilter != null) {
@@ -220,7 +234,9 @@ class _$StreamTransactionsRequestSerializer implements PrimitiveSerializer<Strea
     StreamTransactionsRequest object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -277,7 +293,8 @@ class _$StreamTransactionsRequestSerializer implements PrimitiveSerializer<Strea
         case r'kind_filter':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(StreamTransactionsRequestKindFilterEnum),
+            specifiedType:
+                const FullType(StreamTransactionsRequestKindFilterEnum),
           ) as StreamTransactionsRequestKindFilterEnum;
           result.kindFilter = valueDes;
           break;
@@ -291,7 +308,8 @@ class _$StreamTransactionsRequestSerializer implements PrimitiveSerializer<Strea
         case r'manifest_class_filter':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(StreamTransactionsRequestAllOfManifestClassFilter),
+            specifiedType: const FullType(
+                StreamTransactionsRequestAllOfManifestClassFilter),
           ) as StreamTransactionsRequestAllOfManifestClassFilter;
           result.manifestClassFilter.replace(valueDes);
           break;
@@ -312,7 +330,8 @@ class _$StreamTransactionsRequestSerializer implements PrimitiveSerializer<Strea
         case r'events_filter':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltList, [FullType(StreamTransactionsRequestEventFilterItem)]),
+            specifiedType: const FullType(BuiltList,
+                [FullType(StreamTransactionsRequestEventFilterItem)]),
           ) as BuiltList<StreamTransactionsRequestEventFilterItem>;
           result.eventsFilter.replace(valueDes);
           break;
@@ -381,39 +400,50 @@ class _$StreamTransactionsRequestSerializer implements PrimitiveSerializer<Strea
 }
 
 class StreamTransactionsRequestKindFilterEnum extends EnumClass {
-
   /// Limit returned transactions by their kind. Defaults to `user`.
   @BuiltValueEnumConst(wireName: r'User')
-  static const StreamTransactionsRequestKindFilterEnum user = _$streamTransactionsRequestKindFilterEnum_user;
+  static const StreamTransactionsRequestKindFilterEnum user =
+      _$streamTransactionsRequestKindFilterEnum_user;
+
   /// Limit returned transactions by their kind. Defaults to `user`.
   @BuiltValueEnumConst(wireName: r'EpochChange')
-  static const StreamTransactionsRequestKindFilterEnum epochChange = _$streamTransactionsRequestKindFilterEnum_epochChange;
+  static const StreamTransactionsRequestKindFilterEnum epochChange =
+      _$streamTransactionsRequestKindFilterEnum_epochChange;
+
   /// Limit returned transactions by their kind. Defaults to `user`.
   @BuiltValueEnumConst(wireName: r'All')
-  static const StreamTransactionsRequestKindFilterEnum all = _$streamTransactionsRequestKindFilterEnum_all;
+  static const StreamTransactionsRequestKindFilterEnum all =
+      _$streamTransactionsRequestKindFilterEnum_all;
 
-  static Serializer<StreamTransactionsRequestKindFilterEnum> get serializer => _$streamTransactionsRequestKindFilterEnumSerializer;
+  static Serializer<StreamTransactionsRequestKindFilterEnum> get serializer =>
+      _$streamTransactionsRequestKindFilterEnumSerializer;
 
-  const StreamTransactionsRequestKindFilterEnum._(String name): super(name);
+  const StreamTransactionsRequestKindFilterEnum._(String name) : super(name);
 
-  static BuiltSet<StreamTransactionsRequestKindFilterEnum> get values => _$streamTransactionsRequestKindFilterEnumValues;
-  static StreamTransactionsRequestKindFilterEnum valueOf(String name) => _$streamTransactionsRequestKindFilterEnumValueOf(name);
+  static BuiltSet<StreamTransactionsRequestKindFilterEnum> get values =>
+      _$streamTransactionsRequestKindFilterEnumValues;
+  static StreamTransactionsRequestKindFilterEnum valueOf(String name) =>
+      _$streamTransactionsRequestKindFilterEnumValueOf(name);
 }
 
 class StreamTransactionsRequestOrderEnum extends EnumClass {
-
   /// Configures the order of returned result set. Defaults to `desc`.
   @BuiltValueEnumConst(wireName: r'Asc')
-  static const StreamTransactionsRequestOrderEnum asc = _$streamTransactionsRequestOrderEnum_asc;
+  static const StreamTransactionsRequestOrderEnum asc =
+      _$streamTransactionsRequestOrderEnum_asc;
+
   /// Configures the order of returned result set. Defaults to `desc`.
   @BuiltValueEnumConst(wireName: r'Desc')
-  static const StreamTransactionsRequestOrderEnum desc = _$streamTransactionsRequestOrderEnum_desc;
+  static const StreamTransactionsRequestOrderEnum desc =
+      _$streamTransactionsRequestOrderEnum_desc;
 
-  static Serializer<StreamTransactionsRequestOrderEnum> get serializer => _$streamTransactionsRequestOrderEnumSerializer;
+  static Serializer<StreamTransactionsRequestOrderEnum> get serializer =>
+      _$streamTransactionsRequestOrderEnumSerializer;
 
-  const StreamTransactionsRequestOrderEnum._(String name): super(name);
+  const StreamTransactionsRequestOrderEnum._(String name) : super(name);
 
-  static BuiltSet<StreamTransactionsRequestOrderEnum> get values => _$streamTransactionsRequestOrderEnumValues;
-  static StreamTransactionsRequestOrderEnum valueOf(String name) => _$streamTransactionsRequestOrderEnumValueOf(name);
+  static BuiltSet<StreamTransactionsRequestOrderEnum> get values =>
+      _$streamTransactionsRequestOrderEnumValues;
+  static StreamTransactionsRequestOrderEnum valueOf(String name) =>
+      _$streamTransactionsRequestOrderEnumValueOf(name);
 }
-

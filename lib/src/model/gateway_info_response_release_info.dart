@@ -15,7 +15,10 @@ part 'gateway_info_response_release_info.g.dart';
 /// * [openApiSchemaVersion] - The Open API Schema version that was used to generate the API models.
 /// * [imageTag] - Image tag that is currently deployed to the Gateway API.
 @BuiltValue()
-abstract class GatewayInfoResponseReleaseInfo implements Built<GatewayInfoResponseReleaseInfo, GatewayInfoResponseReleaseInfoBuilder> {
+abstract class GatewayInfoResponseReleaseInfo
+    implements
+        Built<GatewayInfoResponseReleaseInfo,
+            GatewayInfoResponseReleaseInfoBuilder> {
   /// The release that is currently deployed to the Gateway API.
   @BuiltValueField(wireName: r'release_version')
   String get releaseVersion;
@@ -30,18 +33,25 @@ abstract class GatewayInfoResponseReleaseInfo implements Built<GatewayInfoRespon
 
   GatewayInfoResponseReleaseInfo._();
 
-  factory GatewayInfoResponseReleaseInfo([void updates(GatewayInfoResponseReleaseInfoBuilder b)]) = _$GatewayInfoResponseReleaseInfo;
+  factory GatewayInfoResponseReleaseInfo(
+          [void updates(GatewayInfoResponseReleaseInfoBuilder b)]) =
+      _$GatewayInfoResponseReleaseInfo;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(GatewayInfoResponseReleaseInfoBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<GatewayInfoResponseReleaseInfo> get serializer => _$GatewayInfoResponseReleaseInfoSerializer();
+  static Serializer<GatewayInfoResponseReleaseInfo> get serializer =>
+      _$GatewayInfoResponseReleaseInfoSerializer();
 }
 
-class _$GatewayInfoResponseReleaseInfoSerializer implements PrimitiveSerializer<GatewayInfoResponseReleaseInfo> {
+class _$GatewayInfoResponseReleaseInfoSerializer
+    implements PrimitiveSerializer<GatewayInfoResponseReleaseInfo> {
   @override
-  final Iterable<Type> types = const [GatewayInfoResponseReleaseInfo, _$GatewayInfoResponseReleaseInfo];
+  final Iterable<Type> types = const [
+    GatewayInfoResponseReleaseInfo,
+    _$GatewayInfoResponseReleaseInfo
+  ];
 
   @override
   final String wireName = r'GatewayInfoResponseReleaseInfo';
@@ -74,7 +84,9 @@ class _$GatewayInfoResponseReleaseInfoSerializer implements PrimitiveSerializer<
     GatewayInfoResponseReleaseInfo object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -138,4 +150,3 @@ class _$GatewayInfoResponseReleaseInfoSerializer implements PrimitiveSerializer<
     return result.build();
   }
 }
-

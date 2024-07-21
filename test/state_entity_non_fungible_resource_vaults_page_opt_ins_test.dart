@@ -12,6 +12,5 @@ void main() {
     test('to test the property `nonFungibleIncludeNfids`', () async {
       // TODO
     });
-
   });
 }

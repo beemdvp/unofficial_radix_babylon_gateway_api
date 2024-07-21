@@ -16,17 +16,19 @@ part 'entity_schema_collection.g.dart';
 /// Properties:
 /// * [totalCount] - Total number of items in underlying collection, fragment of which is available in `items` collection.
 /// * [nextCursor] - If specified, contains a cursor to query next page of the `items` collection.
-/// * [items] 
+/// * [items]
 @BuiltValue(instantiable: false)
 abstract class EntitySchemaCollection implements ResultSetCursorMixin {
   @BuiltValueField(wireName: r'items')
   BuiltList<EntitySchemaCollectionItem> get items;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<EntitySchemaCollection> get serializer => _$EntitySchemaCollectionSerializer();
+  static Serializer<EntitySchemaCollection> get serializer =>
+      _$EntitySchemaCollectionSerializer();
 }
 
-class _$EntitySchemaCollectionSerializer implements PrimitiveSerializer<EntitySchemaCollection> {
+class _$EntitySchemaCollectionSerializer
+    implements PrimitiveSerializer<EntitySchemaCollection> {
   @override
   final Iterable<Type> types = const [EntitySchemaCollection];
 
@@ -55,7 +57,8 @@ class _$EntitySchemaCollectionSerializer implements PrimitiveSerializer<EntitySc
     yield r'items';
     yield serializers.serialize(
       object.items,
-      specifiedType: const FullType(BuiltList, [FullType(EntitySchemaCollectionItem)]),
+      specifiedType:
+          const FullType(BuiltList, [FullType(EntitySchemaCollectionItem)]),
     );
   }
 
@@ -65,7 +68,9 @@ class _$EntitySchemaCollectionSerializer implements PrimitiveSerializer<EntitySc
     EntitySchemaCollection object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   @override
@@ -74,27 +79,39 @@ class _$EntitySchemaCollectionSerializer implements PrimitiveSerializer<EntitySc
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return serializers.deserialize(serialized, specifiedType: FullType($EntitySchemaCollection)) as $EntitySchemaCollection;
+    return serializers.deserialize(serialized,
+            specifiedType: FullType($EntitySchemaCollection))
+        as $EntitySchemaCollection;
   }
 }
 
 /// a concrete implementation of [EntitySchemaCollection], since [EntitySchemaCollection] is not instantiable
 @BuiltValue(instantiable: true)
-abstract class $EntitySchemaCollection implements EntitySchemaCollection, Built<$EntitySchemaCollection, $EntitySchemaCollectionBuilder> {
+abstract class $EntitySchemaCollection
+    implements
+        EntitySchemaCollection,
+        Built<$EntitySchemaCollection, $EntitySchemaCollectionBuilder> {
   $EntitySchemaCollection._();
 
-  factory $EntitySchemaCollection([void Function($EntitySchemaCollectionBuilder)? updates]) = _$$EntitySchemaCollection;
+  factory $EntitySchemaCollection(
+          [void Function($EntitySchemaCollectionBuilder)? updates]) =
+      _$$EntitySchemaCollection;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($EntitySchemaCollectionBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<$EntitySchemaCollection> get serializer => _$$EntitySchemaCollectionSerializer();
+  static Serializer<$EntitySchemaCollection> get serializer =>
+      _$$EntitySchemaCollectionSerializer();
 }
 
-class _$$EntitySchemaCollectionSerializer implements PrimitiveSerializer<$EntitySchemaCollection> {
+class _$$EntitySchemaCollectionSerializer
+    implements PrimitiveSerializer<$EntitySchemaCollection> {
   @override
-  final Iterable<Type> types = const [$EntitySchemaCollection, _$$EntitySchemaCollection];
+  final Iterable<Type> types = const [
+    $EntitySchemaCollection,
+    _$$EntitySchemaCollection
+  ];
 
   @override
   final String wireName = r'$EntitySchemaCollection';
@@ -105,7 +122,8 @@ class _$$EntitySchemaCollectionSerializer implements PrimitiveSerializer<$Entity
     $EntitySchemaCollection object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return serializers.serialize(object, specifiedType: FullType(EntitySchemaCollection))!;
+    return serializers.serialize(object,
+        specifiedType: FullType(EntitySchemaCollection))!;
   }
 
   void _deserializeProperties(
@@ -139,7 +157,8 @@ class _$$EntitySchemaCollectionSerializer implements PrimitiveSerializer<$Entity
         case r'items':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltList, [FullType(EntitySchemaCollectionItem)]),
+            specifiedType: const FullType(
+                BuiltList, [FullType(EntitySchemaCollectionItem)]),
           ) as BuiltList<EntitySchemaCollectionItem>;
           result.items.replace(valueDes);
           break;
@@ -171,4 +190,3 @@ class _$$EntitySchemaCollectionSerializer implements PrimitiveSerializer<$Entity
     return result.build();
   }
 }
-

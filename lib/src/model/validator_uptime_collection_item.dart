@@ -16,7 +16,10 @@ part 'validator_uptime_collection_item.g.dart';
 /// * [proposalsMissed] - number of proposals missed.
 /// * [epochsActiveIn] - number of epochs validator was active in.
 @BuiltValue()
-abstract class ValidatorUptimeCollectionItem implements Built<ValidatorUptimeCollectionItem, ValidatorUptimeCollectionItemBuilder> {
+abstract class ValidatorUptimeCollectionItem
+    implements
+        Built<ValidatorUptimeCollectionItem,
+            ValidatorUptimeCollectionItemBuilder> {
   /// Bech32m-encoded human readable version of the address.
   @BuiltValueField(wireName: r'address')
   String get address;
@@ -35,18 +38,25 @@ abstract class ValidatorUptimeCollectionItem implements Built<ValidatorUptimeCol
 
   ValidatorUptimeCollectionItem._();
 
-  factory ValidatorUptimeCollectionItem([void updates(ValidatorUptimeCollectionItemBuilder b)]) = _$ValidatorUptimeCollectionItem;
+  factory ValidatorUptimeCollectionItem(
+          [void updates(ValidatorUptimeCollectionItemBuilder b)]) =
+      _$ValidatorUptimeCollectionItem;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(ValidatorUptimeCollectionItemBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<ValidatorUptimeCollectionItem> get serializer => _$ValidatorUptimeCollectionItemSerializer();
+  static Serializer<ValidatorUptimeCollectionItem> get serializer =>
+      _$ValidatorUptimeCollectionItemSerializer();
 }
 
-class _$ValidatorUptimeCollectionItemSerializer implements PrimitiveSerializer<ValidatorUptimeCollectionItem> {
+class _$ValidatorUptimeCollectionItemSerializer
+    implements PrimitiveSerializer<ValidatorUptimeCollectionItem> {
   @override
-  final Iterable<Type> types = const [ValidatorUptimeCollectionItem, _$ValidatorUptimeCollectionItem];
+  final Iterable<Type> types = const [
+    ValidatorUptimeCollectionItem,
+    _$ValidatorUptimeCollectionItem
+  ];
 
   @override
   final String wireName = r'ValidatorUptimeCollectionItem';
@@ -88,7 +98,9 @@ class _$ValidatorUptimeCollectionItemSerializer implements PrimitiveSerializer<V
     ValidatorUptimeCollectionItem object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -161,4 +173,3 @@ class _$ValidatorUptimeCollectionItemSerializer implements PrimitiveSerializer<V
     return result.build();
   }
 }
-

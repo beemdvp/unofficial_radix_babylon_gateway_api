@@ -13,9 +13,12 @@ part 'transaction_fungible_balance_changes.g.dart';
 /// Properties:
 /// * [entityAddress] - Bech32m-encoded human readable version of the address.
 /// * [resourceAddress] - Bech32m-encoded human readable version of the address.
-/// * [balanceChange] - The string-encoded decimal representing the amount of change for the fungible resource. 
+/// * [balanceChange] - The string-encoded decimal representing the amount of change for the fungible resource.
 @BuiltValue()
-abstract class TransactionFungibleBalanceChanges implements Built<TransactionFungibleBalanceChanges, TransactionFungibleBalanceChangesBuilder> {
+abstract class TransactionFungibleBalanceChanges
+    implements
+        Built<TransactionFungibleBalanceChanges,
+            TransactionFungibleBalanceChangesBuilder> {
   /// Bech32m-encoded human readable version of the address.
   @BuiltValueField(wireName: r'entity_address')
   String get entityAddress;
@@ -24,24 +27,31 @@ abstract class TransactionFungibleBalanceChanges implements Built<TransactionFun
   @BuiltValueField(wireName: r'resource_address')
   String get resourceAddress;
 
-  /// The string-encoded decimal representing the amount of change for the fungible resource. 
+  /// The string-encoded decimal representing the amount of change for the fungible resource.
   @BuiltValueField(wireName: r'balance_change')
   String get balanceChange;
 
   TransactionFungibleBalanceChanges._();
 
-  factory TransactionFungibleBalanceChanges([void updates(TransactionFungibleBalanceChangesBuilder b)]) = _$TransactionFungibleBalanceChanges;
+  factory TransactionFungibleBalanceChanges(
+          [void updates(TransactionFungibleBalanceChangesBuilder b)]) =
+      _$TransactionFungibleBalanceChanges;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(TransactionFungibleBalanceChangesBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<TransactionFungibleBalanceChanges> get serializer => _$TransactionFungibleBalanceChangesSerializer();
+  static Serializer<TransactionFungibleBalanceChanges> get serializer =>
+      _$TransactionFungibleBalanceChangesSerializer();
 }
 
-class _$TransactionFungibleBalanceChangesSerializer implements PrimitiveSerializer<TransactionFungibleBalanceChanges> {
+class _$TransactionFungibleBalanceChangesSerializer
+    implements PrimitiveSerializer<TransactionFungibleBalanceChanges> {
   @override
-  final Iterable<Type> types = const [TransactionFungibleBalanceChanges, _$TransactionFungibleBalanceChanges];
+  final Iterable<Type> types = const [
+    TransactionFungibleBalanceChanges,
+    _$TransactionFungibleBalanceChanges
+  ];
 
   @override
   final String wireName = r'TransactionFungibleBalanceChanges';
@@ -74,7 +84,9 @@ class _$TransactionFungibleBalanceChangesSerializer implements PrimitiveSerializ
     TransactionFungibleBalanceChanges object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -138,4 +150,3 @@ class _$TransactionFungibleBalanceChangesSerializer implements PrimitiveSerializ
     return result.build();
   }
 }
-

@@ -13,15 +13,15 @@ part 'events_item.g.dart';
 /// EventsItem
 ///
 /// Properties:
-/// * [name] 
-/// * [emitter] - This type is defined in the Core API as `EventEmitterIdentifier`. See the Core API documentation for more details. 
-/// * [data] 
+/// * [name]
+/// * [emitter] - This type is defined in the Core API as `EventEmitterIdentifier`. See the Core API documentation for more details.
+/// * [data]
 @BuiltValue()
 abstract class EventsItem implements Built<EventsItem, EventsItemBuilder> {
   @BuiltValueField(wireName: r'name')
   String get name;
 
-  /// This type is defined in the Core API as `EventEmitterIdentifier`. See the Core API documentation for more details. 
+  /// This type is defined in the Core API as `EventEmitterIdentifier`. See the Core API documentation for more details.
   @BuiltValueField(wireName: r'emitter')
   JsonObject get emitter;
 
@@ -74,7 +74,9 @@ class _$EventsItemSerializer implements PrimitiveSerializer<EventsItem> {
     EventsItem object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -138,4 +140,3 @@ class _$EventsItemSerializer implements PrimitiveSerializer<EventsItem> {
     return result.build();
   }
 }
-

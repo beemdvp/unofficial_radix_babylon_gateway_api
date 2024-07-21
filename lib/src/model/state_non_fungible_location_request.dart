@@ -14,11 +14,15 @@ part 'state_non_fungible_location_request.g.dart';
 /// StateNonFungibleLocationRequest
 ///
 /// Properties:
-/// * [atLedgerState] 
+/// * [atLedgerState]
 /// * [resourceAddress] - Bech32m-encoded human readable version of the address.
 /// * [nonFungibleIds] - limited to max 100 items.
 @BuiltValue()
-abstract class StateNonFungibleLocationRequest implements AtLedgerStateMixin, Built<StateNonFungibleLocationRequest, StateNonFungibleLocationRequestBuilder> {
+abstract class StateNonFungibleLocationRequest
+    implements
+        AtLedgerStateMixin,
+        Built<StateNonFungibleLocationRequest,
+            StateNonFungibleLocationRequestBuilder> {
   /// Bech32m-encoded human readable version of the address.
   @BuiltValueField(wireName: r'resource_address')
   String get resourceAddress;
@@ -29,18 +33,25 @@ abstract class StateNonFungibleLocationRequest implements AtLedgerStateMixin, Bu
 
   StateNonFungibleLocationRequest._();
 
-  factory StateNonFungibleLocationRequest([void updates(StateNonFungibleLocationRequestBuilder b)]) = _$StateNonFungibleLocationRequest;
+  factory StateNonFungibleLocationRequest(
+          [void updates(StateNonFungibleLocationRequestBuilder b)]) =
+      _$StateNonFungibleLocationRequest;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(StateNonFungibleLocationRequestBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<StateNonFungibleLocationRequest> get serializer => _$StateNonFungibleLocationRequestSerializer();
+  static Serializer<StateNonFungibleLocationRequest> get serializer =>
+      _$StateNonFungibleLocationRequestSerializer();
 }
 
-class _$StateNonFungibleLocationRequestSerializer implements PrimitiveSerializer<StateNonFungibleLocationRequest> {
+class _$StateNonFungibleLocationRequestSerializer
+    implements PrimitiveSerializer<StateNonFungibleLocationRequest> {
   @override
-  final Iterable<Type> types = const [StateNonFungibleLocationRequest, _$StateNonFungibleLocationRequest];
+  final Iterable<Type> types = const [
+    StateNonFungibleLocationRequest,
+    _$StateNonFungibleLocationRequest
+  ];
 
   @override
   final String wireName = r'StateNonFungibleLocationRequest';
@@ -75,7 +86,9 @@ class _$StateNonFungibleLocationRequestSerializer implements PrimitiveSerializer
     StateNonFungibleLocationRequest object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -140,4 +153,3 @@ class _$StateNonFungibleLocationRequestSerializer implements PrimitiveSerializer
     return result.build();
   }
 }
-

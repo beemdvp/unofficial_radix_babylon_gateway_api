@@ -33,7 +33,7 @@ void main() {
       // TODO
     });
 
-    // Validator inner state representation. This type is defined in the Core API as `ValidatorFieldStateValue`. See the Core API documentation for more details. 
+    // Validator inner state representation. This type is defined in the Core API as `ValidatorFieldStateValue`. See the Core API documentation for more details.
     // JsonObject state
     test('to test the property `state`', () async {
       // TODO
@@ -53,6 +53,5 @@ void main() {
     test('to test the property `effectiveFeeFactor`', () async {
       // TODO
     });
-
   });
 }

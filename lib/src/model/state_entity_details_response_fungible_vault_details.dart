@@ -14,11 +14,15 @@ part 'state_entity_details_response_fungible_vault_details.g.dart';
 /// StateEntityDetailsResponseFungibleVaultDetails
 ///
 /// Properties:
-/// * [type] 
+/// * [type]
 /// * [resourceAddress] - Bech32m-encoded human readable version of the address.
-/// * [balance] 
+/// * [balance]
 @BuiltValue()
-abstract class StateEntityDetailsResponseFungibleVaultDetails implements StateEntityDetailsResponseItemDetails, Built<StateEntityDetailsResponseFungibleVaultDetails, StateEntityDetailsResponseFungibleVaultDetailsBuilder> {
+abstract class StateEntityDetailsResponseFungibleVaultDetails
+    implements
+        StateEntityDetailsResponseItemDetails,
+        Built<StateEntityDetailsResponseFungibleVaultDetails,
+            StateEntityDetailsResponseFungibleVaultDetailsBuilder> {
   @BuiltValueField(wireName: r'balance')
   FungibleResourcesCollectionItemVaultAggregatedVaultItem get balance;
 
@@ -28,18 +32,30 @@ abstract class StateEntityDetailsResponseFungibleVaultDetails implements StateEn
 
   StateEntityDetailsResponseFungibleVaultDetails._();
 
-  factory StateEntityDetailsResponseFungibleVaultDetails([void updates(StateEntityDetailsResponseFungibleVaultDetailsBuilder b)]) = _$StateEntityDetailsResponseFungibleVaultDetails;
+  factory StateEntityDetailsResponseFungibleVaultDetails(
+          [void updates(
+              StateEntityDetailsResponseFungibleVaultDetailsBuilder b)]) =
+      _$StateEntityDetailsResponseFungibleVaultDetails;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(StateEntityDetailsResponseFungibleVaultDetailsBuilder b) => b..type=b.discriminatorValue;
+  static void _defaults(
+          StateEntityDetailsResponseFungibleVaultDetailsBuilder b) =>
+      b..type = b.discriminatorValue as dynamic;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<StateEntityDetailsResponseFungibleVaultDetails> get serializer => _$StateEntityDetailsResponseFungibleVaultDetailsSerializer();
+  static Serializer<StateEntityDetailsResponseFungibleVaultDetails>
+      get serializer =>
+          _$StateEntityDetailsResponseFungibleVaultDetailsSerializer();
 }
 
-class _$StateEntityDetailsResponseFungibleVaultDetailsSerializer implements PrimitiveSerializer<StateEntityDetailsResponseFungibleVaultDetails> {
+class _$StateEntityDetailsResponseFungibleVaultDetailsSerializer
+    implements
+        PrimitiveSerializer<StateEntityDetailsResponseFungibleVaultDetails> {
   @override
-  final Iterable<Type> types = const [StateEntityDetailsResponseFungibleVaultDetails, _$StateEntityDetailsResponseFungibleVaultDetails];
+  final Iterable<Type> types = const [
+    StateEntityDetailsResponseFungibleVaultDetails,
+    _$StateEntityDetailsResponseFungibleVaultDetails
+  ];
 
   @override
   final String wireName = r'StateEntityDetailsResponseFungibleVaultDetails';
@@ -52,7 +68,8 @@ class _$StateEntityDetailsResponseFungibleVaultDetailsSerializer implements Prim
     yield r'balance';
     yield serializers.serialize(
       object.balance,
-      specifiedType: const FullType(FungibleResourcesCollectionItemVaultAggregatedVaultItem),
+      specifiedType: const FullType(
+          FungibleResourcesCollectionItemVaultAggregatedVaultItem),
     );
     yield r'type';
     yield serializers.serialize(
@@ -72,7 +89,9 @@ class _$StateEntityDetailsResponseFungibleVaultDetailsSerializer implements Prim
     StateEntityDetailsResponseFungibleVaultDetails object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -90,14 +109,16 @@ class _$StateEntityDetailsResponseFungibleVaultDetailsSerializer implements Prim
         case r'balance':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(FungibleResourcesCollectionItemVaultAggregatedVaultItem),
+            specifiedType: const FullType(
+                FungibleResourcesCollectionItemVaultAggregatedVaultItem),
           ) as FungibleResourcesCollectionItemVaultAggregatedVaultItem;
           result.balance.replace(valueDes);
           break;
         case r'type':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(StateEntityDetailsResponseItemDetailsType),
+            specifiedType:
+                const FullType(StateEntityDetailsResponseItemDetailsType),
           ) as StateEntityDetailsResponseItemDetailsType;
           result.type = valueDes;
           break;
@@ -136,4 +157,3 @@ class _$StateEntityDetailsResponseFungibleVaultDetailsSerializer implements Prim
     return result.build();
   }
 }
-

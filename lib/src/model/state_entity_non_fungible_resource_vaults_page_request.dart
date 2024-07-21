@@ -15,14 +15,19 @@ part 'state_entity_non_fungible_resource_vaults_page_request.g.dart';
 /// StateEntityNonFungibleResourceVaultsPageRequest
 ///
 /// Properties:
-/// * [atLedgerState] 
+/// * [atLedgerState]
 /// * [cursor] - This cursor allows forward pagination, by providing the cursor from the previous request.
 /// * [limitPerPage] - The page size requested.
 /// * [address] - Bech32m-encoded human readable version of the address.
 /// * [resourceAddress] - Bech32m-encoded human readable version of the address.
-/// * [optIns] 
+/// * [optIns]
 @BuiltValue()
-abstract class StateEntityNonFungibleResourceVaultsPageRequest implements AtLedgerStateMixin, CursorLimitMixin, Built<StateEntityNonFungibleResourceVaultsPageRequest, StateEntityNonFungibleResourceVaultsPageRequestBuilder> {
+abstract class StateEntityNonFungibleResourceVaultsPageRequest
+    implements
+        AtLedgerStateMixin,
+        CursorLimitMixin,
+        Built<StateEntityNonFungibleResourceVaultsPageRequest,
+            StateEntityNonFungibleResourceVaultsPageRequestBuilder> {
   @BuiltValueField(wireName: r'opt_ins')
   StateEntityNonFungibleResourceVaultsPageOptIns? get optIns;
 
@@ -36,18 +41,30 @@ abstract class StateEntityNonFungibleResourceVaultsPageRequest implements AtLedg
 
   StateEntityNonFungibleResourceVaultsPageRequest._();
 
-  factory StateEntityNonFungibleResourceVaultsPageRequest([void updates(StateEntityNonFungibleResourceVaultsPageRequestBuilder b)]) = _$StateEntityNonFungibleResourceVaultsPageRequest;
+  factory StateEntityNonFungibleResourceVaultsPageRequest(
+          [void updates(
+              StateEntityNonFungibleResourceVaultsPageRequestBuilder b)]) =
+      _$StateEntityNonFungibleResourceVaultsPageRequest;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(StateEntityNonFungibleResourceVaultsPageRequestBuilder b) => b;
+  static void _defaults(
+          StateEntityNonFungibleResourceVaultsPageRequestBuilder b) =>
+      b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<StateEntityNonFungibleResourceVaultsPageRequest> get serializer => _$StateEntityNonFungibleResourceVaultsPageRequestSerializer();
+  static Serializer<StateEntityNonFungibleResourceVaultsPageRequest>
+      get serializer =>
+          _$StateEntityNonFungibleResourceVaultsPageRequestSerializer();
 }
 
-class _$StateEntityNonFungibleResourceVaultsPageRequestSerializer implements PrimitiveSerializer<StateEntityNonFungibleResourceVaultsPageRequest> {
+class _$StateEntityNonFungibleResourceVaultsPageRequestSerializer
+    implements
+        PrimitiveSerializer<StateEntityNonFungibleResourceVaultsPageRequest> {
   @override
-  final Iterable<Type> types = const [StateEntityNonFungibleResourceVaultsPageRequest, _$StateEntityNonFungibleResourceVaultsPageRequest];
+  final Iterable<Type> types = const [
+    StateEntityNonFungibleResourceVaultsPageRequest,
+    _$StateEntityNonFungibleResourceVaultsPageRequest
+  ];
 
   @override
   final String wireName = r'StateEntityNonFungibleResourceVaultsPageRequest';
@@ -75,7 +92,8 @@ class _$StateEntityNonFungibleResourceVaultsPageRequestSerializer implements Pri
       yield r'opt_ins';
       yield serializers.serialize(
         object.optIns,
-        specifiedType: const FullType(StateEntityNonFungibleResourceVaultsPageOptIns),
+        specifiedType:
+            const FullType(StateEntityNonFungibleResourceVaultsPageOptIns),
       );
     }
     yield r'address';
@@ -103,7 +121,9 @@ class _$StateEntityNonFungibleResourceVaultsPageRequestSerializer implements Pri
     StateEntityNonFungibleResourceVaultsPageRequest object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -137,7 +157,8 @@ class _$StateEntityNonFungibleResourceVaultsPageRequestSerializer implements Pri
         case r'opt_ins':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(StateEntityNonFungibleResourceVaultsPageOptIns),
+            specifiedType:
+                const FullType(StateEntityNonFungibleResourceVaultsPageOptIns),
           ) as StateEntityNonFungibleResourceVaultsPageOptIns;
           result.optIns.replace(valueDes);
           break;
@@ -191,4 +212,3 @@ class _$StateEntityNonFungibleResourceVaultsPageRequestSerializer implements Pri
     return result.build();
   }
 }
-

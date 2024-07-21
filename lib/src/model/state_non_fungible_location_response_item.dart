@@ -15,10 +15,13 @@ part 'state_non_fungible_location_response_item.g.dart';
 /// * [owningVaultAddress] - Bech32m-encoded human readable version of the address.
 /// * [owningVaultParentAncestorAddress] - Bech32m-encoded human readable version of the address.
 /// * [owningVaultGlobalAncestorAddress] - Bech32m-encoded human readable version of the address.
-/// * [isBurned] 
+/// * [isBurned]
 /// * [lastUpdatedAtStateVersion] - The most recent state version underlying object was modified at.
 @BuiltValue()
-abstract class StateNonFungibleLocationResponseItem implements Built<StateNonFungibleLocationResponseItem, StateNonFungibleLocationResponseItemBuilder> {
+abstract class StateNonFungibleLocationResponseItem
+    implements
+        Built<StateNonFungibleLocationResponseItem,
+            StateNonFungibleLocationResponseItemBuilder> {
   /// String-encoded non-fungible ID.
   @BuiltValueField(wireName: r'non_fungible_id')
   String get nonFungibleId;
@@ -44,18 +47,25 @@ abstract class StateNonFungibleLocationResponseItem implements Built<StateNonFun
 
   StateNonFungibleLocationResponseItem._();
 
-  factory StateNonFungibleLocationResponseItem([void updates(StateNonFungibleLocationResponseItemBuilder b)]) = _$StateNonFungibleLocationResponseItem;
+  factory StateNonFungibleLocationResponseItem(
+          [void updates(StateNonFungibleLocationResponseItemBuilder b)]) =
+      _$StateNonFungibleLocationResponseItem;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(StateNonFungibleLocationResponseItemBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<StateNonFungibleLocationResponseItem> get serializer => _$StateNonFungibleLocationResponseItemSerializer();
+  static Serializer<StateNonFungibleLocationResponseItem> get serializer =>
+      _$StateNonFungibleLocationResponseItemSerializer();
 }
 
-class _$StateNonFungibleLocationResponseItemSerializer implements PrimitiveSerializer<StateNonFungibleLocationResponseItem> {
+class _$StateNonFungibleLocationResponseItemSerializer
+    implements PrimitiveSerializer<StateNonFungibleLocationResponseItem> {
   @override
-  final Iterable<Type> types = const [StateNonFungibleLocationResponseItem, _$StateNonFungibleLocationResponseItem];
+  final Iterable<Type> types = const [
+    StateNonFungibleLocationResponseItem,
+    _$StateNonFungibleLocationResponseItem
+  ];
 
   @override
   final String wireName = r'StateNonFungibleLocationResponseItem';
@@ -109,7 +119,9 @@ class _$StateNonFungibleLocationResponseItemSerializer implements PrimitiveSeria
     StateNonFungibleLocationResponseItem object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -194,4 +206,3 @@ class _$StateNonFungibleLocationResponseItemSerializer implements PrimitiveSeria
     return result.build();
   }
 }
-

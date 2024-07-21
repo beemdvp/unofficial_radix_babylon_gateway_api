@@ -16,31 +16,48 @@ part 'state_account_authorized_depositors_page_response.g.dart';
 /// StateAccountAuthorizedDepositorsPageResponse
 ///
 /// Properties:
-/// * [ledgerState] 
+/// * [ledgerState]
 /// * [totalCount] - Total number of items in underlying collection, fragment of which is available in `items` collection.
 /// * [nextCursor] - If specified, contains a cursor to query next page of the `items` collection.
-/// * [items] 
+/// * [items]
 /// * [accountAddress] - Bech32m-encoded human readable version of the address.
 @BuiltValue()
-abstract class StateAccountAuthorizedDepositorsPageResponse implements AccountAuthorizedDepositorsCollection, LedgerStateMixin, Built<StateAccountAuthorizedDepositorsPageResponse, StateAccountAuthorizedDepositorsPageResponseBuilder> {
+abstract class StateAccountAuthorizedDepositorsPageResponse
+    implements
+        AccountAuthorizedDepositorsCollection,
+        LedgerStateMixin,
+        Built<StateAccountAuthorizedDepositorsPageResponse,
+            StateAccountAuthorizedDepositorsPageResponseBuilder> {
   /// Bech32m-encoded human readable version of the address.
   @BuiltValueField(wireName: r'account_address')
   String get accountAddress;
 
   StateAccountAuthorizedDepositorsPageResponse._();
 
-  factory StateAccountAuthorizedDepositorsPageResponse([void updates(StateAccountAuthorizedDepositorsPageResponseBuilder b)]) = _$StateAccountAuthorizedDepositorsPageResponse;
+  factory StateAccountAuthorizedDepositorsPageResponse(
+          [void updates(
+              StateAccountAuthorizedDepositorsPageResponseBuilder b)]) =
+      _$StateAccountAuthorizedDepositorsPageResponse;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(StateAccountAuthorizedDepositorsPageResponseBuilder b) => b;
+  static void _defaults(
+          StateAccountAuthorizedDepositorsPageResponseBuilder b) =>
+      b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<StateAccountAuthorizedDepositorsPageResponse> get serializer => _$StateAccountAuthorizedDepositorsPageResponseSerializer();
+  static Serializer<StateAccountAuthorizedDepositorsPageResponse>
+      get serializer =>
+          _$StateAccountAuthorizedDepositorsPageResponseSerializer();
 }
 
-class _$StateAccountAuthorizedDepositorsPageResponseSerializer implements PrimitiveSerializer<StateAccountAuthorizedDepositorsPageResponse> {
+class _$StateAccountAuthorizedDepositorsPageResponseSerializer
+    implements
+        PrimitiveSerializer<StateAccountAuthorizedDepositorsPageResponse> {
   @override
-  final Iterable<Type> types = const [StateAccountAuthorizedDepositorsPageResponse, _$StateAccountAuthorizedDepositorsPageResponse];
+  final Iterable<Type> types = const [
+    StateAccountAuthorizedDepositorsPageResponse,
+    _$StateAccountAuthorizedDepositorsPageResponse
+  ];
 
   @override
   final String wireName = r'StateAccountAuthorizedDepositorsPageResponse';
@@ -72,7 +89,8 @@ class _$StateAccountAuthorizedDepositorsPageResponseSerializer implements Primit
     yield r'items';
     yield serializers.serialize(
       object.items,
-      specifiedType: const FullType(BuiltList, [FullType(AccountAuthorizedDepositorsResponseItem)]),
+      specifiedType: const FullType(
+          BuiltList, [FullType(AccountAuthorizedDepositorsResponseItem)]),
     );
     yield r'ledger_state';
     yield serializers.serialize(
@@ -87,7 +105,9 @@ class _$StateAccountAuthorizedDepositorsPageResponseSerializer implements Primit
     StateAccountAuthorizedDepositorsPageResponse object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -128,7 +148,8 @@ class _$StateAccountAuthorizedDepositorsPageResponseSerializer implements Primit
         case r'items':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltList, [FullType(AccountAuthorizedDepositorsResponseItem)]),
+            specifiedType: const FullType(
+                BuiltList, [FullType(AccountAuthorizedDepositorsResponseItem)]),
           ) as BuiltList<AccountAuthorizedDepositorsResponseItem>;
           result.items.replace(valueDes);
           break;
@@ -167,4 +188,3 @@ class _$StateAccountAuthorizedDepositorsPageResponseSerializer implements Primit
     return result.build();
   }
 }
-

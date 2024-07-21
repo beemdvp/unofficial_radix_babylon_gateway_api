@@ -14,13 +14,17 @@ part 'fungible_resources_collection_item_globally_aggregated.g.dart';
 /// FungibleResourcesCollectionItemGloballyAggregated
 ///
 /// Properties:
-/// * [aggregationLevel] 
+/// * [aggregationLevel]
 /// * [resourceAddress] - Bech32m-encoded human readable version of the address.
-/// * [explicitMetadata] 
+/// * [explicitMetadata]
 /// * [amount] - String-encoded decimal representing the amount of a related fungible resource.
 /// * [lastUpdatedAtStateVersion] - The most recent state version underlying object was modified at.
 @BuiltValue()
-abstract class FungibleResourcesCollectionItemGloballyAggregated implements FungibleResourcesCollectionItem, Built<FungibleResourcesCollectionItemGloballyAggregated, FungibleResourcesCollectionItemGloballyAggregatedBuilder> {
+abstract class FungibleResourcesCollectionItemGloballyAggregated
+    implements
+        FungibleResourcesCollectionItem,
+        Built<FungibleResourcesCollectionItemGloballyAggregated,
+            FungibleResourcesCollectionItemGloballyAggregatedBuilder> {
   /// String-encoded decimal representing the amount of a related fungible resource.
   @BuiltValueField(wireName: r'amount')
   String get amount;
@@ -31,18 +35,33 @@ abstract class FungibleResourcesCollectionItemGloballyAggregated implements Fung
 
   FungibleResourcesCollectionItemGloballyAggregated._();
 
-  factory FungibleResourcesCollectionItemGloballyAggregated([void updates(FungibleResourcesCollectionItemGloballyAggregatedBuilder b)]) = _$FungibleResourcesCollectionItemGloballyAggregated;
+  factory FungibleResourcesCollectionItemGloballyAggregated(
+          [void updates(
+              FungibleResourcesCollectionItemGloballyAggregatedBuilder b)]) =
+      _$FungibleResourcesCollectionItemGloballyAggregated;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(FungibleResourcesCollectionItemGloballyAggregatedBuilder b) => b..aggregationLevel=b.discriminatorValue;
+  static void _defaults(
+          FungibleResourcesCollectionItemGloballyAggregatedBuilder b) =>
+      b
+        ..aggregationLevel = b.discriminatorValue == 'vault'
+            ? ResourceAggregationLevel.vault
+            : ResourceAggregationLevel.global;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<FungibleResourcesCollectionItemGloballyAggregated> get serializer => _$FungibleResourcesCollectionItemGloballyAggregatedSerializer();
+  static Serializer<FungibleResourcesCollectionItemGloballyAggregated>
+      get serializer =>
+          _$FungibleResourcesCollectionItemGloballyAggregatedSerializer();
 }
 
-class _$FungibleResourcesCollectionItemGloballyAggregatedSerializer implements PrimitiveSerializer<FungibleResourcesCollectionItemGloballyAggregated> {
+class _$FungibleResourcesCollectionItemGloballyAggregatedSerializer
+    implements
+        PrimitiveSerializer<FungibleResourcesCollectionItemGloballyAggregated> {
   @override
-  final Iterable<Type> types = const [FungibleResourcesCollectionItemGloballyAggregated, _$FungibleResourcesCollectionItemGloballyAggregated];
+  final Iterable<Type> types = const [
+    FungibleResourcesCollectionItemGloballyAggregated,
+    _$FungibleResourcesCollectionItemGloballyAggregated
+  ];
 
   @override
   final String wireName = r'FungibleResourcesCollectionItemGloballyAggregated';
@@ -87,7 +106,9 @@ class _$FungibleResourcesCollectionItemGloballyAggregatedSerializer implements P
     FungibleResourcesCollectionItemGloballyAggregated object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -165,4 +186,3 @@ class _$FungibleResourcesCollectionItemGloballyAggregatedSerializer implements P
     return result.build();
   }
 }
-

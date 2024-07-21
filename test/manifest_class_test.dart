@@ -3,7 +3,5 @@ import 'package:unofficial_babylon_gateway_api/unofficial_babylon_gateway_api.da
 
 // tests for ManifestClass
 void main() {
-
-  group(ManifestClass, () {
-  });
+  group(ManifestClass, () {});
 }

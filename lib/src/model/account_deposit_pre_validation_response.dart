@@ -16,15 +16,20 @@ part 'account_deposit_pre_validation_response.g.dart';
 /// AccountDepositPreValidationResponse
 ///
 /// Properties:
-/// * [ledgerState] 
-/// * [allowsTryDepositBatch] 
+/// * [ledgerState]
+/// * [allowsTryDepositBatch]
 /// * [resourceSpecificBehaviour] - The fully resolved try_deposit_* ability of each resource (which takes all the inputs into account, including the authorized depositor badge, the default deposit rule and the resource-specific details).
-/// * [decidingFactors] 
+/// * [decidingFactors]
 @BuiltValue()
-abstract class AccountDepositPreValidationResponse implements LedgerStateMixin, Built<AccountDepositPreValidationResponse, AccountDepositPreValidationResponseBuilder> {
+abstract class AccountDepositPreValidationResponse
+    implements
+        LedgerStateMixin,
+        Built<AccountDepositPreValidationResponse,
+            AccountDepositPreValidationResponseBuilder> {
   /// The fully resolved try_deposit_* ability of each resource (which takes all the inputs into account, including the authorized depositor badge, the default deposit rule and the resource-specific details).
   @BuiltValueField(wireName: r'resource_specific_behaviour')
-  BuiltList<AccountDepositPreValidationResourceSpecificBehaviourItem>? get resourceSpecificBehaviour;
+  BuiltList<AccountDepositPreValidationResourceSpecificBehaviourItem>?
+      get resourceSpecificBehaviour;
 
   @BuiltValueField(wireName: r'allows_try_deposit_batch')
   bool get allowsTryDepositBatch;
@@ -34,18 +39,25 @@ abstract class AccountDepositPreValidationResponse implements LedgerStateMixin, 
 
   AccountDepositPreValidationResponse._();
 
-  factory AccountDepositPreValidationResponse([void updates(AccountDepositPreValidationResponseBuilder b)]) = _$AccountDepositPreValidationResponse;
+  factory AccountDepositPreValidationResponse(
+          [void updates(AccountDepositPreValidationResponseBuilder b)]) =
+      _$AccountDepositPreValidationResponse;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(AccountDepositPreValidationResponseBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<AccountDepositPreValidationResponse> get serializer => _$AccountDepositPreValidationResponseSerializer();
+  static Serializer<AccountDepositPreValidationResponse> get serializer =>
+      _$AccountDepositPreValidationResponseSerializer();
 }
 
-class _$AccountDepositPreValidationResponseSerializer implements PrimitiveSerializer<AccountDepositPreValidationResponse> {
+class _$AccountDepositPreValidationResponseSerializer
+    implements PrimitiveSerializer<AccountDepositPreValidationResponse> {
   @override
-  final Iterable<Type> types = const [AccountDepositPreValidationResponse, _$AccountDepositPreValidationResponse];
+  final Iterable<Type> types = const [
+    AccountDepositPreValidationResponse,
+    _$AccountDepositPreValidationResponse
+  ];
 
   @override
   final String wireName = r'AccountDepositPreValidationResponse';
@@ -59,7 +71,9 @@ class _$AccountDepositPreValidationResponseSerializer implements PrimitiveSerial
       yield r'resource_specific_behaviour';
       yield serializers.serialize(
         object.resourceSpecificBehaviour,
-        specifiedType: const FullType(BuiltList, [FullType(AccountDepositPreValidationResourceSpecificBehaviourItem)]),
+        specifiedType: const FullType(BuiltList, [
+          FullType(AccountDepositPreValidationResourceSpecificBehaviourItem)
+        ]),
       );
     }
     yield r'allows_try_deposit_batch';
@@ -85,7 +99,9 @@ class _$AccountDepositPreValidationResponseSerializer implements PrimitiveSerial
     AccountDepositPreValidationResponse object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -103,8 +119,11 @@ class _$AccountDepositPreValidationResponseSerializer implements PrimitiveSerial
         case r'resource_specific_behaviour':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltList, [FullType(AccountDepositPreValidationResourceSpecificBehaviourItem)]),
-          ) as BuiltList<AccountDepositPreValidationResourceSpecificBehaviourItem>;
+            specifiedType: const FullType(BuiltList, [
+              FullType(AccountDepositPreValidationResourceSpecificBehaviourItem)
+            ]),
+          ) as BuiltList<
+              AccountDepositPreValidationResourceSpecificBehaviourItem>;
           result.resourceSpecificBehaviour.replace(valueDes);
           break;
         case r'allows_try_deposit_batch':
@@ -117,7 +136,8 @@ class _$AccountDepositPreValidationResponseSerializer implements PrimitiveSerial
         case r'deciding_factors':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(AccountDepositPreValidationDecidingFactors),
+            specifiedType:
+                const FullType(AccountDepositPreValidationDecidingFactors),
           ) as AccountDepositPreValidationDecidingFactors;
           result.decidingFactors.replace(valueDes);
           break;
@@ -156,4 +176,3 @@ class _$AccountDepositPreValidationResponseSerializer implements PrimitiveSerial
     return result.build();
   }
 }
-

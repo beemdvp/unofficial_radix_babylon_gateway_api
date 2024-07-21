@@ -16,31 +16,43 @@ part 'state_entity_fungibles_page_response.g.dart';
 /// StateEntityFungiblesPageResponse
 ///
 /// Properties:
-/// * [ledgerState] 
+/// * [ledgerState]
 /// * [totalCount] - Total number of items in underlying collection, fragment of which is available in `items` collection.
 /// * [nextCursor] - If specified, contains a cursor to query next page of the `items` collection.
-/// * [items] 
+/// * [items]
 /// * [address] - Bech32m-encoded human readable version of the address.
 @BuiltValue()
-abstract class StateEntityFungiblesPageResponse implements FungibleResourcesCollection, LedgerStateMixin, Built<StateEntityFungiblesPageResponse, StateEntityFungiblesPageResponseBuilder> {
+abstract class StateEntityFungiblesPageResponse
+    implements
+        FungibleResourcesCollection,
+        LedgerStateMixin,
+        Built<StateEntityFungiblesPageResponse,
+            StateEntityFungiblesPageResponseBuilder> {
   /// Bech32m-encoded human readable version of the address.
   @BuiltValueField(wireName: r'address')
   String get address;
 
   StateEntityFungiblesPageResponse._();
 
-  factory StateEntityFungiblesPageResponse([void updates(StateEntityFungiblesPageResponseBuilder b)]) = _$StateEntityFungiblesPageResponse;
+  factory StateEntityFungiblesPageResponse(
+          [void updates(StateEntityFungiblesPageResponseBuilder b)]) =
+      _$StateEntityFungiblesPageResponse;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(StateEntityFungiblesPageResponseBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<StateEntityFungiblesPageResponse> get serializer => _$StateEntityFungiblesPageResponseSerializer();
+  static Serializer<StateEntityFungiblesPageResponse> get serializer =>
+      _$StateEntityFungiblesPageResponseSerializer();
 }
 
-class _$StateEntityFungiblesPageResponseSerializer implements PrimitiveSerializer<StateEntityFungiblesPageResponse> {
+class _$StateEntityFungiblesPageResponseSerializer
+    implements PrimitiveSerializer<StateEntityFungiblesPageResponse> {
   @override
-  final Iterable<Type> types = const [StateEntityFungiblesPageResponse, _$StateEntityFungiblesPageResponse];
+  final Iterable<Type> types = const [
+    StateEntityFungiblesPageResponse,
+    _$StateEntityFungiblesPageResponse
+  ];
 
   @override
   final String wireName = r'StateEntityFungiblesPageResponse';
@@ -72,7 +84,8 @@ class _$StateEntityFungiblesPageResponseSerializer implements PrimitiveSerialize
     yield r'items';
     yield serializers.serialize(
       object.items,
-      specifiedType: const FullType(BuiltList, [FullType(FungibleResourcesCollectionItem)]),
+      specifiedType: const FullType(
+          BuiltList, [FullType(FungibleResourcesCollectionItem)]),
     );
     yield r'ledger_state';
     yield serializers.serialize(
@@ -87,7 +100,9 @@ class _$StateEntityFungiblesPageResponseSerializer implements PrimitiveSerialize
     StateEntityFungiblesPageResponse object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -128,7 +143,8 @@ class _$StateEntityFungiblesPageResponseSerializer implements PrimitiveSerialize
         case r'items':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltList, [FullType(FungibleResourcesCollectionItem)]),
+            specifiedType: const FullType(
+                BuiltList, [FullType(FungibleResourcesCollectionItem)]),
           ) as BuiltList<FungibleResourcesCollectionItem>;
           result.items.replace(valueDes);
           break;
@@ -167,4 +183,3 @@ class _$StateEntityFungiblesPageResponseSerializer implements PrimitiveSerialize
     return result.build();
   }
 }
-

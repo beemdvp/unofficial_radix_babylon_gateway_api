@@ -15,25 +15,36 @@ part 'transaction_not_found_error.g.dart';
 /// * [type] - The type of error. Each subtype may have its own additional structured fields.
 /// * [intentHash] - Bech32m-encoded hash.
 @BuiltValue()
-abstract class TransactionNotFoundError implements GatewayError, Built<TransactionNotFoundError, TransactionNotFoundErrorBuilder> {
+abstract class TransactionNotFoundError
+    implements
+        GatewayError,
+        Built<TransactionNotFoundError, TransactionNotFoundErrorBuilder> {
   /// Bech32m-encoded hash.
   @BuiltValueField(wireName: r'intent_hash')
   String get intentHash;
 
   TransactionNotFoundError._();
 
-  factory TransactionNotFoundError([void updates(TransactionNotFoundErrorBuilder b)]) = _$TransactionNotFoundError;
+  factory TransactionNotFoundError(
+          [void updates(TransactionNotFoundErrorBuilder b)]) =
+      _$TransactionNotFoundError;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(TransactionNotFoundErrorBuilder b) => b..type=b.discriminatorValue;
+  static void _defaults(TransactionNotFoundErrorBuilder b) =>
+      b..type = b.discriminatorValue;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<TransactionNotFoundError> get serializer => _$TransactionNotFoundErrorSerializer();
+  static Serializer<TransactionNotFoundError> get serializer =>
+      _$TransactionNotFoundErrorSerializer();
 }
 
-class _$TransactionNotFoundErrorSerializer implements PrimitiveSerializer<TransactionNotFoundError> {
+class _$TransactionNotFoundErrorSerializer
+    implements PrimitiveSerializer<TransactionNotFoundError> {
   @override
-  final Iterable<Type> types = const [TransactionNotFoundError, _$TransactionNotFoundError];
+  final Iterable<Type> types = const [
+    TransactionNotFoundError,
+    _$TransactionNotFoundError
+  ];
 
   @override
   final String wireName = r'TransactionNotFoundError';
@@ -61,7 +72,9 @@ class _$TransactionNotFoundErrorSerializer implements PrimitiveSerializer<Transa
     TransactionNotFoundError object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -118,4 +131,3 @@ class _$TransactionNotFoundErrorSerializer implements PrimitiveSerializer<Transa
     return result.build();
   }
 }
-

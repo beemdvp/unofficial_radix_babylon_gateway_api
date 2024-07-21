@@ -19,7 +19,9 @@ part 'state_entity_details_opt_ins.g.dart';
 /// * [nonFungibleIncludeNfids] - if set to `true`, first page of non fungible ids are returned for each non fungible resource, with `next_cursor` which can be later used at `/state/entity/page/non-fungible-vault/ids` endpoint.
 /// * [explicitMetadata] - allows specifying explicitly metadata properties which should be returned in response.
 @BuiltValue()
-abstract class StateEntityDetailsOptIns implements Built<StateEntityDetailsOptIns, StateEntityDetailsOptInsBuilder> {
+abstract class StateEntityDetailsOptIns
+    implements
+        Built<StateEntityDetailsOptIns, StateEntityDetailsOptInsBuilder> {
   /// if set to `true`, ancestor addresses - `parent_address`, `owner_address` and `global_address` for entities are returned.
   @BuiltValueField(wireName: r'ancestor_identities')
   bool? get ancestorIdentities;
@@ -46,23 +48,30 @@ abstract class StateEntityDetailsOptIns implements Built<StateEntityDetailsOptIn
 
   StateEntityDetailsOptIns._();
 
-  factory StateEntityDetailsOptIns([void updates(StateEntityDetailsOptInsBuilder b)]) = _$StateEntityDetailsOptIns;
+  factory StateEntityDetailsOptIns(
+          [void updates(StateEntityDetailsOptInsBuilder b)]) =
+      _$StateEntityDetailsOptIns;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(StateEntityDetailsOptInsBuilder b) => b
-      ..ancestorIdentities = false
-      ..componentRoyaltyConfig = false
-      ..componentRoyaltyVaultBalance = false
-      ..packageRoyaltyVaultBalance = false
-      ..nonFungibleIncludeNfids = false;
+    ..ancestorIdentities = false
+    ..componentRoyaltyConfig = false
+    ..componentRoyaltyVaultBalance = false
+    ..packageRoyaltyVaultBalance = false
+    ..nonFungibleIncludeNfids = false;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<StateEntityDetailsOptIns> get serializer => _$StateEntityDetailsOptInsSerializer();
+  static Serializer<StateEntityDetailsOptIns> get serializer =>
+      _$StateEntityDetailsOptInsSerializer();
 }
 
-class _$StateEntityDetailsOptInsSerializer implements PrimitiveSerializer<StateEntityDetailsOptIns> {
+class _$StateEntityDetailsOptInsSerializer
+    implements PrimitiveSerializer<StateEntityDetailsOptIns> {
   @override
-  final Iterable<Type> types = const [StateEntityDetailsOptIns, _$StateEntityDetailsOptIns];
+  final Iterable<Type> types = const [
+    StateEntityDetailsOptIns,
+    _$StateEntityDetailsOptIns
+  ];
 
   @override
   final String wireName = r'StateEntityDetailsOptIns';
@@ -122,7 +131,9 @@ class _$StateEntityDetailsOptInsSerializer implements PrimitiveSerializer<StateE
     StateEntityDetailsOptIns object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -207,4 +218,3 @@ class _$StateEntityDetailsOptInsSerializer implements PrimitiveSerializer<StateE
     return result.build();
   }
 }
-

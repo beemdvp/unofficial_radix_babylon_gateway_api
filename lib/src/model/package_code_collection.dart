@@ -16,17 +16,19 @@ part 'package_code_collection.g.dart';
 /// Properties:
 /// * [totalCount] - Total number of items in underlying collection, fragment of which is available in `items` collection.
 /// * [nextCursor] - If specified, contains a cursor to query next page of the `items` collection.
-/// * [items] 
+/// * [items]
 @BuiltValue(instantiable: false)
 abstract class PackageCodeCollection implements ResultSetCursorMixin {
   @BuiltValueField(wireName: r'items')
   BuiltList<PackageCodeCollectionItem> get items;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<PackageCodeCollection> get serializer => _$PackageCodeCollectionSerializer();
+  static Serializer<PackageCodeCollection> get serializer =>
+      _$PackageCodeCollectionSerializer();
 }
 
-class _$PackageCodeCollectionSerializer implements PrimitiveSerializer<PackageCodeCollection> {
+class _$PackageCodeCollectionSerializer
+    implements PrimitiveSerializer<PackageCodeCollection> {
   @override
   final Iterable<Type> types = const [PackageCodeCollection];
 
@@ -55,7 +57,8 @@ class _$PackageCodeCollectionSerializer implements PrimitiveSerializer<PackageCo
     yield r'items';
     yield serializers.serialize(
       object.items,
-      specifiedType: const FullType(BuiltList, [FullType(PackageCodeCollectionItem)]),
+      specifiedType:
+          const FullType(BuiltList, [FullType(PackageCodeCollectionItem)]),
     );
   }
 
@@ -65,7 +68,9 @@ class _$PackageCodeCollectionSerializer implements PrimitiveSerializer<PackageCo
     PackageCodeCollection object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   @override
@@ -74,27 +79,39 @@ class _$PackageCodeCollectionSerializer implements PrimitiveSerializer<PackageCo
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return serializers.deserialize(serialized, specifiedType: FullType($PackageCodeCollection)) as $PackageCodeCollection;
+    return serializers.deserialize(serialized,
+            specifiedType: FullType($PackageCodeCollection))
+        as $PackageCodeCollection;
   }
 }
 
 /// a concrete implementation of [PackageCodeCollection], since [PackageCodeCollection] is not instantiable
 @BuiltValue(instantiable: true)
-abstract class $PackageCodeCollection implements PackageCodeCollection, Built<$PackageCodeCollection, $PackageCodeCollectionBuilder> {
+abstract class $PackageCodeCollection
+    implements
+        PackageCodeCollection,
+        Built<$PackageCodeCollection, $PackageCodeCollectionBuilder> {
   $PackageCodeCollection._();
 
-  factory $PackageCodeCollection([void Function($PackageCodeCollectionBuilder)? updates]) = _$$PackageCodeCollection;
+  factory $PackageCodeCollection(
+          [void Function($PackageCodeCollectionBuilder)? updates]) =
+      _$$PackageCodeCollection;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($PackageCodeCollectionBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<$PackageCodeCollection> get serializer => _$$PackageCodeCollectionSerializer();
+  static Serializer<$PackageCodeCollection> get serializer =>
+      _$$PackageCodeCollectionSerializer();
 }
 
-class _$$PackageCodeCollectionSerializer implements PrimitiveSerializer<$PackageCodeCollection> {
+class _$$PackageCodeCollectionSerializer
+    implements PrimitiveSerializer<$PackageCodeCollection> {
   @override
-  final Iterable<Type> types = const [$PackageCodeCollection, _$$PackageCodeCollection];
+  final Iterable<Type> types = const [
+    $PackageCodeCollection,
+    _$$PackageCodeCollection
+  ];
 
   @override
   final String wireName = r'$PackageCodeCollection';
@@ -105,7 +122,8 @@ class _$$PackageCodeCollectionSerializer implements PrimitiveSerializer<$Package
     $PackageCodeCollection object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return serializers.serialize(object, specifiedType: FullType(PackageCodeCollection))!;
+    return serializers.serialize(object,
+        specifiedType: FullType(PackageCodeCollection))!;
   }
 
   void _deserializeProperties(
@@ -139,7 +157,8 @@ class _$$PackageCodeCollectionSerializer implements PrimitiveSerializer<$Package
         case r'items':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltList, [FullType(PackageCodeCollectionItem)]),
+            specifiedType: const FullType(
+                BuiltList, [FullType(PackageCodeCollectionItem)]),
           ) as BuiltList<PackageCodeCollectionItem>;
           result.items.replace(valueDes);
           break;
@@ -171,4 +190,3 @@ class _$$PackageCodeCollectionSerializer implements PrimitiveSerializer<$Package
     return result.build();
   }
 }
-

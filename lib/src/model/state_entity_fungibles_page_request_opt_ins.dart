@@ -14,25 +14,35 @@ part 'state_entity_fungibles_page_request_opt_ins.g.dart';
 /// Properties:
 /// * [explicitMetadata] - allows specifying explicitly metadata properties which should be returned in response, limited to max 20 items.
 @BuiltValue()
-abstract class StateEntityFungiblesPageRequestOptIns implements Built<StateEntityFungiblesPageRequestOptIns, StateEntityFungiblesPageRequestOptInsBuilder> {
+abstract class StateEntityFungiblesPageRequestOptIns
+    implements
+        Built<StateEntityFungiblesPageRequestOptIns,
+            StateEntityFungiblesPageRequestOptInsBuilder> {
   /// allows specifying explicitly metadata properties which should be returned in response, limited to max 20 items.
   @BuiltValueField(wireName: r'explicit_metadata')
   BuiltList<String>? get explicitMetadata;
 
   StateEntityFungiblesPageRequestOptIns._();
 
-  factory StateEntityFungiblesPageRequestOptIns([void updates(StateEntityFungiblesPageRequestOptInsBuilder b)]) = _$StateEntityFungiblesPageRequestOptIns;
+  factory StateEntityFungiblesPageRequestOptIns(
+          [void updates(StateEntityFungiblesPageRequestOptInsBuilder b)]) =
+      _$StateEntityFungiblesPageRequestOptIns;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(StateEntityFungiblesPageRequestOptInsBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<StateEntityFungiblesPageRequestOptIns> get serializer => _$StateEntityFungiblesPageRequestOptInsSerializer();
+  static Serializer<StateEntityFungiblesPageRequestOptIns> get serializer =>
+      _$StateEntityFungiblesPageRequestOptInsSerializer();
 }
 
-class _$StateEntityFungiblesPageRequestOptInsSerializer implements PrimitiveSerializer<StateEntityFungiblesPageRequestOptIns> {
+class _$StateEntityFungiblesPageRequestOptInsSerializer
+    implements PrimitiveSerializer<StateEntityFungiblesPageRequestOptIns> {
   @override
-  final Iterable<Type> types = const [StateEntityFungiblesPageRequestOptIns, _$StateEntityFungiblesPageRequestOptIns];
+  final Iterable<Type> types = const [
+    StateEntityFungiblesPageRequestOptIns,
+    _$StateEntityFungiblesPageRequestOptIns
+  ];
 
   @override
   final String wireName = r'StateEntityFungiblesPageRequestOptIns';
@@ -57,7 +67,9 @@ class _$StateEntityFungiblesPageRequestOptInsSerializer implements PrimitiveSeri
     StateEntityFungiblesPageRequestOptIns object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -107,4 +119,3 @@ class _$StateEntityFungiblesPageRequestOptInsSerializer implements PrimitiveSeri
     return result.build();
   }
 }
-

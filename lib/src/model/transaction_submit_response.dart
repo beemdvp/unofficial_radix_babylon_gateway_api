@@ -13,25 +13,34 @@ part 'transaction_submit_response.g.dart';
 /// Properties:
 /// * [duplicate] - Is true if the transaction is a duplicate of an existing pending transaction.
 @BuiltValue()
-abstract class TransactionSubmitResponse implements Built<TransactionSubmitResponse, TransactionSubmitResponseBuilder> {
+abstract class TransactionSubmitResponse
+    implements
+        Built<TransactionSubmitResponse, TransactionSubmitResponseBuilder> {
   /// Is true if the transaction is a duplicate of an existing pending transaction.
   @BuiltValueField(wireName: r'duplicate')
   bool get duplicate;
 
   TransactionSubmitResponse._();
 
-  factory TransactionSubmitResponse([void updates(TransactionSubmitResponseBuilder b)]) = _$TransactionSubmitResponse;
+  factory TransactionSubmitResponse(
+          [void updates(TransactionSubmitResponseBuilder b)]) =
+      _$TransactionSubmitResponse;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(TransactionSubmitResponseBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<TransactionSubmitResponse> get serializer => _$TransactionSubmitResponseSerializer();
+  static Serializer<TransactionSubmitResponse> get serializer =>
+      _$TransactionSubmitResponseSerializer();
 }
 
-class _$TransactionSubmitResponseSerializer implements PrimitiveSerializer<TransactionSubmitResponse> {
+class _$TransactionSubmitResponseSerializer
+    implements PrimitiveSerializer<TransactionSubmitResponse> {
   @override
-  final Iterable<Type> types = const [TransactionSubmitResponse, _$TransactionSubmitResponse];
+  final Iterable<Type> types = const [
+    TransactionSubmitResponse,
+    _$TransactionSubmitResponse
+  ];
 
   @override
   final String wireName = r'TransactionSubmitResponse';
@@ -54,7 +63,9 @@ class _$TransactionSubmitResponseSerializer implements PrimitiveSerializer<Trans
     TransactionSubmitResponse object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -104,4 +115,3 @@ class _$TransactionSubmitResponseSerializer implements PrimitiveSerializer<Trans
     return result.build();
   }
 }
-

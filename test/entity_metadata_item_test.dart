@@ -28,6 +28,5 @@ void main() {
     test('to test the property `lastUpdatedAtStateVersion`', () async {
       // TODO
     });
-
   });
 }

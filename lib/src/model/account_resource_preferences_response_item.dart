@@ -13,10 +13,13 @@ part 'account_resource_preferences_response_item.g.dart';
 ///
 /// Properties:
 /// * [resourceAddress] - Bech32m-encoded human readable version of the address.
-/// * [resourcePreferenceRule] 
+/// * [resourcePreferenceRule]
 /// * [lastUpdatedAtStateVersion] - The most recent state version underlying object was modified at.
 @BuiltValue()
-abstract class AccountResourcePreferencesResponseItem implements Built<AccountResourcePreferencesResponseItem, AccountResourcePreferencesResponseItemBuilder> {
+abstract class AccountResourcePreferencesResponseItem
+    implements
+        Built<AccountResourcePreferencesResponseItem,
+            AccountResourcePreferencesResponseItemBuilder> {
   /// Bech32m-encoded human readable version of the address.
   @BuiltValueField(wireName: r'resource_address')
   String get resourceAddress;
@@ -31,18 +34,25 @@ abstract class AccountResourcePreferencesResponseItem implements Built<AccountRe
 
   AccountResourcePreferencesResponseItem._();
 
-  factory AccountResourcePreferencesResponseItem([void updates(AccountResourcePreferencesResponseItemBuilder b)]) = _$AccountResourcePreferencesResponseItem;
+  factory AccountResourcePreferencesResponseItem(
+          [void updates(AccountResourcePreferencesResponseItemBuilder b)]) =
+      _$AccountResourcePreferencesResponseItem;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(AccountResourcePreferencesResponseItemBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<AccountResourcePreferencesResponseItem> get serializer => _$AccountResourcePreferencesResponseItemSerializer();
+  static Serializer<AccountResourcePreferencesResponseItem> get serializer =>
+      _$AccountResourcePreferencesResponseItemSerializer();
 }
 
-class _$AccountResourcePreferencesResponseItemSerializer implements PrimitiveSerializer<AccountResourcePreferencesResponseItem> {
+class _$AccountResourcePreferencesResponseItemSerializer
+    implements PrimitiveSerializer<AccountResourcePreferencesResponseItem> {
   @override
-  final Iterable<Type> types = const [AccountResourcePreferencesResponseItem, _$AccountResourcePreferencesResponseItem];
+  final Iterable<Type> types = const [
+    AccountResourcePreferencesResponseItem,
+    _$AccountResourcePreferencesResponseItem
+  ];
 
   @override
   final String wireName = r'AccountResourcePreferencesResponseItem';
@@ -75,7 +85,9 @@ class _$AccountResourcePreferencesResponseItemSerializer implements PrimitiveSer
     AccountResourcePreferencesResponseItem object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -139,4 +151,3 @@ class _$AccountResourcePreferencesResponseItemSerializer implements PrimitiveSer
     return result.build();
   }
 }
-

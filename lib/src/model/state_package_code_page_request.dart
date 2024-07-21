@@ -14,30 +14,41 @@ part 'state_package_code_page_request.g.dart';
 /// StatePackageCodePageRequest
 ///
 /// Properties:
-/// * [atLedgerState] 
+/// * [atLedgerState]
 /// * [cursor] - This cursor allows forward pagination, by providing the cursor from the previous request.
 /// * [limitPerPage] - The page size requested.
 /// * [packageAddress] - Bech32m-encoded human readable version of the address.
 @BuiltValue()
-abstract class StatePackageCodePageRequest implements AtLedgerStateMixin, CursorLimitMixin, Built<StatePackageCodePageRequest, StatePackageCodePageRequestBuilder> {
+abstract class StatePackageCodePageRequest
+    implements
+        AtLedgerStateMixin,
+        CursorLimitMixin,
+        Built<StatePackageCodePageRequest, StatePackageCodePageRequestBuilder> {
   /// Bech32m-encoded human readable version of the address.
   @BuiltValueField(wireName: r'package_address')
   String get packageAddress;
 
   StatePackageCodePageRequest._();
 
-  factory StatePackageCodePageRequest([void updates(StatePackageCodePageRequestBuilder b)]) = _$StatePackageCodePageRequest;
+  factory StatePackageCodePageRequest(
+          [void updates(StatePackageCodePageRequestBuilder b)]) =
+      _$StatePackageCodePageRequest;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(StatePackageCodePageRequestBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<StatePackageCodePageRequest> get serializer => _$StatePackageCodePageRequestSerializer();
+  static Serializer<StatePackageCodePageRequest> get serializer =>
+      _$StatePackageCodePageRequestSerializer();
 }
 
-class _$StatePackageCodePageRequestSerializer implements PrimitiveSerializer<StatePackageCodePageRequest> {
+class _$StatePackageCodePageRequestSerializer
+    implements PrimitiveSerializer<StatePackageCodePageRequest> {
   @override
-  final Iterable<Type> types = const [StatePackageCodePageRequest, _$StatePackageCodePageRequest];
+  final Iterable<Type> types = const [
+    StatePackageCodePageRequest,
+    _$StatePackageCodePageRequest
+  ];
 
   @override
   final String wireName = r'StatePackageCodePageRequest';
@@ -81,7 +92,9 @@ class _$StatePackageCodePageRequestSerializer implements PrimitiveSerializer<Sta
     StatePackageCodePageRequest object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -155,4 +168,3 @@ class _$StatePackageCodePageRequestSerializer implements PrimitiveSerializer<Sta
     return result.build();
   }
 }
-

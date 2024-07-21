@@ -13,33 +13,43 @@ part 'metadata_instant_value.g.dart';
 /// MetadataInstantValue
 ///
 /// Properties:
-/// * [type] 
-/// * [value] - The RFC 3339 / ISO 8601 string representation of the timestamp. Will always use \"Z\" (denoting UTC) and omits milliseconds. E.g.: `2023-01-26T18:30:09Z`.  Note: This field will return clamped value if the actual on-ledger `unix_timestamp_seconds` value is outside the basic range supported by the RFC 3339 / ISO 8601 standard, which starts at year 1583 (i.e. the beginning of the Gregorian calendar) and ends at year 9999 (inclusive). 
-/// * [unixTimestampSeconds] - A decimal string-encoded 64-bit signed integer, marking the unix timestamp in seconds.  Note: this field accurately represents the full range of possible on-ledger values (i.e. `-2^63 <= seconds < 2^63`). 
+/// * [type]
+/// * [value] - The RFC 3339 / ISO 8601 string representation of the timestamp. Will always use \"Z\" (denoting UTC) and omits milliseconds. E.g.: `2023-01-26T18:30:09Z`.  Note: This field will return clamped value if the actual on-ledger `unix_timestamp_seconds` value is outside the basic range supported by the RFC 3339 / ISO 8601 standard, which starts at year 1583 (i.e. the beginning of the Gregorian calendar) and ends at year 9999 (inclusive).
+/// * [unixTimestampSeconds] - A decimal string-encoded 64-bit signed integer, marking the unix timestamp in seconds.  Note: this field accurately represents the full range of possible on-ledger values (i.e. `-2^63 <= seconds < 2^63`).
 @BuiltValue()
-abstract class MetadataInstantValue implements MetadataTypedValue, Built<MetadataInstantValue, MetadataInstantValueBuilder> {
-  /// A decimal string-encoded 64-bit signed integer, marking the unix timestamp in seconds.  Note: this field accurately represents the full range of possible on-ledger values (i.e. `-2^63 <= seconds < 2^63`). 
+abstract class MetadataInstantValue
+    implements
+        MetadataTypedValue,
+        Built<MetadataInstantValue, MetadataInstantValueBuilder> {
+  /// A decimal string-encoded 64-bit signed integer, marking the unix timestamp in seconds.  Note: this field accurately represents the full range of possible on-ledger values (i.e. `-2^63 <= seconds < 2^63`).
   @BuiltValueField(wireName: r'unix_timestamp_seconds')
   String get unixTimestampSeconds;
 
-  /// The RFC 3339 / ISO 8601 string representation of the timestamp. Will always use \"Z\" (denoting UTC) and omits milliseconds. E.g.: `2023-01-26T18:30:09Z`.  Note: This field will return clamped value if the actual on-ledger `unix_timestamp_seconds` value is outside the basic range supported by the RFC 3339 / ISO 8601 standard, which starts at year 1583 (i.e. the beginning of the Gregorian calendar) and ends at year 9999 (inclusive). 
+  /// The RFC 3339 / ISO 8601 string representation of the timestamp. Will always use \"Z\" (denoting UTC) and omits milliseconds. E.g.: `2023-01-26T18:30:09Z`.  Note: This field will return clamped value if the actual on-ledger `unix_timestamp_seconds` value is outside the basic range supported by the RFC 3339 / ISO 8601 standard, which starts at year 1583 (i.e. the beginning of the Gregorian calendar) and ends at year 9999 (inclusive).
   @BuiltValueField(wireName: r'value')
   String get value;
 
   MetadataInstantValue._();
 
-  factory MetadataInstantValue([void updates(MetadataInstantValueBuilder b)]) = _$MetadataInstantValue;
+  factory MetadataInstantValue([void updates(MetadataInstantValueBuilder b)]) =
+      _$MetadataInstantValue;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(MetadataInstantValueBuilder b) => b..type=b.discriminatorValue;
+  static void _defaults(MetadataInstantValueBuilder b) =>
+      b..type = b.discriminatorValue as dynamic;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<MetadataInstantValue> get serializer => _$MetadataInstantValueSerializer();
+  static Serializer<MetadataInstantValue> get serializer =>
+      _$MetadataInstantValueSerializer();
 }
 
-class _$MetadataInstantValueSerializer implements PrimitiveSerializer<MetadataInstantValue> {
+class _$MetadataInstantValueSerializer
+    implements PrimitiveSerializer<MetadataInstantValue> {
   @override
-  final Iterable<Type> types = const [MetadataInstantValue, _$MetadataInstantValue];
+  final Iterable<Type> types = const [
+    MetadataInstantValue,
+    _$MetadataInstantValue
+  ];
 
   @override
   final String wireName = r'MetadataInstantValue';
@@ -72,7 +82,9 @@ class _$MetadataInstantValueSerializer implements PrimitiveSerializer<MetadataIn
     MetadataInstantValue object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -136,4 +148,3 @@ class _$MetadataInstantValueSerializer implements PrimitiveSerializer<MetadataIn
     return result.build();
   }
 }
-

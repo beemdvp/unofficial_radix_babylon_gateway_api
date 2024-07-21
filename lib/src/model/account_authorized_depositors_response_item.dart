@@ -14,9 +14,9 @@ part 'account_authorized_depositors_response_item.g.dart';
 /// AccountAuthorizedDepositorsResponseItem
 ///
 /// Properties:
-/// * [badgeType] 
+/// * [badgeType]
 @BuiltValue(instantiable: false)
-abstract class AccountAuthorizedDepositorsResponseItem  {
+abstract class AccountAuthorizedDepositorsResponseItem {
   @BuiltValueField(wireName: r'badge_type')
   AccountAuthorizedDepositorBadgeType get badgeType;
   // enum badgeTypeEnum {  ResourceBadge,  NonFungibleBadge,  };
@@ -29,33 +29,38 @@ abstract class AccountAuthorizedDepositorsResponseItem  {
   };
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<AccountAuthorizedDepositorsResponseItem> get serializer => _$AccountAuthorizedDepositorsResponseItemSerializer();
+  static Serializer<AccountAuthorizedDepositorsResponseItem> get serializer =>
+      _$AccountAuthorizedDepositorsResponseItemSerializer();
 }
 
-extension AccountAuthorizedDepositorsResponseItemDiscriminatorExt on AccountAuthorizedDepositorsResponseItem {
-    String? get discriminatorValue {
-        if (this is AccountAuthorizedDepositorsNonFungibleBadge) {
-            return r'NonFungibleBadge';
-        }
-        if (this is AccountAuthorizedDepositorsResourceBadge) {
-            return r'ResourceBadge';
-        }
-        return null;
+extension AccountAuthorizedDepositorsResponseItemDiscriminatorExt
+    on AccountAuthorizedDepositorsResponseItem {
+  String? get discriminatorValue {
+    if (this is AccountAuthorizedDepositorsNonFungibleBadge) {
+      return r'NonFungibleBadge';
     }
-}
-extension AccountAuthorizedDepositorsResponseItemBuilderDiscriminatorExt on AccountAuthorizedDepositorsResponseItemBuilder {
-    String? get discriminatorValue {
-        if (this is AccountAuthorizedDepositorsNonFungibleBadgeBuilder) {
-            return r'NonFungibleBadge';
-        }
-        if (this is AccountAuthorizedDepositorsResourceBadgeBuilder) {
-            return r'ResourceBadge';
-        }
-        return null;
+    if (this is AccountAuthorizedDepositorsResourceBadge) {
+      return r'ResourceBadge';
     }
+    return null;
+  }
 }
 
-class _$AccountAuthorizedDepositorsResponseItemSerializer implements PrimitiveSerializer<AccountAuthorizedDepositorsResponseItem> {
+extension AccountAuthorizedDepositorsResponseItemBuilderDiscriminatorExt
+    on AccountAuthorizedDepositorsResponseItemBuilder {
+  String? get discriminatorValue {
+    if (this is AccountAuthorizedDepositorsNonFungibleBadgeBuilder) {
+      return r'NonFungibleBadge';
+    }
+    if (this is AccountAuthorizedDepositorsResourceBadgeBuilder) {
+      return r'ResourceBadge';
+    }
+    return null;
+  }
+}
+
+class _$AccountAuthorizedDepositorsResponseItemSerializer
+    implements PrimitiveSerializer<AccountAuthorizedDepositorsResponseItem> {
   @override
   final Iterable<Type> types = const [AccountAuthorizedDepositorsResponseItem];
 
@@ -81,12 +86,17 @@ class _$AccountAuthorizedDepositorsResponseItemSerializer implements PrimitiveSe
     FullType specifiedType = FullType.unspecified,
   }) {
     if (object is AccountAuthorizedDepositorsNonFungibleBadge) {
-      return serializers.serialize(object, specifiedType: FullType(AccountAuthorizedDepositorsNonFungibleBadge))!;
+      return serializers.serialize(object,
+          specifiedType:
+              FullType(AccountAuthorizedDepositorsNonFungibleBadge))!;
     }
     if (object is AccountAuthorizedDepositorsResourceBadge) {
-      return serializers.serialize(object, specifiedType: FullType(AccountAuthorizedDepositorsResourceBadge))!;
+      return serializers.serialize(object,
+          specifiedType: FullType(AccountAuthorizedDepositorsResourceBadge))!;
     }
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   @override
@@ -96,36 +106,59 @@ class _$AccountAuthorizedDepositorsResponseItemSerializer implements PrimitiveSe
     FullType specifiedType = FullType.unspecified,
   }) {
     final serializedList = (serialized as Iterable<Object?>).toList();
-    final discIndex = serializedList.indexOf(AccountAuthorizedDepositorsResponseItem.discriminatorFieldName) + 1;
-    final discValue = serializers.deserialize(serializedList[discIndex], specifiedType: FullType(String)) as String;
+    final discIndex = serializedList.indexOf(
+            AccountAuthorizedDepositorsResponseItem.discriminatorFieldName) +
+        1;
+    final discValue = serializers.deserialize(serializedList[discIndex],
+        specifiedType: FullType(String)) as String;
     switch (discValue) {
       case r'NonFungibleBadge':
-        return serializers.deserialize(serialized, specifiedType: FullType(AccountAuthorizedDepositorsNonFungibleBadge)) as AccountAuthorizedDepositorsNonFungibleBadge;
+        return serializers.deserialize(serialized,
+                specifiedType:
+                    FullType(AccountAuthorizedDepositorsNonFungibleBadge))
+            as AccountAuthorizedDepositorsNonFungibleBadge;
       case r'ResourceBadge':
-        return serializers.deserialize(serialized, specifiedType: FullType(AccountAuthorizedDepositorsResourceBadge)) as AccountAuthorizedDepositorsResourceBadge;
+        return serializers.deserialize(serialized,
+                specifiedType:
+                    FullType(AccountAuthorizedDepositorsResourceBadge))
+            as AccountAuthorizedDepositorsResourceBadge;
       default:
-        return serializers.deserialize(serialized, specifiedType: FullType($AccountAuthorizedDepositorsResponseItem)) as $AccountAuthorizedDepositorsResponseItem;
+        return serializers.deserialize(serialized,
+                specifiedType:
+                    FullType($AccountAuthorizedDepositorsResponseItem))
+            as $AccountAuthorizedDepositorsResponseItem;
     }
   }
 }
 
 /// a concrete implementation of [AccountAuthorizedDepositorsResponseItem], since [AccountAuthorizedDepositorsResponseItem] is not instantiable
 @BuiltValue(instantiable: true)
-abstract class $AccountAuthorizedDepositorsResponseItem implements AccountAuthorizedDepositorsResponseItem, Built<$AccountAuthorizedDepositorsResponseItem, $AccountAuthorizedDepositorsResponseItemBuilder> {
+abstract class $AccountAuthorizedDepositorsResponseItem
+    implements
+        AccountAuthorizedDepositorsResponseItem,
+        Built<$AccountAuthorizedDepositorsResponseItem,
+            $AccountAuthorizedDepositorsResponseItemBuilder> {
   $AccountAuthorizedDepositorsResponseItem._();
 
-  factory $AccountAuthorizedDepositorsResponseItem([void Function($AccountAuthorizedDepositorsResponseItemBuilder)? updates]) = _$$AccountAuthorizedDepositorsResponseItem;
+  factory $AccountAuthorizedDepositorsResponseItem(
+      [void Function($AccountAuthorizedDepositorsResponseItemBuilder)?
+          updates]) = _$$AccountAuthorizedDepositorsResponseItem;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($AccountAuthorizedDepositorsResponseItemBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<$AccountAuthorizedDepositorsResponseItem> get serializer => _$$AccountAuthorizedDepositorsResponseItemSerializer();
+  static Serializer<$AccountAuthorizedDepositorsResponseItem> get serializer =>
+      _$$AccountAuthorizedDepositorsResponseItemSerializer();
 }
 
-class _$$AccountAuthorizedDepositorsResponseItemSerializer implements PrimitiveSerializer<$AccountAuthorizedDepositorsResponseItem> {
+class _$$AccountAuthorizedDepositorsResponseItemSerializer
+    implements PrimitiveSerializer<$AccountAuthorizedDepositorsResponseItem> {
   @override
-  final Iterable<Type> types = const [$AccountAuthorizedDepositorsResponseItem, _$$AccountAuthorizedDepositorsResponseItem];
+  final Iterable<Type> types = const [
+    $AccountAuthorizedDepositorsResponseItem,
+    _$$AccountAuthorizedDepositorsResponseItem
+  ];
 
   @override
   final String wireName = r'$AccountAuthorizedDepositorsResponseItem';
@@ -136,7 +169,8 @@ class _$$AccountAuthorizedDepositorsResponseItemSerializer implements PrimitiveS
     $AccountAuthorizedDepositorsResponseItem object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return serializers.serialize(object, specifiedType: FullType(AccountAuthorizedDepositorsResponseItem))!;
+    return serializers.serialize(object,
+        specifiedType: FullType(AccountAuthorizedDepositorsResponseItem))!;
   }
 
   void _deserializeProperties(
@@ -186,4 +220,3 @@ class _$$AccountAuthorizedDepositorsResponseItemSerializer implements PrimitiveS
     return result.build();
   }
 }
-

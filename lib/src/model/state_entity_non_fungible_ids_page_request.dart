@@ -14,14 +14,19 @@ part 'state_entity_non_fungible_ids_page_request.g.dart';
 /// StateEntityNonFungibleIdsPageRequest
 ///
 /// Properties:
-/// * [atLedgerState] 
+/// * [atLedgerState]
 /// * [cursor] - This cursor allows forward pagination, by providing the cursor from the previous request.
 /// * [limitPerPage] - The page size requested.
 /// * [address] - Bech32m-encoded human readable version of the address.
 /// * [vaultAddress] - Bech32m-encoded human readable version of the address.
 /// * [resourceAddress] - Bech32m-encoded human readable version of the address.
 @BuiltValue()
-abstract class StateEntityNonFungibleIdsPageRequest implements AtLedgerStateMixin, CursorLimitMixin, Built<StateEntityNonFungibleIdsPageRequest, StateEntityNonFungibleIdsPageRequestBuilder> {
+abstract class StateEntityNonFungibleIdsPageRequest
+    implements
+        AtLedgerStateMixin,
+        CursorLimitMixin,
+        Built<StateEntityNonFungibleIdsPageRequest,
+            StateEntityNonFungibleIdsPageRequestBuilder> {
   /// Bech32m-encoded human readable version of the address.
   @BuiltValueField(wireName: r'vault_address')
   String get vaultAddress;
@@ -36,18 +41,25 @@ abstract class StateEntityNonFungibleIdsPageRequest implements AtLedgerStateMixi
 
   StateEntityNonFungibleIdsPageRequest._();
 
-  factory StateEntityNonFungibleIdsPageRequest([void updates(StateEntityNonFungibleIdsPageRequestBuilder b)]) = _$StateEntityNonFungibleIdsPageRequest;
+  factory StateEntityNonFungibleIdsPageRequest(
+          [void updates(StateEntityNonFungibleIdsPageRequestBuilder b)]) =
+      _$StateEntityNonFungibleIdsPageRequest;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(StateEntityNonFungibleIdsPageRequestBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<StateEntityNonFungibleIdsPageRequest> get serializer => _$StateEntityNonFungibleIdsPageRequestSerializer();
+  static Serializer<StateEntityNonFungibleIdsPageRequest> get serializer =>
+      _$StateEntityNonFungibleIdsPageRequestSerializer();
 }
 
-class _$StateEntityNonFungibleIdsPageRequestSerializer implements PrimitiveSerializer<StateEntityNonFungibleIdsPageRequest> {
+class _$StateEntityNonFungibleIdsPageRequestSerializer
+    implements PrimitiveSerializer<StateEntityNonFungibleIdsPageRequest> {
   @override
-  final Iterable<Type> types = const [StateEntityNonFungibleIdsPageRequest, _$StateEntityNonFungibleIdsPageRequest];
+  final Iterable<Type> types = const [
+    StateEntityNonFungibleIdsPageRequest,
+    _$StateEntityNonFungibleIdsPageRequest
+  ];
 
   @override
   final String wireName = r'StateEntityNonFungibleIdsPageRequest';
@@ -101,7 +113,9 @@ class _$StateEntityNonFungibleIdsPageRequestSerializer implements PrimitiveSeria
     StateEntityNonFungibleIdsPageRequest object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -189,4 +203,3 @@ class _$StateEntityNonFungibleIdsPageRequestSerializer implements PrimitiveSeria
     return result.build();
   }
 }
-

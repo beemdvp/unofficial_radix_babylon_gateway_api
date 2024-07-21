@@ -15,11 +15,15 @@ part 'state_key_value_store_data_request.g.dart';
 /// StateKeyValueStoreDataRequest
 ///
 /// Properties:
-/// * [atLedgerState] 
+/// * [atLedgerState]
 /// * [keyValueStoreAddress] - Bech32m-encoded human readable version of the address.
 /// * [keys] - limited to max 100 items.
 @BuiltValue()
-abstract class StateKeyValueStoreDataRequest implements AtLedgerStateMixin, Built<StateKeyValueStoreDataRequest, StateKeyValueStoreDataRequestBuilder> {
+abstract class StateKeyValueStoreDataRequest
+    implements
+        AtLedgerStateMixin,
+        Built<StateKeyValueStoreDataRequest,
+            StateKeyValueStoreDataRequestBuilder> {
   /// limited to max 100 items.
   @BuiltValueField(wireName: r'keys')
   BuiltList<StateKeyValueStoreDataRequestKeyItem> get keys;
@@ -30,18 +34,25 @@ abstract class StateKeyValueStoreDataRequest implements AtLedgerStateMixin, Buil
 
   StateKeyValueStoreDataRequest._();
 
-  factory StateKeyValueStoreDataRequest([void updates(StateKeyValueStoreDataRequestBuilder b)]) = _$StateKeyValueStoreDataRequest;
+  factory StateKeyValueStoreDataRequest(
+          [void updates(StateKeyValueStoreDataRequestBuilder b)]) =
+      _$StateKeyValueStoreDataRequest;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(StateKeyValueStoreDataRequestBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<StateKeyValueStoreDataRequest> get serializer => _$StateKeyValueStoreDataRequestSerializer();
+  static Serializer<StateKeyValueStoreDataRequest> get serializer =>
+      _$StateKeyValueStoreDataRequestSerializer();
 }
 
-class _$StateKeyValueStoreDataRequestSerializer implements PrimitiveSerializer<StateKeyValueStoreDataRequest> {
+class _$StateKeyValueStoreDataRequestSerializer
+    implements PrimitiveSerializer<StateKeyValueStoreDataRequest> {
   @override
-  final Iterable<Type> types = const [StateKeyValueStoreDataRequest, _$StateKeyValueStoreDataRequest];
+  final Iterable<Type> types = const [
+    StateKeyValueStoreDataRequest,
+    _$StateKeyValueStoreDataRequest
+  ];
 
   @override
   final String wireName = r'StateKeyValueStoreDataRequest';
@@ -66,7 +77,8 @@ class _$StateKeyValueStoreDataRequestSerializer implements PrimitiveSerializer<S
     yield r'keys';
     yield serializers.serialize(
       object.keys,
-      specifiedType: const FullType(BuiltList, [FullType(StateKeyValueStoreDataRequestKeyItem)]),
+      specifiedType: const FullType(
+          BuiltList, [FullType(StateKeyValueStoreDataRequestKeyItem)]),
     );
   }
 
@@ -76,7 +88,9 @@ class _$StateKeyValueStoreDataRequestSerializer implements PrimitiveSerializer<S
     StateKeyValueStoreDataRequest object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -109,7 +123,8 @@ class _$StateKeyValueStoreDataRequestSerializer implements PrimitiveSerializer<S
         case r'keys':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltList, [FullType(StateKeyValueStoreDataRequestKeyItem)]),
+            specifiedType: const FullType(
+                BuiltList, [FullType(StateKeyValueStoreDataRequestKeyItem)]),
           ) as BuiltList<StateKeyValueStoreDataRequestKeyItem>;
           result.keys.replace(valueDes);
           break;
@@ -141,4 +156,3 @@ class _$StateKeyValueStoreDataRequestSerializer implements PrimitiveSerializer<S
     return result.build();
   }
 }
-

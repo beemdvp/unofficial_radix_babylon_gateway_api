@@ -14,30 +14,44 @@ part 'state_account_resource_preferences_page_request.g.dart';
 /// StateAccountResourcePreferencesPageRequest
 ///
 /// Properties:
-/// * [atLedgerState] 
+/// * [atLedgerState]
 /// * [cursor] - This cursor allows forward pagination, by providing the cursor from the previous request.
 /// * [limitPerPage] - The page size requested.
 /// * [accountAddress] - Bech32m-encoded human readable version of the address.
 @BuiltValue()
-abstract class StateAccountResourcePreferencesPageRequest implements AtLedgerStateMixin, CursorLimitMixin, Built<StateAccountResourcePreferencesPageRequest, StateAccountResourcePreferencesPageRequestBuilder> {
+abstract class StateAccountResourcePreferencesPageRequest
+    implements
+        AtLedgerStateMixin,
+        CursorLimitMixin,
+        Built<StateAccountResourcePreferencesPageRequest,
+            StateAccountResourcePreferencesPageRequestBuilder> {
   /// Bech32m-encoded human readable version of the address.
   @BuiltValueField(wireName: r'account_address')
   String get accountAddress;
 
   StateAccountResourcePreferencesPageRequest._();
 
-  factory StateAccountResourcePreferencesPageRequest([void updates(StateAccountResourcePreferencesPageRequestBuilder b)]) = _$StateAccountResourcePreferencesPageRequest;
+  factory StateAccountResourcePreferencesPageRequest(
+          [void updates(StateAccountResourcePreferencesPageRequestBuilder b)]) =
+      _$StateAccountResourcePreferencesPageRequest;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(StateAccountResourcePreferencesPageRequestBuilder b) => b;
+  static void _defaults(StateAccountResourcePreferencesPageRequestBuilder b) =>
+      b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<StateAccountResourcePreferencesPageRequest> get serializer => _$StateAccountResourcePreferencesPageRequestSerializer();
+  static Serializer<StateAccountResourcePreferencesPageRequest>
+      get serializer =>
+          _$StateAccountResourcePreferencesPageRequestSerializer();
 }
 
-class _$StateAccountResourcePreferencesPageRequestSerializer implements PrimitiveSerializer<StateAccountResourcePreferencesPageRequest> {
+class _$StateAccountResourcePreferencesPageRequestSerializer
+    implements PrimitiveSerializer<StateAccountResourcePreferencesPageRequest> {
   @override
-  final Iterable<Type> types = const [StateAccountResourcePreferencesPageRequest, _$StateAccountResourcePreferencesPageRequest];
+  final Iterable<Type> types = const [
+    StateAccountResourcePreferencesPageRequest,
+    _$StateAccountResourcePreferencesPageRequest
+  ];
 
   @override
   final String wireName = r'StateAccountResourcePreferencesPageRequest';
@@ -81,7 +95,9 @@ class _$StateAccountResourcePreferencesPageRequestSerializer implements Primitiv
     StateAccountResourcePreferencesPageRequest object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -155,4 +171,3 @@ class _$StateAccountResourcePreferencesPageRequestSerializer implements Primitiv
     return result.build();
   }
 }
-

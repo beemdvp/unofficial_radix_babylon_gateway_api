@@ -13,10 +13,13 @@ part 'validator_collection_item_active_in_epoch.g.dart';
 ///
 /// Properties:
 /// * [stake] - String-encoded decimal representing the amount of a related fungible resource.
-/// * [stakePercentage] 
-/// * [key] 
+/// * [stakePercentage]
+/// * [key]
 @BuiltValue()
-abstract class ValidatorCollectionItemActiveInEpoch implements Built<ValidatorCollectionItemActiveInEpoch, ValidatorCollectionItemActiveInEpochBuilder> {
+abstract class ValidatorCollectionItemActiveInEpoch
+    implements
+        Built<ValidatorCollectionItemActiveInEpoch,
+            ValidatorCollectionItemActiveInEpochBuilder> {
   /// String-encoded decimal representing the amount of a related fungible resource.
   @BuiltValueField(wireName: r'stake')
   String get stake;
@@ -29,18 +32,25 @@ abstract class ValidatorCollectionItemActiveInEpoch implements Built<ValidatorCo
 
   ValidatorCollectionItemActiveInEpoch._();
 
-  factory ValidatorCollectionItemActiveInEpoch([void updates(ValidatorCollectionItemActiveInEpochBuilder b)]) = _$ValidatorCollectionItemActiveInEpoch;
+  factory ValidatorCollectionItemActiveInEpoch(
+          [void updates(ValidatorCollectionItemActiveInEpochBuilder b)]) =
+      _$ValidatorCollectionItemActiveInEpoch;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(ValidatorCollectionItemActiveInEpochBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<ValidatorCollectionItemActiveInEpoch> get serializer => _$ValidatorCollectionItemActiveInEpochSerializer();
+  static Serializer<ValidatorCollectionItemActiveInEpoch> get serializer =>
+      _$ValidatorCollectionItemActiveInEpochSerializer();
 }
 
-class _$ValidatorCollectionItemActiveInEpochSerializer implements PrimitiveSerializer<ValidatorCollectionItemActiveInEpoch> {
+class _$ValidatorCollectionItemActiveInEpochSerializer
+    implements PrimitiveSerializer<ValidatorCollectionItemActiveInEpoch> {
   @override
-  final Iterable<Type> types = const [ValidatorCollectionItemActiveInEpoch, _$ValidatorCollectionItemActiveInEpoch];
+  final Iterable<Type> types = const [
+    ValidatorCollectionItemActiveInEpoch,
+    _$ValidatorCollectionItemActiveInEpoch
+  ];
 
   @override
   final String wireName = r'ValidatorCollectionItemActiveInEpoch';
@@ -73,7 +83,9 @@ class _$ValidatorCollectionItemActiveInEpochSerializer implements PrimitiveSeria
     ValidatorCollectionItemActiveInEpoch object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -137,4 +149,3 @@ class _$ValidatorCollectionItemActiveInEpochSerializer implements PrimitiveSeria
     return result.build();
   }
 }
-

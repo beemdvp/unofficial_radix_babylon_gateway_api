@@ -14,30 +14,46 @@ part 'state_account_authorized_depositors_page_request.g.dart';
 /// StateAccountAuthorizedDepositorsPageRequest
 ///
 /// Properties:
-/// * [atLedgerState] 
+/// * [atLedgerState]
 /// * [cursor] - This cursor allows forward pagination, by providing the cursor from the previous request.
 /// * [limitPerPage] - The page size requested.
 /// * [accountAddress] - Bech32m-encoded human readable version of the address.
 @BuiltValue()
-abstract class StateAccountAuthorizedDepositorsPageRequest implements AtLedgerStateMixin, CursorLimitMixin, Built<StateAccountAuthorizedDepositorsPageRequest, StateAccountAuthorizedDepositorsPageRequestBuilder> {
+abstract class StateAccountAuthorizedDepositorsPageRequest
+    implements
+        AtLedgerStateMixin,
+        CursorLimitMixin,
+        Built<StateAccountAuthorizedDepositorsPageRequest,
+            StateAccountAuthorizedDepositorsPageRequestBuilder> {
   /// Bech32m-encoded human readable version of the address.
   @BuiltValueField(wireName: r'account_address')
   String get accountAddress;
 
   StateAccountAuthorizedDepositorsPageRequest._();
 
-  factory StateAccountAuthorizedDepositorsPageRequest([void updates(StateAccountAuthorizedDepositorsPageRequestBuilder b)]) = _$StateAccountAuthorizedDepositorsPageRequest;
+  factory StateAccountAuthorizedDepositorsPageRequest(
+          [void updates(
+              StateAccountAuthorizedDepositorsPageRequestBuilder b)]) =
+      _$StateAccountAuthorizedDepositorsPageRequest;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(StateAccountAuthorizedDepositorsPageRequestBuilder b) => b;
+  static void _defaults(StateAccountAuthorizedDepositorsPageRequestBuilder b) =>
+      b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<StateAccountAuthorizedDepositorsPageRequest> get serializer => _$StateAccountAuthorizedDepositorsPageRequestSerializer();
+  static Serializer<StateAccountAuthorizedDepositorsPageRequest>
+      get serializer =>
+          _$StateAccountAuthorizedDepositorsPageRequestSerializer();
 }
 
-class _$StateAccountAuthorizedDepositorsPageRequestSerializer implements PrimitiveSerializer<StateAccountAuthorizedDepositorsPageRequest> {
+class _$StateAccountAuthorizedDepositorsPageRequestSerializer
+    implements
+        PrimitiveSerializer<StateAccountAuthorizedDepositorsPageRequest> {
   @override
-  final Iterable<Type> types = const [StateAccountAuthorizedDepositorsPageRequest, _$StateAccountAuthorizedDepositorsPageRequest];
+  final Iterable<Type> types = const [
+    StateAccountAuthorizedDepositorsPageRequest,
+    _$StateAccountAuthorizedDepositorsPageRequest
+  ];
 
   @override
   final String wireName = r'StateAccountAuthorizedDepositorsPageRequest';
@@ -81,7 +97,9 @@ class _$StateAccountAuthorizedDepositorsPageRequestSerializer implements Primiti
     StateAccountAuthorizedDepositorsPageRequest object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -155,4 +173,3 @@ class _$StateAccountAuthorizedDepositorsPageRequestSerializer implements Primiti
     return result.build();
   }
 }
-

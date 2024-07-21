@@ -14,14 +14,18 @@ part 'state_entity_details_response_fungible_resource_details.g.dart';
 /// StateEntityDetailsResponseFungibleResourceDetails
 ///
 /// Properties:
-/// * [type] 
-/// * [roleAssignments] 
-/// * [divisibility] 
+/// * [type]
+/// * [roleAssignments]
+/// * [divisibility]
 /// * [totalSupply] - String-encoded decimal representing the amount of a related fungible resource.
 /// * [totalMinted] - String-encoded decimal representing the amount of a related fungible resource.
 /// * [totalBurned] - String-encoded decimal representing the amount of a related fungible resource.
 @BuiltValue()
-abstract class StateEntityDetailsResponseFungibleResourceDetails implements StateEntityDetailsResponseItemDetails, Built<StateEntityDetailsResponseFungibleResourceDetails, StateEntityDetailsResponseFungibleResourceDetailsBuilder> {
+abstract class StateEntityDetailsResponseFungibleResourceDetails
+    implements
+        StateEntityDetailsResponseItemDetails,
+        Built<StateEntityDetailsResponseFungibleResourceDetails,
+            StateEntityDetailsResponseFungibleResourceDetailsBuilder> {
   /// String-encoded decimal representing the amount of a related fungible resource.
   @BuiltValueField(wireName: r'total_supply')
   String get totalSupply;
@@ -42,18 +46,30 @@ abstract class StateEntityDetailsResponseFungibleResourceDetails implements Stat
 
   StateEntityDetailsResponseFungibleResourceDetails._();
 
-  factory StateEntityDetailsResponseFungibleResourceDetails([void updates(StateEntityDetailsResponseFungibleResourceDetailsBuilder b)]) = _$StateEntityDetailsResponseFungibleResourceDetails;
+  factory StateEntityDetailsResponseFungibleResourceDetails(
+          [void updates(
+              StateEntityDetailsResponseFungibleResourceDetailsBuilder b)]) =
+      _$StateEntityDetailsResponseFungibleResourceDetails;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(StateEntityDetailsResponseFungibleResourceDetailsBuilder b) => b..type=b.discriminatorValue;
+  static void _defaults(
+          StateEntityDetailsResponseFungibleResourceDetailsBuilder b) =>
+      b..type = b.discriminatorValue as dynamic;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<StateEntityDetailsResponseFungibleResourceDetails> get serializer => _$StateEntityDetailsResponseFungibleResourceDetailsSerializer();
+  static Serializer<StateEntityDetailsResponseFungibleResourceDetails>
+      get serializer =>
+          _$StateEntityDetailsResponseFungibleResourceDetailsSerializer();
 }
 
-class _$StateEntityDetailsResponseFungibleResourceDetailsSerializer implements PrimitiveSerializer<StateEntityDetailsResponseFungibleResourceDetails> {
+class _$StateEntityDetailsResponseFungibleResourceDetailsSerializer
+    implements
+        PrimitiveSerializer<StateEntityDetailsResponseFungibleResourceDetails> {
   @override
-  final Iterable<Type> types = const [StateEntityDetailsResponseFungibleResourceDetails, _$StateEntityDetailsResponseFungibleResourceDetails];
+  final Iterable<Type> types = const [
+    StateEntityDetailsResponseFungibleResourceDetails,
+    _$StateEntityDetailsResponseFungibleResourceDetails
+  ];
 
   @override
   final String wireName = r'StateEntityDetailsResponseFungibleResourceDetails';
@@ -101,7 +117,9 @@ class _$StateEntityDetailsResponseFungibleResourceDetailsSerializer implements P
     StateEntityDetailsResponseFungibleResourceDetails object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -133,7 +151,8 @@ class _$StateEntityDetailsResponseFungibleResourceDetailsSerializer implements P
         case r'type':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(StateEntityDetailsResponseItemDetailsType),
+            specifiedType:
+                const FullType(StateEntityDetailsResponseItemDetailsType),
           ) as StateEntityDetailsResponseItemDetailsType;
           result.type = valueDes;
           break;
@@ -186,4 +205,3 @@ class _$StateEntityDetailsResponseFungibleResourceDetailsSerializer implements P
     return result.build();
   }
 }
-

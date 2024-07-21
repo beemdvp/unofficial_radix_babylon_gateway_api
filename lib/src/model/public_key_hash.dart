@@ -14,9 +14,9 @@ part 'public_key_hash.g.dart';
 /// PublicKeyHash
 ///
 /// Properties:
-/// * [keyHashType] 
+/// * [keyHashType]
 @BuiltValue(instantiable: false)
-abstract class PublicKeyHash  {
+abstract class PublicKeyHash {
   @BuiltValueField(wireName: r'key_hash_type')
   PublicKeyHashType get keyHashType;
   // enum keyHashTypeEnum {  EcdsaSecp256k1,  EddsaEd25519,  };
@@ -29,30 +29,32 @@ abstract class PublicKeyHash  {
   };
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<PublicKeyHash> get serializer => _$PublicKeyHashSerializer();
+  static Serializer<PublicKeyHash> get serializer =>
+      _$PublicKeyHashSerializer();
 }
 
 extension PublicKeyHashDiscriminatorExt on PublicKeyHash {
-    String? get discriminatorValue {
-        if (this is PublicKeyHashEcdsaSecp256k1) {
-            return r'EcdsaSecp256k1';
-        }
-        if (this is PublicKeyHashEddsaEd25519) {
-            return r'EddsaEd25519';
-        }
-        return null;
+  String? get discriminatorValue {
+    if (this is PublicKeyHashEcdsaSecp256k1) {
+      return r'EcdsaSecp256k1';
     }
+    if (this is PublicKeyHashEddsaEd25519) {
+      return r'EddsaEd25519';
+    }
+    return null;
+  }
 }
+
 extension PublicKeyHashBuilderDiscriminatorExt on PublicKeyHashBuilder {
-    String? get discriminatorValue {
-        if (this is PublicKeyHashEcdsaSecp256k1Builder) {
-            return r'EcdsaSecp256k1';
-        }
-        if (this is PublicKeyHashEddsaEd25519Builder) {
-            return r'EddsaEd25519';
-        }
-        return null;
+  String? get discriminatorValue {
+    if (this is PublicKeyHashEcdsaSecp256k1Builder) {
+      return r'EcdsaSecp256k1';
     }
+    if (this is PublicKeyHashEddsaEd25519Builder) {
+      return r'EddsaEd25519';
+    }
+    return null;
+  }
 }
 
 class _$PublicKeyHashSerializer implements PrimitiveSerializer<PublicKeyHash> {
@@ -81,12 +83,16 @@ class _$PublicKeyHashSerializer implements PrimitiveSerializer<PublicKeyHash> {
     FullType specifiedType = FullType.unspecified,
   }) {
     if (object is PublicKeyHashEcdsaSecp256k1) {
-      return serializers.serialize(object, specifiedType: FullType(PublicKeyHashEcdsaSecp256k1))!;
+      return serializers.serialize(object,
+          specifiedType: FullType(PublicKeyHashEcdsaSecp256k1))!;
     }
     if (object is PublicKeyHashEddsaEd25519) {
-      return serializers.serialize(object, specifiedType: FullType(PublicKeyHashEddsaEd25519))!;
+      return serializers.serialize(object,
+          specifiedType: FullType(PublicKeyHashEddsaEd25519))!;
     }
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   @override
@@ -96,34 +102,45 @@ class _$PublicKeyHashSerializer implements PrimitiveSerializer<PublicKeyHash> {
     FullType specifiedType = FullType.unspecified,
   }) {
     final serializedList = (serialized as Iterable<Object?>).toList();
-    final discIndex = serializedList.indexOf(PublicKeyHash.discriminatorFieldName) + 1;
-    final discValue = serializers.deserialize(serializedList[discIndex], specifiedType: FullType(String)) as String;
+    final discIndex =
+        serializedList.indexOf(PublicKeyHash.discriminatorFieldName) + 1;
+    final discValue = serializers.deserialize(serializedList[discIndex],
+        specifiedType: FullType(String)) as String;
     switch (discValue) {
       case r'EcdsaSecp256k1':
-        return serializers.deserialize(serialized, specifiedType: FullType(PublicKeyHashEcdsaSecp256k1)) as PublicKeyHashEcdsaSecp256k1;
+        return serializers.deserialize(serialized,
+                specifiedType: FullType(PublicKeyHashEcdsaSecp256k1))
+            as PublicKeyHashEcdsaSecp256k1;
       case r'EddsaEd25519':
-        return serializers.deserialize(serialized, specifiedType: FullType(PublicKeyHashEddsaEd25519)) as PublicKeyHashEddsaEd25519;
+        return serializers.deserialize(serialized,
+                specifiedType: FullType(PublicKeyHashEddsaEd25519))
+            as PublicKeyHashEddsaEd25519;
       default:
-        return serializers.deserialize(serialized, specifiedType: FullType($PublicKeyHash)) as $PublicKeyHash;
+        return serializers.deserialize(serialized,
+            specifiedType: FullType($PublicKeyHash)) as $PublicKeyHash;
     }
   }
 }
 
 /// a concrete implementation of [PublicKeyHash], since [PublicKeyHash] is not instantiable
 @BuiltValue(instantiable: true)
-abstract class $PublicKeyHash implements PublicKeyHash, Built<$PublicKeyHash, $PublicKeyHashBuilder> {
+abstract class $PublicKeyHash
+    implements PublicKeyHash, Built<$PublicKeyHash, $PublicKeyHashBuilder> {
   $PublicKeyHash._();
 
-  factory $PublicKeyHash([void Function($PublicKeyHashBuilder)? updates]) = _$$PublicKeyHash;
+  factory $PublicKeyHash([void Function($PublicKeyHashBuilder)? updates]) =
+      _$$PublicKeyHash;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($PublicKeyHashBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<$PublicKeyHash> get serializer => _$$PublicKeyHashSerializer();
+  static Serializer<$PublicKeyHash> get serializer =>
+      _$$PublicKeyHashSerializer();
 }
 
-class _$$PublicKeyHashSerializer implements PrimitiveSerializer<$PublicKeyHash> {
+class _$$PublicKeyHashSerializer
+    implements PrimitiveSerializer<$PublicKeyHash> {
   @override
   final Iterable<Type> types = const [$PublicKeyHash, _$$PublicKeyHash];
 
@@ -136,7 +153,8 @@ class _$$PublicKeyHashSerializer implements PrimitiveSerializer<$PublicKeyHash> 
     $PublicKeyHash object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return serializers.serialize(object, specifiedType: FullType(PublicKeyHash))!;
+    return serializers.serialize(object,
+        specifiedType: FullType(PublicKeyHash))!;
   }
 
   void _deserializeProperties(
@@ -186,4 +204,3 @@ class _$$PublicKeyHashSerializer implements PrimitiveSerializer<$PublicKeyHash> 
     return result.build();
   }
 }
-

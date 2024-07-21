@@ -14,7 +14,7 @@ part 'account_locker_address.g.dart';
 /// * [lockerAddress] - Bech32m-encoded human readable version of the address.
 /// * [accountAddress] - Bech32m-encoded human readable version of the address.
 @BuiltValue(instantiable: false)
-abstract class AccountLockerAddress  {
+abstract class AccountLockerAddress {
   /// Bech32m-encoded human readable version of the address.
   @BuiltValueField(wireName: r'locker_address')
   String get lockerAddress;
@@ -24,10 +24,12 @@ abstract class AccountLockerAddress  {
   String get accountAddress;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<AccountLockerAddress> get serializer => _$AccountLockerAddressSerializer();
+  static Serializer<AccountLockerAddress> get serializer =>
+      _$AccountLockerAddressSerializer();
 }
 
-class _$AccountLockerAddressSerializer implements PrimitiveSerializer<AccountLockerAddress> {
+class _$AccountLockerAddressSerializer
+    implements PrimitiveSerializer<AccountLockerAddress> {
   @override
   final Iterable<Type> types = const [AccountLockerAddress];
 
@@ -57,7 +59,9 @@ class _$AccountLockerAddressSerializer implements PrimitiveSerializer<AccountLoc
     AccountLockerAddress object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   @override
@@ -66,27 +70,39 @@ class _$AccountLockerAddressSerializer implements PrimitiveSerializer<AccountLoc
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return serializers.deserialize(serialized, specifiedType: FullType($AccountLockerAddress)) as $AccountLockerAddress;
+    return serializers.deserialize(serialized,
+            specifiedType: FullType($AccountLockerAddress))
+        as $AccountLockerAddress;
   }
 }
 
 /// a concrete implementation of [AccountLockerAddress], since [AccountLockerAddress] is not instantiable
 @BuiltValue(instantiable: true)
-abstract class $AccountLockerAddress implements AccountLockerAddress, Built<$AccountLockerAddress, $AccountLockerAddressBuilder> {
+abstract class $AccountLockerAddress
+    implements
+        AccountLockerAddress,
+        Built<$AccountLockerAddress, $AccountLockerAddressBuilder> {
   $AccountLockerAddress._();
 
-  factory $AccountLockerAddress([void Function($AccountLockerAddressBuilder)? updates]) = _$$AccountLockerAddress;
+  factory $AccountLockerAddress(
+          [void Function($AccountLockerAddressBuilder)? updates]) =
+      _$$AccountLockerAddress;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($AccountLockerAddressBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<$AccountLockerAddress> get serializer => _$$AccountLockerAddressSerializer();
+  static Serializer<$AccountLockerAddress> get serializer =>
+      _$$AccountLockerAddressSerializer();
 }
 
-class _$$AccountLockerAddressSerializer implements PrimitiveSerializer<$AccountLockerAddress> {
+class _$$AccountLockerAddressSerializer
+    implements PrimitiveSerializer<$AccountLockerAddress> {
   @override
-  final Iterable<Type> types = const [$AccountLockerAddress, _$$AccountLockerAddress];
+  final Iterable<Type> types = const [
+    $AccountLockerAddress,
+    _$$AccountLockerAddress
+  ];
 
   @override
   final String wireName = r'$AccountLockerAddress';
@@ -97,7 +113,8 @@ class _$$AccountLockerAddressSerializer implements PrimitiveSerializer<$AccountL
     $AccountLockerAddress object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return serializers.serialize(object, specifiedType: FullType(AccountLockerAddress))!;
+    return serializers.serialize(object,
+        specifiedType: FullType(AccountLockerAddress))!;
   }
 
   void _deserializeProperties(
@@ -154,4 +171,3 @@ class _$$AccountLockerAddressSerializer implements PrimitiveSerializer<$AccountL
     return result.build();
   }
 }
-

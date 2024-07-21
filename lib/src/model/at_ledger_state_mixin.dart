@@ -12,17 +12,19 @@ part 'at_ledger_state_mixin.g.dart';
 /// defines upper boundary (inclusive) for queried data. i.e `{ \"at_state_version\" = {\"epoch\" = 10} }`, will return data till 10 epoch.
 ///
 /// Properties:
-/// * [atLedgerState] 
+/// * [atLedgerState]
 @BuiltValue(instantiable: false)
-abstract class AtLedgerStateMixin  {
+abstract class AtLedgerStateMixin {
   @BuiltValueField(wireName: r'at_ledger_state')
   LedgerStateSelector? get atLedgerState;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<AtLedgerStateMixin> get serializer => _$AtLedgerStateMixinSerializer();
+  static Serializer<AtLedgerStateMixin> get serializer =>
+      _$AtLedgerStateMixinSerializer();
 }
 
-class _$AtLedgerStateMixinSerializer implements PrimitiveSerializer<AtLedgerStateMixin> {
+class _$AtLedgerStateMixinSerializer
+    implements PrimitiveSerializer<AtLedgerStateMixin> {
   @override
   final Iterable<Type> types = const [AtLedgerStateMixin];
 
@@ -49,7 +51,9 @@ class _$AtLedgerStateMixinSerializer implements PrimitiveSerializer<AtLedgerStat
     AtLedgerStateMixin object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   @override
@@ -58,27 +62,38 @@ class _$AtLedgerStateMixinSerializer implements PrimitiveSerializer<AtLedgerStat
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return serializers.deserialize(serialized, specifiedType: FullType($AtLedgerStateMixin)) as $AtLedgerStateMixin;
+    return serializers.deserialize(serialized,
+        specifiedType: FullType($AtLedgerStateMixin)) as $AtLedgerStateMixin;
   }
 }
 
 /// a concrete implementation of [AtLedgerStateMixin], since [AtLedgerStateMixin] is not instantiable
 @BuiltValue(instantiable: true)
-abstract class $AtLedgerStateMixin implements AtLedgerStateMixin, Built<$AtLedgerStateMixin, $AtLedgerStateMixinBuilder> {
+abstract class $AtLedgerStateMixin
+    implements
+        AtLedgerStateMixin,
+        Built<$AtLedgerStateMixin, $AtLedgerStateMixinBuilder> {
   $AtLedgerStateMixin._();
 
-  factory $AtLedgerStateMixin([void Function($AtLedgerStateMixinBuilder)? updates]) = _$$AtLedgerStateMixin;
+  factory $AtLedgerStateMixin(
+          [void Function($AtLedgerStateMixinBuilder)? updates]) =
+      _$$AtLedgerStateMixin;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($AtLedgerStateMixinBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<$AtLedgerStateMixin> get serializer => _$$AtLedgerStateMixinSerializer();
+  static Serializer<$AtLedgerStateMixin> get serializer =>
+      _$$AtLedgerStateMixinSerializer();
 }
 
-class _$$AtLedgerStateMixinSerializer implements PrimitiveSerializer<$AtLedgerStateMixin> {
+class _$$AtLedgerStateMixinSerializer
+    implements PrimitiveSerializer<$AtLedgerStateMixin> {
   @override
-  final Iterable<Type> types = const [$AtLedgerStateMixin, _$$AtLedgerStateMixin];
+  final Iterable<Type> types = const [
+    $AtLedgerStateMixin,
+    _$$AtLedgerStateMixin
+  ];
 
   @override
   final String wireName = r'$AtLedgerStateMixin';
@@ -89,7 +104,8 @@ class _$$AtLedgerStateMixinSerializer implements PrimitiveSerializer<$AtLedgerSt
     $AtLedgerStateMixin object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return serializers.serialize(object, specifiedType: FullType(AtLedgerStateMixin))!;
+    return serializers.serialize(object,
+        specifiedType: FullType(AtLedgerStateMixin))!;
   }
 
   void _deserializeProperties(
@@ -140,4 +156,3 @@ class _$$AtLedgerStateMixinSerializer implements PrimitiveSerializer<$AtLedgerSt
     return result.build();
   }
 }
-

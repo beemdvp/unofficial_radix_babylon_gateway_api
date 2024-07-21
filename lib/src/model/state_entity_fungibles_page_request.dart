@@ -16,14 +16,19 @@ part 'state_entity_fungibles_page_request.g.dart';
 /// StateEntityFungiblesPageRequest
 ///
 /// Properties:
-/// * [atLedgerState] 
+/// * [atLedgerState]
 /// * [cursor] - This cursor allows forward pagination, by providing the cursor from the previous request.
 /// * [limitPerPage] - The page size requested.
 /// * [address] - Bech32m-encoded human readable version of the address.
-/// * [aggregationLevel] 
-/// * [optIns] 
+/// * [aggregationLevel]
+/// * [optIns]
 @BuiltValue()
-abstract class StateEntityFungiblesPageRequest implements AtLedgerStateMixin, CursorLimitMixin, Built<StateEntityFungiblesPageRequest, StateEntityFungiblesPageRequestBuilder> {
+abstract class StateEntityFungiblesPageRequest
+    implements
+        AtLedgerStateMixin,
+        CursorLimitMixin,
+        Built<StateEntityFungiblesPageRequest,
+            StateEntityFungiblesPageRequestBuilder> {
   @BuiltValueField(wireName: r'opt_ins')
   StateEntityFungiblesPageRequestOptIns? get optIns;
 
@@ -37,18 +42,25 @@ abstract class StateEntityFungiblesPageRequest implements AtLedgerStateMixin, Cu
 
   StateEntityFungiblesPageRequest._();
 
-  factory StateEntityFungiblesPageRequest([void updates(StateEntityFungiblesPageRequestBuilder b)]) = _$StateEntityFungiblesPageRequest;
+  factory StateEntityFungiblesPageRequest(
+          [void updates(StateEntityFungiblesPageRequestBuilder b)]) =
+      _$StateEntityFungiblesPageRequest;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(StateEntityFungiblesPageRequestBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<StateEntityFungiblesPageRequest> get serializer => _$StateEntityFungiblesPageRequestSerializer();
+  static Serializer<StateEntityFungiblesPageRequest> get serializer =>
+      _$StateEntityFungiblesPageRequestSerializer();
 }
 
-class _$StateEntityFungiblesPageRequestSerializer implements PrimitiveSerializer<StateEntityFungiblesPageRequest> {
+class _$StateEntityFungiblesPageRequestSerializer
+    implements PrimitiveSerializer<StateEntityFungiblesPageRequest> {
   @override
-  final Iterable<Type> types = const [StateEntityFungiblesPageRequest, _$StateEntityFungiblesPageRequest];
+  final Iterable<Type> types = const [
+    StateEntityFungiblesPageRequest,
+    _$StateEntityFungiblesPageRequest
+  ];
 
   @override
   final String wireName = r'StateEntityFungiblesPageRequest';
@@ -106,7 +118,9 @@ class _$StateEntityFungiblesPageRequestSerializer implements PrimitiveSerializer
     StateEntityFungiblesPageRequest object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -140,7 +154,8 @@ class _$StateEntityFungiblesPageRequestSerializer implements PrimitiveSerializer
         case r'opt_ins':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(StateEntityFungiblesPageRequestOptIns),
+            specifiedType:
+                const FullType(StateEntityFungiblesPageRequestOptIns),
           ) as StateEntityFungiblesPageRequestOptIns;
           result.optIns.replace(valueDes);
           break;
@@ -194,4 +209,3 @@ class _$StateEntityFungiblesPageRequestSerializer implements PrimitiveSerializer
     return result.build();
   }
 }
-

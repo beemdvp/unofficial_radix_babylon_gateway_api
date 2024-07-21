@@ -10,7 +10,6 @@ import 'package:built_value/serializer.dart';
 part 'public_key_type.g.dart';
 
 class PublicKeyType extends EnumClass {
-
   @BuiltValueEnumConst(wireName: r'EcdsaSecp256k1')
   static const PublicKeyType ecdsaSecp256k1 = _$ecdsaSecp256k1;
   @BuiltValueEnumConst(wireName: r'EddsaEd25519')
@@ -18,7 +17,7 @@ class PublicKeyType extends EnumClass {
 
   static Serializer<PublicKeyType> get serializer => _$publicKeyTypeSerializer;
 
-  const PublicKeyType._(String name): super(name);
+  const PublicKeyType._(String name) : super(name);
 
   static BuiltSet<PublicKeyType> get values => _$values;
   static PublicKeyType valueOf(String name) => _$valueOf(name);
@@ -31,4 +30,3 @@ class PublicKeyType extends EnumClass {
 ///
 /// Trigger mixin generation by writing a line like this one next to your enum.
 abstract class PublicKeyTypeMixin = Object with _$PublicKeyTypeMixin;
-

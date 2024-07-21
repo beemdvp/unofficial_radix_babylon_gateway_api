@@ -12,10 +12,13 @@ part 'programmatic_scrypto_sbor_value_map_entry.g.dart';
 /// ProgrammaticScryptoSborValueMapEntry
 ///
 /// Properties:
-/// * [key] 
-/// * [value] 
+/// * [key]
+/// * [value]
 @BuiltValue()
-abstract class ProgrammaticScryptoSborValueMapEntry implements Built<ProgrammaticScryptoSborValueMapEntry, ProgrammaticScryptoSborValueMapEntryBuilder> {
+abstract class ProgrammaticScryptoSborValueMapEntry
+    implements
+        Built<ProgrammaticScryptoSborValueMapEntry,
+            ProgrammaticScryptoSborValueMapEntryBuilder> {
   @BuiltValueField(wireName: r'key')
   ProgrammaticScryptoSborValue get key;
 
@@ -24,18 +27,25 @@ abstract class ProgrammaticScryptoSborValueMapEntry implements Built<Programmati
 
   ProgrammaticScryptoSborValueMapEntry._();
 
-  factory ProgrammaticScryptoSborValueMapEntry([void updates(ProgrammaticScryptoSborValueMapEntryBuilder b)]) = _$ProgrammaticScryptoSborValueMapEntry;
+  factory ProgrammaticScryptoSborValueMapEntry(
+          [void updates(ProgrammaticScryptoSborValueMapEntryBuilder b)]) =
+      _$ProgrammaticScryptoSborValueMapEntry;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(ProgrammaticScryptoSborValueMapEntryBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<ProgrammaticScryptoSborValueMapEntry> get serializer => _$ProgrammaticScryptoSborValueMapEntrySerializer();
+  static Serializer<ProgrammaticScryptoSborValueMapEntry> get serializer =>
+      _$ProgrammaticScryptoSborValueMapEntrySerializer();
 }
 
-class _$ProgrammaticScryptoSborValueMapEntrySerializer implements PrimitiveSerializer<ProgrammaticScryptoSborValueMapEntry> {
+class _$ProgrammaticScryptoSborValueMapEntrySerializer
+    implements PrimitiveSerializer<ProgrammaticScryptoSborValueMapEntry> {
   @override
-  final Iterable<Type> types = const [ProgrammaticScryptoSborValueMapEntry, _$ProgrammaticScryptoSborValueMapEntry];
+  final Iterable<Type> types = const [
+    ProgrammaticScryptoSborValueMapEntry,
+    _$ProgrammaticScryptoSborValueMapEntry
+  ];
 
   @override
   final String wireName = r'ProgrammaticScryptoSborValueMapEntry';
@@ -63,7 +73,9 @@ class _$ProgrammaticScryptoSborValueMapEntrySerializer implements PrimitiveSeria
     ProgrammaticScryptoSborValueMapEntry object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -120,4 +132,3 @@ class _$ProgrammaticScryptoSborValueMapEntrySerializer implements PrimitiveSeria
     return result.build();
   }
 }
-

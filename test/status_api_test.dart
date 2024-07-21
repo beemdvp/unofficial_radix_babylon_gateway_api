@@ -1,7 +1,6 @@
 import 'package:test/test.dart';
 import 'package:unofficial_babylon_gateway_api/unofficial_babylon_gateway_api.dart';
 
-
 /// tests for StatusApi
 void main() {
   final instance = UnofficialBabylonGatewayApi().getStatusApi();
@@ -9,7 +8,7 @@ void main() {
   group(StatusApi, () {
     // Get Gateway Status
     //
-    // Returns the Gateway API version and current ledger state. 
+    // Returns the Gateway API version and current ledger state.
     //
     //Future<GatewayStatusResponse> gatewayStatus() async
     test('test gatewayStatus', () async {
@@ -18,12 +17,11 @@ void main() {
 
     // Get Network Configuration
     //
-    // Returns network identifier, network name and well-known network addresses. 
+    // Returns network identifier, network name and well-known network addresses.
     //
     //Future<NetworkConfigurationResponse> networkConfiguration() async
     test('test networkConfiguration', () async {
       // TODO
     });
-
   });
 }

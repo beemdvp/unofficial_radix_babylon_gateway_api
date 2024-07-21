@@ -13,25 +13,34 @@ part 'transaction_status_request.g.dart';
 /// Properties:
 /// * [intentHash] - Bech32m-encoded hash.
 @BuiltValue()
-abstract class TransactionStatusRequest implements Built<TransactionStatusRequest, TransactionStatusRequestBuilder> {
+abstract class TransactionStatusRequest
+    implements
+        Built<TransactionStatusRequest, TransactionStatusRequestBuilder> {
   /// Bech32m-encoded hash.
   @BuiltValueField(wireName: r'intent_hash')
   String get intentHash;
 
   TransactionStatusRequest._();
 
-  factory TransactionStatusRequest([void updates(TransactionStatusRequestBuilder b)]) = _$TransactionStatusRequest;
+  factory TransactionStatusRequest(
+          [void updates(TransactionStatusRequestBuilder b)]) =
+      _$TransactionStatusRequest;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(TransactionStatusRequestBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<TransactionStatusRequest> get serializer => _$TransactionStatusRequestSerializer();
+  static Serializer<TransactionStatusRequest> get serializer =>
+      _$TransactionStatusRequestSerializer();
 }
 
-class _$TransactionStatusRequestSerializer implements PrimitiveSerializer<TransactionStatusRequest> {
+class _$TransactionStatusRequestSerializer
+    implements PrimitiveSerializer<TransactionStatusRequest> {
   @override
-  final Iterable<Type> types = const [TransactionStatusRequest, _$TransactionStatusRequest];
+  final Iterable<Type> types = const [
+    TransactionStatusRequest,
+    _$TransactionStatusRequest
+  ];
 
   @override
   final String wireName = r'TransactionStatusRequest';
@@ -54,7 +63,9 @@ class _$TransactionStatusRequestSerializer implements PrimitiveSerializer<Transa
     TransactionStatusRequest object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -104,4 +115,3 @@ class _$TransactionStatusRequestSerializer implements PrimitiveSerializer<Transa
     return result.build();
   }
 }
-

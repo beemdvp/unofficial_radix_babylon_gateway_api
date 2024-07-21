@@ -3,7 +3,8 @@ import 'package:unofficial_babylon_gateway_api/unofficial_babylon_gateway_api.da
 
 // tests for AccountDepositPreValidationResourceSpecificBehaviourItem
 void main() {
-  final instance = AccountDepositPreValidationResourceSpecificBehaviourItemBuilder();
+  final instance =
+      AccountDepositPreValidationResourceSpecificBehaviourItemBuilder();
   // TODO add properties to the builder and call build()
 
   group(AccountDepositPreValidationResourceSpecificBehaviourItem, () {
@@ -17,6 +18,5 @@ void main() {
     test('to test the property `allowsTryDeposit`', () async {
       // TODO
     });
-
   });
 }

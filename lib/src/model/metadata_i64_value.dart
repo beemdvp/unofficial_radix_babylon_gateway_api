@@ -13,25 +13,32 @@ part 'metadata_i64_value.g.dart';
 /// MetadataI64Value
 ///
 /// Properties:
-/// * [type] 
-/// * [value] 
+/// * [type]
+/// * [value]
 @BuiltValue()
-abstract class MetadataI64Value implements MetadataTypedValue, Built<MetadataI64Value, MetadataI64ValueBuilder> {
+abstract class MetadataI64Value
+    implements
+        MetadataTypedValue,
+        Built<MetadataI64Value, MetadataI64ValueBuilder> {
   @BuiltValueField(wireName: r'value')
   String get value;
 
   MetadataI64Value._();
 
-  factory MetadataI64Value([void updates(MetadataI64ValueBuilder b)]) = _$MetadataI64Value;
+  factory MetadataI64Value([void updates(MetadataI64ValueBuilder b)]) =
+      _$MetadataI64Value;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(MetadataI64ValueBuilder b) => b..type=b.discriminatorValue;
+  static void _defaults(MetadataI64ValueBuilder b) =>
+      b..type = b.discriminatorValue as dynamic;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<MetadataI64Value> get serializer => _$MetadataI64ValueSerializer();
+  static Serializer<MetadataI64Value> get serializer =>
+      _$MetadataI64ValueSerializer();
 }
 
-class _$MetadataI64ValueSerializer implements PrimitiveSerializer<MetadataI64Value> {
+class _$MetadataI64ValueSerializer
+    implements PrimitiveSerializer<MetadataI64Value> {
   @override
   final Iterable<Type> types = const [MetadataI64Value, _$MetadataI64Value];
 
@@ -61,7 +68,9 @@ class _$MetadataI64ValueSerializer implements PrimitiveSerializer<MetadataI64Val
     MetadataI64Value object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -118,4 +127,3 @@ class _$MetadataI64ValueSerializer implements PrimitiveSerializer<MetadataI64Val
     return result.build();
   }
 }
-

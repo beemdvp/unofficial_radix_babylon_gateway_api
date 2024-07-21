@@ -12,10 +12,13 @@ part 'stream_transactions_request_all_of_manifest_class_filter.g.dart';
 /// StreamTransactionsRequestAllOfManifestClassFilter
 ///
 /// Properties:
-/// * [class_] 
-/// * [matchOnlyMostSpecific] 
+/// * [class_]
+/// * [matchOnlyMostSpecific]
 @BuiltValue()
-abstract class StreamTransactionsRequestAllOfManifestClassFilter implements Built<StreamTransactionsRequestAllOfManifestClassFilter, StreamTransactionsRequestAllOfManifestClassFilterBuilder> {
+abstract class StreamTransactionsRequestAllOfManifestClassFilter
+    implements
+        Built<StreamTransactionsRequestAllOfManifestClassFilter,
+            StreamTransactionsRequestAllOfManifestClassFilterBuilder> {
   @BuiltValueField(wireName: r'class')
   ManifestClass get class_;
   // enum class_Enum {  General,  Transfer,  PoolContribution,  PoolRedemption,  ValidatorStake,  ValidatorUnstake,  ValidatorClaim,  AccountDepositSettingsUpdate,  };
@@ -25,19 +28,30 @@ abstract class StreamTransactionsRequestAllOfManifestClassFilter implements Buil
 
   StreamTransactionsRequestAllOfManifestClassFilter._();
 
-  factory StreamTransactionsRequestAllOfManifestClassFilter([void updates(StreamTransactionsRequestAllOfManifestClassFilterBuilder b)]) = _$StreamTransactionsRequestAllOfManifestClassFilter;
+  factory StreamTransactionsRequestAllOfManifestClassFilter(
+          [void updates(
+              StreamTransactionsRequestAllOfManifestClassFilterBuilder b)]) =
+      _$StreamTransactionsRequestAllOfManifestClassFilter;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(StreamTransactionsRequestAllOfManifestClassFilterBuilder b) => b
-      ..matchOnlyMostSpecific = false;
+  static void _defaults(
+          StreamTransactionsRequestAllOfManifestClassFilterBuilder b) =>
+      b..matchOnlyMostSpecific = false;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<StreamTransactionsRequestAllOfManifestClassFilter> get serializer => _$StreamTransactionsRequestAllOfManifestClassFilterSerializer();
+  static Serializer<StreamTransactionsRequestAllOfManifestClassFilter>
+      get serializer =>
+          _$StreamTransactionsRequestAllOfManifestClassFilterSerializer();
 }
 
-class _$StreamTransactionsRequestAllOfManifestClassFilterSerializer implements PrimitiveSerializer<StreamTransactionsRequestAllOfManifestClassFilter> {
+class _$StreamTransactionsRequestAllOfManifestClassFilterSerializer
+    implements
+        PrimitiveSerializer<StreamTransactionsRequestAllOfManifestClassFilter> {
   @override
-  final Iterable<Type> types = const [StreamTransactionsRequestAllOfManifestClassFilter, _$StreamTransactionsRequestAllOfManifestClassFilter];
+  final Iterable<Type> types = const [
+    StreamTransactionsRequestAllOfManifestClassFilter,
+    _$StreamTransactionsRequestAllOfManifestClassFilter
+  ];
 
   @override
   final String wireName = r'StreamTransactionsRequestAllOfManifestClassFilter';
@@ -67,7 +81,9 @@ class _$StreamTransactionsRequestAllOfManifestClassFilterSerializer implements P
     StreamTransactionsRequestAllOfManifestClassFilter object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -124,4 +140,3 @@ class _$StreamTransactionsRequestAllOfManifestClassFilterSerializer implements P
     return result.build();
   }
 }
-

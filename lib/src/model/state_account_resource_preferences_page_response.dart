@@ -16,31 +16,47 @@ part 'state_account_resource_preferences_page_response.g.dart';
 /// StateAccountResourcePreferencesPageResponse
 ///
 /// Properties:
-/// * [ledgerState] 
+/// * [ledgerState]
 /// * [totalCount] - Total number of items in underlying collection, fragment of which is available in `items` collection.
 /// * [nextCursor] - If specified, contains a cursor to query next page of the `items` collection.
-/// * [items] 
+/// * [items]
 /// * [accountAddress] - Bech32m-encoded human readable version of the address.
 @BuiltValue()
-abstract class StateAccountResourcePreferencesPageResponse implements AccountResourcePreferencesCollection, LedgerStateMixin, Built<StateAccountResourcePreferencesPageResponse, StateAccountResourcePreferencesPageResponseBuilder> {
+abstract class StateAccountResourcePreferencesPageResponse
+    implements
+        AccountResourcePreferencesCollection,
+        LedgerStateMixin,
+        Built<StateAccountResourcePreferencesPageResponse,
+            StateAccountResourcePreferencesPageResponseBuilder> {
   /// Bech32m-encoded human readable version of the address.
   @BuiltValueField(wireName: r'account_address')
   String get accountAddress;
 
   StateAccountResourcePreferencesPageResponse._();
 
-  factory StateAccountResourcePreferencesPageResponse([void updates(StateAccountResourcePreferencesPageResponseBuilder b)]) = _$StateAccountResourcePreferencesPageResponse;
+  factory StateAccountResourcePreferencesPageResponse(
+          [void updates(
+              StateAccountResourcePreferencesPageResponseBuilder b)]) =
+      _$StateAccountResourcePreferencesPageResponse;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(StateAccountResourcePreferencesPageResponseBuilder b) => b;
+  static void _defaults(StateAccountResourcePreferencesPageResponseBuilder b) =>
+      b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<StateAccountResourcePreferencesPageResponse> get serializer => _$StateAccountResourcePreferencesPageResponseSerializer();
+  static Serializer<StateAccountResourcePreferencesPageResponse>
+      get serializer =>
+          _$StateAccountResourcePreferencesPageResponseSerializer();
 }
 
-class _$StateAccountResourcePreferencesPageResponseSerializer implements PrimitiveSerializer<StateAccountResourcePreferencesPageResponse> {
+class _$StateAccountResourcePreferencesPageResponseSerializer
+    implements
+        PrimitiveSerializer<StateAccountResourcePreferencesPageResponse> {
   @override
-  final Iterable<Type> types = const [StateAccountResourcePreferencesPageResponse, _$StateAccountResourcePreferencesPageResponse];
+  final Iterable<Type> types = const [
+    StateAccountResourcePreferencesPageResponse,
+    _$StateAccountResourcePreferencesPageResponse
+  ];
 
   @override
   final String wireName = r'StateAccountResourcePreferencesPageResponse';
@@ -72,7 +88,8 @@ class _$StateAccountResourcePreferencesPageResponseSerializer implements Primiti
     yield r'items';
     yield serializers.serialize(
       object.items,
-      specifiedType: const FullType(BuiltList, [FullType(AccountResourcePreferencesResponseItem)]),
+      specifiedType: const FullType(
+          BuiltList, [FullType(AccountResourcePreferencesResponseItem)]),
     );
     yield r'ledger_state';
     yield serializers.serialize(
@@ -87,7 +104,9 @@ class _$StateAccountResourcePreferencesPageResponseSerializer implements Primiti
     StateAccountResourcePreferencesPageResponse object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -128,7 +147,8 @@ class _$StateAccountResourcePreferencesPageResponseSerializer implements Primiti
         case r'items':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltList, [FullType(AccountResourcePreferencesResponseItem)]),
+            specifiedType: const FullType(
+                BuiltList, [FullType(AccountResourcePreferencesResponseItem)]),
           ) as BuiltList<AccountResourcePreferencesResponseItem>;
           result.items.replace(valueDes);
           break;
@@ -167,4 +187,3 @@ class _$StateAccountResourcePreferencesPageResponseSerializer implements Primiti
     return result.build();
   }
 }
-

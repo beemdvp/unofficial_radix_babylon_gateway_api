@@ -13,29 +13,45 @@ part 'programmatic_scrypto_sbor_value_non_fungible_local_id.g.dart';
 /// ProgrammaticScryptoSborValueNonFungibleLocalId
 ///
 /// Properties:
-/// * [kind] 
-/// * [typeName] - The name of the type of this value. This is only output when a schema is present and the type has a name. This property is ignored when the value is used as an input to the API. 
-/// * [fieldName] - The name of the field which hosts this value. This property is only included if this value is a child of a `Tuple` or `Enum` with named fields. This property is ignored when the value is used as an input to the API. 
-/// * [value] 
+/// * [kind]
+/// * [typeName] - The name of the type of this value. This is only output when a schema is present and the type has a name. This property is ignored when the value is used as an input to the API.
+/// * [fieldName] - The name of the field which hosts this value. This property is only included if this value is a child of a `Tuple` or `Enum` with named fields. This property is ignored when the value is used as an input to the API.
+/// * [value]
 @BuiltValue()
-abstract class ProgrammaticScryptoSborValueNonFungibleLocalId implements ProgrammaticScryptoSborValue, Built<ProgrammaticScryptoSborValueNonFungibleLocalId, ProgrammaticScryptoSborValueNonFungibleLocalIdBuilder> {
+abstract class ProgrammaticScryptoSborValueNonFungibleLocalId
+    implements
+        ProgrammaticScryptoSborValue,
+        Built<ProgrammaticScryptoSborValueNonFungibleLocalId,
+            ProgrammaticScryptoSborValueNonFungibleLocalIdBuilder> {
   @BuiltValueField(wireName: r'value')
   String get value;
 
   ProgrammaticScryptoSborValueNonFungibleLocalId._();
 
-  factory ProgrammaticScryptoSborValueNonFungibleLocalId([void updates(ProgrammaticScryptoSborValueNonFungibleLocalIdBuilder b)]) = _$ProgrammaticScryptoSborValueNonFungibleLocalId;
+  factory ProgrammaticScryptoSborValueNonFungibleLocalId(
+          [void updates(
+              ProgrammaticScryptoSborValueNonFungibleLocalIdBuilder b)]) =
+      _$ProgrammaticScryptoSborValueNonFungibleLocalId;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(ProgrammaticScryptoSborValueNonFungibleLocalIdBuilder b) => b..kind=b.discriminatorValue;
+  static void _defaults(
+          ProgrammaticScryptoSborValueNonFungibleLocalIdBuilder b) =>
+      b..kind = b.discriminatorValue as dynamic;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<ProgrammaticScryptoSborValueNonFungibleLocalId> get serializer => _$ProgrammaticScryptoSborValueNonFungibleLocalIdSerializer();
+  static Serializer<ProgrammaticScryptoSborValueNonFungibleLocalId>
+      get serializer =>
+          _$ProgrammaticScryptoSborValueNonFungibleLocalIdSerializer();
 }
 
-class _$ProgrammaticScryptoSborValueNonFungibleLocalIdSerializer implements PrimitiveSerializer<ProgrammaticScryptoSborValueNonFungibleLocalId> {
+class _$ProgrammaticScryptoSborValueNonFungibleLocalIdSerializer
+    implements
+        PrimitiveSerializer<ProgrammaticScryptoSborValueNonFungibleLocalId> {
   @override
-  final Iterable<Type> types = const [ProgrammaticScryptoSborValueNonFungibleLocalId, _$ProgrammaticScryptoSborValueNonFungibleLocalId];
+  final Iterable<Type> types = const [
+    ProgrammaticScryptoSborValueNonFungibleLocalId,
+    _$ProgrammaticScryptoSborValueNonFungibleLocalId
+  ];
 
   @override
   final String wireName = r'ProgrammaticScryptoSborValueNonFungibleLocalId';
@@ -77,7 +93,9 @@ class _$ProgrammaticScryptoSborValueNonFungibleLocalIdSerializer implements Prim
     ProgrammaticScryptoSborValueNonFungibleLocalId object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -150,4 +168,3 @@ class _$ProgrammaticScryptoSborValueNonFungibleLocalIdSerializer implements Prim
     return result.build();
   }
 }
-

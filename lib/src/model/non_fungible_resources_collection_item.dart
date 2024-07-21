@@ -15,11 +15,11 @@ part 'non_fungible_resources_collection_item.g.dart';
 /// NonFungibleResourcesCollectionItem
 ///
 /// Properties:
-/// * [aggregationLevel] 
+/// * [aggregationLevel]
 /// * [resourceAddress] - Bech32m-encoded human readable version of the address.
-/// * [explicitMetadata] 
+/// * [explicitMetadata]
 @BuiltValue(instantiable: false)
-abstract class NonFungibleResourcesCollectionItem  {
+abstract class NonFungibleResourcesCollectionItem {
   @BuiltValueField(wireName: r'aggregation_level')
   ResourceAggregationLevel get aggregationLevel;
   // enum aggregationLevelEnum {  Global,  Vault,  };
@@ -39,33 +39,38 @@ abstract class NonFungibleResourcesCollectionItem  {
   };
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<NonFungibleResourcesCollectionItem> get serializer => _$NonFungibleResourcesCollectionItemSerializer();
+  static Serializer<NonFungibleResourcesCollectionItem> get serializer =>
+      _$NonFungibleResourcesCollectionItemSerializer();
 }
 
-extension NonFungibleResourcesCollectionItemDiscriminatorExt on NonFungibleResourcesCollectionItem {
-    String? get discriminatorValue {
-        if (this is NonFungibleResourcesCollectionItemGloballyAggregated) {
-            return r'Global';
-        }
-        if (this is NonFungibleResourcesCollectionItemVaultAggregated) {
-            return r'Vault';
-        }
-        return null;
+extension NonFungibleResourcesCollectionItemDiscriminatorExt
+    on NonFungibleResourcesCollectionItem {
+  String? get discriminatorValue {
+    if (this is NonFungibleResourcesCollectionItemGloballyAggregated) {
+      return r'Global';
     }
-}
-extension NonFungibleResourcesCollectionItemBuilderDiscriminatorExt on NonFungibleResourcesCollectionItemBuilder {
-    String? get discriminatorValue {
-        if (this is NonFungibleResourcesCollectionItemGloballyAggregatedBuilder) {
-            return r'Global';
-        }
-        if (this is NonFungibleResourcesCollectionItemVaultAggregatedBuilder) {
-            return r'Vault';
-        }
-        return null;
+    if (this is NonFungibleResourcesCollectionItemVaultAggregated) {
+      return r'Vault';
     }
+    return null;
+  }
 }
 
-class _$NonFungibleResourcesCollectionItemSerializer implements PrimitiveSerializer<NonFungibleResourcesCollectionItem> {
+extension NonFungibleResourcesCollectionItemBuilderDiscriminatorExt
+    on NonFungibleResourcesCollectionItemBuilder {
+  String? get discriminatorValue {
+    if (this is NonFungibleResourcesCollectionItemGloballyAggregatedBuilder) {
+      return r'Global';
+    }
+    if (this is NonFungibleResourcesCollectionItemVaultAggregatedBuilder) {
+      return r'Vault';
+    }
+    return null;
+  }
+}
+
+class _$NonFungibleResourcesCollectionItemSerializer
+    implements PrimitiveSerializer<NonFungibleResourcesCollectionItem> {
   @override
   final Iterable<Type> types = const [NonFungibleResourcesCollectionItem];
 
@@ -103,12 +108,18 @@ class _$NonFungibleResourcesCollectionItemSerializer implements PrimitiveSeriali
     FullType specifiedType = FullType.unspecified,
   }) {
     if (object is NonFungibleResourcesCollectionItemGloballyAggregated) {
-      return serializers.serialize(object, specifiedType: FullType(NonFungibleResourcesCollectionItemGloballyAggregated))!;
+      return serializers.serialize(object,
+          specifiedType:
+              FullType(NonFungibleResourcesCollectionItemGloballyAggregated))!;
     }
     if (object is NonFungibleResourcesCollectionItemVaultAggregated) {
-      return serializers.serialize(object, specifiedType: FullType(NonFungibleResourcesCollectionItemVaultAggregated))!;
+      return serializers.serialize(object,
+          specifiedType:
+              FullType(NonFungibleResourcesCollectionItemVaultAggregated))!;
     }
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   @override
@@ -118,36 +129,58 @@ class _$NonFungibleResourcesCollectionItemSerializer implements PrimitiveSeriali
     FullType specifiedType = FullType.unspecified,
   }) {
     final serializedList = (serialized as Iterable<Object?>).toList();
-    final discIndex = serializedList.indexOf(NonFungibleResourcesCollectionItem.discriminatorFieldName) + 1;
-    final discValue = serializers.deserialize(serializedList[discIndex], specifiedType: FullType(String)) as String;
+    final discIndex = serializedList.indexOf(
+            NonFungibleResourcesCollectionItem.discriminatorFieldName) +
+        1;
+    final discValue = serializers.deserialize(serializedList[discIndex],
+        specifiedType: FullType(String)) as String;
     switch (discValue) {
       case r'Global':
-        return serializers.deserialize(serialized, specifiedType: FullType(NonFungibleResourcesCollectionItemGloballyAggregated)) as NonFungibleResourcesCollectionItemGloballyAggregated;
+        return serializers.deserialize(serialized,
+                specifiedType: FullType(
+                    NonFungibleResourcesCollectionItemGloballyAggregated))
+            as NonFungibleResourcesCollectionItemGloballyAggregated;
       case r'Vault':
-        return serializers.deserialize(serialized, specifiedType: FullType(NonFungibleResourcesCollectionItemVaultAggregated)) as NonFungibleResourcesCollectionItemVaultAggregated;
+        return serializers.deserialize(serialized,
+                specifiedType:
+                    FullType(NonFungibleResourcesCollectionItemVaultAggregated))
+            as NonFungibleResourcesCollectionItemVaultAggregated;
       default:
-        return serializers.deserialize(serialized, specifiedType: FullType($NonFungibleResourcesCollectionItem)) as $NonFungibleResourcesCollectionItem;
+        return serializers.deserialize(serialized,
+                specifiedType: FullType($NonFungibleResourcesCollectionItem))
+            as $NonFungibleResourcesCollectionItem;
     }
   }
 }
 
 /// a concrete implementation of [NonFungibleResourcesCollectionItem], since [NonFungibleResourcesCollectionItem] is not instantiable
 @BuiltValue(instantiable: true)
-abstract class $NonFungibleResourcesCollectionItem implements NonFungibleResourcesCollectionItem, Built<$NonFungibleResourcesCollectionItem, $NonFungibleResourcesCollectionItemBuilder> {
+abstract class $NonFungibleResourcesCollectionItem
+    implements
+        NonFungibleResourcesCollectionItem,
+        Built<$NonFungibleResourcesCollectionItem,
+            $NonFungibleResourcesCollectionItemBuilder> {
   $NonFungibleResourcesCollectionItem._();
 
-  factory $NonFungibleResourcesCollectionItem([void Function($NonFungibleResourcesCollectionItemBuilder)? updates]) = _$$NonFungibleResourcesCollectionItem;
+  factory $NonFungibleResourcesCollectionItem(
+      [void Function($NonFungibleResourcesCollectionItemBuilder)?
+          updates]) = _$$NonFungibleResourcesCollectionItem;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($NonFungibleResourcesCollectionItemBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<$NonFungibleResourcesCollectionItem> get serializer => _$$NonFungibleResourcesCollectionItemSerializer();
+  static Serializer<$NonFungibleResourcesCollectionItem> get serializer =>
+      _$$NonFungibleResourcesCollectionItemSerializer();
 }
 
-class _$$NonFungibleResourcesCollectionItemSerializer implements PrimitiveSerializer<$NonFungibleResourcesCollectionItem> {
+class _$$NonFungibleResourcesCollectionItemSerializer
+    implements PrimitiveSerializer<$NonFungibleResourcesCollectionItem> {
   @override
-  final Iterable<Type> types = const [$NonFungibleResourcesCollectionItem, _$$NonFungibleResourcesCollectionItem];
+  final Iterable<Type> types = const [
+    $NonFungibleResourcesCollectionItem,
+    _$$NonFungibleResourcesCollectionItem
+  ];
 
   @override
   final String wireName = r'$NonFungibleResourcesCollectionItem';
@@ -158,7 +191,8 @@ class _$$NonFungibleResourcesCollectionItemSerializer implements PrimitiveSerial
     $NonFungibleResourcesCollectionItem object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return serializers.serialize(object, specifiedType: FullType(NonFungibleResourcesCollectionItem))!;
+    return serializers.serialize(object,
+        specifiedType: FullType(NonFungibleResourcesCollectionItem))!;
   }
 
   void _deserializeProperties(
@@ -222,4 +256,3 @@ class _$$NonFungibleResourcesCollectionItemSerializer implements PrimitiveSerial
     return result.build();
   }
 }
-

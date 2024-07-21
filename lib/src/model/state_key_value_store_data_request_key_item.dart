@@ -13,9 +13,12 @@ part 'state_key_value_store_data_request_key_item.g.dart';
 ///
 /// Properties:
 /// * [keyHex] - Hex-encoded binary blob.
-/// * [keyJson] 
+/// * [keyJson]
 @BuiltValue()
-abstract class StateKeyValueStoreDataRequestKeyItem implements Built<StateKeyValueStoreDataRequestKeyItem, StateKeyValueStoreDataRequestKeyItemBuilder> {
+abstract class StateKeyValueStoreDataRequestKeyItem
+    implements
+        Built<StateKeyValueStoreDataRequestKeyItem,
+            StateKeyValueStoreDataRequestKeyItemBuilder> {
   /// Hex-encoded binary blob.
   @BuiltValueField(wireName: r'key_hex')
   String? get keyHex;
@@ -25,18 +28,25 @@ abstract class StateKeyValueStoreDataRequestKeyItem implements Built<StateKeyVal
 
   StateKeyValueStoreDataRequestKeyItem._();
 
-  factory StateKeyValueStoreDataRequestKeyItem([void updates(StateKeyValueStoreDataRequestKeyItemBuilder b)]) = _$StateKeyValueStoreDataRequestKeyItem;
+  factory StateKeyValueStoreDataRequestKeyItem(
+          [void updates(StateKeyValueStoreDataRequestKeyItemBuilder b)]) =
+      _$StateKeyValueStoreDataRequestKeyItem;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(StateKeyValueStoreDataRequestKeyItemBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<StateKeyValueStoreDataRequestKeyItem> get serializer => _$StateKeyValueStoreDataRequestKeyItemSerializer();
+  static Serializer<StateKeyValueStoreDataRequestKeyItem> get serializer =>
+      _$StateKeyValueStoreDataRequestKeyItemSerializer();
 }
 
-class _$StateKeyValueStoreDataRequestKeyItemSerializer implements PrimitiveSerializer<StateKeyValueStoreDataRequestKeyItem> {
+class _$StateKeyValueStoreDataRequestKeyItemSerializer
+    implements PrimitiveSerializer<StateKeyValueStoreDataRequestKeyItem> {
   @override
-  final Iterable<Type> types = const [StateKeyValueStoreDataRequestKeyItem, _$StateKeyValueStoreDataRequestKeyItem];
+  final Iterable<Type> types = const [
+    StateKeyValueStoreDataRequestKeyItem,
+    _$StateKeyValueStoreDataRequestKeyItem
+  ];
 
   @override
   final String wireName = r'StateKeyValueStoreDataRequestKeyItem';
@@ -68,7 +78,9 @@ class _$StateKeyValueStoreDataRequestKeyItemSerializer implements PrimitiveSeria
     StateKeyValueStoreDataRequestKeyItem object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -125,4 +137,3 @@ class _$StateKeyValueStoreDataRequestKeyItemSerializer implements PrimitiveSeria
     return result.build();
   }
 }
-

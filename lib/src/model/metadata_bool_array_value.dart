@@ -14,27 +14,38 @@ part 'metadata_bool_array_value.g.dart';
 /// MetadataBoolArrayValue
 ///
 /// Properties:
-/// * [type] 
-/// * [values] 
+/// * [type]
+/// * [values]
 @BuiltValue()
-abstract class MetadataBoolArrayValue implements MetadataTypedValue, Built<MetadataBoolArrayValue, MetadataBoolArrayValueBuilder> {
+abstract class MetadataBoolArrayValue
+    implements
+        MetadataTypedValue,
+        Built<MetadataBoolArrayValue, MetadataBoolArrayValueBuilder> {
   @BuiltValueField(wireName: r'values')
   BuiltList<bool> get values;
 
   MetadataBoolArrayValue._();
 
-  factory MetadataBoolArrayValue([void updates(MetadataBoolArrayValueBuilder b)]) = _$MetadataBoolArrayValue;
+  factory MetadataBoolArrayValue(
+          [void updates(MetadataBoolArrayValueBuilder b)]) =
+      _$MetadataBoolArrayValue;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(MetadataBoolArrayValueBuilder b) => b..type=b.discriminatorValue;
+  static void _defaults(MetadataBoolArrayValueBuilder b) =>
+      b..type = b.discriminatorValue as MetadataValueType;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<MetadataBoolArrayValue> get serializer => _$MetadataBoolArrayValueSerializer();
+  static Serializer<MetadataBoolArrayValue> get serializer =>
+      _$MetadataBoolArrayValueSerializer();
 }
 
-class _$MetadataBoolArrayValueSerializer implements PrimitiveSerializer<MetadataBoolArrayValue> {
+class _$MetadataBoolArrayValueSerializer
+    implements PrimitiveSerializer<MetadataBoolArrayValue> {
   @override
-  final Iterable<Type> types = const [MetadataBoolArrayValue, _$MetadataBoolArrayValue];
+  final Iterable<Type> types = const [
+    MetadataBoolArrayValue,
+    _$MetadataBoolArrayValue
+  ];
 
   @override
   final String wireName = r'MetadataBoolArrayValue';
@@ -62,7 +73,9 @@ class _$MetadataBoolArrayValueSerializer implements PrimitiveSerializer<Metadata
     MetadataBoolArrayValue object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -119,4 +132,3 @@ class _$MetadataBoolArrayValueSerializer implements PrimitiveSerializer<Metadata
     return result.build();
   }
 }
-

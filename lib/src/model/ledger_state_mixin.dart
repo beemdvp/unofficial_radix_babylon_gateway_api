@@ -12,17 +12,19 @@ part 'ledger_state_mixin.g.dart';
 /// LedgerStateMixin
 ///
 /// Properties:
-/// * [ledgerState] 
+/// * [ledgerState]
 @BuiltValue(instantiable: false)
-abstract class LedgerStateMixin  {
+abstract class LedgerStateMixin {
   @BuiltValueField(wireName: r'ledger_state')
   LedgerState get ledgerState;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<LedgerStateMixin> get serializer => _$LedgerStateMixinSerializer();
+  static Serializer<LedgerStateMixin> get serializer =>
+      _$LedgerStateMixinSerializer();
 }
 
-class _$LedgerStateMixinSerializer implements PrimitiveSerializer<LedgerStateMixin> {
+class _$LedgerStateMixinSerializer
+    implements PrimitiveSerializer<LedgerStateMixin> {
   @override
   final Iterable<Type> types = const [LedgerStateMixin];
 
@@ -47,7 +49,9 @@ class _$LedgerStateMixinSerializer implements PrimitiveSerializer<LedgerStateMix
     LedgerStateMixin object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   @override
@@ -56,25 +60,32 @@ class _$LedgerStateMixinSerializer implements PrimitiveSerializer<LedgerStateMix
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return serializers.deserialize(serialized, specifiedType: FullType($LedgerStateMixin)) as $LedgerStateMixin;
+    return serializers.deserialize(serialized,
+        specifiedType: FullType($LedgerStateMixin)) as $LedgerStateMixin;
   }
 }
 
 /// a concrete implementation of [LedgerStateMixin], since [LedgerStateMixin] is not instantiable
 @BuiltValue(instantiable: true)
-abstract class $LedgerStateMixin implements LedgerStateMixin, Built<$LedgerStateMixin, $LedgerStateMixinBuilder> {
+abstract class $LedgerStateMixin
+    implements
+        LedgerStateMixin,
+        Built<$LedgerStateMixin, $LedgerStateMixinBuilder> {
   $LedgerStateMixin._();
 
-  factory $LedgerStateMixin([void Function($LedgerStateMixinBuilder)? updates]) = _$$LedgerStateMixin;
+  factory $LedgerStateMixin(
+      [void Function($LedgerStateMixinBuilder)? updates]) = _$$LedgerStateMixin;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($LedgerStateMixinBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<$LedgerStateMixin> get serializer => _$$LedgerStateMixinSerializer();
+  static Serializer<$LedgerStateMixin> get serializer =>
+      _$$LedgerStateMixinSerializer();
 }
 
-class _$$LedgerStateMixinSerializer implements PrimitiveSerializer<$LedgerStateMixin> {
+class _$$LedgerStateMixinSerializer
+    implements PrimitiveSerializer<$LedgerStateMixin> {
   @override
   final Iterable<Type> types = const [$LedgerStateMixin, _$$LedgerStateMixin];
 
@@ -87,7 +98,8 @@ class _$$LedgerStateMixinSerializer implements PrimitiveSerializer<$LedgerStateM
     $LedgerStateMixin object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return serializers.serialize(object, specifiedType: FullType(LedgerStateMixin))!;
+    return serializers.serialize(object,
+        specifiedType: FullType(LedgerStateMixin))!;
   }
 
   void _deserializeProperties(
@@ -137,4 +149,3 @@ class _$$LedgerStateMixinSerializer implements PrimitiveSerializer<$LedgerStateM
     return result.build();
   }
 }
-

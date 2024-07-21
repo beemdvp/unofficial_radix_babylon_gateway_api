@@ -15,16 +15,20 @@ part 'programmatic_scrypto_sbor_value_map.g.dart';
 /// ProgrammaticScryptoSborValueMap
 ///
 /// Properties:
-/// * [kind] 
-/// * [typeName] - The name of the type of this value. This is only output when a schema is present and the type has a name. This property is ignored when the value is used as an input to the API. 
-/// * [fieldName] - The name of the field which hosts this value. This property is only included if this value is a child of a `Tuple` or `Enum` with named fields. This property is ignored when the value is used as an input to the API. 
-/// * [keyKind] 
-/// * [keyTypeName] 
-/// * [valueKind] 
-/// * [valueTypeName] 
-/// * [entries] 
+/// * [kind]
+/// * [typeName] - The name of the type of this value. This is only output when a schema is present and the type has a name. This property is ignored when the value is used as an input to the API.
+/// * [fieldName] - The name of the field which hosts this value. This property is only included if this value is a child of a `Tuple` or `Enum` with named fields. This property is ignored when the value is used as an input to the API.
+/// * [keyKind]
+/// * [keyTypeName]
+/// * [valueKind]
+/// * [valueTypeName]
+/// * [entries]
 @BuiltValue()
-abstract class ProgrammaticScryptoSborValueMap implements ProgrammaticScryptoSborValue, Built<ProgrammaticScryptoSborValueMap, ProgrammaticScryptoSborValueMapBuilder> {
+abstract class ProgrammaticScryptoSborValueMap
+    implements
+        ProgrammaticScryptoSborValue,
+        Built<ProgrammaticScryptoSborValueMap,
+            ProgrammaticScryptoSborValueMapBuilder> {
   @BuiltValueField(wireName: r'key_kind')
   ProgrammaticScryptoSborValueKind get keyKind;
   // enum keyKindEnum {  Bool,  I8,  I16,  I32,  I64,  I128,  U8,  U16,  U32,  U64,  U128,  String,  Enum,  Array,  Bytes,  Map,  Tuple,  Reference,  Own,  Decimal,  PreciseDecimal,  NonFungibleLocalId,  };
@@ -44,18 +48,26 @@ abstract class ProgrammaticScryptoSborValueMap implements ProgrammaticScryptoSbo
 
   ProgrammaticScryptoSborValueMap._();
 
-  factory ProgrammaticScryptoSborValueMap([void updates(ProgrammaticScryptoSborValueMapBuilder b)]) = _$ProgrammaticScryptoSborValueMap;
+  factory ProgrammaticScryptoSborValueMap(
+          [void updates(ProgrammaticScryptoSborValueMapBuilder b)]) =
+      _$ProgrammaticScryptoSborValueMap;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(ProgrammaticScryptoSborValueMapBuilder b) => b..kind=b.discriminatorValue;
+  static void _defaults(ProgrammaticScryptoSborValueMapBuilder b) =>
+      b..kind = b.discriminatorValue as dynamic;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<ProgrammaticScryptoSborValueMap> get serializer => _$ProgrammaticScryptoSborValueMapSerializer();
+  static Serializer<ProgrammaticScryptoSborValueMap> get serializer =>
+      _$ProgrammaticScryptoSborValueMapSerializer();
 }
 
-class _$ProgrammaticScryptoSborValueMapSerializer implements PrimitiveSerializer<ProgrammaticScryptoSborValueMap> {
+class _$ProgrammaticScryptoSborValueMapSerializer
+    implements PrimitiveSerializer<ProgrammaticScryptoSborValueMap> {
   @override
-  final Iterable<Type> types = const [ProgrammaticScryptoSborValueMap, _$ProgrammaticScryptoSborValueMap];
+  final Iterable<Type> types = const [
+    ProgrammaticScryptoSborValueMap,
+    _$ProgrammaticScryptoSborValueMap
+  ];
 
   @override
   final String wireName = r'ProgrammaticScryptoSborValueMap';
@@ -73,7 +85,8 @@ class _$ProgrammaticScryptoSborValueMapSerializer implements PrimitiveSerializer
     yield r'entries';
     yield serializers.serialize(
       object.entries,
-      specifiedType: const FullType(BuiltList, [FullType(ProgrammaticScryptoSborValueMapEntry)]),
+      specifiedType: const FullType(
+          BuiltList, [FullType(ProgrammaticScryptoSborValueMapEntry)]),
     );
     if (object.fieldName != null) {
       yield r'field_name';
@@ -121,7 +134,9 @@ class _$ProgrammaticScryptoSborValueMapSerializer implements PrimitiveSerializer
     ProgrammaticScryptoSborValueMap object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -146,7 +161,8 @@ class _$ProgrammaticScryptoSborValueMapSerializer implements PrimitiveSerializer
         case r'entries':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltList, [FullType(ProgrammaticScryptoSborValueMapEntry)]),
+            specifiedType: const FullType(
+                BuiltList, [FullType(ProgrammaticScryptoSborValueMapEntry)]),
           ) as BuiltList<ProgrammaticScryptoSborValueMapEntry>;
           result.entries.replace(valueDes);
           break;
@@ -222,4 +238,3 @@ class _$ProgrammaticScryptoSborValueMapSerializer implements PrimitiveSerializer
     return result.build();
   }
 }
-

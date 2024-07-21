@@ -12,7 +12,6 @@ import 'package:unofficial_babylon_gateway_api/src/model/stream_transactions_req
 import 'package:unofficial_babylon_gateway_api/src/model/stream_transactions_response.dart';
 
 class StreamApi {
-
   final Dio _dio;
 
   final Serializers _serializers;
@@ -20,10 +19,10 @@ class StreamApi {
   const StreamApi(this._dio, this._serializers);
 
   /// Get Transactions Stream
-  /// Returns transactions which have been committed to the ledger. [Check detailed documentation for brief explanation](#section/Using-the-streamtransactions-endpoint) 
+  /// Returns transactions which have been committed to the ledger. [Check detailed documentation for brief explanation](#section/Using-the-streamtransactions-endpoint)
   ///
   /// Parameters:
-  /// * [streamTransactionsRequest] 
+  /// * [streamTransactionsRequest]
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -33,7 +32,7 @@ class StreamApi {
   ///
   /// Returns a [Future] containing a [Response] with a [StreamTransactionsResponse] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<StreamTransactionsResponse>> streamTransactions({ 
+  Future<Response<StreamTransactionsResponse>> streamTransactions({
     required StreamTransactionsRequest streamTransactionsRequest,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -60,11 +59,11 @@ class StreamApi {
 
     try {
       const _type = FullType(StreamTransactionsRequest);
-      _bodyData = _serializers.serialize(streamTransactionsRequest, specifiedType: _type);
-
-    } catch(error, stackTrace) {
+      _bodyData = _serializers.serialize(streamTransactionsRequest,
+          specifiedType: _type);
+    } catch (error, stackTrace) {
       throw DioException(
-         requestOptions: _options.compose(
+        requestOptions: _options.compose(
           _dio.options,
           _path,
         ),
@@ -87,11 +86,12 @@ class StreamApi {
 
     try {
       final rawResponse = _response.data;
-      _responseData = rawResponse == null ? null : _serializers.deserialize(
-        rawResponse,
-        specifiedType: const FullType(StreamTransactionsResponse),
-      ) as StreamTransactionsResponse;
-
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(StreamTransactionsResponse),
+            ) as StreamTransactionsResponse;
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -113,5 +113,4 @@ class StreamApi {
       extra: _response.extra,
     );
   }
-
 }

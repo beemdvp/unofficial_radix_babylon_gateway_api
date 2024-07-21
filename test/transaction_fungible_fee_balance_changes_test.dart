@@ -24,11 +24,10 @@ void main() {
       // TODO
     });
 
-    // The string-encoded decimal representing the amount of change for the fungible resource. 
+    // The string-encoded decimal representing the amount of change for the fungible resource.
     // String balanceChange
     test('to test the property `balanceChange`', () async {
       // TODO
     });
-
   });
 }

@@ -13,28 +13,38 @@ part 'state_validators_list_request.g.dart';
 /// StateValidatorsListRequest
 ///
 /// Properties:
-/// * [atLedgerState] 
+/// * [atLedgerState]
 /// * [cursor] - This cursor allows forward pagination, by providing the cursor from the previous request.
 @BuiltValue()
-abstract class StateValidatorsListRequest implements AtLedgerStateMixin, Built<StateValidatorsListRequest, StateValidatorsListRequestBuilder> {
+abstract class StateValidatorsListRequest
+    implements
+        AtLedgerStateMixin,
+        Built<StateValidatorsListRequest, StateValidatorsListRequestBuilder> {
   /// This cursor allows forward pagination, by providing the cursor from the previous request.
   @BuiltValueField(wireName: r'cursor')
   String? get cursor;
 
   StateValidatorsListRequest._();
 
-  factory StateValidatorsListRequest([void updates(StateValidatorsListRequestBuilder b)]) = _$StateValidatorsListRequest;
+  factory StateValidatorsListRequest(
+          [void updates(StateValidatorsListRequestBuilder b)]) =
+      _$StateValidatorsListRequest;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(StateValidatorsListRequestBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<StateValidatorsListRequest> get serializer => _$StateValidatorsListRequestSerializer();
+  static Serializer<StateValidatorsListRequest> get serializer =>
+      _$StateValidatorsListRequestSerializer();
 }
 
-class _$StateValidatorsListRequestSerializer implements PrimitiveSerializer<StateValidatorsListRequest> {
+class _$StateValidatorsListRequestSerializer
+    implements PrimitiveSerializer<StateValidatorsListRequest> {
   @override
-  final Iterable<Type> types = const [StateValidatorsListRequest, _$StateValidatorsListRequest];
+  final Iterable<Type> types = const [
+    StateValidatorsListRequest,
+    _$StateValidatorsListRequest
+  ];
 
   @override
   final String wireName = r'StateValidatorsListRequest';
@@ -66,7 +76,9 @@ class _$StateValidatorsListRequestSerializer implements PrimitiveSerializer<Stat
     StateValidatorsListRequest object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -125,4 +137,3 @@ class _$StateValidatorsListRequestSerializer implements PrimitiveSerializer<Stat
     return result.build();
   }
 }
-

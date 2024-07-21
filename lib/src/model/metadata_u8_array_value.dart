@@ -13,27 +13,37 @@ part 'metadata_u8_array_value.g.dart';
 /// MetadataU8ArrayValue
 ///
 /// Properties:
-/// * [type] 
-/// * [valueHex] 
+/// * [type]
+/// * [valueHex]
 @BuiltValue()
-abstract class MetadataU8ArrayValue implements MetadataTypedValue, Built<MetadataU8ArrayValue, MetadataU8ArrayValueBuilder> {
+abstract class MetadataU8ArrayValue
+    implements
+        MetadataTypedValue,
+        Built<MetadataU8ArrayValue, MetadataU8ArrayValueBuilder> {
   @BuiltValueField(wireName: r'value_hex')
   String get valueHex;
 
   MetadataU8ArrayValue._();
 
-  factory MetadataU8ArrayValue([void updates(MetadataU8ArrayValueBuilder b)]) = _$MetadataU8ArrayValue;
+  factory MetadataU8ArrayValue([void updates(MetadataU8ArrayValueBuilder b)]) =
+      _$MetadataU8ArrayValue;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(MetadataU8ArrayValueBuilder b) => b..type=b.discriminatorValue;
+  static void _defaults(MetadataU8ArrayValueBuilder b) =>
+      b..type = b.discriminatorValue as dynamic;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<MetadataU8ArrayValue> get serializer => _$MetadataU8ArrayValueSerializer();
+  static Serializer<MetadataU8ArrayValue> get serializer =>
+      _$MetadataU8ArrayValueSerializer();
 }
 
-class _$MetadataU8ArrayValueSerializer implements PrimitiveSerializer<MetadataU8ArrayValue> {
+class _$MetadataU8ArrayValueSerializer
+    implements PrimitiveSerializer<MetadataU8ArrayValue> {
   @override
-  final Iterable<Type> types = const [MetadataU8ArrayValue, _$MetadataU8ArrayValue];
+  final Iterable<Type> types = const [
+    MetadataU8ArrayValue,
+    _$MetadataU8ArrayValue
+  ];
 
   @override
   final String wireName = r'MetadataU8ArrayValue';
@@ -61,7 +71,9 @@ class _$MetadataU8ArrayValueSerializer implements PrimitiveSerializer<MetadataU8
     MetadataU8ArrayValue object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -118,4 +130,3 @@ class _$MetadataU8ArrayValueSerializer implements PrimitiveSerializer<MetadataU8
     return result.build();
   }
 }
-

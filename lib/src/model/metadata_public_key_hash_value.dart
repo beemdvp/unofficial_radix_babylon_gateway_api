@@ -14,27 +14,38 @@ part 'metadata_public_key_hash_value.g.dart';
 /// MetadataPublicKeyHashValue
 ///
 /// Properties:
-/// * [type] 
-/// * [value] 
+/// * [type]
+/// * [value]
 @BuiltValue()
-abstract class MetadataPublicKeyHashValue implements MetadataTypedValue, Built<MetadataPublicKeyHashValue, MetadataPublicKeyHashValueBuilder> {
+abstract class MetadataPublicKeyHashValue
+    implements
+        MetadataTypedValue,
+        Built<MetadataPublicKeyHashValue, MetadataPublicKeyHashValueBuilder> {
   @BuiltValueField(wireName: r'value')
   PublicKeyHash get value;
 
   MetadataPublicKeyHashValue._();
 
-  factory MetadataPublicKeyHashValue([void updates(MetadataPublicKeyHashValueBuilder b)]) = _$MetadataPublicKeyHashValue;
+  factory MetadataPublicKeyHashValue(
+          [void updates(MetadataPublicKeyHashValueBuilder b)]) =
+      _$MetadataPublicKeyHashValue;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(MetadataPublicKeyHashValueBuilder b) => b..type=b.discriminatorValue;
+  static void _defaults(MetadataPublicKeyHashValueBuilder b) =>
+      b..type = b.discriminatorValue as dynamic;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<MetadataPublicKeyHashValue> get serializer => _$MetadataPublicKeyHashValueSerializer();
+  static Serializer<MetadataPublicKeyHashValue> get serializer =>
+      _$MetadataPublicKeyHashValueSerializer();
 }
 
-class _$MetadataPublicKeyHashValueSerializer implements PrimitiveSerializer<MetadataPublicKeyHashValue> {
+class _$MetadataPublicKeyHashValueSerializer
+    implements PrimitiveSerializer<MetadataPublicKeyHashValue> {
   @override
-  final Iterable<Type> types = const [MetadataPublicKeyHashValue, _$MetadataPublicKeyHashValue];
+  final Iterable<Type> types = const [
+    MetadataPublicKeyHashValue,
+    _$MetadataPublicKeyHashValue
+  ];
 
   @override
   final String wireName = r'MetadataPublicKeyHashValue';
@@ -62,7 +73,9 @@ class _$MetadataPublicKeyHashValueSerializer implements PrimitiveSerializer<Meta
     MetadataPublicKeyHashValue object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -119,4 +132,3 @@ class _$MetadataPublicKeyHashValueSerializer implements PrimitiveSerializer<Meta
     return result.build();
   }
 }
-

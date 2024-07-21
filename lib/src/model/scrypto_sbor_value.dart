@@ -13,9 +13,9 @@ part 'scrypto_sbor_value.g.dart';
 ///
 /// Properties:
 /// * [rawHex] - Hex-encoded binary blob.
-/// * [programmaticJson] 
+/// * [programmaticJson]
 @BuiltValue(instantiable: false)
-abstract class ScryptoSborValue  {
+abstract class ScryptoSborValue {
   /// Hex-encoded binary blob.
   @BuiltValueField(wireName: r'raw_hex')
   String get rawHex;
@@ -24,10 +24,12 @@ abstract class ScryptoSborValue  {
   ProgrammaticScryptoSborValue get programmaticJson;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<ScryptoSborValue> get serializer => _$ScryptoSborValueSerializer();
+  static Serializer<ScryptoSborValue> get serializer =>
+      _$ScryptoSborValueSerializer();
 }
 
-class _$ScryptoSborValueSerializer implements PrimitiveSerializer<ScryptoSborValue> {
+class _$ScryptoSborValueSerializer
+    implements PrimitiveSerializer<ScryptoSborValue> {
   @override
   final Iterable<Type> types = const [ScryptoSborValue];
 
@@ -57,7 +59,9 @@ class _$ScryptoSborValueSerializer implements PrimitiveSerializer<ScryptoSborVal
     ScryptoSborValue object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   @override
@@ -66,25 +70,32 @@ class _$ScryptoSborValueSerializer implements PrimitiveSerializer<ScryptoSborVal
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return serializers.deserialize(serialized, specifiedType: FullType($ScryptoSborValue)) as $ScryptoSborValue;
+    return serializers.deserialize(serialized,
+        specifiedType: FullType($ScryptoSborValue)) as $ScryptoSborValue;
   }
 }
 
 /// a concrete implementation of [ScryptoSborValue], since [ScryptoSborValue] is not instantiable
 @BuiltValue(instantiable: true)
-abstract class $ScryptoSborValue implements ScryptoSborValue, Built<$ScryptoSborValue, $ScryptoSborValueBuilder> {
+abstract class $ScryptoSborValue
+    implements
+        ScryptoSborValue,
+        Built<$ScryptoSborValue, $ScryptoSborValueBuilder> {
   $ScryptoSborValue._();
 
-  factory $ScryptoSborValue([void Function($ScryptoSborValueBuilder)? updates]) = _$$ScryptoSborValue;
+  factory $ScryptoSborValue(
+      [void Function($ScryptoSborValueBuilder)? updates]) = _$$ScryptoSborValue;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($ScryptoSborValueBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<$ScryptoSborValue> get serializer => _$$ScryptoSborValueSerializer();
+  static Serializer<$ScryptoSborValue> get serializer =>
+      _$$ScryptoSborValueSerializer();
 }
 
-class _$$ScryptoSborValueSerializer implements PrimitiveSerializer<$ScryptoSborValue> {
+class _$$ScryptoSborValueSerializer
+    implements PrimitiveSerializer<$ScryptoSborValue> {
   @override
   final Iterable<Type> types = const [$ScryptoSborValue, _$$ScryptoSborValue];
 
@@ -97,7 +108,8 @@ class _$$ScryptoSborValueSerializer implements PrimitiveSerializer<$ScryptoSborV
     $ScryptoSborValue object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return serializers.serialize(object, specifiedType: FullType(ScryptoSborValue))!;
+    return serializers.serialize(object,
+        specifiedType: FullType(ScryptoSborValue))!;
   }
 
   void _deserializeProperties(
@@ -154,4 +166,3 @@ class _$$ScryptoSborValueSerializer implements PrimitiveSerializer<$ScryptoSborV
     return result.build();
   }
 }
-

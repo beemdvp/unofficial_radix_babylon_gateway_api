@@ -50,7 +50,6 @@ import 'package:unofficial_babylon_gateway_api/src/model/state_validators_list_r
 import 'package:unofficial_babylon_gateway_api/src/model/state_validators_list_response.dart';
 
 class StateApi {
-
   final Dio _dio;
 
   final Serializers _serializers;
@@ -58,10 +57,10 @@ class StateApi {
   const StateApi(this._dio, this._serializers);
 
   /// Get Account authorized depositors
-  /// Returns paginable collection of authorized depositors for given account. 
+  /// Returns paginable collection of authorized depositors for given account.
   ///
   /// Parameters:
-  /// * [stateAccountAuthorizedDepositorsPageRequest] 
+  /// * [stateAccountAuthorizedDepositorsPageRequest]
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -71,8 +70,10 @@ class StateApi {
   ///
   /// Returns a [Future] containing a [Response] with a [StateAccountAuthorizedDepositorsPageResponse] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<StateAccountAuthorizedDepositorsPageResponse>> accountAuthorizedDepositorsPage({ 
-    required StateAccountAuthorizedDepositorsPageRequest stateAccountAuthorizedDepositorsPageRequest,
+  Future<Response<StateAccountAuthorizedDepositorsPageResponse>>
+      accountAuthorizedDepositorsPage({
+    required StateAccountAuthorizedDepositorsPageRequest
+        stateAccountAuthorizedDepositorsPageRequest,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -98,11 +99,12 @@ class StateApi {
 
     try {
       const _type = FullType(StateAccountAuthorizedDepositorsPageRequest);
-      _bodyData = _serializers.serialize(stateAccountAuthorizedDepositorsPageRequest, specifiedType: _type);
-
-    } catch(error, stackTrace) {
+      _bodyData = _serializers.serialize(
+          stateAccountAuthorizedDepositorsPageRequest,
+          specifiedType: _type);
+    } catch (error, stackTrace) {
       throw DioException(
-         requestOptions: _options.compose(
+        requestOptions: _options.compose(
           _dio.options,
           _path,
         ),
@@ -125,11 +127,13 @@ class StateApi {
 
     try {
       final rawResponse = _response.data;
-      _responseData = rawResponse == null ? null : _serializers.deserialize(
-        rawResponse,
-        specifiedType: const FullType(StateAccountAuthorizedDepositorsPageResponse),
-      ) as StateAccountAuthorizedDepositorsPageResponse;
-
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType:
+                  const FullType(StateAccountAuthorizedDepositorsPageResponse),
+            ) as StateAccountAuthorizedDepositorsPageResponse;
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -153,10 +157,10 @@ class StateApi {
   }
 
   /// Get Account Locker Vaults Page
-  /// Returns all the resource vaults associated with a given account locker. The returned response is in a paginated format, ordered by the most recent resource vault creation on the ledger. 
+  /// Returns all the resource vaults associated with a given account locker. The returned response is in a paginated format, ordered by the most recent resource vault creation on the ledger.
   ///
   /// Parameters:
-  /// * [stateAccountLockerPageVaultsRequest] 
+  /// * [stateAccountLockerPageVaultsRequest]
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -166,8 +170,10 @@ class StateApi {
   ///
   /// Returns a [Future] containing a [Response] with a [StateAccountLockerPageVaultsResponse] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<StateAccountLockerPageVaultsResponse>> accountLockerVaultsPage({ 
-    required StateAccountLockerPageVaultsRequest stateAccountLockerPageVaultsRequest,
+  Future<Response<StateAccountLockerPageVaultsResponse>>
+      accountLockerVaultsPage({
+    required StateAccountLockerPageVaultsRequest
+        stateAccountLockerPageVaultsRequest,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -193,11 +199,11 @@ class StateApi {
 
     try {
       const _type = FullType(StateAccountLockerPageVaultsRequest);
-      _bodyData = _serializers.serialize(stateAccountLockerPageVaultsRequest, specifiedType: _type);
-
-    } catch(error, stackTrace) {
+      _bodyData = _serializers.serialize(stateAccountLockerPageVaultsRequest,
+          specifiedType: _type);
+    } catch (error, stackTrace) {
       throw DioException(
-         requestOptions: _options.compose(
+        requestOptions: _options.compose(
           _dio.options,
           _path,
         ),
@@ -220,11 +226,13 @@ class StateApi {
 
     try {
       final rawResponse = _response.data;
-      _responseData = rawResponse == null ? null : _serializers.deserialize(
-        rawResponse,
-        specifiedType: const FullType(StateAccountLockerPageVaultsResponse),
-      ) as StateAccountLockerPageVaultsResponse;
-
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType:
+                  const FullType(StateAccountLockerPageVaultsResponse),
+            ) as StateAccountLockerPageVaultsResponse;
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -248,10 +256,10 @@ class StateApi {
   }
 
   /// Get Most Recent Touch of Account Lockers
-  /// Returns most recent state version given account locker has been touched. Touch refers to the creation of the account locker itself as well as any modification to its contents, such as resource claim, airdrop or store. 
+  /// Returns most recent state version given account locker has been touched. Touch refers to the creation of the account locker itself as well as any modification to its contents, such as resource claim, airdrop or store.
   ///
   /// Parameters:
-  /// * [stateAccountLockersTouchedAtRequest] 
+  /// * [stateAccountLockersTouchedAtRequest]
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -261,8 +269,10 @@ class StateApi {
   ///
   /// Returns a [Future] containing a [Response] with a [StateAccountLockersTouchedAtResponse] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<StateAccountLockersTouchedAtResponse>> accountLockersTouchedAt({ 
-    required StateAccountLockersTouchedAtRequest stateAccountLockersTouchedAtRequest,
+  Future<Response<StateAccountLockersTouchedAtResponse>>
+      accountLockersTouchedAt({
+    required StateAccountLockersTouchedAtRequest
+        stateAccountLockersTouchedAtRequest,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -288,11 +298,11 @@ class StateApi {
 
     try {
       const _type = FullType(StateAccountLockersTouchedAtRequest);
-      _bodyData = _serializers.serialize(stateAccountLockersTouchedAtRequest, specifiedType: _type);
-
-    } catch(error, stackTrace) {
+      _bodyData = _serializers.serialize(stateAccountLockersTouchedAtRequest,
+          specifiedType: _type);
+    } catch (error, stackTrace) {
       throw DioException(
-         requestOptions: _options.compose(
+        requestOptions: _options.compose(
           _dio.options,
           _path,
         ),
@@ -315,11 +325,13 @@ class StateApi {
 
     try {
       final rawResponse = _response.data;
-      _responseData = rawResponse == null ? null : _serializers.deserialize(
-        rawResponse,
-        specifiedType: const FullType(StateAccountLockersTouchedAtResponse),
-      ) as StateAccountLockersTouchedAtResponse;
-
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType:
+                  const FullType(StateAccountLockersTouchedAtResponse),
+            ) as StateAccountLockersTouchedAtResponse;
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -343,10 +355,10 @@ class StateApi {
   }
 
   /// Get Account resource preferences
-  /// Returns paginable collection of resource preference rules for given account. 
+  /// Returns paginable collection of resource preference rules for given account.
   ///
   /// Parameters:
-  /// * [stateAccountResourcePreferencesPageRequest] 
+  /// * [stateAccountResourcePreferencesPageRequest]
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -356,8 +368,10 @@ class StateApi {
   ///
   /// Returns a [Future] containing a [Response] with a [StateAccountResourcePreferencesPageResponse] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<StateAccountResourcePreferencesPageResponse>> accountResourcePreferencesPage({ 
-    required StateAccountResourcePreferencesPageRequest stateAccountResourcePreferencesPageRequest,
+  Future<Response<StateAccountResourcePreferencesPageResponse>>
+      accountResourcePreferencesPage({
+    required StateAccountResourcePreferencesPageRequest
+        stateAccountResourcePreferencesPageRequest,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -383,11 +397,12 @@ class StateApi {
 
     try {
       const _type = FullType(StateAccountResourcePreferencesPageRequest);
-      _bodyData = _serializers.serialize(stateAccountResourcePreferencesPageRequest, specifiedType: _type);
-
-    } catch(error, stackTrace) {
+      _bodyData = _serializers.serialize(
+          stateAccountResourcePreferencesPageRequest,
+          specifiedType: _type);
+    } catch (error, stackTrace) {
       throw DioException(
-         requestOptions: _options.compose(
+        requestOptions: _options.compose(
           _dio.options,
           _path,
         ),
@@ -410,11 +425,13 @@ class StateApi {
 
     try {
       final rawResponse = _response.data;
-      _responseData = rawResponse == null ? null : _serializers.deserialize(
-        rawResponse,
-        specifiedType: const FullType(StateAccountResourcePreferencesPageResponse),
-      ) as StateAccountResourcePreferencesPageResponse;
-
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType:
+                  const FullType(StateAccountResourcePreferencesPageResponse),
+            ) as StateAccountResourcePreferencesPageResponse;
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -438,10 +455,10 @@ class StateApi {
   }
 
   /// Get page of Global Entity Fungible Resource Vaults
-  /// Returns vaults for fungible resource owned by a given global entity. The returned response is in a paginated format, ordered by the resource&#39;s first appearance on the ledger. 
+  /// Returns vaults for fungible resource owned by a given global entity. The returned response is in a paginated format, ordered by the resource&#39;s first appearance on the ledger.
   ///
   /// Parameters:
-  /// * [stateEntityFungibleResourceVaultsPageRequest] 
+  /// * [stateEntityFungibleResourceVaultsPageRequest]
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -451,8 +468,10 @@ class StateApi {
   ///
   /// Returns a [Future] containing a [Response] with a [StateEntityFungibleResourceVaultsPageResponse] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<StateEntityFungibleResourceVaultsPageResponse>> entityFungibleResourceVaultPage({ 
-    required StateEntityFungibleResourceVaultsPageRequest stateEntityFungibleResourceVaultsPageRequest,
+  Future<Response<StateEntityFungibleResourceVaultsPageResponse>>
+      entityFungibleResourceVaultPage({
+    required StateEntityFungibleResourceVaultsPageRequest
+        stateEntityFungibleResourceVaultsPageRequest,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -478,11 +497,12 @@ class StateApi {
 
     try {
       const _type = FullType(StateEntityFungibleResourceVaultsPageRequest);
-      _bodyData = _serializers.serialize(stateEntityFungibleResourceVaultsPageRequest, specifiedType: _type);
-
-    } catch(error, stackTrace) {
+      _bodyData = _serializers.serialize(
+          stateEntityFungibleResourceVaultsPageRequest,
+          specifiedType: _type);
+    } catch (error, stackTrace) {
       throw DioException(
-         requestOptions: _options.compose(
+        requestOptions: _options.compose(
           _dio.options,
           _path,
         ),
@@ -505,11 +525,13 @@ class StateApi {
 
     try {
       final rawResponse = _response.data;
-      _responseData = rawResponse == null ? null : _serializers.deserialize(
-        rawResponse,
-        specifiedType: const FullType(StateEntityFungibleResourceVaultsPageResponse),
-      ) as StateEntityFungibleResourceVaultsPageResponse;
-
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType:
+                  const FullType(StateEntityFungibleResourceVaultsPageResponse),
+            ) as StateEntityFungibleResourceVaultsPageResponse;
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -533,10 +555,10 @@ class StateApi {
   }
 
   /// Get page of Global Entity Fungible Resource Balances
-  /// Returns the total amount of each fungible resource owned by a given global entity. Result can be aggregated globally or per vault. The returned response is in a paginated format, ordered by the resource&#39;s first appearance on the ledger. 
+  /// Returns the total amount of each fungible resource owned by a given global entity. Result can be aggregated globally or per vault. The returned response is in a paginated format, ordered by the resource&#39;s first appearance on the ledger.
   ///
   /// Parameters:
-  /// * [stateEntityFungiblesPageRequest] 
+  /// * [stateEntityFungiblesPageRequest]
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -546,7 +568,7 @@ class StateApi {
   ///
   /// Returns a [Future] containing a [Response] with a [StateEntityFungiblesPageResponse] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<StateEntityFungiblesPageResponse>> entityFungiblesPage({ 
+  Future<Response<StateEntityFungiblesPageResponse>> entityFungiblesPage({
     required StateEntityFungiblesPageRequest stateEntityFungiblesPageRequest,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -573,11 +595,11 @@ class StateApi {
 
     try {
       const _type = FullType(StateEntityFungiblesPageRequest);
-      _bodyData = _serializers.serialize(stateEntityFungiblesPageRequest, specifiedType: _type);
-
-    } catch(error, stackTrace) {
+      _bodyData = _serializers.serialize(stateEntityFungiblesPageRequest,
+          specifiedType: _type);
+    } catch (error, stackTrace) {
       throw DioException(
-         requestOptions: _options.compose(
+        requestOptions: _options.compose(
           _dio.options,
           _path,
         ),
@@ -600,11 +622,12 @@ class StateApi {
 
     try {
       final rawResponse = _response.data;
-      _responseData = rawResponse == null ? null : _serializers.deserialize(
-        rawResponse,
-        specifiedType: const FullType(StateEntityFungiblesPageResponse),
-      ) as StateEntityFungiblesPageResponse;
-
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(StateEntityFungiblesPageResponse),
+            ) as StateEntityFungiblesPageResponse;
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -628,10 +651,10 @@ class StateApi {
   }
 
   /// Get Entity Metadata Page
-  /// Returns all the metadata properties associated with a given global entity. The returned response is in a paginated format, ordered by first appearance on the ledger. 
+  /// Returns all the metadata properties associated with a given global entity. The returned response is in a paginated format, ordered by first appearance on the ledger.
   ///
   /// Parameters:
-  /// * [stateEntityMetadataPageRequest] 
+  /// * [stateEntityMetadataPageRequest]
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -641,7 +664,7 @@ class StateApi {
   ///
   /// Returns a [Future] containing a [Response] with a [StateEntityMetadataPageResponse] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<StateEntityMetadataPageResponse>> entityMetadataPage({ 
+  Future<Response<StateEntityMetadataPageResponse>> entityMetadataPage({
     required StateEntityMetadataPageRequest stateEntityMetadataPageRequest,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -668,11 +691,11 @@ class StateApi {
 
     try {
       const _type = FullType(StateEntityMetadataPageRequest);
-      _bodyData = _serializers.serialize(stateEntityMetadataPageRequest, specifiedType: _type);
-
-    } catch(error, stackTrace) {
+      _bodyData = _serializers.serialize(stateEntityMetadataPageRequest,
+          specifiedType: _type);
+    } catch (error, stackTrace) {
       throw DioException(
-         requestOptions: _options.compose(
+        requestOptions: _options.compose(
           _dio.options,
           _path,
         ),
@@ -695,11 +718,12 @@ class StateApi {
 
     try {
       final rawResponse = _response.data;
-      _responseData = rawResponse == null ? null : _serializers.deserialize(
-        rawResponse,
-        specifiedType: const FullType(StateEntityMetadataPageResponse),
-      ) as StateEntityMetadataPageResponse;
-
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(StateEntityMetadataPageResponse),
+            ) as StateEntityMetadataPageResponse;
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -723,10 +747,10 @@ class StateApi {
   }
 
   /// Get page of Non-Fungibles in Vault
-  /// Returns all non-fungible IDs of a given non-fungible resource owned by a given entity. The returned response is in a paginated format, ordered by the resource&#39;s first appearence on the ledger. 
+  /// Returns all non-fungible IDs of a given non-fungible resource owned by a given entity. The returned response is in a paginated format, ordered by the resource&#39;s first appearence on the ledger.
   ///
   /// Parameters:
-  /// * [stateEntityNonFungibleIdsPageRequest] 
+  /// * [stateEntityNonFungibleIdsPageRequest]
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -736,8 +760,10 @@ class StateApi {
   ///
   /// Returns a [Future] containing a [Response] with a [StateEntityNonFungibleIdsPageResponse] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<StateEntityNonFungibleIdsPageResponse>> entityNonFungibleIdsPage({ 
-    required StateEntityNonFungibleIdsPageRequest stateEntityNonFungibleIdsPageRequest,
+  Future<Response<StateEntityNonFungibleIdsPageResponse>>
+      entityNonFungibleIdsPage({
+    required StateEntityNonFungibleIdsPageRequest
+        stateEntityNonFungibleIdsPageRequest,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -763,11 +789,11 @@ class StateApi {
 
     try {
       const _type = FullType(StateEntityNonFungibleIdsPageRequest);
-      _bodyData = _serializers.serialize(stateEntityNonFungibleIdsPageRequest, specifiedType: _type);
-
-    } catch(error, stackTrace) {
+      _bodyData = _serializers.serialize(stateEntityNonFungibleIdsPageRequest,
+          specifiedType: _type);
+    } catch (error, stackTrace) {
       throw DioException(
-         requestOptions: _options.compose(
+        requestOptions: _options.compose(
           _dio.options,
           _path,
         ),
@@ -790,11 +816,13 @@ class StateApi {
 
     try {
       final rawResponse = _response.data;
-      _responseData = rawResponse == null ? null : _serializers.deserialize(
-        rawResponse,
-        specifiedType: const FullType(StateEntityNonFungibleIdsPageResponse),
-      ) as StateEntityNonFungibleIdsPageResponse;
-
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType:
+                  const FullType(StateEntityNonFungibleIdsPageResponse),
+            ) as StateEntityNonFungibleIdsPageResponse;
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -818,10 +846,10 @@ class StateApi {
   }
 
   /// Get page of Global Entity Non-Fungible Resource Vaults
-  /// Returns vaults for non fungible resource owned by a given global entity. The returned response is in a paginated format, ordered by the resource&#39;s first appearance on the ledger. 
+  /// Returns vaults for non fungible resource owned by a given global entity. The returned response is in a paginated format, ordered by the resource&#39;s first appearance on the ledger.
   ///
   /// Parameters:
-  /// * [stateEntityNonFungibleResourceVaultsPageRequest] 
+  /// * [stateEntityNonFungibleResourceVaultsPageRequest]
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -831,8 +859,10 @@ class StateApi {
   ///
   /// Returns a [Future] containing a [Response] with a [StateEntityNonFungibleResourceVaultsPageResponse] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<StateEntityNonFungibleResourceVaultsPageResponse>> entityNonFungibleResourceVaultPage({ 
-    required StateEntityNonFungibleResourceVaultsPageRequest stateEntityNonFungibleResourceVaultsPageRequest,
+  Future<Response<StateEntityNonFungibleResourceVaultsPageResponse>>
+      entityNonFungibleResourceVaultPage({
+    required StateEntityNonFungibleResourceVaultsPageRequest
+        stateEntityNonFungibleResourceVaultsPageRequest,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -858,11 +888,12 @@ class StateApi {
 
     try {
       const _type = FullType(StateEntityNonFungibleResourceVaultsPageRequest);
-      _bodyData = _serializers.serialize(stateEntityNonFungibleResourceVaultsPageRequest, specifiedType: _type);
-
-    } catch(error, stackTrace) {
+      _bodyData = _serializers.serialize(
+          stateEntityNonFungibleResourceVaultsPageRequest,
+          specifiedType: _type);
+    } catch (error, stackTrace) {
       throw DioException(
-         requestOptions: _options.compose(
+        requestOptions: _options.compose(
           _dio.options,
           _path,
         ),
@@ -885,11 +916,13 @@ class StateApi {
 
     try {
       final rawResponse = _response.data;
-      _responseData = rawResponse == null ? null : _serializers.deserialize(
-        rawResponse,
-        specifiedType: const FullType(StateEntityNonFungibleResourceVaultsPageResponse),
-      ) as StateEntityNonFungibleResourceVaultsPageResponse;
-
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(
+                  StateEntityNonFungibleResourceVaultsPageResponse),
+            ) as StateEntityNonFungibleResourceVaultsPageResponse;
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -913,10 +946,10 @@ class StateApi {
   }
 
   /// Get page of Global Entity Non-Fungible Resource Balances
-  /// Returns the total amount of each non-fungible resource owned by a given global entity. Result can be aggregated globally or per vault. The returned response is in a paginated format, ordered by the resource&#39;s first appearance on the ledger. 
+  /// Returns the total amount of each non-fungible resource owned by a given global entity. Result can be aggregated globally or per vault. The returned response is in a paginated format, ordered by the resource&#39;s first appearance on the ledger.
   ///
   /// Parameters:
-  /// * [stateEntityNonFungiblesPageRequest] 
+  /// * [stateEntityNonFungiblesPageRequest]
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -926,8 +959,9 @@ class StateApi {
   ///
   /// Returns a [Future] containing a [Response] with a [StateEntityNonFungiblesPageResponse] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<StateEntityNonFungiblesPageResponse>> entityNonFungiblesPage({ 
-    required StateEntityNonFungiblesPageRequest stateEntityNonFungiblesPageRequest,
+  Future<Response<StateEntityNonFungiblesPageResponse>> entityNonFungiblesPage({
+    required StateEntityNonFungiblesPageRequest
+        stateEntityNonFungiblesPageRequest,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -953,11 +987,11 @@ class StateApi {
 
     try {
       const _type = FullType(StateEntityNonFungiblesPageRequest);
-      _bodyData = _serializers.serialize(stateEntityNonFungiblesPageRequest, specifiedType: _type);
-
-    } catch(error, stackTrace) {
+      _bodyData = _serializers.serialize(stateEntityNonFungiblesPageRequest,
+          specifiedType: _type);
+    } catch (error, stackTrace) {
       throw DioException(
-         requestOptions: _options.compose(
+        requestOptions: _options.compose(
           _dio.options,
           _path,
         ),
@@ -980,11 +1014,13 @@ class StateApi {
 
     try {
       final rawResponse = _response.data;
-      _responseData = rawResponse == null ? null : _serializers.deserialize(
-        rawResponse,
-        specifiedType: const FullType(StateEntityNonFungiblesPageResponse),
-      ) as StateEntityNonFungiblesPageResponse;
-
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType:
+                  const FullType(StateEntityNonFungiblesPageResponse),
+            ) as StateEntityNonFungiblesPageResponse;
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -1008,10 +1044,10 @@ class StateApi {
   }
 
   /// Get Entity Schema Page
-  /// Returns all the schemas associated with a given global entity. The returned response is in a paginated format, ordered by first appearance on the ledger. 
+  /// Returns all the schemas associated with a given global entity. The returned response is in a paginated format, ordered by first appearance on the ledger.
   ///
   /// Parameters:
-  /// * [stateEntitySchemaPageRequest] 
+  /// * [stateEntitySchemaPageRequest]
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -1021,7 +1057,7 @@ class StateApi {
   ///
   /// Returns a [Future] containing a [Response] with a [StateEntitySchemaPageResponse] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<StateEntitySchemaPageResponse>> entitySchemaPage({ 
+  Future<Response<StateEntitySchemaPageResponse>> entitySchemaPage({
     required StateEntitySchemaPageRequest stateEntitySchemaPageRequest,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -1048,11 +1084,11 @@ class StateApi {
 
     try {
       const _type = FullType(StateEntitySchemaPageRequest);
-      _bodyData = _serializers.serialize(stateEntitySchemaPageRequest, specifiedType: _type);
-
-    } catch(error, stackTrace) {
+      _bodyData = _serializers.serialize(stateEntitySchemaPageRequest,
+          specifiedType: _type);
+    } catch (error, stackTrace) {
       throw DioException(
-         requestOptions: _options.compose(
+        requestOptions: _options.compose(
           _dio.options,
           _path,
         ),
@@ -1075,11 +1111,12 @@ class StateApi {
 
     try {
       final rawResponse = _response.data;
-      _responseData = rawResponse == null ? null : _serializers.deserialize(
-        rawResponse,
-        specifiedType: const FullType(StateEntitySchemaPageResponse),
-      ) as StateEntitySchemaPageResponse;
-
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(StateEntitySchemaPageResponse),
+            ) as StateEntitySchemaPageResponse;
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -1103,10 +1140,10 @@ class StateApi {
   }
 
   /// Get KeyValueStore Data
-  /// Returns data (value) associated with a given key of a given key-value store. [Check detailed documentation for explanation](#section/How-to-query-the-content-of-a-key-value-store-inside-a-component) 
+  /// Returns data (value) associated with a given key of a given key-value store. [Check detailed documentation for explanation](#section/How-to-query-the-content-of-a-key-value-store-inside-a-component)
   ///
   /// Parameters:
-  /// * [stateKeyValueStoreDataRequest] 
+  /// * [stateKeyValueStoreDataRequest]
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -1116,7 +1153,7 @@ class StateApi {
   ///
   /// Returns a [Future] containing a [Response] with a [StateKeyValueStoreDataResponse] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<StateKeyValueStoreDataResponse>> keyValueStoreData({ 
+  Future<Response<StateKeyValueStoreDataResponse>> keyValueStoreData({
     required StateKeyValueStoreDataRequest stateKeyValueStoreDataRequest,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -1143,11 +1180,11 @@ class StateApi {
 
     try {
       const _type = FullType(StateKeyValueStoreDataRequest);
-      _bodyData = _serializers.serialize(stateKeyValueStoreDataRequest, specifiedType: _type);
-
-    } catch(error, stackTrace) {
+      _bodyData = _serializers.serialize(stateKeyValueStoreDataRequest,
+          specifiedType: _type);
+    } catch (error, stackTrace) {
       throw DioException(
-         requestOptions: _options.compose(
+        requestOptions: _options.compose(
           _dio.options,
           _path,
         ),
@@ -1170,11 +1207,12 @@ class StateApi {
 
     try {
       final rawResponse = _response.data;
-      _responseData = rawResponse == null ? null : _serializers.deserialize(
-        rawResponse,
-        specifiedType: const FullType(StateKeyValueStoreDataResponse),
-      ) as StateKeyValueStoreDataResponse;
-
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(StateKeyValueStoreDataResponse),
+            ) as StateKeyValueStoreDataResponse;
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -1201,7 +1239,7 @@ class StateApi {
   /// Allows to iterate over key value store keys.
   ///
   /// Parameters:
-  /// * [stateKeyValueStoreKeysRequest] 
+  /// * [stateKeyValueStoreKeysRequest]
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -1211,7 +1249,7 @@ class StateApi {
   ///
   /// Returns a [Future] containing a [Response] with a [StateKeyValueStoreKeysResponse] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<StateKeyValueStoreKeysResponse>> keyValueStoreKeys({ 
+  Future<Response<StateKeyValueStoreKeysResponse>> keyValueStoreKeys({
     required StateKeyValueStoreKeysRequest stateKeyValueStoreKeysRequest,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -1238,11 +1276,11 @@ class StateApi {
 
     try {
       const _type = FullType(StateKeyValueStoreKeysRequest);
-      _bodyData = _serializers.serialize(stateKeyValueStoreKeysRequest, specifiedType: _type);
-
-    } catch(error, stackTrace) {
+      _bodyData = _serializers.serialize(stateKeyValueStoreKeysRequest,
+          specifiedType: _type);
+    } catch (error, stackTrace) {
       throw DioException(
-         requestOptions: _options.compose(
+        requestOptions: _options.compose(
           _dio.options,
           _path,
         ),
@@ -1265,11 +1303,12 @@ class StateApi {
 
     try {
       final rawResponse = _response.data;
-      _responseData = rawResponse == null ? null : _serializers.deserialize(
-        rawResponse,
-        specifiedType: const FullType(StateKeyValueStoreKeysResponse),
-      ) as StateKeyValueStoreKeysResponse;
-
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(StateKeyValueStoreKeysResponse),
+            ) as StateKeyValueStoreKeysResponse;
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -1293,10 +1332,10 @@ class StateApi {
   }
 
   /// Get Non-Fungible Data
-  /// Returns data associated with a given non-fungible ID of a given non-fungible resource. 
+  /// Returns data associated with a given non-fungible ID of a given non-fungible resource.
   ///
   /// Parameters:
-  /// * [stateNonFungibleDataRequest] 
+  /// * [stateNonFungibleDataRequest]
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -1306,7 +1345,7 @@ class StateApi {
   ///
   /// Returns a [Future] containing a [Response] with a [StateNonFungibleDataResponse] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<StateNonFungibleDataResponse>> nonFungibleData({ 
+  Future<Response<StateNonFungibleDataResponse>> nonFungibleData({
     required StateNonFungibleDataRequest stateNonFungibleDataRequest,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -1333,11 +1372,11 @@ class StateApi {
 
     try {
       const _type = FullType(StateNonFungibleDataRequest);
-      _bodyData = _serializers.serialize(stateNonFungibleDataRequest, specifiedType: _type);
-
-    } catch(error, stackTrace) {
+      _bodyData = _serializers.serialize(stateNonFungibleDataRequest,
+          specifiedType: _type);
+    } catch (error, stackTrace) {
       throw DioException(
-         requestOptions: _options.compose(
+        requestOptions: _options.compose(
           _dio.options,
           _path,
         ),
@@ -1360,11 +1399,12 @@ class StateApi {
 
     try {
       final rawResponse = _response.data;
-      _responseData = rawResponse == null ? null : _serializers.deserialize(
-        rawResponse,
-        specifiedType: const FullType(StateNonFungibleDataResponse),
-      ) as StateNonFungibleDataResponse;
-
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(StateNonFungibleDataResponse),
+            ) as StateNonFungibleDataResponse;
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -1388,10 +1428,10 @@ class StateApi {
   }
 
   /// Get page of Non-Fungible Ids in Resource Collection
-  /// Returns the non-fungible IDs of a given non-fungible resource. Returned response is in a paginated format, ordered by their first appearance on the ledger. 
+  /// Returns the non-fungible IDs of a given non-fungible resource. Returned response is in a paginated format, ordered by their first appearance on the ledger.
   ///
   /// Parameters:
-  /// * [stateNonFungibleIdsRequest] 
+  /// * [stateNonFungibleIdsRequest]
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -1401,7 +1441,7 @@ class StateApi {
   ///
   /// Returns a [Future] containing a [Response] with a [StateNonFungibleIdsResponse] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<StateNonFungibleIdsResponse>> nonFungibleIds({ 
+  Future<Response<StateNonFungibleIdsResponse>> nonFungibleIds({
     required StateNonFungibleIdsRequest stateNonFungibleIdsRequest,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -1428,11 +1468,11 @@ class StateApi {
 
     try {
       const _type = FullType(StateNonFungibleIdsRequest);
-      _bodyData = _serializers.serialize(stateNonFungibleIdsRequest, specifiedType: _type);
-
-    } catch(error, stackTrace) {
+      _bodyData = _serializers.serialize(stateNonFungibleIdsRequest,
+          specifiedType: _type);
+    } catch (error, stackTrace) {
       throw DioException(
-         requestOptions: _options.compose(
+        requestOptions: _options.compose(
           _dio.options,
           _path,
         ),
@@ -1455,11 +1495,12 @@ class StateApi {
 
     try {
       final rawResponse = _response.data;
-      _responseData = rawResponse == null ? null : _serializers.deserialize(
-        rawResponse,
-        specifiedType: const FullType(StateNonFungibleIdsResponse),
-      ) as StateNonFungibleIdsResponse;
-
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(StateNonFungibleIdsResponse),
+            ) as StateNonFungibleIdsResponse;
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -1483,10 +1524,10 @@ class StateApi {
   }
 
   /// Get Non-Fungible Location
-  /// Returns location of a given non-fungible ID. 
+  /// Returns location of a given non-fungible ID.
   ///
   /// Parameters:
-  /// * [stateNonFungibleLocationRequest] 
+  /// * [stateNonFungibleLocationRequest]
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -1496,7 +1537,7 @@ class StateApi {
   ///
   /// Returns a [Future] containing a [Response] with a [StateNonFungibleLocationResponse] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<StateNonFungibleLocationResponse>> nonFungibleLocation({ 
+  Future<Response<StateNonFungibleLocationResponse>> nonFungibleLocation({
     required StateNonFungibleLocationRequest stateNonFungibleLocationRequest,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -1523,11 +1564,11 @@ class StateApi {
 
     try {
       const _type = FullType(StateNonFungibleLocationRequest);
-      _bodyData = _serializers.serialize(stateNonFungibleLocationRequest, specifiedType: _type);
-
-    } catch(error, stackTrace) {
+      _bodyData = _serializers.serialize(stateNonFungibleLocationRequest,
+          specifiedType: _type);
+    } catch (error, stackTrace) {
       throw DioException(
-         requestOptions: _options.compose(
+        requestOptions: _options.compose(
           _dio.options,
           _path,
         ),
@@ -1550,11 +1591,12 @@ class StateApi {
 
     try {
       final rawResponse = _response.data;
-      _responseData = rawResponse == null ? null : _serializers.deserialize(
-        rawResponse,
-        specifiedType: const FullType(StateNonFungibleLocationResponse),
-      ) as StateNonFungibleLocationResponse;
-
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(StateNonFungibleLocationResponse),
+            ) as StateNonFungibleLocationResponse;
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -1578,10 +1620,10 @@ class StateApi {
   }
 
   /// Get Package Blueprints Page
-  /// Returns all the blueprints associated with a given package entity. The returned response is in a paginated format, ordered by first appearance on the ledger. 
+  /// Returns all the blueprints associated with a given package entity. The returned response is in a paginated format, ordered by first appearance on the ledger.
   ///
   /// Parameters:
-  /// * [statePackageBlueprintPageRequest] 
+  /// * [statePackageBlueprintPageRequest]
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -1591,7 +1633,7 @@ class StateApi {
   ///
   /// Returns a [Future] containing a [Response] with a [StatePackageBlueprintPageResponse] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<StatePackageBlueprintPageResponse>> packageBlueprintPage({ 
+  Future<Response<StatePackageBlueprintPageResponse>> packageBlueprintPage({
     required StatePackageBlueprintPageRequest statePackageBlueprintPageRequest,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -1618,11 +1660,11 @@ class StateApi {
 
     try {
       const _type = FullType(StatePackageBlueprintPageRequest);
-      _bodyData = _serializers.serialize(statePackageBlueprintPageRequest, specifiedType: _type);
-
-    } catch(error, stackTrace) {
+      _bodyData = _serializers.serialize(statePackageBlueprintPageRequest,
+          specifiedType: _type);
+    } catch (error, stackTrace) {
       throw DioException(
-         requestOptions: _options.compose(
+        requestOptions: _options.compose(
           _dio.options,
           _path,
         ),
@@ -1645,11 +1687,12 @@ class StateApi {
 
     try {
       final rawResponse = _response.data;
-      _responseData = rawResponse == null ? null : _serializers.deserialize(
-        rawResponse,
-        specifiedType: const FullType(StatePackageBlueprintPageResponse),
-      ) as StatePackageBlueprintPageResponse;
-
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(StatePackageBlueprintPageResponse),
+            ) as StatePackageBlueprintPageResponse;
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -1673,10 +1716,10 @@ class StateApi {
   }
 
   /// Get Package Codes Page
-  /// Returns all the codes associated with a given package entity. The returned response is in a paginated format, ordered by first appearance on the ledger. 
+  /// Returns all the codes associated with a given package entity. The returned response is in a paginated format, ordered by first appearance on the ledger.
   ///
   /// Parameters:
-  /// * [statePackageCodePageRequest] 
+  /// * [statePackageCodePageRequest]
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -1686,7 +1729,7 @@ class StateApi {
   ///
   /// Returns a [Future] containing a [Response] with a [StatePackageCodePageResponse] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<StatePackageCodePageResponse>> packageCodePage({ 
+  Future<Response<StatePackageCodePageResponse>> packageCodePage({
     required StatePackageCodePageRequest statePackageCodePageRequest,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -1713,11 +1756,11 @@ class StateApi {
 
     try {
       const _type = FullType(StatePackageCodePageRequest);
-      _bodyData = _serializers.serialize(statePackageCodePageRequest, specifiedType: _type);
-
-    } catch(error, stackTrace) {
+      _bodyData = _serializers.serialize(statePackageCodePageRequest,
+          specifiedType: _type);
+    } catch (error, stackTrace) {
       throw DioException(
-         requestOptions: _options.compose(
+        requestOptions: _options.compose(
           _dio.options,
           _path,
         ),
@@ -1740,11 +1783,12 @@ class StateApi {
 
     try {
       final rawResponse = _response.data;
-      _responseData = rawResponse == null ? null : _serializers.deserialize(
-        rawResponse,
-        specifiedType: const FullType(StatePackageCodePageResponse),
-      ) as StatePackageCodePageResponse;
-
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(StatePackageCodePageResponse),
+            ) as StatePackageCodePageResponse;
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -1768,10 +1812,10 @@ class StateApi {
   }
 
   /// Get Entity Details
-  /// Returns detailed information for collection of entities. Aggregate resources globally by default. 
+  /// Returns detailed information for collection of entities. Aggregate resources globally by default.
   ///
   /// Parameters:
-  /// * [stateEntityDetailsRequest] 
+  /// * [stateEntityDetailsRequest]
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -1781,7 +1825,7 @@ class StateApi {
   ///
   /// Returns a [Future] containing a [Response] with a [StateEntityDetailsResponse] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<StateEntityDetailsResponse>> stateEntityDetails({ 
+  Future<Response<StateEntityDetailsResponse>> stateEntityDetails({
     required StateEntityDetailsRequest stateEntityDetailsRequest,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -1808,11 +1852,11 @@ class StateApi {
 
     try {
       const _type = FullType(StateEntityDetailsRequest);
-      _bodyData = _serializers.serialize(stateEntityDetailsRequest, specifiedType: _type);
-
-    } catch(error, stackTrace) {
+      _bodyData = _serializers.serialize(stateEntityDetailsRequest,
+          specifiedType: _type);
+    } catch (error, stackTrace) {
       throw DioException(
-         requestOptions: _options.compose(
+        requestOptions: _options.compose(
           _dio.options,
           _path,
         ),
@@ -1835,11 +1879,12 @@ class StateApi {
 
     try {
       final rawResponse = _response.data;
-      _responseData = rawResponse == null ? null : _serializers.deserialize(
-        rawResponse,
-        specifiedType: const FullType(StateEntityDetailsResponse),
-      ) as StateEntityDetailsResponse;
-
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(StateEntityDetailsResponse),
+            ) as StateEntityDetailsResponse;
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -1863,10 +1908,10 @@ class StateApi {
   }
 
   /// Get Validators List
-  /// 
+  ///
   ///
   /// Parameters:
-  /// * [stateValidatorsListRequest] 
+  /// * [stateValidatorsListRequest]
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -1876,7 +1921,7 @@ class StateApi {
   ///
   /// Returns a [Future] containing a [Response] with a [StateValidatorsListResponse] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<StateValidatorsListResponse>> stateValidatorsList({ 
+  Future<Response<StateValidatorsListResponse>> stateValidatorsList({
     required StateValidatorsListRequest stateValidatorsListRequest,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -1903,11 +1948,11 @@ class StateApi {
 
     try {
       const _type = FullType(StateValidatorsListRequest);
-      _bodyData = _serializers.serialize(stateValidatorsListRequest, specifiedType: _type);
-
-    } catch(error, stackTrace) {
+      _bodyData = _serializers.serialize(stateValidatorsListRequest,
+          specifiedType: _type);
+    } catch (error, stackTrace) {
       throw DioException(
-         requestOptions: _options.compose(
+        requestOptions: _options.compose(
           _dio.options,
           _path,
         ),
@@ -1930,11 +1975,12 @@ class StateApi {
 
     try {
       final rawResponse = _response.data;
-      _responseData = rawResponse == null ? null : _serializers.deserialize(
-        rawResponse,
-        specifiedType: const FullType(StateValidatorsListResponse),
-      ) as StateValidatorsListResponse;
-
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(StateValidatorsListResponse),
+            ) as StateValidatorsListResponse;
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -1956,5 +2002,4 @@ class StateApi {
       extra: _response.extra,
     );
   }
-
 }

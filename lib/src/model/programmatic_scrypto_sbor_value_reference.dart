@@ -13,29 +13,41 @@ part 'programmatic_scrypto_sbor_value_reference.g.dart';
 /// ProgrammaticScryptoSborValueReference
 ///
 /// Properties:
-/// * [kind] 
-/// * [typeName] - The name of the type of this value. This is only output when a schema is present and the type has a name. This property is ignored when the value is used as an input to the API. 
-/// * [fieldName] - The name of the field which hosts this value. This property is only included if this value is a child of a `Tuple` or `Enum` with named fields. This property is ignored when the value is used as an input to the API. 
-/// * [value] 
+/// * [kind]
+/// * [typeName] - The name of the type of this value. This is only output when a schema is present and the type has a name. This property is ignored when the value is used as an input to the API.
+/// * [fieldName] - The name of the field which hosts this value. This property is only included if this value is a child of a `Tuple` or `Enum` with named fields. This property is ignored when the value is used as an input to the API.
+/// * [value]
 @BuiltValue()
-abstract class ProgrammaticScryptoSborValueReference implements ProgrammaticScryptoSborValue, Built<ProgrammaticScryptoSborValueReference, ProgrammaticScryptoSborValueReferenceBuilder> {
+abstract class ProgrammaticScryptoSborValueReference
+    implements
+        ProgrammaticScryptoSborValue,
+        Built<ProgrammaticScryptoSborValueReference,
+            ProgrammaticScryptoSborValueReferenceBuilder> {
   @BuiltValueField(wireName: r'value')
   String get value;
 
   ProgrammaticScryptoSborValueReference._();
 
-  factory ProgrammaticScryptoSborValueReference([void updates(ProgrammaticScryptoSborValueReferenceBuilder b)]) = _$ProgrammaticScryptoSborValueReference;
+  factory ProgrammaticScryptoSborValueReference(
+          [void updates(ProgrammaticScryptoSborValueReferenceBuilder b)]) =
+      _$ProgrammaticScryptoSborValueReference;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(ProgrammaticScryptoSborValueReferenceBuilder b) => b..kind=b.discriminatorValue;
+  static void _defaults(ProgrammaticScryptoSborValueReferenceBuilder b) =>
+      b..kind = b.discriminatorValue as dynamic;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<ProgrammaticScryptoSborValueReference> get serializer => _$ProgrammaticScryptoSborValueReferenceSerializer();
+  static Serializer<ProgrammaticScryptoSborValueReference> get serializer =>
+      _$ProgrammaticScryptoSborValueReferenceSerializer();
 }
 
-class _$ProgrammaticScryptoSborValueReferenceSerializer implements PrimitiveSerializer<ProgrammaticScryptoSborValueReference> {
+class _$ProgrammaticScryptoSborValueReferenceSerializer
+    implements PrimitiveSerializer<ProgrammaticScryptoSborValueReference> {
   @override
-  final Iterable<Type> types = const [ProgrammaticScryptoSborValueReference, _$ProgrammaticScryptoSborValueReference];
+  final Iterable<Type> types = const [
+    ProgrammaticScryptoSborValueReference,
+    _$ProgrammaticScryptoSborValueReference
+  ];
 
   @override
   final String wireName = r'ProgrammaticScryptoSborValueReference';
@@ -77,7 +89,9 @@ class _$ProgrammaticScryptoSborValueReferenceSerializer implements PrimitiveSeri
     ProgrammaticScryptoSborValueReference object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -150,4 +164,3 @@ class _$ProgrammaticScryptoSborValueReferenceSerializer implements PrimitiveSeri
     return result.build();
   }
 }
-

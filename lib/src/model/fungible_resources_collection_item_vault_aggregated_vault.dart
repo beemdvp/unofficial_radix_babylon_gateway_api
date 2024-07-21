@@ -16,22 +16,31 @@ part 'fungible_resources_collection_item_vault_aggregated_vault.g.dart';
 /// Properties:
 /// * [totalCount] - Total number of items in underlying collection, fragment of which is available in `items` collection.
 /// * [nextCursor] - If specified, contains a cursor to query next page of the `items` collection.
-/// * [items] 
+/// * [items]
 @BuiltValue(instantiable: false)
-abstract class FungibleResourcesCollectionItemVaultAggregatedVault implements ResultSetCursorMixin {
+abstract class FungibleResourcesCollectionItemVaultAggregatedVault
+    implements ResultSetCursorMixin {
   @BuiltValueField(wireName: r'items')
   BuiltList<FungibleResourcesCollectionItemVaultAggregatedVaultItem> get items;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<FungibleResourcesCollectionItemVaultAggregatedVault> get serializer => _$FungibleResourcesCollectionItemVaultAggregatedVaultSerializer();
+  static Serializer<FungibleResourcesCollectionItemVaultAggregatedVault>
+      get serializer =>
+          _$FungibleResourcesCollectionItemVaultAggregatedVaultSerializer();
 }
 
-class _$FungibleResourcesCollectionItemVaultAggregatedVaultSerializer implements PrimitiveSerializer<FungibleResourcesCollectionItemVaultAggregatedVault> {
+class _$FungibleResourcesCollectionItemVaultAggregatedVaultSerializer
+    implements
+        PrimitiveSerializer<
+            FungibleResourcesCollectionItemVaultAggregatedVault> {
   @override
-  final Iterable<Type> types = const [FungibleResourcesCollectionItemVaultAggregatedVault];
+  final Iterable<Type> types = const [
+    FungibleResourcesCollectionItemVaultAggregatedVault
+  ];
 
   @override
-  final String wireName = r'FungibleResourcesCollectionItemVaultAggregatedVault';
+  final String wireName =
+      r'FungibleResourcesCollectionItemVaultAggregatedVault';
 
   Iterable<Object?> _serializeProperties(
     Serializers serializers,
@@ -55,7 +64,8 @@ class _$FungibleResourcesCollectionItemVaultAggregatedVaultSerializer implements
     yield r'items';
     yield serializers.serialize(
       object.items,
-      specifiedType: const FullType(BuiltList, [FullType(FungibleResourcesCollectionItemVaultAggregatedVaultItem)]),
+      specifiedType: const FullType(BuiltList,
+          [FullType(FungibleResourcesCollectionItemVaultAggregatedVaultItem)]),
     );
   }
 
@@ -65,7 +75,9 @@ class _$FungibleResourcesCollectionItemVaultAggregatedVaultSerializer implements
     FungibleResourcesCollectionItemVaultAggregatedVault object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   @override
@@ -74,30 +86,51 @@ class _$FungibleResourcesCollectionItemVaultAggregatedVaultSerializer implements
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return serializers.deserialize(serialized, specifiedType: FullType($FungibleResourcesCollectionItemVaultAggregatedVault)) as $FungibleResourcesCollectionItemVaultAggregatedVault;
+    return serializers.deserialize(serialized,
+            specifiedType:
+                FullType($FungibleResourcesCollectionItemVaultAggregatedVault))
+        as $FungibleResourcesCollectionItemVaultAggregatedVault;
   }
 }
 
 /// a concrete implementation of [FungibleResourcesCollectionItemVaultAggregatedVault], since [FungibleResourcesCollectionItemVaultAggregatedVault] is not instantiable
 @BuiltValue(instantiable: true)
-abstract class $FungibleResourcesCollectionItemVaultAggregatedVault implements FungibleResourcesCollectionItemVaultAggregatedVault, Built<$FungibleResourcesCollectionItemVaultAggregatedVault, $FungibleResourcesCollectionItemVaultAggregatedVaultBuilder> {
+abstract class $FungibleResourcesCollectionItemVaultAggregatedVault
+    implements
+        FungibleResourcesCollectionItemVaultAggregatedVault,
+        Built<$FungibleResourcesCollectionItemVaultAggregatedVault,
+            $FungibleResourcesCollectionItemVaultAggregatedVaultBuilder> {
   $FungibleResourcesCollectionItemVaultAggregatedVault._();
 
-  factory $FungibleResourcesCollectionItemVaultAggregatedVault([void Function($FungibleResourcesCollectionItemVaultAggregatedVaultBuilder)? updates]) = _$$FungibleResourcesCollectionItemVaultAggregatedVault;
+  factory $FungibleResourcesCollectionItemVaultAggregatedVault(
+      [void Function(
+              $FungibleResourcesCollectionItemVaultAggregatedVaultBuilder)?
+          updates]) = _$$FungibleResourcesCollectionItemVaultAggregatedVault;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($FungibleResourcesCollectionItemVaultAggregatedVaultBuilder b) => b;
+  static void _defaults(
+          $FungibleResourcesCollectionItemVaultAggregatedVaultBuilder b) =>
+      b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<$FungibleResourcesCollectionItemVaultAggregatedVault> get serializer => _$$FungibleResourcesCollectionItemVaultAggregatedVaultSerializer();
+  static Serializer<$FungibleResourcesCollectionItemVaultAggregatedVault>
+      get serializer =>
+          _$$FungibleResourcesCollectionItemVaultAggregatedVaultSerializer();
 }
 
-class _$$FungibleResourcesCollectionItemVaultAggregatedVaultSerializer implements PrimitiveSerializer<$FungibleResourcesCollectionItemVaultAggregatedVault> {
+class _$$FungibleResourcesCollectionItemVaultAggregatedVaultSerializer
+    implements
+        PrimitiveSerializer<
+            $FungibleResourcesCollectionItemVaultAggregatedVault> {
   @override
-  final Iterable<Type> types = const [$FungibleResourcesCollectionItemVaultAggregatedVault, _$$FungibleResourcesCollectionItemVaultAggregatedVault];
+  final Iterable<Type> types = const [
+    $FungibleResourcesCollectionItemVaultAggregatedVault,
+    _$$FungibleResourcesCollectionItemVaultAggregatedVault
+  ];
 
   @override
-  final String wireName = r'$FungibleResourcesCollectionItemVaultAggregatedVault';
+  final String wireName =
+      r'$FungibleResourcesCollectionItemVaultAggregatedVault';
 
   @override
   Object serialize(
@@ -105,7 +138,9 @@ class _$$FungibleResourcesCollectionItemVaultAggregatedVaultSerializer implement
     $FungibleResourcesCollectionItemVaultAggregatedVault object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return serializers.serialize(object, specifiedType: FullType(FungibleResourcesCollectionItemVaultAggregatedVault))!;
+    return serializers.serialize(object,
+        specifiedType:
+            FullType(FungibleResourcesCollectionItemVaultAggregatedVault))!;
   }
 
   void _deserializeProperties(
@@ -139,8 +174,11 @@ class _$$FungibleResourcesCollectionItemVaultAggregatedVaultSerializer implement
         case r'items':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltList, [FullType(FungibleResourcesCollectionItemVaultAggregatedVaultItem)]),
-          ) as BuiltList<FungibleResourcesCollectionItemVaultAggregatedVaultItem>;
+            specifiedType: const FullType(BuiltList, [
+              FullType(FungibleResourcesCollectionItemVaultAggregatedVaultItem)
+            ]),
+          ) as BuiltList<
+              FungibleResourcesCollectionItemVaultAggregatedVaultItem>;
           result.items.replace(valueDes);
           break;
         default:
@@ -157,7 +195,8 @@ class _$$FungibleResourcesCollectionItemVaultAggregatedVaultSerializer implement
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = $FungibleResourcesCollectionItemVaultAggregatedVaultBuilder();
+    final result =
+        $FungibleResourcesCollectionItemVaultAggregatedVaultBuilder();
     final serializedList = (serialized as Iterable<Object?>).toList();
     final unhandled = <Object?>[];
     _deserializeProperties(
@@ -171,4 +210,3 @@ class _$$FungibleResourcesCollectionItemVaultAggregatedVaultSerializer implement
     return result.build();
   }
 }
-

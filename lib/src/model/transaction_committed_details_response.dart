@@ -14,27 +14,38 @@ part 'transaction_committed_details_response.g.dart';
 /// TransactionCommittedDetailsResponse
 ///
 /// Properties:
-/// * [ledgerState] 
-/// * [transaction] 
+/// * [ledgerState]
+/// * [transaction]
 @BuiltValue()
-abstract class TransactionCommittedDetailsResponse implements LedgerStateMixin, Built<TransactionCommittedDetailsResponse, TransactionCommittedDetailsResponseBuilder> {
+abstract class TransactionCommittedDetailsResponse
+    implements
+        LedgerStateMixin,
+        Built<TransactionCommittedDetailsResponse,
+            TransactionCommittedDetailsResponseBuilder> {
   @BuiltValueField(wireName: r'transaction')
   CommittedTransactionInfo get transaction;
 
   TransactionCommittedDetailsResponse._();
 
-  factory TransactionCommittedDetailsResponse([void updates(TransactionCommittedDetailsResponseBuilder b)]) = _$TransactionCommittedDetailsResponse;
+  factory TransactionCommittedDetailsResponse(
+          [void updates(TransactionCommittedDetailsResponseBuilder b)]) =
+      _$TransactionCommittedDetailsResponse;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(TransactionCommittedDetailsResponseBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<TransactionCommittedDetailsResponse> get serializer => _$TransactionCommittedDetailsResponseSerializer();
+  static Serializer<TransactionCommittedDetailsResponse> get serializer =>
+      _$TransactionCommittedDetailsResponseSerializer();
 }
 
-class _$TransactionCommittedDetailsResponseSerializer implements PrimitiveSerializer<TransactionCommittedDetailsResponse> {
+class _$TransactionCommittedDetailsResponseSerializer
+    implements PrimitiveSerializer<TransactionCommittedDetailsResponse> {
   @override
-  final Iterable<Type> types = const [TransactionCommittedDetailsResponse, _$TransactionCommittedDetailsResponse];
+  final Iterable<Type> types = const [
+    TransactionCommittedDetailsResponse,
+    _$TransactionCommittedDetailsResponse
+  ];
 
   @override
   final String wireName = r'TransactionCommittedDetailsResponse';
@@ -62,7 +73,9 @@ class _$TransactionCommittedDetailsResponseSerializer implements PrimitiveSerial
     TransactionCommittedDetailsResponse object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -119,4 +132,3 @@ class _$TransactionCommittedDetailsResponseSerializer implements PrimitiveSerial
     return result.build();
   }
 }
-

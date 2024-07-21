@@ -8,7 +8,7 @@ import 'package:built_value/serializer.dart';
 
 part 'ledger_state_selector.g.dart';
 
-/// Optional. This allows for a request to be made against a historic state. If a constraint is specified, the Gateway will resolve the request against the ledger state at that time. If not specified, requests will be made with respect to the top of the committed ledger. 
+/// Optional. This allows for a request to be made against a historic state. If a constraint is specified, the Gateway will resolve the request against the ledger state at that time. If not specified, requests will be made with respect to the top of the committed ledger.
 ///
 /// Properties:
 /// * [stateVersion] - If provided, the latest ledger state lower than or equal to the given state version is returned.
@@ -16,7 +16,8 @@ part 'ledger_state_selector.g.dart';
 /// * [epoch] - If provided, the ledger state lower than or equal to the given epoch at round 0 is returned.
 /// * [round] - If provided must be accompanied with `epoch`, the ledger state lower than or equal to the given epoch and round is returned.
 @BuiltValue()
-abstract class LedgerStateSelector implements Built<LedgerStateSelector, LedgerStateSelectorBuilder> {
+abstract class LedgerStateSelector
+    implements Built<LedgerStateSelector, LedgerStateSelectorBuilder> {
   /// If provided, the latest ledger state lower than or equal to the given state version is returned.
   @BuiltValueField(wireName: r'state_version')
   int? get stateVersion;
@@ -35,18 +36,24 @@ abstract class LedgerStateSelector implements Built<LedgerStateSelector, LedgerS
 
   LedgerStateSelector._();
 
-  factory LedgerStateSelector([void updates(LedgerStateSelectorBuilder b)]) = _$LedgerStateSelector;
+  factory LedgerStateSelector([void updates(LedgerStateSelectorBuilder b)]) =
+      _$LedgerStateSelector;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(LedgerStateSelectorBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<LedgerStateSelector> get serializer => _$LedgerStateSelectorSerializer();
+  static Serializer<LedgerStateSelector> get serializer =>
+      _$LedgerStateSelectorSerializer();
 }
 
-class _$LedgerStateSelectorSerializer implements PrimitiveSerializer<LedgerStateSelector> {
+class _$LedgerStateSelectorSerializer
+    implements PrimitiveSerializer<LedgerStateSelector> {
   @override
-  final Iterable<Type> types = const [LedgerStateSelector, _$LedgerStateSelector];
+  final Iterable<Type> types = const [
+    LedgerStateSelector,
+    _$LedgerStateSelector
+  ];
 
   @override
   final String wireName = r'LedgerStateSelector';
@@ -92,7 +99,9 @@ class _$LedgerStateSelectorSerializer implements PrimitiveSerializer<LedgerState
     LedgerStateSelector object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -167,4 +176,3 @@ class _$LedgerStateSelectorSerializer implements PrimitiveSerializer<LedgerState
     return result.build();
   }
 }
-

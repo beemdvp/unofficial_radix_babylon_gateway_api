@@ -12,11 +12,10 @@ void main() {
       // TODO
     });
 
-    // This type is defined in the Core API as `AccessRule`. See the Core API documentation for more details. 
+    // This type is defined in the Core API as `AccessRule`. See the Core API documentation for more details.
     // JsonObject explicitRule
     test('to test the property `explicitRule`', () async {
       // TODO
     });
-
   });
 }

@@ -14,11 +14,14 @@ part 'state_non_fungible_data_request.g.dart';
 /// StateNonFungibleDataRequest
 ///
 /// Properties:
-/// * [atLedgerState] 
+/// * [atLedgerState]
 /// * [resourceAddress] - Bech32m-encoded human readable version of the address.
 /// * [nonFungibleIds] - limited to max 100 items.
 @BuiltValue()
-abstract class StateNonFungibleDataRequest implements AtLedgerStateMixin, Built<StateNonFungibleDataRequest, StateNonFungibleDataRequestBuilder> {
+abstract class StateNonFungibleDataRequest
+    implements
+        AtLedgerStateMixin,
+        Built<StateNonFungibleDataRequest, StateNonFungibleDataRequestBuilder> {
   /// Bech32m-encoded human readable version of the address.
   @BuiltValueField(wireName: r'resource_address')
   String get resourceAddress;
@@ -29,18 +32,25 @@ abstract class StateNonFungibleDataRequest implements AtLedgerStateMixin, Built<
 
   StateNonFungibleDataRequest._();
 
-  factory StateNonFungibleDataRequest([void updates(StateNonFungibleDataRequestBuilder b)]) = _$StateNonFungibleDataRequest;
+  factory StateNonFungibleDataRequest(
+          [void updates(StateNonFungibleDataRequestBuilder b)]) =
+      _$StateNonFungibleDataRequest;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(StateNonFungibleDataRequestBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<StateNonFungibleDataRequest> get serializer => _$StateNonFungibleDataRequestSerializer();
+  static Serializer<StateNonFungibleDataRequest> get serializer =>
+      _$StateNonFungibleDataRequestSerializer();
 }
 
-class _$StateNonFungibleDataRequestSerializer implements PrimitiveSerializer<StateNonFungibleDataRequest> {
+class _$StateNonFungibleDataRequestSerializer
+    implements PrimitiveSerializer<StateNonFungibleDataRequest> {
   @override
-  final Iterable<Type> types = const [StateNonFungibleDataRequest, _$StateNonFungibleDataRequest];
+  final Iterable<Type> types = const [
+    StateNonFungibleDataRequest,
+    _$StateNonFungibleDataRequest
+  ];
 
   @override
   final String wireName = r'StateNonFungibleDataRequest';
@@ -75,7 +85,9 @@ class _$StateNonFungibleDataRequestSerializer implements PrimitiveSerializer<Sta
     StateNonFungibleDataRequest object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -140,4 +152,3 @@ class _$StateNonFungibleDataRequestSerializer implements PrimitiveSerializer<Sta
     return result.build();
   }
 }
-

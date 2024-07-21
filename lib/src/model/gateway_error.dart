@@ -21,7 +21,7 @@ part 'gateway_error.g.dart';
 /// Properties:
 /// * [type] - The type of error. Each subtype may have its own additional structured fields.
 @BuiltValue(instantiable: false)
-abstract class GatewayError  {
+abstract class GatewayError {
   /// The type of error. Each subtype may have its own additional structured fields.
   @BuiltValueField(wireName: r'type')
   String get type;
@@ -44,62 +44,63 @@ abstract class GatewayError  {
 }
 
 extension GatewayErrorDiscriminatorExt on GatewayError {
-    String? get discriminatorValue {
-        if (this is AccountLockerNotFoundError) {
-            return r'AccountLockerNotFoundError';
-        }
-        if (this is EntityNotFoundError) {
-            return r'EntityNotFoundError';
-        }
-        if (this is InternalServerError) {
-            return r'InternalServerError';
-        }
-        if (this is InvalidEntityError) {
-            return r'InvalidEntityError';
-        }
-        if (this is InvalidRequestError) {
-            return r'InvalidRequestError';
-        }
-        if (this is InvalidTransactionError) {
-            return r'InvalidTransactionError';
-        }
-        if (this is NotSyncedUpError) {
-            return r'NotSyncedUpError';
-        }
-        if (this is TransactionNotFoundError) {
-            return r'TransactionNotFoundError';
-        }
-        return null;
+  String? get discriminatorValue {
+    if (this is AccountLockerNotFoundError) {
+      return r'AccountLockerNotFoundError';
     }
+    if (this is EntityNotFoundError) {
+      return r'EntityNotFoundError';
+    }
+    if (this is InternalServerError) {
+      return r'InternalServerError';
+    }
+    if (this is InvalidEntityError) {
+      return r'InvalidEntityError';
+    }
+    if (this is InvalidRequestError) {
+      return r'InvalidRequestError';
+    }
+    if (this is InvalidTransactionError) {
+      return r'InvalidTransactionError';
+    }
+    if (this is NotSyncedUpError) {
+      return r'NotSyncedUpError';
+    }
+    if (this is TransactionNotFoundError) {
+      return r'TransactionNotFoundError';
+    }
+    return null;
+  }
 }
+
 extension GatewayErrorBuilderDiscriminatorExt on GatewayErrorBuilder {
-    String? get discriminatorValue {
-        if (this is AccountLockerNotFoundErrorBuilder) {
-            return r'AccountLockerNotFoundError';
-        }
-        if (this is EntityNotFoundErrorBuilder) {
-            return r'EntityNotFoundError';
-        }
-        if (this is InternalServerErrorBuilder) {
-            return r'InternalServerError';
-        }
-        if (this is InvalidEntityErrorBuilder) {
-            return r'InvalidEntityError';
-        }
-        if (this is InvalidRequestErrorBuilder) {
-            return r'InvalidRequestError';
-        }
-        if (this is InvalidTransactionErrorBuilder) {
-            return r'InvalidTransactionError';
-        }
-        if (this is NotSyncedUpErrorBuilder) {
-            return r'NotSyncedUpError';
-        }
-        if (this is TransactionNotFoundErrorBuilder) {
-            return r'TransactionNotFoundError';
-        }
-        return null;
+  String? get discriminatorValue {
+    if (this is AccountLockerNotFoundErrorBuilder) {
+      return r'AccountLockerNotFoundError';
     }
+    if (this is EntityNotFoundErrorBuilder) {
+      return r'EntityNotFoundError';
+    }
+    if (this is InternalServerErrorBuilder) {
+      return r'InternalServerError';
+    }
+    if (this is InvalidEntityErrorBuilder) {
+      return r'InvalidEntityError';
+    }
+    if (this is InvalidRequestErrorBuilder) {
+      return r'InvalidRequestError';
+    }
+    if (this is InvalidTransactionErrorBuilder) {
+      return r'InvalidTransactionError';
+    }
+    if (this is NotSyncedUpErrorBuilder) {
+      return r'NotSyncedUpError';
+    }
+    if (this is TransactionNotFoundErrorBuilder) {
+      return r'TransactionNotFoundError';
+    }
+    return null;
+  }
 }
 
 class _$GatewayErrorSerializer implements PrimitiveSerializer<GatewayError> {
@@ -128,30 +129,40 @@ class _$GatewayErrorSerializer implements PrimitiveSerializer<GatewayError> {
     FullType specifiedType = FullType.unspecified,
   }) {
     if (object is AccountLockerNotFoundError) {
-      return serializers.serialize(object, specifiedType: FullType(AccountLockerNotFoundError))!;
+      return serializers.serialize(object,
+          specifiedType: FullType(AccountLockerNotFoundError))!;
     }
     if (object is EntityNotFoundError) {
-      return serializers.serialize(object, specifiedType: FullType(EntityNotFoundError))!;
+      return serializers.serialize(object,
+          specifiedType: FullType(EntityNotFoundError))!;
     }
     if (object is InternalServerError) {
-      return serializers.serialize(object, specifiedType: FullType(InternalServerError))!;
+      return serializers.serialize(object,
+          specifiedType: FullType(InternalServerError))!;
     }
     if (object is InvalidEntityError) {
-      return serializers.serialize(object, specifiedType: FullType(InvalidEntityError))!;
+      return serializers.serialize(object,
+          specifiedType: FullType(InvalidEntityError))!;
     }
     if (object is InvalidRequestError) {
-      return serializers.serialize(object, specifiedType: FullType(InvalidRequestError))!;
+      return serializers.serialize(object,
+          specifiedType: FullType(InvalidRequestError))!;
     }
     if (object is InvalidTransactionError) {
-      return serializers.serialize(object, specifiedType: FullType(InvalidTransactionError))!;
+      return serializers.serialize(object,
+          specifiedType: FullType(InvalidTransactionError))!;
     }
     if (object is NotSyncedUpError) {
-      return serializers.serialize(object, specifiedType: FullType(NotSyncedUpError))!;
+      return serializers.serialize(object,
+          specifiedType: FullType(NotSyncedUpError))!;
     }
     if (object is TransactionNotFoundError) {
-      return serializers.serialize(object, specifiedType: FullType(TransactionNotFoundError))!;
+      return serializers.serialize(object,
+          specifiedType: FullType(TransactionNotFoundError))!;
     }
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   @override
@@ -161,43 +172,63 @@ class _$GatewayErrorSerializer implements PrimitiveSerializer<GatewayError> {
     FullType specifiedType = FullType.unspecified,
   }) {
     final serializedList = (serialized as Iterable<Object?>).toList();
-    final discIndex = serializedList.indexOf(GatewayError.discriminatorFieldName) + 1;
-    final discValue = serializers.deserialize(serializedList[discIndex], specifiedType: FullType(String)) as String;
+    final discIndex =
+        serializedList.indexOf(GatewayError.discriminatorFieldName) + 1;
+    final discValue = serializers.deserialize(serializedList[discIndex],
+        specifiedType: FullType(String)) as String;
     switch (discValue) {
       case r'AccountLockerNotFoundError':
-        return serializers.deserialize(serialized, specifiedType: FullType(AccountLockerNotFoundError)) as AccountLockerNotFoundError;
+        return serializers.deserialize(serialized,
+                specifiedType: FullType(AccountLockerNotFoundError))
+            as AccountLockerNotFoundError;
       case r'EntityNotFoundError':
-        return serializers.deserialize(serialized, specifiedType: FullType(EntityNotFoundError)) as EntityNotFoundError;
+        return serializers.deserialize(serialized,
+                specifiedType: FullType(EntityNotFoundError))
+            as EntityNotFoundError;
       case r'InternalServerError':
-        return serializers.deserialize(serialized, specifiedType: FullType(InternalServerError)) as InternalServerError;
+        return serializers.deserialize(serialized,
+                specifiedType: FullType(InternalServerError))
+            as InternalServerError;
       case r'InvalidEntityError':
-        return serializers.deserialize(serialized, specifiedType: FullType(InvalidEntityError)) as InvalidEntityError;
+        return serializers.deserialize(serialized,
+            specifiedType: FullType(InvalidEntityError)) as InvalidEntityError;
       case r'InvalidRequestError':
-        return serializers.deserialize(serialized, specifiedType: FullType(InvalidRequestError)) as InvalidRequestError;
+        return serializers.deserialize(serialized,
+                specifiedType: FullType(InvalidRequestError))
+            as InvalidRequestError;
       case r'InvalidTransactionError':
-        return serializers.deserialize(serialized, specifiedType: FullType(InvalidTransactionError)) as InvalidTransactionError;
+        return serializers.deserialize(serialized,
+                specifiedType: FullType(InvalidTransactionError))
+            as InvalidTransactionError;
       case r'NotSyncedUpError':
-        return serializers.deserialize(serialized, specifiedType: FullType(NotSyncedUpError)) as NotSyncedUpError;
+        return serializers.deserialize(serialized,
+            specifiedType: FullType(NotSyncedUpError)) as NotSyncedUpError;
       case r'TransactionNotFoundError':
-        return serializers.deserialize(serialized, specifiedType: FullType(TransactionNotFoundError)) as TransactionNotFoundError;
+        return serializers.deserialize(serialized,
+                specifiedType: FullType(TransactionNotFoundError))
+            as TransactionNotFoundError;
       default:
-        return serializers.deserialize(serialized, specifiedType: FullType($GatewayError)) as $GatewayError;
+        return serializers.deserialize(serialized,
+            specifiedType: FullType($GatewayError)) as $GatewayError;
     }
   }
 }
 
 /// a concrete implementation of [GatewayError], since [GatewayError] is not instantiable
 @BuiltValue(instantiable: true)
-abstract class $GatewayError implements GatewayError, Built<$GatewayError, $GatewayErrorBuilder> {
+abstract class $GatewayError
+    implements GatewayError, Built<$GatewayError, $GatewayErrorBuilder> {
   $GatewayError._();
 
-  factory $GatewayError([void Function($GatewayErrorBuilder)? updates]) = _$$GatewayError;
+  factory $GatewayError([void Function($GatewayErrorBuilder)? updates]) =
+      _$$GatewayError;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($GatewayErrorBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<$GatewayError> get serializer => _$$GatewayErrorSerializer();
+  static Serializer<$GatewayError> get serializer =>
+      _$$GatewayErrorSerializer();
 }
 
 class _$$GatewayErrorSerializer implements PrimitiveSerializer<$GatewayError> {
@@ -213,7 +244,8 @@ class _$$GatewayErrorSerializer implements PrimitiveSerializer<$GatewayError> {
     $GatewayError object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return serializers.serialize(object, specifiedType: FullType(GatewayError))!;
+    return serializers.serialize(object,
+        specifiedType: FullType(GatewayError))!;
   }
 
   void _deserializeProperties(
@@ -263,4 +295,3 @@ class _$$GatewayErrorSerializer implements PrimitiveSerializer<$GatewayError> {
     return result.build();
   }
 }
-

@@ -13,25 +13,32 @@ part 'metadata_u8_value.g.dart';
 /// MetadataU8Value
 ///
 /// Properties:
-/// * [type] 
-/// * [value] 
+/// * [type]
+/// * [value]
 @BuiltValue()
-abstract class MetadataU8Value implements MetadataTypedValue, Built<MetadataU8Value, MetadataU8ValueBuilder> {
+abstract class MetadataU8Value
+    implements
+        MetadataTypedValue,
+        Built<MetadataU8Value, MetadataU8ValueBuilder> {
   @BuiltValueField(wireName: r'value')
   String get value;
 
   MetadataU8Value._();
 
-  factory MetadataU8Value([void updates(MetadataU8ValueBuilder b)]) = _$MetadataU8Value;
+  factory MetadataU8Value([void updates(MetadataU8ValueBuilder b)]) =
+      _$MetadataU8Value;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(MetadataU8ValueBuilder b) => b..type=b.discriminatorValue;
+  static void _defaults(MetadataU8ValueBuilder b) =>
+      b..type = b.discriminatorValue as dynamic;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<MetadataU8Value> get serializer => _$MetadataU8ValueSerializer();
+  static Serializer<MetadataU8Value> get serializer =>
+      _$MetadataU8ValueSerializer();
 }
 
-class _$MetadataU8ValueSerializer implements PrimitiveSerializer<MetadataU8Value> {
+class _$MetadataU8ValueSerializer
+    implements PrimitiveSerializer<MetadataU8Value> {
   @override
   final Iterable<Type> types = const [MetadataU8Value, _$MetadataU8Value];
 
@@ -61,7 +68,9 @@ class _$MetadataU8ValueSerializer implements PrimitiveSerializer<MetadataU8Value
     MetadataU8Value object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -118,4 +127,3 @@ class _$MetadataU8ValueSerializer implements PrimitiveSerializer<MetadataU8Value
     return result.build();
   }
 }
-

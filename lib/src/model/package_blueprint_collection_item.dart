@@ -14,30 +14,33 @@ part 'package_blueprint_collection_item.g.dart';
 /// PackageBlueprintCollectionItem
 ///
 /// Properties:
-/// * [name] 
-/// * [version] 
-/// * [definition] - This type is defined in the Core API as `BlueprintDefinition`. See the Core API documentation for more details. 
-/// * [dependantEntities] 
-/// * [authTemplate] - This type is defined in the Core API as `AuthConfig`. See the Core API documentation for more details. 
-/// * [authTemplateIsLocked] 
-/// * [royaltyConfig] 
-/// * [royaltyConfigIsLocked] 
+/// * [name]
+/// * [version]
+/// * [definition] - This type is defined in the Core API as `BlueprintDefinition`. See the Core API documentation for more details.
+/// * [dependantEntities]
+/// * [authTemplate] - This type is defined in the Core API as `AuthConfig`. See the Core API documentation for more details.
+/// * [authTemplateIsLocked]
+/// * [royaltyConfig]
+/// * [royaltyConfigIsLocked]
 @BuiltValue()
-abstract class PackageBlueprintCollectionItem implements Built<PackageBlueprintCollectionItem, PackageBlueprintCollectionItemBuilder> {
+abstract class PackageBlueprintCollectionItem
+    implements
+        Built<PackageBlueprintCollectionItem,
+            PackageBlueprintCollectionItemBuilder> {
   @BuiltValueField(wireName: r'name')
   String get name;
 
   @BuiltValueField(wireName: r'version')
   String get version;
 
-  /// This type is defined in the Core API as `BlueprintDefinition`. See the Core API documentation for more details. 
+  /// This type is defined in the Core API as `BlueprintDefinition`. See the Core API documentation for more details.
   @BuiltValueField(wireName: r'definition')
   JsonObject get definition;
 
   @BuiltValueField(wireName: r'dependant_entities')
   BuiltList<String>? get dependantEntities;
 
-  /// This type is defined in the Core API as `AuthConfig`. See the Core API documentation for more details. 
+  /// This type is defined in the Core API as `AuthConfig`. See the Core API documentation for more details.
   @BuiltValueField(wireName: r'auth_template')
   JsonObject? get authTemplate;
 
@@ -52,18 +55,25 @@ abstract class PackageBlueprintCollectionItem implements Built<PackageBlueprintC
 
   PackageBlueprintCollectionItem._();
 
-  factory PackageBlueprintCollectionItem([void updates(PackageBlueprintCollectionItemBuilder b)]) = _$PackageBlueprintCollectionItem;
+  factory PackageBlueprintCollectionItem(
+          [void updates(PackageBlueprintCollectionItemBuilder b)]) =
+      _$PackageBlueprintCollectionItem;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(PackageBlueprintCollectionItemBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<PackageBlueprintCollectionItem> get serializer => _$PackageBlueprintCollectionItemSerializer();
+  static Serializer<PackageBlueprintCollectionItem> get serializer =>
+      _$PackageBlueprintCollectionItemSerializer();
 }
 
-class _$PackageBlueprintCollectionItemSerializer implements PrimitiveSerializer<PackageBlueprintCollectionItem> {
+class _$PackageBlueprintCollectionItemSerializer
+    implements PrimitiveSerializer<PackageBlueprintCollectionItem> {
   @override
-  final Iterable<Type> types = const [PackageBlueprintCollectionItem, _$PackageBlueprintCollectionItem];
+  final Iterable<Type> types = const [
+    PackageBlueprintCollectionItem,
+    _$PackageBlueprintCollectionItem
+  ];
 
   @override
   final String wireName = r'PackageBlueprintCollectionItem';
@@ -131,7 +141,9 @@ class _$PackageBlueprintCollectionItemSerializer implements PrimitiveSerializer<
     PackageBlueprintCollectionItem object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -232,4 +244,3 @@ class _$PackageBlueprintCollectionItemSerializer implements PrimitiveSerializer<
     return result.build();
   }
 }
-

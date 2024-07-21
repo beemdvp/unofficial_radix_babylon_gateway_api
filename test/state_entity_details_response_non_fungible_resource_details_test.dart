@@ -3,7 +3,8 @@ import 'package:unofficial_babylon_gateway_api/unofficial_babylon_gateway_api.da
 
 // tests for StateEntityDetailsResponseNonFungibleResourceDetails
 void main() {
-  final instance = StateEntityDetailsResponseNonFungibleResourceDetailsBuilder();
+  final instance =
+      StateEntityDetailsResponseNonFungibleResourceDetailsBuilder();
   // TODO add properties to the builder and call build()
 
   group(StateEntityDetailsResponseNonFungibleResourceDetails, () {
@@ -39,6 +40,5 @@ void main() {
     test('to test the property `totalBurned`', () async {
       // TODO
     });
-
   });
 }

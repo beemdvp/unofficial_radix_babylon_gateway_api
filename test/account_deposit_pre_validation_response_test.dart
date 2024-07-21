@@ -27,6 +27,5 @@ void main() {
     test('to test the property `decidingFactors`', () async {
       // TODO
     });
-
   });
 }

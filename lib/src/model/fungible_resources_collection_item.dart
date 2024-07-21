@@ -15,11 +15,11 @@ part 'fungible_resources_collection_item.g.dart';
 /// FungibleResourcesCollectionItem
 ///
 /// Properties:
-/// * [aggregationLevel] 
+/// * [aggregationLevel]
 /// * [resourceAddress] - Bech32m-encoded human readable version of the address.
-/// * [explicitMetadata] 
+/// * [explicitMetadata]
 @BuiltValue(instantiable: false)
-abstract class FungibleResourcesCollectionItem  {
+abstract class FungibleResourcesCollectionItem {
   @BuiltValueField(wireName: r'aggregation_level')
   ResourceAggregationLevel get aggregationLevel;
   // enum aggregationLevelEnum {  Global,  Vault,  };
@@ -39,33 +39,38 @@ abstract class FungibleResourcesCollectionItem  {
   };
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<FungibleResourcesCollectionItem> get serializer => _$FungibleResourcesCollectionItemSerializer();
+  static Serializer<FungibleResourcesCollectionItem> get serializer =>
+      _$FungibleResourcesCollectionItemSerializer();
 }
 
-extension FungibleResourcesCollectionItemDiscriminatorExt on FungibleResourcesCollectionItem {
-    String? get discriminatorValue {
-        if (this is FungibleResourcesCollectionItemGloballyAggregated) {
-            return r'Global';
-        }
-        if (this is FungibleResourcesCollectionItemVaultAggregated) {
-            return r'Vault';
-        }
-        return null;
+extension FungibleResourcesCollectionItemDiscriminatorExt
+    on FungibleResourcesCollectionItem {
+  String? get discriminatorValue {
+    if (this is FungibleResourcesCollectionItemGloballyAggregated) {
+      return r'Global';
     }
-}
-extension FungibleResourcesCollectionItemBuilderDiscriminatorExt on FungibleResourcesCollectionItemBuilder {
-    String? get discriminatorValue {
-        if (this is FungibleResourcesCollectionItemGloballyAggregatedBuilder) {
-            return r'Global';
-        }
-        if (this is FungibleResourcesCollectionItemVaultAggregatedBuilder) {
-            return r'Vault';
-        }
-        return null;
+    if (this is FungibleResourcesCollectionItemVaultAggregated) {
+      return r'Vault';
     }
+    return null;
+  }
 }
 
-class _$FungibleResourcesCollectionItemSerializer implements PrimitiveSerializer<FungibleResourcesCollectionItem> {
+extension FungibleResourcesCollectionItemBuilderDiscriminatorExt
+    on FungibleResourcesCollectionItemBuilder {
+  String? get discriminatorValue {
+    if (this is FungibleResourcesCollectionItemGloballyAggregatedBuilder) {
+      return r'Global';
+    }
+    if (this is FungibleResourcesCollectionItemVaultAggregatedBuilder) {
+      return r'Vault';
+    }
+    return null;
+  }
+}
+
+class _$FungibleResourcesCollectionItemSerializer
+    implements PrimitiveSerializer<FungibleResourcesCollectionItem> {
   @override
   final Iterable<Type> types = const [FungibleResourcesCollectionItem];
 
@@ -103,12 +108,18 @@ class _$FungibleResourcesCollectionItemSerializer implements PrimitiveSerializer
     FullType specifiedType = FullType.unspecified,
   }) {
     if (object is FungibleResourcesCollectionItemGloballyAggregated) {
-      return serializers.serialize(object, specifiedType: FullType(FungibleResourcesCollectionItemGloballyAggregated))!;
+      return serializers.serialize(object,
+          specifiedType:
+              FullType(FungibleResourcesCollectionItemGloballyAggregated))!;
     }
     if (object is FungibleResourcesCollectionItemVaultAggregated) {
-      return serializers.serialize(object, specifiedType: FullType(FungibleResourcesCollectionItemVaultAggregated))!;
+      return serializers.serialize(object,
+          specifiedType:
+              FullType(FungibleResourcesCollectionItemVaultAggregated))!;
     }
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   @override
@@ -118,36 +129,58 @@ class _$FungibleResourcesCollectionItemSerializer implements PrimitiveSerializer
     FullType specifiedType = FullType.unspecified,
   }) {
     final serializedList = (serialized as Iterable<Object?>).toList();
-    final discIndex = serializedList.indexOf(FungibleResourcesCollectionItem.discriminatorFieldName) + 1;
-    final discValue = serializers.deserialize(serializedList[discIndex], specifiedType: FullType(String)) as String;
+    final discIndex = serializedList
+            .indexOf(FungibleResourcesCollectionItem.discriminatorFieldName) +
+        1;
+    final discValue = serializers.deserialize(serializedList[discIndex],
+        specifiedType: FullType(String)) as String;
     switch (discValue) {
       case r'Global':
-        return serializers.deserialize(serialized, specifiedType: FullType(FungibleResourcesCollectionItemGloballyAggregated)) as FungibleResourcesCollectionItemGloballyAggregated;
+        return serializers.deserialize(serialized,
+                specifiedType:
+                    FullType(FungibleResourcesCollectionItemGloballyAggregated))
+            as FungibleResourcesCollectionItemGloballyAggregated;
       case r'Vault':
-        return serializers.deserialize(serialized, specifiedType: FullType(FungibleResourcesCollectionItemVaultAggregated)) as FungibleResourcesCollectionItemVaultAggregated;
+        return serializers.deserialize(serialized,
+                specifiedType:
+                    FullType(FungibleResourcesCollectionItemVaultAggregated))
+            as FungibleResourcesCollectionItemVaultAggregated;
       default:
-        return serializers.deserialize(serialized, specifiedType: FullType($FungibleResourcesCollectionItem)) as $FungibleResourcesCollectionItem;
+        return serializers.deserialize(serialized,
+                specifiedType: FullType($FungibleResourcesCollectionItem))
+            as $FungibleResourcesCollectionItem;
     }
   }
 }
 
 /// a concrete implementation of [FungibleResourcesCollectionItem], since [FungibleResourcesCollectionItem] is not instantiable
 @BuiltValue(instantiable: true)
-abstract class $FungibleResourcesCollectionItem implements FungibleResourcesCollectionItem, Built<$FungibleResourcesCollectionItem, $FungibleResourcesCollectionItemBuilder> {
+abstract class $FungibleResourcesCollectionItem
+    implements
+        FungibleResourcesCollectionItem,
+        Built<$FungibleResourcesCollectionItem,
+            $FungibleResourcesCollectionItemBuilder> {
   $FungibleResourcesCollectionItem._();
 
-  factory $FungibleResourcesCollectionItem([void Function($FungibleResourcesCollectionItemBuilder)? updates]) = _$$FungibleResourcesCollectionItem;
+  factory $FungibleResourcesCollectionItem(
+          [void Function($FungibleResourcesCollectionItemBuilder)? updates]) =
+      _$$FungibleResourcesCollectionItem;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($FungibleResourcesCollectionItemBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<$FungibleResourcesCollectionItem> get serializer => _$$FungibleResourcesCollectionItemSerializer();
+  static Serializer<$FungibleResourcesCollectionItem> get serializer =>
+      _$$FungibleResourcesCollectionItemSerializer();
 }
 
-class _$$FungibleResourcesCollectionItemSerializer implements PrimitiveSerializer<$FungibleResourcesCollectionItem> {
+class _$$FungibleResourcesCollectionItemSerializer
+    implements PrimitiveSerializer<$FungibleResourcesCollectionItem> {
   @override
-  final Iterable<Type> types = const [$FungibleResourcesCollectionItem, _$$FungibleResourcesCollectionItem];
+  final Iterable<Type> types = const [
+    $FungibleResourcesCollectionItem,
+    _$$FungibleResourcesCollectionItem
+  ];
 
   @override
   final String wireName = r'$FungibleResourcesCollectionItem';
@@ -158,7 +191,8 @@ class _$$FungibleResourcesCollectionItemSerializer implements PrimitiveSerialize
     $FungibleResourcesCollectionItem object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return serializers.serialize(object, specifiedType: FullType(FungibleResourcesCollectionItem))!;
+    return serializers.serialize(object,
+        specifiedType: FullType(FungibleResourcesCollectionItem))!;
   }
 
   void _deserializeProperties(
@@ -222,4 +256,3 @@ class _$$FungibleResourcesCollectionItemSerializer implements PrimitiveSerialize
     return result.build();
   }
 }
-

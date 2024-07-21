@@ -17,25 +17,27 @@ part 'committed_transaction_info.g.dart';
 /// CommittedTransactionInfo
 ///
 /// Properties:
-/// * [stateVersion] 
-/// * [epoch] 
-/// * [round] 
-/// * [roundTimestamp] 
-/// * [transactionStatus] 
+/// * [stateVersion]
+/// * [epoch]
+/// * [round]
+/// * [roundTimestamp]
+/// * [transactionStatus]
 /// * [payloadHash] - Bech32m-encoded hash.
 /// * [intentHash] - Bech32m-encoded hash.
 /// * [feePaid] - String-encoded decimal representing the amount of a related fungible resource.
-/// * [affectedGlobalEntities] 
-/// * [confirmedAt] 
-/// * [errorMessage] 
+/// * [affectedGlobalEntities]
+/// * [confirmedAt]
+/// * [errorMessage]
 /// * [rawHex] - Hex-encoded binary blob.
-/// * [receipt] 
-/// * [manifestInstructions] - A text-representation of a transaction manifest. This field will be present only for user transactions and when explicitly opted-in using `manifest_instructions` flag. 
-/// * [manifestClasses] - A collection of zero or more manifest classes ordered from the most specific class to the least specific one. This field will be present only for user transactions. 
-/// * [message] - The optional transaction message. This type is defined in the Core API as `TransactionMessage`. See the Core API documentation for more details. 
-/// * [balanceChanges] 
+/// * [receipt]
+/// * [manifestInstructions] - A text-representation of a transaction manifest. This field will be present only for user transactions and when explicitly opted-in using `manifest_instructions` flag.
+/// * [manifestClasses] - A collection of zero or more manifest classes ordered from the most specific class to the least specific one. This field will be present only for user transactions.
+/// * [message] - The optional transaction message. This type is defined in the Core API as `TransactionMessage`. See the Core API documentation for more details.
+/// * [balanceChanges]
 @BuiltValue()
-abstract class CommittedTransactionInfo implements Built<CommittedTransactionInfo, CommittedTransactionInfoBuilder> {
+abstract class CommittedTransactionInfo
+    implements
+        Built<CommittedTransactionInfo, CommittedTransactionInfoBuilder> {
   @BuiltValueField(wireName: r'state_version')
   int get stateVersion;
 
@@ -80,15 +82,15 @@ abstract class CommittedTransactionInfo implements Built<CommittedTransactionInf
   @BuiltValueField(wireName: r'receipt')
   TransactionReceipt? get receipt;
 
-  /// A text-representation of a transaction manifest. This field will be present only for user transactions and when explicitly opted-in using `manifest_instructions` flag. 
+  /// A text-representation of a transaction manifest. This field will be present only for user transactions and when explicitly opted-in using `manifest_instructions` flag.
   @BuiltValueField(wireName: r'manifest_instructions')
   String? get manifestInstructions;
 
-  /// A collection of zero or more manifest classes ordered from the most specific class to the least specific one. This field will be present only for user transactions. 
+  /// A collection of zero or more manifest classes ordered from the most specific class to the least specific one. This field will be present only for user transactions.
   @BuiltValueField(wireName: r'manifest_classes')
   BuiltList<ManifestClass>? get manifestClasses;
 
-  /// The optional transaction message. This type is defined in the Core API as `TransactionMessage`. See the Core API documentation for more details. 
+  /// The optional transaction message. This type is defined in the Core API as `TransactionMessage`. See the Core API documentation for more details.
   @BuiltValueField(wireName: r'message')
   JsonObject? get message;
 
@@ -97,18 +99,25 @@ abstract class CommittedTransactionInfo implements Built<CommittedTransactionInf
 
   CommittedTransactionInfo._();
 
-  factory CommittedTransactionInfo([void updates(CommittedTransactionInfoBuilder b)]) = _$CommittedTransactionInfo;
+  factory CommittedTransactionInfo(
+          [void updates(CommittedTransactionInfoBuilder b)]) =
+      _$CommittedTransactionInfo;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(CommittedTransactionInfoBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<CommittedTransactionInfo> get serializer => _$CommittedTransactionInfoSerializer();
+  static Serializer<CommittedTransactionInfo> get serializer =>
+      _$CommittedTransactionInfoSerializer();
 }
 
-class _$CommittedTransactionInfoSerializer implements PrimitiveSerializer<CommittedTransactionInfo> {
+class _$CommittedTransactionInfoSerializer
+    implements PrimitiveSerializer<CommittedTransactionInfo> {
   @override
-  final Iterable<Type> types = const [CommittedTransactionInfo, _$CommittedTransactionInfo];
+  final Iterable<Type> types = const [
+    CommittedTransactionInfo,
+    _$CommittedTransactionInfo
+  ];
 
   @override
   final String wireName = r'CommittedTransactionInfo';
@@ -210,7 +219,8 @@ class _$CommittedTransactionInfoSerializer implements PrimitiveSerializer<Commit
       yield r'manifest_classes';
       yield serializers.serialize(
         object.manifestClasses,
-        specifiedType: const FullType.nullable(BuiltList, [FullType(ManifestClass)]),
+        specifiedType:
+            const FullType.nullable(BuiltList, [FullType(ManifestClass)]),
       );
     }
     if (object.message != null) {
@@ -235,7 +245,9 @@ class _$CommittedTransactionInfoSerializer implements PrimitiveSerializer<Commit
     CommittedTransactionInfo object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -354,7 +366,8 @@ class _$CommittedTransactionInfoSerializer implements PrimitiveSerializer<Commit
         case r'manifest_classes':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltList, [FullType(ManifestClass)]),
+            specifiedType:
+                const FullType.nullable(BuiltList, [FullType(ManifestClass)]),
           ) as BuiltList<ManifestClass>?;
           if (valueDes == null) continue;
           result.manifestClasses.replace(valueDes);
@@ -402,4 +415,3 @@ class _$CommittedTransactionInfoSerializer implements PrimitiveSerializer<Commit
     return result.build();
   }
 }
-

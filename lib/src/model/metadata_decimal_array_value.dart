@@ -14,27 +14,38 @@ part 'metadata_decimal_array_value.g.dart';
 /// MetadataDecimalArrayValue
 ///
 /// Properties:
-/// * [type] 
-/// * [values] 
+/// * [type]
+/// * [values]
 @BuiltValue()
-abstract class MetadataDecimalArrayValue implements MetadataTypedValue, Built<MetadataDecimalArrayValue, MetadataDecimalArrayValueBuilder> {
+abstract class MetadataDecimalArrayValue
+    implements
+        MetadataTypedValue,
+        Built<MetadataDecimalArrayValue, MetadataDecimalArrayValueBuilder> {
   @BuiltValueField(wireName: r'values')
   BuiltList<String> get values;
 
   MetadataDecimalArrayValue._();
 
-  factory MetadataDecimalArrayValue([void updates(MetadataDecimalArrayValueBuilder b)]) = _$MetadataDecimalArrayValue;
+  factory MetadataDecimalArrayValue(
+          [void updates(MetadataDecimalArrayValueBuilder b)]) =
+      _$MetadataDecimalArrayValue;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(MetadataDecimalArrayValueBuilder b) => b..type=b.discriminatorValue;
+  static void _defaults(MetadataDecimalArrayValueBuilder b) =>
+      b..type = b.discriminatorValue as dynamic;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<MetadataDecimalArrayValue> get serializer => _$MetadataDecimalArrayValueSerializer();
+  static Serializer<MetadataDecimalArrayValue> get serializer =>
+      _$MetadataDecimalArrayValueSerializer();
 }
 
-class _$MetadataDecimalArrayValueSerializer implements PrimitiveSerializer<MetadataDecimalArrayValue> {
+class _$MetadataDecimalArrayValueSerializer
+    implements PrimitiveSerializer<MetadataDecimalArrayValue> {
   @override
-  final Iterable<Type> types = const [MetadataDecimalArrayValue, _$MetadataDecimalArrayValue];
+  final Iterable<Type> types = const [
+    MetadataDecimalArrayValue,
+    _$MetadataDecimalArrayValue
+  ];
 
   @override
   final String wireName = r'MetadataDecimalArrayValue';
@@ -62,7 +73,9 @@ class _$MetadataDecimalArrayValueSerializer implements PrimitiveSerializer<Metad
     MetadataDecimalArrayValue object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -119,4 +132,3 @@ class _$MetadataDecimalArrayValueSerializer implements PrimitiveSerializer<Metad
     return result.build();
   }
 }
-

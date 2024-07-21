@@ -8,12 +8,12 @@ import 'package:built_value/serializer.dart';
 
 part 'ledger_state.g.dart';
 
-/// The ledger state against which the response was generated. Can be used to detect if the Network Gateway is returning up-to-date information. 
+/// The ledger state against which the response was generated. Can be used to detect if the Network Gateway is returning up-to-date information.
 ///
 /// Properties:
 /// * [network] - The logical name of the network
 /// * [stateVersion] - The state version of the ledger. Each transaction increments the state version by 1.
-/// * [proposerRoundTimestamp] - The proposer round timestamp of the consensus round when this transaction was committed to ledger. This is not guaranteed to be strictly increasing, as it is computed as an average across the validator set. If this is significantly behind the current timestamp, the Network Gateway is likely reporting out-dated information, or the network has stalled. 
+/// * [proposerRoundTimestamp] - The proposer round timestamp of the consensus round when this transaction was committed to ledger. This is not guaranteed to be strictly increasing, as it is computed as an average across the validator set. If this is significantly behind the current timestamp, the Network Gateway is likely reporting out-dated information, or the network has stalled.
 /// * [epoch] - The epoch number of the ledger at this state version.
 /// * [round] - The consensus round in the epoch that this state version was committed in.
 @BuiltValue()
@@ -26,7 +26,7 @@ abstract class LedgerState implements Built<LedgerState, LedgerStateBuilder> {
   @BuiltValueField(wireName: r'state_version')
   int get stateVersion;
 
-  /// The proposer round timestamp of the consensus round when this transaction was committed to ledger. This is not guaranteed to be strictly increasing, as it is computed as an average across the validator set. If this is significantly behind the current timestamp, the Network Gateway is likely reporting out-dated information, or the network has stalled. 
+  /// The proposer round timestamp of the consensus round when this transaction was committed to ledger. This is not guaranteed to be strictly increasing, as it is computed as an average across the validator set. If this is significantly behind the current timestamp, the Network Gateway is likely reporting out-dated information, or the network has stalled.
   @BuiltValueField(wireName: r'proposer_round_timestamp')
   String get proposerRoundTimestamp;
 
@@ -94,7 +94,9 @@ class _$LedgerStateSerializer implements PrimitiveSerializer<LedgerState> {
     LedgerState object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -172,4 +174,3 @@ class _$LedgerStateSerializer implements PrimitiveSerializer<LedgerState> {
     return result.build();
   }
 }
-

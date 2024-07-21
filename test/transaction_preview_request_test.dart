@@ -64,6 +64,5 @@ void main() {
     test('to test the property `flags`', () async {
       // TODO
     });
-
   });
 }

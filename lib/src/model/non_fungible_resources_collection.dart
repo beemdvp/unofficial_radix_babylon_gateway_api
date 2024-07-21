@@ -16,17 +16,19 @@ part 'non_fungible_resources_collection.g.dart';
 /// Properties:
 /// * [totalCount] - Total number of items in underlying collection, fragment of which is available in `items` collection.
 /// * [nextCursor] - If specified, contains a cursor to query next page of the `items` collection.
-/// * [items] 
+/// * [items]
 @BuiltValue(instantiable: false)
 abstract class NonFungibleResourcesCollection implements ResultSetCursorMixin {
   @BuiltValueField(wireName: r'items')
   BuiltList<NonFungibleResourcesCollectionItem> get items;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<NonFungibleResourcesCollection> get serializer => _$NonFungibleResourcesCollectionSerializer();
+  static Serializer<NonFungibleResourcesCollection> get serializer =>
+      _$NonFungibleResourcesCollectionSerializer();
 }
 
-class _$NonFungibleResourcesCollectionSerializer implements PrimitiveSerializer<NonFungibleResourcesCollection> {
+class _$NonFungibleResourcesCollectionSerializer
+    implements PrimitiveSerializer<NonFungibleResourcesCollection> {
   @override
   final Iterable<Type> types = const [NonFungibleResourcesCollection];
 
@@ -55,7 +57,8 @@ class _$NonFungibleResourcesCollectionSerializer implements PrimitiveSerializer<
     yield r'items';
     yield serializers.serialize(
       object.items,
-      specifiedType: const FullType(BuiltList, [FullType(NonFungibleResourcesCollectionItem)]),
+      specifiedType: const FullType(
+          BuiltList, [FullType(NonFungibleResourcesCollectionItem)]),
     );
   }
 
@@ -65,7 +68,9 @@ class _$NonFungibleResourcesCollectionSerializer implements PrimitiveSerializer<
     NonFungibleResourcesCollection object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   @override
@@ -74,27 +79,40 @@ class _$NonFungibleResourcesCollectionSerializer implements PrimitiveSerializer<
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return serializers.deserialize(serialized, specifiedType: FullType($NonFungibleResourcesCollection)) as $NonFungibleResourcesCollection;
+    return serializers.deserialize(serialized,
+            specifiedType: FullType($NonFungibleResourcesCollection))
+        as $NonFungibleResourcesCollection;
   }
 }
 
 /// a concrete implementation of [NonFungibleResourcesCollection], since [NonFungibleResourcesCollection] is not instantiable
 @BuiltValue(instantiable: true)
-abstract class $NonFungibleResourcesCollection implements NonFungibleResourcesCollection, Built<$NonFungibleResourcesCollection, $NonFungibleResourcesCollectionBuilder> {
+abstract class $NonFungibleResourcesCollection
+    implements
+        NonFungibleResourcesCollection,
+        Built<$NonFungibleResourcesCollection,
+            $NonFungibleResourcesCollectionBuilder> {
   $NonFungibleResourcesCollection._();
 
-  factory $NonFungibleResourcesCollection([void Function($NonFungibleResourcesCollectionBuilder)? updates]) = _$$NonFungibleResourcesCollection;
+  factory $NonFungibleResourcesCollection(
+          [void Function($NonFungibleResourcesCollectionBuilder)? updates]) =
+      _$$NonFungibleResourcesCollection;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($NonFungibleResourcesCollectionBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<$NonFungibleResourcesCollection> get serializer => _$$NonFungibleResourcesCollectionSerializer();
+  static Serializer<$NonFungibleResourcesCollection> get serializer =>
+      _$$NonFungibleResourcesCollectionSerializer();
 }
 
-class _$$NonFungibleResourcesCollectionSerializer implements PrimitiveSerializer<$NonFungibleResourcesCollection> {
+class _$$NonFungibleResourcesCollectionSerializer
+    implements PrimitiveSerializer<$NonFungibleResourcesCollection> {
   @override
-  final Iterable<Type> types = const [$NonFungibleResourcesCollection, _$$NonFungibleResourcesCollection];
+  final Iterable<Type> types = const [
+    $NonFungibleResourcesCollection,
+    _$$NonFungibleResourcesCollection
+  ];
 
   @override
   final String wireName = r'$NonFungibleResourcesCollection';
@@ -105,7 +123,8 @@ class _$$NonFungibleResourcesCollectionSerializer implements PrimitiveSerializer
     $NonFungibleResourcesCollection object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return serializers.serialize(object, specifiedType: FullType(NonFungibleResourcesCollection))!;
+    return serializers.serialize(object,
+        specifiedType: FullType(NonFungibleResourcesCollection))!;
   }
 
   void _deserializeProperties(
@@ -139,7 +158,8 @@ class _$$NonFungibleResourcesCollectionSerializer implements PrimitiveSerializer
         case r'items':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltList, [FullType(NonFungibleResourcesCollectionItem)]),
+            specifiedType: const FullType(
+                BuiltList, [FullType(NonFungibleResourcesCollectionItem)]),
           ) as BuiltList<NonFungibleResourcesCollectionItem>;
           result.items.replace(valueDes);
           break;
@@ -171,4 +191,3 @@ class _$$NonFungibleResourcesCollectionSerializer implements PrimitiveSerializer
     return result.build();
   }
 }
-

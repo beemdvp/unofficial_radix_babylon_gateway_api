@@ -10,7 +10,6 @@ import 'package:built_value/serializer.dart';
 part 'non_fungible_id_type.g.dart';
 
 class NonFungibleIdType extends EnumClass {
-
   @BuiltValueEnumConst(wireName: r'String')
   static const NonFungibleIdType string = _$string;
   @BuiltValueEnumConst(wireName: r'Integer')
@@ -20,9 +19,10 @@ class NonFungibleIdType extends EnumClass {
   @BuiltValueEnumConst(wireName: r'Ruid')
   static const NonFungibleIdType ruid = _$ruid;
 
-  static Serializer<NonFungibleIdType> get serializer => _$nonFungibleIdTypeSerializer;
+  static Serializer<NonFungibleIdType> get serializer =>
+      _$nonFungibleIdTypeSerializer;
 
-  const NonFungibleIdType._(String name): super(name);
+  const NonFungibleIdType._(String name) : super(name);
 
   static BuiltSet<NonFungibleIdType> get values => _$values;
   static NonFungibleIdType valueOf(String name) => _$valueOf(name);
@@ -35,4 +35,3 @@ class NonFungibleIdType extends EnumClass {
 ///
 /// Trigger mixin generation by writing a line like this one next to your enum.
 abstract class NonFungibleIdTypeMixin = Object with _$NonFungibleIdTypeMixin;
-

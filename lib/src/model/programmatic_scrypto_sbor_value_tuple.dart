@@ -14,29 +14,41 @@ part 'programmatic_scrypto_sbor_value_tuple.g.dart';
 /// ProgrammaticScryptoSborValueTuple
 ///
 /// Properties:
-/// * [kind] 
-/// * [typeName] - The name of the type of this value. This is only output when a schema is present and the type has a name. This property is ignored when the value is used as an input to the API. 
-/// * [fieldName] - The name of the field which hosts this value. This property is only included if this value is a child of a `Tuple` or `Enum` with named fields. This property is ignored when the value is used as an input to the API. 
-/// * [fields] 
+/// * [kind]
+/// * [typeName] - The name of the type of this value. This is only output when a schema is present and the type has a name. This property is ignored when the value is used as an input to the API.
+/// * [fieldName] - The name of the field which hosts this value. This property is only included if this value is a child of a `Tuple` or `Enum` with named fields. This property is ignored when the value is used as an input to the API.
+/// * [fields]
 @BuiltValue()
-abstract class ProgrammaticScryptoSborValueTuple implements ProgrammaticScryptoSborValue, Built<ProgrammaticScryptoSborValueTuple, ProgrammaticScryptoSborValueTupleBuilder> {
+abstract class ProgrammaticScryptoSborValueTuple
+    implements
+        ProgrammaticScryptoSborValue,
+        Built<ProgrammaticScryptoSborValueTuple,
+            ProgrammaticScryptoSborValueTupleBuilder> {
   @BuiltValueField(wireName: r'fields')
   BuiltList<ProgrammaticScryptoSborValue> get fields;
 
   ProgrammaticScryptoSborValueTuple._();
 
-  factory ProgrammaticScryptoSborValueTuple([void updates(ProgrammaticScryptoSborValueTupleBuilder b)]) = _$ProgrammaticScryptoSborValueTuple;
+  factory ProgrammaticScryptoSborValueTuple(
+          [void updates(ProgrammaticScryptoSborValueTupleBuilder b)]) =
+      _$ProgrammaticScryptoSborValueTuple;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(ProgrammaticScryptoSborValueTupleBuilder b) => b..kind=b.discriminatorValue;
+  static void _defaults(ProgrammaticScryptoSborValueTupleBuilder b) =>
+      b..kind = b.discriminatorValue as dynamic;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<ProgrammaticScryptoSborValueTuple> get serializer => _$ProgrammaticScryptoSborValueTupleSerializer();
+  static Serializer<ProgrammaticScryptoSborValueTuple> get serializer =>
+      _$ProgrammaticScryptoSborValueTupleSerializer();
 }
 
-class _$ProgrammaticScryptoSborValueTupleSerializer implements PrimitiveSerializer<ProgrammaticScryptoSborValueTuple> {
+class _$ProgrammaticScryptoSborValueTupleSerializer
+    implements PrimitiveSerializer<ProgrammaticScryptoSborValueTuple> {
   @override
-  final Iterable<Type> types = const [ProgrammaticScryptoSborValueTuple, _$ProgrammaticScryptoSborValueTuple];
+  final Iterable<Type> types = const [
+    ProgrammaticScryptoSborValueTuple,
+    _$ProgrammaticScryptoSborValueTuple
+  ];
 
   @override
   final String wireName = r'ProgrammaticScryptoSborValueTuple';
@@ -63,7 +75,8 @@ class _$ProgrammaticScryptoSborValueTupleSerializer implements PrimitiveSerializ
     yield r'fields';
     yield serializers.serialize(
       object.fields,
-      specifiedType: const FullType(BuiltList, [FullType(ProgrammaticScryptoSborValue)]),
+      specifiedType:
+          const FullType(BuiltList, [FullType(ProgrammaticScryptoSborValue)]),
     );
     yield r'kind';
     yield serializers.serialize(
@@ -78,7 +91,9 @@ class _$ProgrammaticScryptoSborValueTupleSerializer implements PrimitiveSerializ
     ProgrammaticScryptoSborValueTuple object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -112,7 +127,8 @@ class _$ProgrammaticScryptoSborValueTupleSerializer implements PrimitiveSerializ
         case r'fields':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltList, [FullType(ProgrammaticScryptoSborValue)]),
+            specifiedType: const FullType(
+                BuiltList, [FullType(ProgrammaticScryptoSborValue)]),
           ) as BuiltList<ProgrammaticScryptoSborValue>;
           result.fields.replace(valueDes);
           break;
@@ -151,4 +167,3 @@ class _$ProgrammaticScryptoSborValueTupleSerializer implements PrimitiveSerializ
     return result.build();
   }
 }
-

@@ -16,12 +16,15 @@ part 'state_entity_details_request.g.dart';
 /// StateEntityDetailsRequest
 ///
 /// Properties:
-/// * [atLedgerState] 
-/// * [optIns] 
+/// * [atLedgerState]
+/// * [optIns]
 /// * [addresses] - limited to max 100 items.
-/// * [aggregationLevel] 
+/// * [aggregationLevel]
 @BuiltValue()
-abstract class StateEntityDetailsRequest implements AtLedgerStateMixin, Built<StateEntityDetailsRequest, StateEntityDetailsRequestBuilder> {
+abstract class StateEntityDetailsRequest
+    implements
+        AtLedgerStateMixin,
+        Built<StateEntityDetailsRequest, StateEntityDetailsRequestBuilder> {
   @BuiltValueField(wireName: r'opt_ins')
   StateEntityDetailsOptIns? get optIns;
 
@@ -35,18 +38,25 @@ abstract class StateEntityDetailsRequest implements AtLedgerStateMixin, Built<St
 
   StateEntityDetailsRequest._();
 
-  factory StateEntityDetailsRequest([void updates(StateEntityDetailsRequestBuilder b)]) = _$StateEntityDetailsRequest;
+  factory StateEntityDetailsRequest(
+          [void updates(StateEntityDetailsRequestBuilder b)]) =
+      _$StateEntityDetailsRequest;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(StateEntityDetailsRequestBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<StateEntityDetailsRequest> get serializer => _$StateEntityDetailsRequestSerializer();
+  static Serializer<StateEntityDetailsRequest> get serializer =>
+      _$StateEntityDetailsRequestSerializer();
 }
 
-class _$StateEntityDetailsRequestSerializer implements PrimitiveSerializer<StateEntityDetailsRequest> {
+class _$StateEntityDetailsRequestSerializer
+    implements PrimitiveSerializer<StateEntityDetailsRequest> {
   @override
-  final Iterable<Type> types = const [StateEntityDetailsRequest, _$StateEntityDetailsRequest];
+  final Iterable<Type> types = const [
+    StateEntityDetailsRequest,
+    _$StateEntityDetailsRequest
+  ];
 
   @override
   final String wireName = r'StateEntityDetailsRequest';
@@ -90,7 +100,9 @@ class _$StateEntityDetailsRequestSerializer implements PrimitiveSerializer<State
     StateEntityDetailsRequest object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -162,4 +174,3 @@ class _$StateEntityDetailsRequestSerializer implements PrimitiveSerializer<State
     return result.build();
   }
 }
-

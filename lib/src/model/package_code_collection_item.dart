@@ -12,11 +12,13 @@ part 'package_code_collection_item.g.dart';
 /// PackageCodeCollectionItem
 ///
 /// Properties:
-/// * [vmType] 
+/// * [vmType]
 /// * [codeHashHex] - Hex-encoded binary blob.
 /// * [codeHex] - Hex-encoded binary blob.
 @BuiltValue()
-abstract class PackageCodeCollectionItem implements Built<PackageCodeCollectionItem, PackageCodeCollectionItemBuilder> {
+abstract class PackageCodeCollectionItem
+    implements
+        Built<PackageCodeCollectionItem, PackageCodeCollectionItemBuilder> {
   @BuiltValueField(wireName: r'vm_type')
   PackageVmType get vmType;
   // enum vmTypeEnum {  Native,  ScryptoV1,  };
@@ -31,18 +33,25 @@ abstract class PackageCodeCollectionItem implements Built<PackageCodeCollectionI
 
   PackageCodeCollectionItem._();
 
-  factory PackageCodeCollectionItem([void updates(PackageCodeCollectionItemBuilder b)]) = _$PackageCodeCollectionItem;
+  factory PackageCodeCollectionItem(
+          [void updates(PackageCodeCollectionItemBuilder b)]) =
+      _$PackageCodeCollectionItem;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(PackageCodeCollectionItemBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<PackageCodeCollectionItem> get serializer => _$PackageCodeCollectionItemSerializer();
+  static Serializer<PackageCodeCollectionItem> get serializer =>
+      _$PackageCodeCollectionItemSerializer();
 }
 
-class _$PackageCodeCollectionItemSerializer implements PrimitiveSerializer<PackageCodeCollectionItem> {
+class _$PackageCodeCollectionItemSerializer
+    implements PrimitiveSerializer<PackageCodeCollectionItem> {
   @override
-  final Iterable<Type> types = const [PackageCodeCollectionItem, _$PackageCodeCollectionItem];
+  final Iterable<Type> types = const [
+    PackageCodeCollectionItem,
+    _$PackageCodeCollectionItem
+  ];
 
   @override
   final String wireName = r'PackageCodeCollectionItem';
@@ -75,7 +84,9 @@ class _$PackageCodeCollectionItemSerializer implements PrimitiveSerializer<Packa
     PackageCodeCollectionItem object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -139,4 +150,3 @@ class _$PackageCodeCollectionItemSerializer implements PrimitiveSerializer<Packa
     return result.build();
   }
 }
-

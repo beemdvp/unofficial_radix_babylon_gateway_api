@@ -15,37 +15,46 @@ part 'transaction_balance_changes.g.dart';
 /// TransactionBalanceChanges
 ///
 /// Properties:
-/// * [fungibleFeeBalanceChanges] - A list of all fee-related fungible balance changes per entity and resource. 
-/// * [fungibleBalanceChanges] - A list of all non-fee-related fungible balance changes per entity and resource. 
-/// * [nonFungibleBalanceChanges] - A list of all non-fungible changes per entity and resource. 
+/// * [fungibleFeeBalanceChanges] - A list of all fee-related fungible balance changes per entity and resource.
+/// * [fungibleBalanceChanges] - A list of all non-fee-related fungible balance changes per entity and resource.
+/// * [nonFungibleBalanceChanges] - A list of all non-fungible changes per entity and resource.
 @BuiltValue()
-abstract class TransactionBalanceChanges implements Built<TransactionBalanceChanges, TransactionBalanceChangesBuilder> {
-  /// A list of all fee-related fungible balance changes per entity and resource. 
+abstract class TransactionBalanceChanges
+    implements
+        Built<TransactionBalanceChanges, TransactionBalanceChangesBuilder> {
+  /// A list of all fee-related fungible balance changes per entity and resource.
   @BuiltValueField(wireName: r'fungible_fee_balance_changes')
   BuiltList<TransactionFungibleFeeBalanceChanges> get fungibleFeeBalanceChanges;
 
-  /// A list of all non-fee-related fungible balance changes per entity and resource. 
+  /// A list of all non-fee-related fungible balance changes per entity and resource.
   @BuiltValueField(wireName: r'fungible_balance_changes')
   BuiltList<TransactionFungibleBalanceChanges> get fungibleBalanceChanges;
 
-  /// A list of all non-fungible changes per entity and resource. 
+  /// A list of all non-fungible changes per entity and resource.
   @BuiltValueField(wireName: r'non_fungible_balance_changes')
   BuiltList<TransactionNonFungibleBalanceChanges> get nonFungibleBalanceChanges;
 
   TransactionBalanceChanges._();
 
-  factory TransactionBalanceChanges([void updates(TransactionBalanceChangesBuilder b)]) = _$TransactionBalanceChanges;
+  factory TransactionBalanceChanges(
+          [void updates(TransactionBalanceChangesBuilder b)]) =
+      _$TransactionBalanceChanges;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(TransactionBalanceChangesBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<TransactionBalanceChanges> get serializer => _$TransactionBalanceChangesSerializer();
+  static Serializer<TransactionBalanceChanges> get serializer =>
+      _$TransactionBalanceChangesSerializer();
 }
 
-class _$TransactionBalanceChangesSerializer implements PrimitiveSerializer<TransactionBalanceChanges> {
+class _$TransactionBalanceChangesSerializer
+    implements PrimitiveSerializer<TransactionBalanceChanges> {
   @override
-  final Iterable<Type> types = const [TransactionBalanceChanges, _$TransactionBalanceChanges];
+  final Iterable<Type> types = const [
+    TransactionBalanceChanges,
+    _$TransactionBalanceChanges
+  ];
 
   @override
   final String wireName = r'TransactionBalanceChanges';
@@ -58,17 +67,20 @@ class _$TransactionBalanceChangesSerializer implements PrimitiveSerializer<Trans
     yield r'fungible_fee_balance_changes';
     yield serializers.serialize(
       object.fungibleFeeBalanceChanges,
-      specifiedType: const FullType(BuiltList, [FullType(TransactionFungibleFeeBalanceChanges)]),
+      specifiedType: const FullType(
+          BuiltList, [FullType(TransactionFungibleFeeBalanceChanges)]),
     );
     yield r'fungible_balance_changes';
     yield serializers.serialize(
       object.fungibleBalanceChanges,
-      specifiedType: const FullType(BuiltList, [FullType(TransactionFungibleBalanceChanges)]),
+      specifiedType: const FullType(
+          BuiltList, [FullType(TransactionFungibleBalanceChanges)]),
     );
     yield r'non_fungible_balance_changes';
     yield serializers.serialize(
       object.nonFungibleBalanceChanges,
-      specifiedType: const FullType(BuiltList, [FullType(TransactionNonFungibleBalanceChanges)]),
+      specifiedType: const FullType(
+          BuiltList, [FullType(TransactionNonFungibleBalanceChanges)]),
     );
   }
 
@@ -78,7 +90,9 @@ class _$TransactionBalanceChangesSerializer implements PrimitiveSerializer<Trans
     TransactionBalanceChanges object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -96,21 +110,24 @@ class _$TransactionBalanceChangesSerializer implements PrimitiveSerializer<Trans
         case r'fungible_fee_balance_changes':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltList, [FullType(TransactionFungibleFeeBalanceChanges)]),
+            specifiedType: const FullType(
+                BuiltList, [FullType(TransactionFungibleFeeBalanceChanges)]),
           ) as BuiltList<TransactionFungibleFeeBalanceChanges>;
           result.fungibleFeeBalanceChanges.replace(valueDes);
           break;
         case r'fungible_balance_changes':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltList, [FullType(TransactionFungibleBalanceChanges)]),
+            specifiedType: const FullType(
+                BuiltList, [FullType(TransactionFungibleBalanceChanges)]),
           ) as BuiltList<TransactionFungibleBalanceChanges>;
           result.fungibleBalanceChanges.replace(valueDes);
           break;
         case r'non_fungible_balance_changes':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltList, [FullType(TransactionNonFungibleBalanceChanges)]),
+            specifiedType: const FullType(
+                BuiltList, [FullType(TransactionNonFungibleBalanceChanges)]),
           ) as BuiltList<TransactionNonFungibleBalanceChanges>;
           result.nonFungibleBalanceChanges.replace(valueDes);
           break;
@@ -142,4 +159,3 @@ class _$TransactionBalanceChangesSerializer implements PrimitiveSerializer<Trans
     return result.build();
   }
 }
-

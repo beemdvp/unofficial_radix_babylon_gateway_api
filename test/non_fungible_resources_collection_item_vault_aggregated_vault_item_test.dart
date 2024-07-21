@@ -3,7 +3,8 @@ import 'package:unofficial_babylon_gateway_api/unofficial_babylon_gateway_api.da
 
 // tests for NonFungibleResourcesCollectionItemVaultAggregatedVaultItem
 void main() {
-  final instance = NonFungibleResourcesCollectionItemVaultAggregatedVaultItemBuilder();
+  final instance =
+      NonFungibleResourcesCollectionItemVaultAggregatedVaultItemBuilder();
   // TODO add properties to the builder and call build()
 
   group(NonFungibleResourcesCollectionItemVaultAggregatedVaultItem, () {
@@ -34,6 +35,5 @@ void main() {
     test('to test the property `lastUpdatedAtStateVersion`', () async {
       // TODO
     });
-
   });
 }

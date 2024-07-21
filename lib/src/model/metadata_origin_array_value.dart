@@ -14,27 +14,38 @@ part 'metadata_origin_array_value.g.dart';
 /// MetadataOriginArrayValue
 ///
 /// Properties:
-/// * [type] 
-/// * [values] 
+/// * [type]
+/// * [values]
 @BuiltValue()
-abstract class MetadataOriginArrayValue implements MetadataTypedValue, Built<MetadataOriginArrayValue, MetadataOriginArrayValueBuilder> {
+abstract class MetadataOriginArrayValue
+    implements
+        MetadataTypedValue,
+        Built<MetadataOriginArrayValue, MetadataOriginArrayValueBuilder> {
   @BuiltValueField(wireName: r'values')
   BuiltList<String> get values;
 
   MetadataOriginArrayValue._();
 
-  factory MetadataOriginArrayValue([void updates(MetadataOriginArrayValueBuilder b)]) = _$MetadataOriginArrayValue;
+  factory MetadataOriginArrayValue(
+          [void updates(MetadataOriginArrayValueBuilder b)]) =
+      _$MetadataOriginArrayValue;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(MetadataOriginArrayValueBuilder b) => b..type=b.discriminatorValue;
+  static void _defaults(MetadataOriginArrayValueBuilder b) =>
+      b..type = b.discriminatorValue as dynamic;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<MetadataOriginArrayValue> get serializer => _$MetadataOriginArrayValueSerializer();
+  static Serializer<MetadataOriginArrayValue> get serializer =>
+      _$MetadataOriginArrayValueSerializer();
 }
 
-class _$MetadataOriginArrayValueSerializer implements PrimitiveSerializer<MetadataOriginArrayValue> {
+class _$MetadataOriginArrayValueSerializer
+    implements PrimitiveSerializer<MetadataOriginArrayValue> {
   @override
-  final Iterable<Type> types = const [MetadataOriginArrayValue, _$MetadataOriginArrayValue];
+  final Iterable<Type> types = const [
+    MetadataOriginArrayValue,
+    _$MetadataOriginArrayValue
+  ];
 
   @override
   final String wireName = r'MetadataOriginArrayValue';
@@ -62,7 +73,9 @@ class _$MetadataOriginArrayValueSerializer implements PrimitiveSerializer<Metada
     MetadataOriginArrayValue object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -119,4 +132,3 @@ class _$MetadataOriginArrayValueSerializer implements PrimitiveSerializer<Metada
     return result.build();
   }
 }
-

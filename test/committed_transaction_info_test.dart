@@ -76,19 +76,19 @@ void main() {
       // TODO
     });
 
-    // A text-representation of a transaction manifest. This field will be present only for user transactions and when explicitly opted-in using `manifest_instructions` flag. 
+    // A text-representation of a transaction manifest. This field will be present only for user transactions and when explicitly opted-in using `manifest_instructions` flag.
     // String manifestInstructions
     test('to test the property `manifestInstructions`', () async {
       // TODO
     });
 
-    // A collection of zero or more manifest classes ordered from the most specific class to the least specific one. This field will be present only for user transactions. 
+    // A collection of zero or more manifest classes ordered from the most specific class to the least specific one. This field will be present only for user transactions.
     // BuiltList<ManifestClass> manifestClasses
     test('to test the property `manifestClasses`', () async {
       // TODO
     });
 
-    // The optional transaction message. This type is defined in the Core API as `TransactionMessage`. See the Core API documentation for more details. 
+    // The optional transaction message. This type is defined in the Core API as `TransactionMessage`. See the Core API documentation for more details.
     // JsonObject message
     test('to test the property `message`', () async {
       // TODO
@@ -98,6 +98,5 @@ void main() {
     test('to test the property `balanceChanges`', () async {
       // TODO
     });
-
   });
 }

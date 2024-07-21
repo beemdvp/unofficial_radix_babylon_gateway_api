@@ -13,27 +13,37 @@ part 'metadata_string_value.g.dart';
 /// MetadataStringValue
 ///
 /// Properties:
-/// * [type] 
-/// * [value] 
+/// * [type]
+/// * [value]
 @BuiltValue()
-abstract class MetadataStringValue implements MetadataTypedValue, Built<MetadataStringValue, MetadataStringValueBuilder> {
+abstract class MetadataStringValue
+    implements
+        MetadataTypedValue,
+        Built<MetadataStringValue, MetadataStringValueBuilder> {
   @BuiltValueField(wireName: r'value')
   String get value;
 
   MetadataStringValue._();
 
-  factory MetadataStringValue([void updates(MetadataStringValueBuilder b)]) = _$MetadataStringValue;
+  factory MetadataStringValue([void updates(MetadataStringValueBuilder b)]) =
+      _$MetadataStringValue;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(MetadataStringValueBuilder b) => b..type=b.discriminatorValue;
+  static void _defaults(MetadataStringValueBuilder b) =>
+      b..type = b.discriminatorValue as dynamic;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<MetadataStringValue> get serializer => _$MetadataStringValueSerializer();
+  static Serializer<MetadataStringValue> get serializer =>
+      _$MetadataStringValueSerializer();
 }
 
-class _$MetadataStringValueSerializer implements PrimitiveSerializer<MetadataStringValue> {
+class _$MetadataStringValueSerializer
+    implements PrimitiveSerializer<MetadataStringValue> {
   @override
-  final Iterable<Type> types = const [MetadataStringValue, _$MetadataStringValue];
+  final Iterable<Type> types = const [
+    MetadataStringValue,
+    _$MetadataStringValue
+  ];
 
   @override
   final String wireName = r'MetadataStringValue';
@@ -61,7 +71,9 @@ class _$MetadataStringValueSerializer implements PrimitiveSerializer<MetadataStr
     MetadataStringValue object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -118,4 +130,3 @@ class _$MetadataStringValueSerializer implements PrimitiveSerializer<MetadataStr
     return result.build();
   }
 }
-

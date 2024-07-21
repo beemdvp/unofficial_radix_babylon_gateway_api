@@ -14,21 +14,32 @@ part 'invalid_transaction_error.g.dart';
 /// Properties:
 /// * [type] - The type of error. Each subtype may have its own additional structured fields.
 @BuiltValue()
-abstract class InvalidTransactionError implements GatewayError, Built<InvalidTransactionError, InvalidTransactionErrorBuilder> {
+abstract class InvalidTransactionError
+    implements
+        GatewayError,
+        Built<InvalidTransactionError, InvalidTransactionErrorBuilder> {
   InvalidTransactionError._();
 
-  factory InvalidTransactionError([void updates(InvalidTransactionErrorBuilder b)]) = _$InvalidTransactionError;
+  factory InvalidTransactionError(
+          [void updates(InvalidTransactionErrorBuilder b)]) =
+      _$InvalidTransactionError;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(InvalidTransactionErrorBuilder b) => b..type=b.discriminatorValue;
+  static void _defaults(InvalidTransactionErrorBuilder b) =>
+      b..type = b.discriminatorValue;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<InvalidTransactionError> get serializer => _$InvalidTransactionErrorSerializer();
+  static Serializer<InvalidTransactionError> get serializer =>
+      _$InvalidTransactionErrorSerializer();
 }
 
-class _$InvalidTransactionErrorSerializer implements PrimitiveSerializer<InvalidTransactionError> {
+class _$InvalidTransactionErrorSerializer
+    implements PrimitiveSerializer<InvalidTransactionError> {
   @override
-  final Iterable<Type> types = const [InvalidTransactionError, _$InvalidTransactionError];
+  final Iterable<Type> types = const [
+    InvalidTransactionError,
+    _$InvalidTransactionError
+  ];
 
   @override
   final String wireName = r'InvalidTransactionError';
@@ -51,7 +62,9 @@ class _$InvalidTransactionErrorSerializer implements PrimitiveSerializer<Invalid
     InvalidTransactionError object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -101,4 +114,3 @@ class _$InvalidTransactionErrorSerializer implements PrimitiveSerializer<Invalid
     return result.build();
   }
 }
-

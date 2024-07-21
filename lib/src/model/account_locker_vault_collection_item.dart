@@ -14,12 +14,12 @@ part 'account_locker_vault_collection_item.g.dart';
 /// AccountLockerVaultCollectionItem
 ///
 /// Properties:
-/// * [type] 
+/// * [type]
 /// * [resourceAddress] - Bech32m-encoded human readable version of the address.
 /// * [vaultAddress] - Bech32m-encoded human readable version of the address.
 /// * [lastUpdatedAtStateVersion] - The most recent state version underlying object was modified at.
 @BuiltValue(instantiable: false)
-abstract class AccountLockerVaultCollectionItem  {
+abstract class AccountLockerVaultCollectionItem {
   @BuiltValueField(wireName: r'type')
   AccountLockerVaultCollectionItemType get type;
   // enum typeEnum {  Fungible,  NonFungible,  };
@@ -44,33 +44,38 @@ abstract class AccountLockerVaultCollectionItem  {
   };
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<AccountLockerVaultCollectionItem> get serializer => _$AccountLockerVaultCollectionItemSerializer();
+  static Serializer<AccountLockerVaultCollectionItem> get serializer =>
+      _$AccountLockerVaultCollectionItemSerializer();
 }
 
-extension AccountLockerVaultCollectionItemDiscriminatorExt on AccountLockerVaultCollectionItem {
-    String? get discriminatorValue {
-        if (this is AccountLockerVaultCollectionItemFungible) {
-            return r'Fungible';
-        }
-        if (this is AccountLockerVaultCollectionItemNonFungible) {
-            return r'NonFungible';
-        }
-        return null;
+extension AccountLockerVaultCollectionItemDiscriminatorExt
+    on AccountLockerVaultCollectionItem {
+  String? get discriminatorValue {
+    if (this is AccountLockerVaultCollectionItemFungible) {
+      return r'Fungible';
     }
-}
-extension AccountLockerVaultCollectionItemBuilderDiscriminatorExt on AccountLockerVaultCollectionItemBuilder {
-    String? get discriminatorValue {
-        if (this is AccountLockerVaultCollectionItemFungibleBuilder) {
-            return r'Fungible';
-        }
-        if (this is AccountLockerVaultCollectionItemNonFungibleBuilder) {
-            return r'NonFungible';
-        }
-        return null;
+    if (this is AccountLockerVaultCollectionItemNonFungible) {
+      return r'NonFungible';
     }
+    return null;
+  }
 }
 
-class _$AccountLockerVaultCollectionItemSerializer implements PrimitiveSerializer<AccountLockerVaultCollectionItem> {
+extension AccountLockerVaultCollectionItemBuilderDiscriminatorExt
+    on AccountLockerVaultCollectionItemBuilder {
+  String? get discriminatorValue {
+    if (this is AccountLockerVaultCollectionItemFungibleBuilder) {
+      return r'Fungible';
+    }
+    if (this is AccountLockerVaultCollectionItemNonFungibleBuilder) {
+      return r'NonFungible';
+    }
+    return null;
+  }
+}
+
+class _$AccountLockerVaultCollectionItemSerializer
+    implements PrimitiveSerializer<AccountLockerVaultCollectionItem> {
   @override
   final Iterable<Type> types = const [AccountLockerVaultCollectionItem];
 
@@ -111,12 +116,17 @@ class _$AccountLockerVaultCollectionItemSerializer implements PrimitiveSerialize
     FullType specifiedType = FullType.unspecified,
   }) {
     if (object is AccountLockerVaultCollectionItemFungible) {
-      return serializers.serialize(object, specifiedType: FullType(AccountLockerVaultCollectionItemFungible))!;
+      return serializers.serialize(object,
+          specifiedType: FullType(AccountLockerVaultCollectionItemFungible))!;
     }
     if (object is AccountLockerVaultCollectionItemNonFungible) {
-      return serializers.serialize(object, specifiedType: FullType(AccountLockerVaultCollectionItemNonFungible))!;
+      return serializers.serialize(object,
+          specifiedType:
+              FullType(AccountLockerVaultCollectionItemNonFungible))!;
     }
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   @override
@@ -126,36 +136,58 @@ class _$AccountLockerVaultCollectionItemSerializer implements PrimitiveSerialize
     FullType specifiedType = FullType.unspecified,
   }) {
     final serializedList = (serialized as Iterable<Object?>).toList();
-    final discIndex = serializedList.indexOf(AccountLockerVaultCollectionItem.discriminatorFieldName) + 1;
-    final discValue = serializers.deserialize(serializedList[discIndex], specifiedType: FullType(String)) as String;
+    final discIndex = serializedList
+            .indexOf(AccountLockerVaultCollectionItem.discriminatorFieldName) +
+        1;
+    final discValue = serializers.deserialize(serializedList[discIndex],
+        specifiedType: FullType(String)) as String;
     switch (discValue) {
       case r'Fungible':
-        return serializers.deserialize(serialized, specifiedType: FullType(AccountLockerVaultCollectionItemFungible)) as AccountLockerVaultCollectionItemFungible;
+        return serializers.deserialize(serialized,
+                specifiedType:
+                    FullType(AccountLockerVaultCollectionItemFungible))
+            as AccountLockerVaultCollectionItemFungible;
       case r'NonFungible':
-        return serializers.deserialize(serialized, specifiedType: FullType(AccountLockerVaultCollectionItemNonFungible)) as AccountLockerVaultCollectionItemNonFungible;
+        return serializers.deserialize(serialized,
+                specifiedType:
+                    FullType(AccountLockerVaultCollectionItemNonFungible))
+            as AccountLockerVaultCollectionItemNonFungible;
       default:
-        return serializers.deserialize(serialized, specifiedType: FullType($AccountLockerVaultCollectionItem)) as $AccountLockerVaultCollectionItem;
+        return serializers.deserialize(serialized,
+                specifiedType: FullType($AccountLockerVaultCollectionItem))
+            as $AccountLockerVaultCollectionItem;
     }
   }
 }
 
 /// a concrete implementation of [AccountLockerVaultCollectionItem], since [AccountLockerVaultCollectionItem] is not instantiable
 @BuiltValue(instantiable: true)
-abstract class $AccountLockerVaultCollectionItem implements AccountLockerVaultCollectionItem, Built<$AccountLockerVaultCollectionItem, $AccountLockerVaultCollectionItemBuilder> {
+abstract class $AccountLockerVaultCollectionItem
+    implements
+        AccountLockerVaultCollectionItem,
+        Built<$AccountLockerVaultCollectionItem,
+            $AccountLockerVaultCollectionItemBuilder> {
   $AccountLockerVaultCollectionItem._();
 
-  factory $AccountLockerVaultCollectionItem([void Function($AccountLockerVaultCollectionItemBuilder)? updates]) = _$$AccountLockerVaultCollectionItem;
+  factory $AccountLockerVaultCollectionItem(
+          [void Function($AccountLockerVaultCollectionItemBuilder)? updates]) =
+      _$$AccountLockerVaultCollectionItem;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($AccountLockerVaultCollectionItemBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<$AccountLockerVaultCollectionItem> get serializer => _$$AccountLockerVaultCollectionItemSerializer();
+  static Serializer<$AccountLockerVaultCollectionItem> get serializer =>
+      _$$AccountLockerVaultCollectionItemSerializer();
 }
 
-class _$$AccountLockerVaultCollectionItemSerializer implements PrimitiveSerializer<$AccountLockerVaultCollectionItem> {
+class _$$AccountLockerVaultCollectionItemSerializer
+    implements PrimitiveSerializer<$AccountLockerVaultCollectionItem> {
   @override
-  final Iterable<Type> types = const [$AccountLockerVaultCollectionItem, _$$AccountLockerVaultCollectionItem];
+  final Iterable<Type> types = const [
+    $AccountLockerVaultCollectionItem,
+    _$$AccountLockerVaultCollectionItem
+  ];
 
   @override
   final String wireName = r'$AccountLockerVaultCollectionItem';
@@ -166,7 +198,8 @@ class _$$AccountLockerVaultCollectionItemSerializer implements PrimitiveSerializ
     $AccountLockerVaultCollectionItem object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return serializers.serialize(object, specifiedType: FullType(AccountLockerVaultCollectionItem))!;
+    return serializers.serialize(object,
+        specifiedType: FullType(AccountLockerVaultCollectionItem))!;
   }
 
   void _deserializeProperties(
@@ -237,4 +270,3 @@ class _$$AccountLockerVaultCollectionItemSerializer implements PrimitiveSerializ
     return result.build();
   }
 }
-

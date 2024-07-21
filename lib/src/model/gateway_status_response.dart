@@ -14,27 +14,36 @@ part 'gateway_status_response.g.dart';
 /// GatewayStatusResponse
 ///
 /// Properties:
-/// * [ledgerState] 
-/// * [releaseInfo] 
+/// * [ledgerState]
+/// * [releaseInfo]
 @BuiltValue()
-abstract class GatewayStatusResponse implements LedgerStateMixin, Built<GatewayStatusResponse, GatewayStatusResponseBuilder> {
+abstract class GatewayStatusResponse
+    implements
+        LedgerStateMixin,
+        Built<GatewayStatusResponse, GatewayStatusResponseBuilder> {
   @BuiltValueField(wireName: r'release_info')
   GatewayInfoResponseReleaseInfo get releaseInfo;
 
   GatewayStatusResponse._();
 
-  factory GatewayStatusResponse([void updates(GatewayStatusResponseBuilder b)]) = _$GatewayStatusResponse;
+  factory GatewayStatusResponse(
+      [void updates(GatewayStatusResponseBuilder b)]) = _$GatewayStatusResponse;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(GatewayStatusResponseBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<GatewayStatusResponse> get serializer => _$GatewayStatusResponseSerializer();
+  static Serializer<GatewayStatusResponse> get serializer =>
+      _$GatewayStatusResponseSerializer();
 }
 
-class _$GatewayStatusResponseSerializer implements PrimitiveSerializer<GatewayStatusResponse> {
+class _$GatewayStatusResponseSerializer
+    implements PrimitiveSerializer<GatewayStatusResponse> {
   @override
-  final Iterable<Type> types = const [GatewayStatusResponse, _$GatewayStatusResponse];
+  final Iterable<Type> types = const [
+    GatewayStatusResponse,
+    _$GatewayStatusResponse
+  ];
 
   @override
   final String wireName = r'GatewayStatusResponse';
@@ -62,7 +71,9 @@ class _$GatewayStatusResponseSerializer implements PrimitiveSerializer<GatewaySt
     GatewayStatusResponse object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -119,4 +130,3 @@ class _$GatewayStatusResponseSerializer implements PrimitiveSerializer<GatewaySt
     return result.build();
   }
 }
-

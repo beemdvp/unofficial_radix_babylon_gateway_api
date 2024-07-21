@@ -14,11 +14,14 @@ part 'component_entity_role_assignments.g.dart';
 /// ComponentEntityRoleAssignments
 ///
 /// Properties:
-/// * [owner] - This type is defined in the Core API as `OwnerRole`. See the Core API documentation for more details. 
-/// * [entries] 
+/// * [owner] - This type is defined in the Core API as `OwnerRole`. See the Core API documentation for more details.
+/// * [entries]
 @BuiltValue()
-abstract class ComponentEntityRoleAssignments implements Built<ComponentEntityRoleAssignments, ComponentEntityRoleAssignmentsBuilder> {
-  /// This type is defined in the Core API as `OwnerRole`. See the Core API documentation for more details. 
+abstract class ComponentEntityRoleAssignments
+    implements
+        Built<ComponentEntityRoleAssignments,
+            ComponentEntityRoleAssignmentsBuilder> {
+  /// This type is defined in the Core API as `OwnerRole`. See the Core API documentation for more details.
   @BuiltValueField(wireName: r'owner')
   JsonObject get owner;
 
@@ -27,18 +30,25 @@ abstract class ComponentEntityRoleAssignments implements Built<ComponentEntityRo
 
   ComponentEntityRoleAssignments._();
 
-  factory ComponentEntityRoleAssignments([void updates(ComponentEntityRoleAssignmentsBuilder b)]) = _$ComponentEntityRoleAssignments;
+  factory ComponentEntityRoleAssignments(
+          [void updates(ComponentEntityRoleAssignmentsBuilder b)]) =
+      _$ComponentEntityRoleAssignments;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(ComponentEntityRoleAssignmentsBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<ComponentEntityRoleAssignments> get serializer => _$ComponentEntityRoleAssignmentsSerializer();
+  static Serializer<ComponentEntityRoleAssignments> get serializer =>
+      _$ComponentEntityRoleAssignmentsSerializer();
 }
 
-class _$ComponentEntityRoleAssignmentsSerializer implements PrimitiveSerializer<ComponentEntityRoleAssignments> {
+class _$ComponentEntityRoleAssignmentsSerializer
+    implements PrimitiveSerializer<ComponentEntityRoleAssignments> {
   @override
-  final Iterable<Type> types = const [ComponentEntityRoleAssignments, _$ComponentEntityRoleAssignments];
+  final Iterable<Type> types = const [
+    ComponentEntityRoleAssignments,
+    _$ComponentEntityRoleAssignments
+  ];
 
   @override
   final String wireName = r'ComponentEntityRoleAssignments';
@@ -56,7 +66,8 @@ class _$ComponentEntityRoleAssignmentsSerializer implements PrimitiveSerializer<
     yield r'entries';
     yield serializers.serialize(
       object.entries,
-      specifiedType: const FullType(BuiltList, [FullType(ComponentEntityRoleAssignmentEntry)]),
+      specifiedType: const FullType(
+          BuiltList, [FullType(ComponentEntityRoleAssignmentEntry)]),
     );
   }
 
@@ -66,7 +77,9 @@ class _$ComponentEntityRoleAssignmentsSerializer implements PrimitiveSerializer<
     ComponentEntityRoleAssignments object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -91,7 +104,8 @@ class _$ComponentEntityRoleAssignmentsSerializer implements PrimitiveSerializer<
         case r'entries':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltList, [FullType(ComponentEntityRoleAssignmentEntry)]),
+            specifiedType: const FullType(
+                BuiltList, [FullType(ComponentEntityRoleAssignmentEntry)]),
           ) as BuiltList<ComponentEntityRoleAssignmentEntry>;
           result.entries.replace(valueDes);
           break;
@@ -123,4 +137,3 @@ class _$ComponentEntityRoleAssignmentsSerializer implements PrimitiveSerializer<
     return result.build();
   }
 }
-

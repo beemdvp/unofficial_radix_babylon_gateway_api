@@ -11,7 +11,6 @@ import 'package:unofficial_babylon_gateway_api/src/model/gateway_status_response
 import 'package:unofficial_babylon_gateway_api/src/model/network_configuration_response.dart';
 
 class StatusApi {
-
   final Dio _dio;
 
   final Serializers _serializers;
@@ -19,7 +18,7 @@ class StatusApi {
   const StatusApi(this._dio, this._serializers);
 
   /// Get Gateway Status
-  /// Returns the Gateway API version and current ledger state. 
+  /// Returns the Gateway API version and current ledger state.
   ///
   /// Parameters:
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
@@ -31,7 +30,7 @@ class StatusApi {
   ///
   /// Returns a [Future] containing a [Response] with a [GatewayStatusResponse] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<GatewayStatusResponse>> gatewayStatus({ 
+  Future<Response<GatewayStatusResponse>> gatewayStatus({
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -64,11 +63,12 @@ class StatusApi {
 
     try {
       final rawResponse = _response.data;
-      _responseData = rawResponse == null ? null : _serializers.deserialize(
-        rawResponse,
-        specifiedType: const FullType(GatewayStatusResponse),
-      ) as GatewayStatusResponse;
-
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(GatewayStatusResponse),
+            ) as GatewayStatusResponse;
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -92,7 +92,7 @@ class StatusApi {
   }
 
   /// Get Network Configuration
-  /// Returns network identifier, network name and well-known network addresses. 
+  /// Returns network identifier, network name and well-known network addresses.
   ///
   /// Parameters:
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
@@ -104,7 +104,7 @@ class StatusApi {
   ///
   /// Returns a [Future] containing a [Response] with a [NetworkConfigurationResponse] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<NetworkConfigurationResponse>> networkConfiguration({ 
+  Future<Response<NetworkConfigurationResponse>> networkConfiguration({
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -137,11 +137,12 @@ class StatusApi {
 
     try {
       final rawResponse = _response.data;
-      _responseData = rawResponse == null ? null : _serializers.deserialize(
-        rawResponse,
-        specifiedType: const FullType(NetworkConfigurationResponse),
-      ) as NetworkConfigurationResponse;
-
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(NetworkConfigurationResponse),
+            ) as NetworkConfigurationResponse;
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -163,5 +164,4 @@ class StatusApi {
       extra: _response.extra,
     );
   }
-
 }

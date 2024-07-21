@@ -180,6 +180,5 @@ void main() {
     test('to test the property `transactionTracker`', () async {
       // TODO
     });
-
   });
 }

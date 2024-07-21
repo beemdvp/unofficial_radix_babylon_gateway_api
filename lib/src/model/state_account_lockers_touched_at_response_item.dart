@@ -16,25 +16,36 @@ part 'state_account_lockers_touched_at_response_item.g.dart';
 /// * [accountAddress] - Bech32m-encoded human readable version of the address.
 /// * [lastTouchedAtStateVersion] - The most recent state version underlying object was modified at.
 @BuiltValue()
-abstract class StateAccountLockersTouchedAtResponseItem implements AccountLockerAddress, Built<StateAccountLockersTouchedAtResponseItem, StateAccountLockersTouchedAtResponseItemBuilder> {
+abstract class StateAccountLockersTouchedAtResponseItem
+    implements
+        AccountLockerAddress,
+        Built<StateAccountLockersTouchedAtResponseItem,
+            StateAccountLockersTouchedAtResponseItemBuilder> {
   /// The most recent state version underlying object was modified at.
   @BuiltValueField(wireName: r'last_touched_at_state_version')
   int get lastTouchedAtStateVersion;
 
   StateAccountLockersTouchedAtResponseItem._();
 
-  factory StateAccountLockersTouchedAtResponseItem([void updates(StateAccountLockersTouchedAtResponseItemBuilder b)]) = _$StateAccountLockersTouchedAtResponseItem;
+  factory StateAccountLockersTouchedAtResponseItem(
+          [void updates(StateAccountLockersTouchedAtResponseItemBuilder b)]) =
+      _$StateAccountLockersTouchedAtResponseItem;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(StateAccountLockersTouchedAtResponseItemBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<StateAccountLockersTouchedAtResponseItem> get serializer => _$StateAccountLockersTouchedAtResponseItemSerializer();
+  static Serializer<StateAccountLockersTouchedAtResponseItem> get serializer =>
+      _$StateAccountLockersTouchedAtResponseItemSerializer();
 }
 
-class _$StateAccountLockersTouchedAtResponseItemSerializer implements PrimitiveSerializer<StateAccountLockersTouchedAtResponseItem> {
+class _$StateAccountLockersTouchedAtResponseItemSerializer
+    implements PrimitiveSerializer<StateAccountLockersTouchedAtResponseItem> {
   @override
-  final Iterable<Type> types = const [StateAccountLockersTouchedAtResponseItem, _$StateAccountLockersTouchedAtResponseItem];
+  final Iterable<Type> types = const [
+    StateAccountLockersTouchedAtResponseItem,
+    _$StateAccountLockersTouchedAtResponseItem
+  ];
 
   @override
   final String wireName = r'StateAccountLockersTouchedAtResponseItem';
@@ -67,7 +78,9 @@ class _$StateAccountLockersTouchedAtResponseItemSerializer implements PrimitiveS
     StateAccountLockersTouchedAtResponseItem object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -131,4 +144,3 @@ class _$StateAccountLockersTouchedAtResponseItemSerializer implements PrimitiveS
     return result.build();
   }
 }
-

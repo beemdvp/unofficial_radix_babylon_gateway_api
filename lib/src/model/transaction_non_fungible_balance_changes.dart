@@ -14,10 +14,13 @@ part 'transaction_non_fungible_balance_changes.g.dart';
 /// Properties:
 /// * [entityAddress] - Bech32m-encoded human readable version of the address.
 /// * [resourceAddress] - Bech32m-encoded human readable version of the address.
-/// * [added] 
-/// * [removed] 
+/// * [added]
+/// * [removed]
 @BuiltValue()
-abstract class TransactionNonFungibleBalanceChanges implements Built<TransactionNonFungibleBalanceChanges, TransactionNonFungibleBalanceChangesBuilder> {
+abstract class TransactionNonFungibleBalanceChanges
+    implements
+        Built<TransactionNonFungibleBalanceChanges,
+            TransactionNonFungibleBalanceChangesBuilder> {
   /// Bech32m-encoded human readable version of the address.
   @BuiltValueField(wireName: r'entity_address')
   String get entityAddress;
@@ -34,18 +37,25 @@ abstract class TransactionNonFungibleBalanceChanges implements Built<Transaction
 
   TransactionNonFungibleBalanceChanges._();
 
-  factory TransactionNonFungibleBalanceChanges([void updates(TransactionNonFungibleBalanceChangesBuilder b)]) = _$TransactionNonFungibleBalanceChanges;
+  factory TransactionNonFungibleBalanceChanges(
+          [void updates(TransactionNonFungibleBalanceChangesBuilder b)]) =
+      _$TransactionNonFungibleBalanceChanges;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(TransactionNonFungibleBalanceChangesBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<TransactionNonFungibleBalanceChanges> get serializer => _$TransactionNonFungibleBalanceChangesSerializer();
+  static Serializer<TransactionNonFungibleBalanceChanges> get serializer =>
+      _$TransactionNonFungibleBalanceChangesSerializer();
 }
 
-class _$TransactionNonFungibleBalanceChangesSerializer implements PrimitiveSerializer<TransactionNonFungibleBalanceChanges> {
+class _$TransactionNonFungibleBalanceChangesSerializer
+    implements PrimitiveSerializer<TransactionNonFungibleBalanceChanges> {
   @override
-  final Iterable<Type> types = const [TransactionNonFungibleBalanceChanges, _$TransactionNonFungibleBalanceChanges];
+  final Iterable<Type> types = const [
+    TransactionNonFungibleBalanceChanges,
+    _$TransactionNonFungibleBalanceChanges
+  ];
 
   @override
   final String wireName = r'TransactionNonFungibleBalanceChanges';
@@ -83,7 +93,9 @@ class _$TransactionNonFungibleBalanceChangesSerializer implements PrimitiveSeria
     TransactionNonFungibleBalanceChanges object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -154,4 +166,3 @@ class _$TransactionNonFungibleBalanceChangesSerializer implements PrimitiveSeria
     return result.build();
   }
 }
-

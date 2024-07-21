@@ -14,30 +14,42 @@ part 'state_entity_schema_page_request.g.dart';
 /// StateEntitySchemaPageRequest
 ///
 /// Properties:
-/// * [atLedgerState] 
+/// * [atLedgerState]
 /// * [cursor] - This cursor allows forward pagination, by providing the cursor from the previous request.
 /// * [limitPerPage] - The page size requested.
 /// * [address] - Bech32m-encoded human readable version of the address.
 @BuiltValue()
-abstract class StateEntitySchemaPageRequest implements AtLedgerStateMixin, CursorLimitMixin, Built<StateEntitySchemaPageRequest, StateEntitySchemaPageRequestBuilder> {
+abstract class StateEntitySchemaPageRequest
+    implements
+        AtLedgerStateMixin,
+        CursorLimitMixin,
+        Built<StateEntitySchemaPageRequest,
+            StateEntitySchemaPageRequestBuilder> {
   /// Bech32m-encoded human readable version of the address.
   @BuiltValueField(wireName: r'address')
   String get address;
 
   StateEntitySchemaPageRequest._();
 
-  factory StateEntitySchemaPageRequest([void updates(StateEntitySchemaPageRequestBuilder b)]) = _$StateEntitySchemaPageRequest;
+  factory StateEntitySchemaPageRequest(
+          [void updates(StateEntitySchemaPageRequestBuilder b)]) =
+      _$StateEntitySchemaPageRequest;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(StateEntitySchemaPageRequestBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<StateEntitySchemaPageRequest> get serializer => _$StateEntitySchemaPageRequestSerializer();
+  static Serializer<StateEntitySchemaPageRequest> get serializer =>
+      _$StateEntitySchemaPageRequestSerializer();
 }
 
-class _$StateEntitySchemaPageRequestSerializer implements PrimitiveSerializer<StateEntitySchemaPageRequest> {
+class _$StateEntitySchemaPageRequestSerializer
+    implements PrimitiveSerializer<StateEntitySchemaPageRequest> {
   @override
-  final Iterable<Type> types = const [StateEntitySchemaPageRequest, _$StateEntitySchemaPageRequest];
+  final Iterable<Type> types = const [
+    StateEntitySchemaPageRequest,
+    _$StateEntitySchemaPageRequest
+  ];
 
   @override
   final String wireName = r'StateEntitySchemaPageRequest';
@@ -81,7 +93,9 @@ class _$StateEntitySchemaPageRequestSerializer implements PrimitiveSerializer<St
     StateEntitySchemaPageRequest object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -155,4 +169,3 @@ class _$StateEntitySchemaPageRequestSerializer implements PrimitiveSerializer<St
     return result.build();
   }
 }
-

@@ -13,14 +13,18 @@ part 'programmatic_scrypto_sbor_value_bytes.g.dart';
 /// ProgrammaticScryptoSborValueBytes
 ///
 /// Properties:
-/// * [kind] 
-/// * [typeName] - The name of the type of this value. This is only output when a schema is present and the type has a name. This property is ignored when the value is used as an input to the API. 
-/// * [fieldName] - The name of the field which hosts this value. This property is only included if this value is a child of a `Tuple` or `Enum` with named fields. This property is ignored when the value is used as an input to the API. 
-/// * [elementKind] 
-/// * [elementTypeName] 
+/// * [kind]
+/// * [typeName] - The name of the type of this value. This is only output when a schema is present and the type has a name. This property is ignored when the value is used as an input to the API.
+/// * [fieldName] - The name of the field which hosts this value. This property is only included if this value is a child of a `Tuple` or `Enum` with named fields. This property is ignored when the value is used as an input to the API.
+/// * [elementKind]
+/// * [elementTypeName]
 /// * [hex] - Hex-encoded binary blob.
 @BuiltValue()
-abstract class ProgrammaticScryptoSborValueBytes implements ProgrammaticScryptoSborValue, Built<ProgrammaticScryptoSborValueBytes, ProgrammaticScryptoSborValueBytesBuilder> {
+abstract class ProgrammaticScryptoSborValueBytes
+    implements
+        ProgrammaticScryptoSborValue,
+        Built<ProgrammaticScryptoSborValueBytes,
+            ProgrammaticScryptoSborValueBytesBuilder> {
   @BuiltValueField(wireName: r'element_kind')
   ProgrammaticScryptoSborValueKind get elementKind;
   // enum elementKindEnum {  Bool,  I8,  I16,  I32,  I64,  I128,  U8,  U16,  U32,  U64,  U128,  String,  Enum,  Array,  Bytes,  Map,  Tuple,  Reference,  Own,  Decimal,  PreciseDecimal,  NonFungibleLocalId,  };
@@ -34,18 +38,26 @@ abstract class ProgrammaticScryptoSborValueBytes implements ProgrammaticScryptoS
 
   ProgrammaticScryptoSborValueBytes._();
 
-  factory ProgrammaticScryptoSborValueBytes([void updates(ProgrammaticScryptoSborValueBytesBuilder b)]) = _$ProgrammaticScryptoSborValueBytes;
+  factory ProgrammaticScryptoSborValueBytes(
+          [void updates(ProgrammaticScryptoSborValueBytesBuilder b)]) =
+      _$ProgrammaticScryptoSborValueBytes;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(ProgrammaticScryptoSborValueBytesBuilder b) => b..kind=b.discriminatorValue;
+  static void _defaults(ProgrammaticScryptoSborValueBytesBuilder b) =>
+      b..kind = b.discriminatorValue as dynamic;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<ProgrammaticScryptoSborValueBytes> get serializer => _$ProgrammaticScryptoSborValueBytesSerializer();
+  static Serializer<ProgrammaticScryptoSborValueBytes> get serializer =>
+      _$ProgrammaticScryptoSborValueBytesSerializer();
 }
 
-class _$ProgrammaticScryptoSborValueBytesSerializer implements PrimitiveSerializer<ProgrammaticScryptoSborValueBytes> {
+class _$ProgrammaticScryptoSborValueBytesSerializer
+    implements PrimitiveSerializer<ProgrammaticScryptoSborValueBytes> {
   @override
-  final Iterable<Type> types = const [ProgrammaticScryptoSborValueBytes, _$ProgrammaticScryptoSborValueBytes];
+  final Iterable<Type> types = const [
+    ProgrammaticScryptoSborValueBytes,
+    _$ProgrammaticScryptoSborValueBytes
+  ];
 
   @override
   final String wireName = r'ProgrammaticScryptoSborValueBytes';
@@ -99,7 +111,9 @@ class _$ProgrammaticScryptoSborValueBytesSerializer implements PrimitiveSerializ
     ProgrammaticScryptoSborValueBytes object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -186,4 +200,3 @@ class _$ProgrammaticScryptoSborValueBytesSerializer implements PrimitiveSerializ
     return result.build();
   }
 }
-

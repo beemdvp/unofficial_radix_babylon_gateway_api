@@ -16,31 +16,43 @@ part 'state_entity_non_fungibles_page_response.g.dart';
 /// StateEntityNonFungiblesPageResponse
 ///
 /// Properties:
-/// * [ledgerState] 
+/// * [ledgerState]
 /// * [totalCount] - Total number of items in underlying collection, fragment of which is available in `items` collection.
 /// * [nextCursor] - If specified, contains a cursor to query next page of the `items` collection.
-/// * [items] 
+/// * [items]
 /// * [address] - Bech32m-encoded human readable version of the address.
 @BuiltValue()
-abstract class StateEntityNonFungiblesPageResponse implements LedgerStateMixin, NonFungibleResourcesCollection, Built<StateEntityNonFungiblesPageResponse, StateEntityNonFungiblesPageResponseBuilder> {
+abstract class StateEntityNonFungiblesPageResponse
+    implements
+        LedgerStateMixin,
+        NonFungibleResourcesCollection,
+        Built<StateEntityNonFungiblesPageResponse,
+            StateEntityNonFungiblesPageResponseBuilder> {
   /// Bech32m-encoded human readable version of the address.
   @BuiltValueField(wireName: r'address')
   String get address;
 
   StateEntityNonFungiblesPageResponse._();
 
-  factory StateEntityNonFungiblesPageResponse([void updates(StateEntityNonFungiblesPageResponseBuilder b)]) = _$StateEntityNonFungiblesPageResponse;
+  factory StateEntityNonFungiblesPageResponse(
+          [void updates(StateEntityNonFungiblesPageResponseBuilder b)]) =
+      _$StateEntityNonFungiblesPageResponse;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(StateEntityNonFungiblesPageResponseBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<StateEntityNonFungiblesPageResponse> get serializer => _$StateEntityNonFungiblesPageResponseSerializer();
+  static Serializer<StateEntityNonFungiblesPageResponse> get serializer =>
+      _$StateEntityNonFungiblesPageResponseSerializer();
 }
 
-class _$StateEntityNonFungiblesPageResponseSerializer implements PrimitiveSerializer<StateEntityNonFungiblesPageResponse> {
+class _$StateEntityNonFungiblesPageResponseSerializer
+    implements PrimitiveSerializer<StateEntityNonFungiblesPageResponse> {
   @override
-  final Iterable<Type> types = const [StateEntityNonFungiblesPageResponse, _$StateEntityNonFungiblesPageResponse];
+  final Iterable<Type> types = const [
+    StateEntityNonFungiblesPageResponse,
+    _$StateEntityNonFungiblesPageResponse
+  ];
 
   @override
   final String wireName = r'StateEntityNonFungiblesPageResponse';
@@ -72,7 +84,8 @@ class _$StateEntityNonFungiblesPageResponseSerializer implements PrimitiveSerial
     yield r'items';
     yield serializers.serialize(
       object.items,
-      specifiedType: const FullType(BuiltList, [FullType(NonFungibleResourcesCollectionItem)]),
+      specifiedType: const FullType(
+          BuiltList, [FullType(NonFungibleResourcesCollectionItem)]),
     );
     yield r'ledger_state';
     yield serializers.serialize(
@@ -87,7 +100,9 @@ class _$StateEntityNonFungiblesPageResponseSerializer implements PrimitiveSerial
     StateEntityNonFungiblesPageResponse object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -128,7 +143,8 @@ class _$StateEntityNonFungiblesPageResponseSerializer implements PrimitiveSerial
         case r'items':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltList, [FullType(NonFungibleResourcesCollectionItem)]),
+            specifiedType: const FullType(
+                BuiltList, [FullType(NonFungibleResourcesCollectionItem)]),
           ) as BuiltList<NonFungibleResourcesCollectionItem>;
           result.items.replace(valueDes);
           break;
@@ -167,4 +183,3 @@ class _$StateEntityNonFungiblesPageResponseSerializer implements PrimitiveSerial
     return result.build();
   }
 }
-

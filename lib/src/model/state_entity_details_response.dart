@@ -15,27 +15,37 @@ part 'state_entity_details_response.g.dart';
 /// StateEntityDetailsResponse
 ///
 /// Properties:
-/// * [ledgerState] 
-/// * [items] 
+/// * [ledgerState]
+/// * [items]
 @BuiltValue()
-abstract class StateEntityDetailsResponse implements LedgerStateMixin, Built<StateEntityDetailsResponse, StateEntityDetailsResponseBuilder> {
+abstract class StateEntityDetailsResponse
+    implements
+        LedgerStateMixin,
+        Built<StateEntityDetailsResponse, StateEntityDetailsResponseBuilder> {
   @BuiltValueField(wireName: r'items')
   BuiltList<StateEntityDetailsResponseItem> get items;
 
   StateEntityDetailsResponse._();
 
-  factory StateEntityDetailsResponse([void updates(StateEntityDetailsResponseBuilder b)]) = _$StateEntityDetailsResponse;
+  factory StateEntityDetailsResponse(
+          [void updates(StateEntityDetailsResponseBuilder b)]) =
+      _$StateEntityDetailsResponse;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(StateEntityDetailsResponseBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<StateEntityDetailsResponse> get serializer => _$StateEntityDetailsResponseSerializer();
+  static Serializer<StateEntityDetailsResponse> get serializer =>
+      _$StateEntityDetailsResponseSerializer();
 }
 
-class _$StateEntityDetailsResponseSerializer implements PrimitiveSerializer<StateEntityDetailsResponse> {
+class _$StateEntityDetailsResponseSerializer
+    implements PrimitiveSerializer<StateEntityDetailsResponse> {
   @override
-  final Iterable<Type> types = const [StateEntityDetailsResponse, _$StateEntityDetailsResponse];
+  final Iterable<Type> types = const [
+    StateEntityDetailsResponse,
+    _$StateEntityDetailsResponse
+  ];
 
   @override
   final String wireName = r'StateEntityDetailsResponse';
@@ -48,7 +58,8 @@ class _$StateEntityDetailsResponseSerializer implements PrimitiveSerializer<Stat
     yield r'items';
     yield serializers.serialize(
       object.items,
-      specifiedType: const FullType(BuiltList, [FullType(StateEntityDetailsResponseItem)]),
+      specifiedType:
+          const FullType(BuiltList, [FullType(StateEntityDetailsResponseItem)]),
     );
     yield r'ledger_state';
     yield serializers.serialize(
@@ -63,7 +74,9 @@ class _$StateEntityDetailsResponseSerializer implements PrimitiveSerializer<Stat
     StateEntityDetailsResponse object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -81,7 +94,8 @@ class _$StateEntityDetailsResponseSerializer implements PrimitiveSerializer<Stat
         case r'items':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltList, [FullType(StateEntityDetailsResponseItem)]),
+            specifiedType: const FullType(
+                BuiltList, [FullType(StateEntityDetailsResponseItem)]),
           ) as BuiltList<StateEntityDetailsResponseItem>;
           result.items.replace(valueDes);
           break;
@@ -120,4 +134,3 @@ class _$StateEntityDetailsResponseSerializer implements PrimitiveSerializer<Stat
     return result.build();
   }
 }
-

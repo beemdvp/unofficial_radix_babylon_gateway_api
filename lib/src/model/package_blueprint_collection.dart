@@ -16,17 +16,19 @@ part 'package_blueprint_collection.g.dart';
 /// Properties:
 /// * [totalCount] - Total number of items in underlying collection, fragment of which is available in `items` collection.
 /// * [nextCursor] - If specified, contains a cursor to query next page of the `items` collection.
-/// * [items] 
+/// * [items]
 @BuiltValue(instantiable: false)
 abstract class PackageBlueprintCollection implements ResultSetCursorMixin {
   @BuiltValueField(wireName: r'items')
   BuiltList<PackageBlueprintCollectionItem> get items;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<PackageBlueprintCollection> get serializer => _$PackageBlueprintCollectionSerializer();
+  static Serializer<PackageBlueprintCollection> get serializer =>
+      _$PackageBlueprintCollectionSerializer();
 }
 
-class _$PackageBlueprintCollectionSerializer implements PrimitiveSerializer<PackageBlueprintCollection> {
+class _$PackageBlueprintCollectionSerializer
+    implements PrimitiveSerializer<PackageBlueprintCollection> {
   @override
   final Iterable<Type> types = const [PackageBlueprintCollection];
 
@@ -55,7 +57,8 @@ class _$PackageBlueprintCollectionSerializer implements PrimitiveSerializer<Pack
     yield r'items';
     yield serializers.serialize(
       object.items,
-      specifiedType: const FullType(BuiltList, [FullType(PackageBlueprintCollectionItem)]),
+      specifiedType:
+          const FullType(BuiltList, [FullType(PackageBlueprintCollectionItem)]),
     );
   }
 
@@ -65,7 +68,9 @@ class _$PackageBlueprintCollectionSerializer implements PrimitiveSerializer<Pack
     PackageBlueprintCollection object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   @override
@@ -74,27 +79,39 @@ class _$PackageBlueprintCollectionSerializer implements PrimitiveSerializer<Pack
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return serializers.deserialize(serialized, specifiedType: FullType($PackageBlueprintCollection)) as $PackageBlueprintCollection;
+    return serializers.deserialize(serialized,
+            specifiedType: FullType($PackageBlueprintCollection))
+        as $PackageBlueprintCollection;
   }
 }
 
 /// a concrete implementation of [PackageBlueprintCollection], since [PackageBlueprintCollection] is not instantiable
 @BuiltValue(instantiable: true)
-abstract class $PackageBlueprintCollection implements PackageBlueprintCollection, Built<$PackageBlueprintCollection, $PackageBlueprintCollectionBuilder> {
+abstract class $PackageBlueprintCollection
+    implements
+        PackageBlueprintCollection,
+        Built<$PackageBlueprintCollection, $PackageBlueprintCollectionBuilder> {
   $PackageBlueprintCollection._();
 
-  factory $PackageBlueprintCollection([void Function($PackageBlueprintCollectionBuilder)? updates]) = _$$PackageBlueprintCollection;
+  factory $PackageBlueprintCollection(
+          [void Function($PackageBlueprintCollectionBuilder)? updates]) =
+      _$$PackageBlueprintCollection;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($PackageBlueprintCollectionBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<$PackageBlueprintCollection> get serializer => _$$PackageBlueprintCollectionSerializer();
+  static Serializer<$PackageBlueprintCollection> get serializer =>
+      _$$PackageBlueprintCollectionSerializer();
 }
 
-class _$$PackageBlueprintCollectionSerializer implements PrimitiveSerializer<$PackageBlueprintCollection> {
+class _$$PackageBlueprintCollectionSerializer
+    implements PrimitiveSerializer<$PackageBlueprintCollection> {
   @override
-  final Iterable<Type> types = const [$PackageBlueprintCollection, _$$PackageBlueprintCollection];
+  final Iterable<Type> types = const [
+    $PackageBlueprintCollection,
+    _$$PackageBlueprintCollection
+  ];
 
   @override
   final String wireName = r'$PackageBlueprintCollection';
@@ -105,7 +122,8 @@ class _$$PackageBlueprintCollectionSerializer implements PrimitiveSerializer<$Pa
     $PackageBlueprintCollection object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return serializers.serialize(object, specifiedType: FullType(PackageBlueprintCollection))!;
+    return serializers.serialize(object,
+        specifiedType: FullType(PackageBlueprintCollection))!;
   }
 
   void _deserializeProperties(
@@ -139,7 +157,8 @@ class _$$PackageBlueprintCollectionSerializer implements PrimitiveSerializer<$Pa
         case r'items':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltList, [FullType(PackageBlueprintCollectionItem)]),
+            specifiedType: const FullType(
+                BuiltList, [FullType(PackageBlueprintCollectionItem)]),
           ) as BuiltList<PackageBlueprintCollectionItem>;
           result.items.replace(valueDes);
           break;
@@ -171,4 +190,3 @@ class _$$PackageBlueprintCollectionSerializer implements PrimitiveSerializer<$Pa
     return result.build();
   }
 }
-

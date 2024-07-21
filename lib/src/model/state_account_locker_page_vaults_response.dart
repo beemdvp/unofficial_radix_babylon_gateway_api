@@ -17,28 +17,41 @@ part 'state_account_locker_page_vaults_response.g.dart';
 /// StateAccountLockerPageVaultsResponse
 ///
 /// Properties:
-/// * [ledgerState] 
+/// * [ledgerState]
 /// * [totalCount] - Total number of items in underlying collection, fragment of which is available in `items` collection.
 /// * [nextCursor] - If specified, contains a cursor to query next page of the `items` collection.
-/// * [items] 
+/// * [items]
 /// * [lockerAddress] - Bech32m-encoded human readable version of the address.
 /// * [accountAddress] - Bech32m-encoded human readable version of the address.
 @BuiltValue()
-abstract class StateAccountLockerPageVaultsResponse implements AccountLockerAddress, AccountLockerVaultCollection, LedgerStateMixin, Built<StateAccountLockerPageVaultsResponse, StateAccountLockerPageVaultsResponseBuilder> {
+abstract class StateAccountLockerPageVaultsResponse
+    implements
+        AccountLockerAddress,
+        AccountLockerVaultCollection,
+        LedgerStateMixin,
+        Built<StateAccountLockerPageVaultsResponse,
+            StateAccountLockerPageVaultsResponseBuilder> {
   StateAccountLockerPageVaultsResponse._();
 
-  factory StateAccountLockerPageVaultsResponse([void updates(StateAccountLockerPageVaultsResponseBuilder b)]) = _$StateAccountLockerPageVaultsResponse;
+  factory StateAccountLockerPageVaultsResponse(
+          [void updates(StateAccountLockerPageVaultsResponseBuilder b)]) =
+      _$StateAccountLockerPageVaultsResponse;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(StateAccountLockerPageVaultsResponseBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<StateAccountLockerPageVaultsResponse> get serializer => _$StateAccountLockerPageVaultsResponseSerializer();
+  static Serializer<StateAccountLockerPageVaultsResponse> get serializer =>
+      _$StateAccountLockerPageVaultsResponseSerializer();
 }
 
-class _$StateAccountLockerPageVaultsResponseSerializer implements PrimitiveSerializer<StateAccountLockerPageVaultsResponse> {
+class _$StateAccountLockerPageVaultsResponseSerializer
+    implements PrimitiveSerializer<StateAccountLockerPageVaultsResponse> {
   @override
-  final Iterable<Type> types = const [StateAccountLockerPageVaultsResponse, _$StateAccountLockerPageVaultsResponse];
+  final Iterable<Type> types = const [
+    StateAccountLockerPageVaultsResponse,
+    _$StateAccountLockerPageVaultsResponse
+  ];
 
   @override
   final String wireName = r'StateAccountLockerPageVaultsResponse';
@@ -75,7 +88,8 @@ class _$StateAccountLockerPageVaultsResponseSerializer implements PrimitiveSeria
     yield r'items';
     yield serializers.serialize(
       object.items,
-      specifiedType: const FullType(BuiltList, [FullType(AccountLockerVaultCollectionItem)]),
+      specifiedType: const FullType(
+          BuiltList, [FullType(AccountLockerVaultCollectionItem)]),
     );
     yield r'ledger_state';
     yield serializers.serialize(
@@ -90,7 +104,9 @@ class _$StateAccountLockerPageVaultsResponseSerializer implements PrimitiveSeria
     StateAccountLockerPageVaultsResponse object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -138,7 +154,8 @@ class _$StateAccountLockerPageVaultsResponseSerializer implements PrimitiveSeria
         case r'items':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltList, [FullType(AccountLockerVaultCollectionItem)]),
+            specifiedType: const FullType(
+                BuiltList, [FullType(AccountLockerVaultCollectionItem)]),
           ) as BuiltList<AccountLockerVaultCollectionItem>;
           result.items.replace(valueDes);
           break;
@@ -177,4 +194,3 @@ class _$StateAccountLockerPageVaultsResponseSerializer implements PrimitiveSeria
     return result.build();
   }
 }
-

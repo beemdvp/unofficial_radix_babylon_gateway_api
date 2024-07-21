@@ -12,8 +12,8 @@ part 'role_key.g.dart';
 /// RoleKey
 ///
 /// Properties:
-/// * [name] 
-/// * [module] 
+/// * [name]
+/// * [module]
 @BuiltValue()
 abstract class RoleKey implements Built<RoleKey, RoleKeyBuilder> {
   @BuiltValueField(wireName: r'name')
@@ -64,7 +64,9 @@ class _$RoleKeySerializer implements PrimitiveSerializer<RoleKey> {
     RoleKey object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -121,4 +123,3 @@ class _$RoleKeySerializer implements PrimitiveSerializer<RoleKey> {
     return result.build();
   }
 }
-

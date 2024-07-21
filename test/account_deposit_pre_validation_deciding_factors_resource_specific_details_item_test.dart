@@ -3,10 +3,12 @@ import 'package:unofficial_babylon_gateway_api/unofficial_babylon_gateway_api.da
 
 // tests for AccountDepositPreValidationDecidingFactorsResourceSpecificDetailsItem
 void main() {
-  final instance = AccountDepositPreValidationDecidingFactorsResourceSpecificDetailsItemBuilder();
+  final instance =
+      AccountDepositPreValidationDecidingFactorsResourceSpecificDetailsItemBuilder();
   // TODO add properties to the builder and call build()
 
-  group(AccountDepositPreValidationDecidingFactorsResourceSpecificDetailsItem, () {
+  group(AccountDepositPreValidationDecidingFactorsResourceSpecificDetailsItem,
+      () {
     // Bech32m-encoded human readable version of the address.
     // String resourceAddress
     test('to test the property `resourceAddress`', () async {
@@ -27,6 +29,5 @@ void main() {
     test('to test the property `resourcePreferenceRule`', () async {
       // TODO
     });
-
   });
 }

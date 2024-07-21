@@ -15,10 +15,13 @@ part 'account_deposit_pre_validation_deciding_factors.g.dart';
 ///
 /// Properties:
 /// * [isBadgeAuthorizedDepositor] - Whether the input badge belongs to the account's set of authorized depositors. This field will only be present if any badge was passed in the request.
-/// * [defaultDepositRule] 
+/// * [defaultDepositRule]
 /// * [resourceSpecificDetails] - Returns deciding factors for each resource. Contains only information about resources presented in the request, not all resource preference rules for queried account.
 @BuiltValue()
-abstract class AccountDepositPreValidationDecidingFactors implements Built<AccountDepositPreValidationDecidingFactors, AccountDepositPreValidationDecidingFactorsBuilder> {
+abstract class AccountDepositPreValidationDecidingFactors
+    implements
+        Built<AccountDepositPreValidationDecidingFactors,
+            AccountDepositPreValidationDecidingFactorsBuilder> {
   /// Whether the input badge belongs to the account's set of authorized depositors. This field will only be present if any badge was passed in the request.
   @BuiltValueField(wireName: r'is_badge_authorized_depositor')
   bool? get isBadgeAuthorizedDepositor;
@@ -29,22 +32,33 @@ abstract class AccountDepositPreValidationDecidingFactors implements Built<Accou
 
   /// Returns deciding factors for each resource. Contains only information about resources presented in the request, not all resource preference rules for queried account.
   @BuiltValueField(wireName: r'resource_specific_details')
-  BuiltList<AccountDepositPreValidationDecidingFactorsResourceSpecificDetailsItem>? get resourceSpecificDetails;
+  BuiltList<
+          AccountDepositPreValidationDecidingFactorsResourceSpecificDetailsItem>?
+      get resourceSpecificDetails;
 
   AccountDepositPreValidationDecidingFactors._();
 
-  factory AccountDepositPreValidationDecidingFactors([void updates(AccountDepositPreValidationDecidingFactorsBuilder b)]) = _$AccountDepositPreValidationDecidingFactors;
+  factory AccountDepositPreValidationDecidingFactors(
+          [void updates(AccountDepositPreValidationDecidingFactorsBuilder b)]) =
+      _$AccountDepositPreValidationDecidingFactors;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(AccountDepositPreValidationDecidingFactorsBuilder b) => b;
+  static void _defaults(AccountDepositPreValidationDecidingFactorsBuilder b) =>
+      b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<AccountDepositPreValidationDecidingFactors> get serializer => _$AccountDepositPreValidationDecidingFactorsSerializer();
+  static Serializer<AccountDepositPreValidationDecidingFactors>
+      get serializer =>
+          _$AccountDepositPreValidationDecidingFactorsSerializer();
 }
 
-class _$AccountDepositPreValidationDecidingFactorsSerializer implements PrimitiveSerializer<AccountDepositPreValidationDecidingFactors> {
+class _$AccountDepositPreValidationDecidingFactorsSerializer
+    implements PrimitiveSerializer<AccountDepositPreValidationDecidingFactors> {
   @override
-  final Iterable<Type> types = const [AccountDepositPreValidationDecidingFactors, _$AccountDepositPreValidationDecidingFactors];
+  final Iterable<Type> types = const [
+    AccountDepositPreValidationDecidingFactors,
+    _$AccountDepositPreValidationDecidingFactors
+  ];
 
   @override
   final String wireName = r'AccountDepositPreValidationDecidingFactors';
@@ -70,7 +84,10 @@ class _$AccountDepositPreValidationDecidingFactorsSerializer implements Primitiv
       yield r'resource_specific_details';
       yield serializers.serialize(
         object.resourceSpecificDetails,
-        specifiedType: const FullType(BuiltList, [FullType(AccountDepositPreValidationDecidingFactorsResourceSpecificDetailsItem)]),
+        specifiedType: const FullType(BuiltList, [
+          FullType(
+              AccountDepositPreValidationDecidingFactorsResourceSpecificDetailsItem)
+        ]),
       );
     }
   }
@@ -81,7 +98,9 @@ class _$AccountDepositPreValidationDecidingFactorsSerializer implements Primitiv
     AccountDepositPreValidationDecidingFactors object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -114,8 +133,12 @@ class _$AccountDepositPreValidationDecidingFactorsSerializer implements Primitiv
         case r'resource_specific_details':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltList, [FullType(AccountDepositPreValidationDecidingFactorsResourceSpecificDetailsItem)]),
-          ) as BuiltList<AccountDepositPreValidationDecidingFactorsResourceSpecificDetailsItem>;
+            specifiedType: const FullType(BuiltList, [
+              FullType(
+                  AccountDepositPreValidationDecidingFactorsResourceSpecificDetailsItem)
+            ]),
+          ) as BuiltList<
+              AccountDepositPreValidationDecidingFactorsResourceSpecificDetailsItem>;
           result.resourceSpecificDetails.replace(valueDes);
           break;
         default:
@@ -146,4 +169,3 @@ class _$AccountDepositPreValidationDecidingFactorsSerializer implements Primitiv
     return result.build();
   }
 }
-

@@ -16,31 +16,43 @@ part 'state_entity_schema_page_response.g.dart';
 /// StateEntitySchemaPageResponse
 ///
 /// Properties:
-/// * [ledgerState] 
+/// * [ledgerState]
 /// * [totalCount] - Total number of items in underlying collection, fragment of which is available in `items` collection.
 /// * [nextCursor] - If specified, contains a cursor to query next page of the `items` collection.
-/// * [items] 
+/// * [items]
 /// * [address] - Bech32m-encoded human readable version of the address.
 @BuiltValue()
-abstract class StateEntitySchemaPageResponse implements EntitySchemaCollection, LedgerStateMixin, Built<StateEntitySchemaPageResponse, StateEntitySchemaPageResponseBuilder> {
+abstract class StateEntitySchemaPageResponse
+    implements
+        EntitySchemaCollection,
+        LedgerStateMixin,
+        Built<StateEntitySchemaPageResponse,
+            StateEntitySchemaPageResponseBuilder> {
   /// Bech32m-encoded human readable version of the address.
   @BuiltValueField(wireName: r'address')
   String get address;
 
   StateEntitySchemaPageResponse._();
 
-  factory StateEntitySchemaPageResponse([void updates(StateEntitySchemaPageResponseBuilder b)]) = _$StateEntitySchemaPageResponse;
+  factory StateEntitySchemaPageResponse(
+          [void updates(StateEntitySchemaPageResponseBuilder b)]) =
+      _$StateEntitySchemaPageResponse;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(StateEntitySchemaPageResponseBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<StateEntitySchemaPageResponse> get serializer => _$StateEntitySchemaPageResponseSerializer();
+  static Serializer<StateEntitySchemaPageResponse> get serializer =>
+      _$StateEntitySchemaPageResponseSerializer();
 }
 
-class _$StateEntitySchemaPageResponseSerializer implements PrimitiveSerializer<StateEntitySchemaPageResponse> {
+class _$StateEntitySchemaPageResponseSerializer
+    implements PrimitiveSerializer<StateEntitySchemaPageResponse> {
   @override
-  final Iterable<Type> types = const [StateEntitySchemaPageResponse, _$StateEntitySchemaPageResponse];
+  final Iterable<Type> types = const [
+    StateEntitySchemaPageResponse,
+    _$StateEntitySchemaPageResponse
+  ];
 
   @override
   final String wireName = r'StateEntitySchemaPageResponse';
@@ -72,7 +84,8 @@ class _$StateEntitySchemaPageResponseSerializer implements PrimitiveSerializer<S
     yield r'items';
     yield serializers.serialize(
       object.items,
-      specifiedType: const FullType(BuiltList, [FullType(EntitySchemaCollectionItem)]),
+      specifiedType:
+          const FullType(BuiltList, [FullType(EntitySchemaCollectionItem)]),
     );
     yield r'ledger_state';
     yield serializers.serialize(
@@ -87,7 +100,9 @@ class _$StateEntitySchemaPageResponseSerializer implements PrimitiveSerializer<S
     StateEntitySchemaPageResponse object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -128,7 +143,8 @@ class _$StateEntitySchemaPageResponseSerializer implements PrimitiveSerializer<S
         case r'items':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltList, [FullType(EntitySchemaCollectionItem)]),
+            specifiedType: const FullType(
+                BuiltList, [FullType(EntitySchemaCollectionItem)]),
           ) as BuiltList<EntitySchemaCollectionItem>;
           result.items.replace(valueDes);
           break;
@@ -167,4 +183,3 @@ class _$StateEntitySchemaPageResponseSerializer implements PrimitiveSerializer<S
     return result.build();
   }
 }
-

@@ -14,13 +14,17 @@ part 'non_fungible_resources_collection_item_globally_aggregated.g.dart';
 /// NonFungibleResourcesCollectionItemGloballyAggregated
 ///
 /// Properties:
-/// * [aggregationLevel] 
+/// * [aggregationLevel]
 /// * [resourceAddress] - Bech32m-encoded human readable version of the address.
-/// * [explicitMetadata] 
+/// * [explicitMetadata]
 /// * [amount] - The total amount of non-fungible IDs across all vaults.
 /// * [lastUpdatedAtStateVersion] - The most recent state version underlying object was modified at.
 @BuiltValue()
-abstract class NonFungibleResourcesCollectionItemGloballyAggregated implements NonFungibleResourcesCollectionItem, Built<NonFungibleResourcesCollectionItemGloballyAggregated, NonFungibleResourcesCollectionItemGloballyAggregatedBuilder> {
+abstract class NonFungibleResourcesCollectionItemGloballyAggregated
+    implements
+        NonFungibleResourcesCollectionItem,
+        Built<NonFungibleResourcesCollectionItemGloballyAggregated,
+            NonFungibleResourcesCollectionItemGloballyAggregatedBuilder> {
   /// The total amount of non-fungible IDs across all vaults.
   @BuiltValueField(wireName: r'amount')
   int get amount;
@@ -31,21 +35,38 @@ abstract class NonFungibleResourcesCollectionItemGloballyAggregated implements N
 
   NonFungibleResourcesCollectionItemGloballyAggregated._();
 
-  factory NonFungibleResourcesCollectionItemGloballyAggregated([void updates(NonFungibleResourcesCollectionItemGloballyAggregatedBuilder b)]) = _$NonFungibleResourcesCollectionItemGloballyAggregated;
+  factory NonFungibleResourcesCollectionItemGloballyAggregated(
+          [void updates(
+              NonFungibleResourcesCollectionItemGloballyAggregatedBuilder b)]) =
+      _$NonFungibleResourcesCollectionItemGloballyAggregated;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(NonFungibleResourcesCollectionItemGloballyAggregatedBuilder b) => b..aggregationLevel=b.discriminatorValue;
+  static void _defaults(
+          NonFungibleResourcesCollectionItemGloballyAggregatedBuilder b) =>
+      b
+        ..aggregationLevel = b.discriminatorValue == 'vault'
+            ? ResourceAggregationLevel.vault
+            : ResourceAggregationLevel.global;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<NonFungibleResourcesCollectionItemGloballyAggregated> get serializer => _$NonFungibleResourcesCollectionItemGloballyAggregatedSerializer();
+  static Serializer<NonFungibleResourcesCollectionItemGloballyAggregated>
+      get serializer =>
+          _$NonFungibleResourcesCollectionItemGloballyAggregatedSerializer();
 }
 
-class _$NonFungibleResourcesCollectionItemGloballyAggregatedSerializer implements PrimitiveSerializer<NonFungibleResourcesCollectionItemGloballyAggregated> {
+class _$NonFungibleResourcesCollectionItemGloballyAggregatedSerializer
+    implements
+        PrimitiveSerializer<
+            NonFungibleResourcesCollectionItemGloballyAggregated> {
   @override
-  final Iterable<Type> types = const [NonFungibleResourcesCollectionItemGloballyAggregated, _$NonFungibleResourcesCollectionItemGloballyAggregated];
+  final Iterable<Type> types = const [
+    NonFungibleResourcesCollectionItemGloballyAggregated,
+    _$NonFungibleResourcesCollectionItemGloballyAggregated
+  ];
 
   @override
-  final String wireName = r'NonFungibleResourcesCollectionItemGloballyAggregated';
+  final String wireName =
+      r'NonFungibleResourcesCollectionItemGloballyAggregated';
 
   Iterable<Object?> _serializeProperties(
     Serializers serializers,
@@ -87,7 +108,9 @@ class _$NonFungibleResourcesCollectionItemGloballyAggregatedSerializer implement
     NonFungibleResourcesCollectionItemGloballyAggregated object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -151,7 +174,8 @@ class _$NonFungibleResourcesCollectionItemGloballyAggregatedSerializer implement
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = NonFungibleResourcesCollectionItemGloballyAggregatedBuilder();
+    final result =
+        NonFungibleResourcesCollectionItemGloballyAggregatedBuilder();
     final serializedList = (serialized as Iterable<Object?>).toList();
     final unhandled = <Object?>[];
     _deserializeProperties(
@@ -165,4 +189,3 @@ class _$NonFungibleResourcesCollectionItemGloballyAggregatedSerializer implement
     return result.build();
   }
 }
-

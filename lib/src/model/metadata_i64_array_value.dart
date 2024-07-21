@@ -14,27 +14,37 @@ part 'metadata_i64_array_value.g.dart';
 /// MetadataI64ArrayValue
 ///
 /// Properties:
-/// * [type] 
-/// * [values] 
+/// * [type]
+/// * [values]
 @BuiltValue()
-abstract class MetadataI64ArrayValue implements MetadataTypedValue, Built<MetadataI64ArrayValue, MetadataI64ArrayValueBuilder> {
+abstract class MetadataI64ArrayValue
+    implements
+        MetadataTypedValue,
+        Built<MetadataI64ArrayValue, MetadataI64ArrayValueBuilder> {
   @BuiltValueField(wireName: r'values')
   BuiltList<String> get values;
 
   MetadataI64ArrayValue._();
 
-  factory MetadataI64ArrayValue([void updates(MetadataI64ArrayValueBuilder b)]) = _$MetadataI64ArrayValue;
+  factory MetadataI64ArrayValue(
+      [void updates(MetadataI64ArrayValueBuilder b)]) = _$MetadataI64ArrayValue;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(MetadataI64ArrayValueBuilder b) => b..type=b.discriminatorValue;
+  static void _defaults(MetadataI64ArrayValueBuilder b) =>
+      b..type = b.discriminatorValue as dynamic;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<MetadataI64ArrayValue> get serializer => _$MetadataI64ArrayValueSerializer();
+  static Serializer<MetadataI64ArrayValue> get serializer =>
+      _$MetadataI64ArrayValueSerializer();
 }
 
-class _$MetadataI64ArrayValueSerializer implements PrimitiveSerializer<MetadataI64ArrayValue> {
+class _$MetadataI64ArrayValueSerializer
+    implements PrimitiveSerializer<MetadataI64ArrayValue> {
   @override
-  final Iterable<Type> types = const [MetadataI64ArrayValue, _$MetadataI64ArrayValue];
+  final Iterable<Type> types = const [
+    MetadataI64ArrayValue,
+    _$MetadataI64ArrayValue
+  ];
 
   @override
   final String wireName = r'MetadataI64ArrayValue';
@@ -62,7 +72,9 @@ class _$MetadataI64ArrayValueSerializer implements PrimitiveSerializer<MetadataI
     MetadataI64ArrayValue object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -119,4 +131,3 @@ class _$MetadataI64ArrayValueSerializer implements PrimitiveSerializer<MetadataI
     return result.build();
   }
 }
-

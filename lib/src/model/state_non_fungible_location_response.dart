@@ -15,11 +15,15 @@ part 'state_non_fungible_location_response.g.dart';
 /// StateNonFungibleLocationResponse
 ///
 /// Properties:
-/// * [ledgerState] 
+/// * [ledgerState]
 /// * [resourceAddress] - Bech32m-encoded human readable version of the address.
-/// * [nonFungibleIds] 
+/// * [nonFungibleIds]
 @BuiltValue()
-abstract class StateNonFungibleLocationResponse implements LedgerStateMixin, Built<StateNonFungibleLocationResponse, StateNonFungibleLocationResponseBuilder> {
+abstract class StateNonFungibleLocationResponse
+    implements
+        LedgerStateMixin,
+        Built<StateNonFungibleLocationResponse,
+            StateNonFungibleLocationResponseBuilder> {
   /// Bech32m-encoded human readable version of the address.
   @BuiltValueField(wireName: r'resource_address')
   String get resourceAddress;
@@ -29,18 +33,25 @@ abstract class StateNonFungibleLocationResponse implements LedgerStateMixin, Bui
 
   StateNonFungibleLocationResponse._();
 
-  factory StateNonFungibleLocationResponse([void updates(StateNonFungibleLocationResponseBuilder b)]) = _$StateNonFungibleLocationResponse;
+  factory StateNonFungibleLocationResponse(
+          [void updates(StateNonFungibleLocationResponseBuilder b)]) =
+      _$StateNonFungibleLocationResponse;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(StateNonFungibleLocationResponseBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<StateNonFungibleLocationResponse> get serializer => _$StateNonFungibleLocationResponseSerializer();
+  static Serializer<StateNonFungibleLocationResponse> get serializer =>
+      _$StateNonFungibleLocationResponseSerializer();
 }
 
-class _$StateNonFungibleLocationResponseSerializer implements PrimitiveSerializer<StateNonFungibleLocationResponse> {
+class _$StateNonFungibleLocationResponseSerializer
+    implements PrimitiveSerializer<StateNonFungibleLocationResponse> {
   @override
-  final Iterable<Type> types = const [StateNonFungibleLocationResponse, _$StateNonFungibleLocationResponse];
+  final Iterable<Type> types = const [
+    StateNonFungibleLocationResponse,
+    _$StateNonFungibleLocationResponse
+  ];
 
   @override
   final String wireName = r'StateNonFungibleLocationResponse';
@@ -58,7 +69,8 @@ class _$StateNonFungibleLocationResponseSerializer implements PrimitiveSerialize
     yield r'non_fungible_ids';
     yield serializers.serialize(
       object.nonFungibleIds,
-      specifiedType: const FullType(BuiltList, [FullType(StateNonFungibleLocationResponseItem)]),
+      specifiedType: const FullType(
+          BuiltList, [FullType(StateNonFungibleLocationResponseItem)]),
     );
     yield r'ledger_state';
     yield serializers.serialize(
@@ -73,7 +85,9 @@ class _$StateNonFungibleLocationResponseSerializer implements PrimitiveSerialize
     StateNonFungibleLocationResponse object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -98,7 +112,8 @@ class _$StateNonFungibleLocationResponseSerializer implements PrimitiveSerialize
         case r'non_fungible_ids':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltList, [FullType(StateNonFungibleLocationResponseItem)]),
+            specifiedType: const FullType(
+                BuiltList, [FullType(StateNonFungibleLocationResponseItem)]),
           ) as BuiltList<StateNonFungibleLocationResponseItem>;
           result.nonFungibleIds.replace(valueDes);
           break;
@@ -137,4 +152,3 @@ class _$StateNonFungibleLocationResponseSerializer implements PrimitiveSerialize
     return result.build();
   }
 }
-

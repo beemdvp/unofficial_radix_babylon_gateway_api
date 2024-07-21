@@ -13,23 +13,34 @@ part 'transaction_construction_response.g.dart';
 /// TransactionConstructionResponse
 ///
 /// Properties:
-/// * [ledgerState] 
+/// * [ledgerState]
 @BuiltValue()
-abstract class TransactionConstructionResponse implements LedgerStateMixin, Built<TransactionConstructionResponse, TransactionConstructionResponseBuilder> {
+abstract class TransactionConstructionResponse
+    implements
+        LedgerStateMixin,
+        Built<TransactionConstructionResponse,
+            TransactionConstructionResponseBuilder> {
   TransactionConstructionResponse._();
 
-  factory TransactionConstructionResponse([void updates(TransactionConstructionResponseBuilder b)]) = _$TransactionConstructionResponse;
+  factory TransactionConstructionResponse(
+          [void updates(TransactionConstructionResponseBuilder b)]) =
+      _$TransactionConstructionResponse;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(TransactionConstructionResponseBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<TransactionConstructionResponse> get serializer => _$TransactionConstructionResponseSerializer();
+  static Serializer<TransactionConstructionResponse> get serializer =>
+      _$TransactionConstructionResponseSerializer();
 }
 
-class _$TransactionConstructionResponseSerializer implements PrimitiveSerializer<TransactionConstructionResponse> {
+class _$TransactionConstructionResponseSerializer
+    implements PrimitiveSerializer<TransactionConstructionResponse> {
   @override
-  final Iterable<Type> types = const [TransactionConstructionResponse, _$TransactionConstructionResponse];
+  final Iterable<Type> types = const [
+    TransactionConstructionResponse,
+    _$TransactionConstructionResponse
+  ];
 
   @override
   final String wireName = r'TransactionConstructionResponse';
@@ -52,7 +63,9 @@ class _$TransactionConstructionResponseSerializer implements PrimitiveSerializer
     TransactionConstructionResponse object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -102,4 +115,3 @@ class _$TransactionConstructionResponseSerializer implements PrimitiveSerializer
     return result.build();
   }
 }
-

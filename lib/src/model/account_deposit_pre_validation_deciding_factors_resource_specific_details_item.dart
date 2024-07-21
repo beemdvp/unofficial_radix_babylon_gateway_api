@@ -13,11 +13,15 @@ part 'account_deposit_pre_validation_deciding_factors_resource_specific_details_
 ///
 /// Properties:
 /// * [resourceAddress] - Bech32m-encoded human readable version of the address.
-/// * [vaultExists] 
-/// * [isXrd] 
-/// * [resourcePreferenceRule] 
+/// * [vaultExists]
+/// * [isXrd]
+/// * [resourcePreferenceRule]
 @BuiltValue()
-abstract class AccountDepositPreValidationDecidingFactorsResourceSpecificDetailsItem implements Built<AccountDepositPreValidationDecidingFactorsResourceSpecificDetailsItem, AccountDepositPreValidationDecidingFactorsResourceSpecificDetailsItemBuilder> {
+abstract class AccountDepositPreValidationDecidingFactorsResourceSpecificDetailsItem
+    implements
+        Built<
+            AccountDepositPreValidationDecidingFactorsResourceSpecificDetailsItem,
+            AccountDepositPreValidationDecidingFactorsResourceSpecificDetailsItemBuilder> {
   /// Bech32m-encoded human readable version of the address.
   @BuiltValueField(wireName: r'resource_address')
   String get resourceAddress;
@@ -34,25 +38,43 @@ abstract class AccountDepositPreValidationDecidingFactorsResourceSpecificDetails
 
   AccountDepositPreValidationDecidingFactorsResourceSpecificDetailsItem._();
 
-  factory AccountDepositPreValidationDecidingFactorsResourceSpecificDetailsItem([void updates(AccountDepositPreValidationDecidingFactorsResourceSpecificDetailsItemBuilder b)]) = _$AccountDepositPreValidationDecidingFactorsResourceSpecificDetailsItem;
+  factory AccountDepositPreValidationDecidingFactorsResourceSpecificDetailsItem(
+          [void updates(
+              AccountDepositPreValidationDecidingFactorsResourceSpecificDetailsItemBuilder
+                  b)]) =
+      _$AccountDepositPreValidationDecidingFactorsResourceSpecificDetailsItem;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(AccountDepositPreValidationDecidingFactorsResourceSpecificDetailsItemBuilder b) => b;
+  static void _defaults(
+          AccountDepositPreValidationDecidingFactorsResourceSpecificDetailsItemBuilder
+              b) =>
+      b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<AccountDepositPreValidationDecidingFactorsResourceSpecificDetailsItem> get serializer => _$AccountDepositPreValidationDecidingFactorsResourceSpecificDetailsItemSerializer();
+  static Serializer<
+          AccountDepositPreValidationDecidingFactorsResourceSpecificDetailsItem>
+      get serializer =>
+          _$AccountDepositPreValidationDecidingFactorsResourceSpecificDetailsItemSerializer();
 }
 
-class _$AccountDepositPreValidationDecidingFactorsResourceSpecificDetailsItemSerializer implements PrimitiveSerializer<AccountDepositPreValidationDecidingFactorsResourceSpecificDetailsItem> {
+class _$AccountDepositPreValidationDecidingFactorsResourceSpecificDetailsItemSerializer
+    implements
+        PrimitiveSerializer<
+            AccountDepositPreValidationDecidingFactorsResourceSpecificDetailsItem> {
   @override
-  final Iterable<Type> types = const [AccountDepositPreValidationDecidingFactorsResourceSpecificDetailsItem, _$AccountDepositPreValidationDecidingFactorsResourceSpecificDetailsItem];
+  final Iterable<Type> types = const [
+    AccountDepositPreValidationDecidingFactorsResourceSpecificDetailsItem,
+    _$AccountDepositPreValidationDecidingFactorsResourceSpecificDetailsItem
+  ];
 
   @override
-  final String wireName = r'AccountDepositPreValidationDecidingFactorsResourceSpecificDetailsItem';
+  final String wireName =
+      r'AccountDepositPreValidationDecidingFactorsResourceSpecificDetailsItem';
 
   Iterable<Object?> _serializeProperties(
     Serializers serializers,
-    AccountDepositPreValidationDecidingFactorsResourceSpecificDetailsItem object, {
+    AccountDepositPreValidationDecidingFactorsResourceSpecificDetailsItem
+        object, {
     FullType specifiedType = FullType.unspecified,
   }) sync* {
     yield r'resource_address';
@@ -82,10 +104,13 @@ class _$AccountDepositPreValidationDecidingFactorsResourceSpecificDetailsItemSer
   @override
   Object serialize(
     Serializers serializers,
-    AccountDepositPreValidationDecidingFactorsResourceSpecificDetailsItem object, {
+    AccountDepositPreValidationDecidingFactorsResourceSpecificDetailsItem
+        object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -93,7 +118,8 @@ class _$AccountDepositPreValidationDecidingFactorsResourceSpecificDetailsItemSer
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
     required List<Object?> serializedList,
-    required AccountDepositPreValidationDecidingFactorsResourceSpecificDetailsItemBuilder result,
+    required AccountDepositPreValidationDecidingFactorsResourceSpecificDetailsItemBuilder
+        result,
     required List<Object?> unhandled,
   }) {
     for (var i = 0; i < serializedList.length; i += 2) {
@@ -137,12 +163,14 @@ class _$AccountDepositPreValidationDecidingFactorsResourceSpecificDetailsItemSer
   }
 
   @override
-  AccountDepositPreValidationDecidingFactorsResourceSpecificDetailsItem deserialize(
+  AccountDepositPreValidationDecidingFactorsResourceSpecificDetailsItem
+      deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = AccountDepositPreValidationDecidingFactorsResourceSpecificDetailsItemBuilder();
+    final result =
+        AccountDepositPreValidationDecidingFactorsResourceSpecificDetailsItemBuilder();
     final serializedList = (serialized as Iterable<Object?>).toList();
     final unhandled = <Object?>[];
     _deserializeProperties(
@@ -156,4 +184,3 @@ class _$AccountDepositPreValidationDecidingFactorsResourceSpecificDetailsItemSer
     return result.build();
   }
 }
-

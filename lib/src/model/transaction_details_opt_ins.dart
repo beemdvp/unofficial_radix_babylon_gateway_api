@@ -21,9 +21,11 @@ part 'transaction_details_opt_ins.g.dart';
 /// * [receiptOutput] - (true by default) if set to `true`, transaction receipt output is returned.
 /// * [affectedGlobalEntities] - if set to `true`, all affected global entities by given transaction are returned.
 /// * [manifestInstructions] - if set to `true`, manifest instructions for user transactions are returned.
-/// * [balanceChanges] - if set to `true`, returns the fungible and non-fungible balance changes.  **Warning!** This opt-in might be missing for recently committed transactions, in that case a `null` value will be returned. Retry the request until non-null value is returned. 
+/// * [balanceChanges] - if set to `true`, returns the fungible and non-fungible balance changes.  **Warning!** This opt-in might be missing for recently committed transactions, in that case a `null` value will be returned. Retry the request until non-null value is returned.
 @BuiltValue()
-abstract class TransactionDetailsOptIns implements Built<TransactionDetailsOptIns, TransactionDetailsOptInsBuilder> {
+abstract class TransactionDetailsOptIns
+    implements
+        Built<TransactionDetailsOptIns, TransactionDetailsOptInsBuilder> {
   /// if set to `true`, raw transaction hex is returned.
   @BuiltValueField(wireName: r'raw_hex')
   bool? get rawHex;
@@ -64,35 +66,42 @@ abstract class TransactionDetailsOptIns implements Built<TransactionDetailsOptIn
   @BuiltValueField(wireName: r'manifest_instructions')
   bool? get manifestInstructions;
 
-  /// if set to `true`, returns the fungible and non-fungible balance changes.  **Warning!** This opt-in might be missing for recently committed transactions, in that case a `null` value will be returned. Retry the request until non-null value is returned. 
+  /// if set to `true`, returns the fungible and non-fungible balance changes.  **Warning!** This opt-in might be missing for recently committed transactions, in that case a `null` value will be returned. Retry the request until non-null value is returned.
   @BuiltValueField(wireName: r'balance_changes')
   bool? get balanceChanges;
 
   TransactionDetailsOptIns._();
 
-  factory TransactionDetailsOptIns([void updates(TransactionDetailsOptInsBuilder b)]) = _$TransactionDetailsOptIns;
+  factory TransactionDetailsOptIns(
+          [void updates(TransactionDetailsOptInsBuilder b)]) =
+      _$TransactionDetailsOptIns;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(TransactionDetailsOptInsBuilder b) => b
-      ..rawHex = false
-      ..receiptStateChanges = false
-      ..receiptFeeSummary = false
-      ..receiptFeeSource = false
-      ..receiptFeeDestination = false
-      ..receiptCostingParameters = false
-      ..receiptEvents = false
-      ..receiptOutput = true
-      ..affectedGlobalEntities = false
-      ..manifestInstructions = false
-      ..balanceChanges = false;
+    ..rawHex = false
+    ..receiptStateChanges = false
+    ..receiptFeeSummary = false
+    ..receiptFeeSource = false
+    ..receiptFeeDestination = false
+    ..receiptCostingParameters = false
+    ..receiptEvents = false
+    ..receiptOutput = true
+    ..affectedGlobalEntities = false
+    ..manifestInstructions = false
+    ..balanceChanges = false;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<TransactionDetailsOptIns> get serializer => _$TransactionDetailsOptInsSerializer();
+  static Serializer<TransactionDetailsOptIns> get serializer =>
+      _$TransactionDetailsOptInsSerializer();
 }
 
-class _$TransactionDetailsOptInsSerializer implements PrimitiveSerializer<TransactionDetailsOptIns> {
+class _$TransactionDetailsOptInsSerializer
+    implements PrimitiveSerializer<TransactionDetailsOptIns> {
   @override
-  final Iterable<Type> types = const [TransactionDetailsOptIns, _$TransactionDetailsOptIns];
+  final Iterable<Type> types = const [
+    TransactionDetailsOptIns,
+    _$TransactionDetailsOptIns
+  ];
 
   @override
   final String wireName = r'TransactionDetailsOptIns';
@@ -187,7 +196,9 @@ class _$TransactionDetailsOptInsSerializer implements PrimitiveSerializer<Transa
     TransactionDetailsOptIns object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -307,4 +318,3 @@ class _$TransactionDetailsOptInsSerializer implements PrimitiveSerializer<Transa
     return result.build();
   }
 }
-

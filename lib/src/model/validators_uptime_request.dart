@@ -12,31 +12,42 @@ import 'package:built_value/serializer.dart';
 
 part 'validators_uptime_request.g.dart';
 
-/// For `at_ledger_state` and `from_ledger_state` you can use one of `state_version`, `epoch`, `epoch` and `round`, or `timestamp`, but then ongoing epoch will be selected and used for querying data. i.e for request with `{ \"from_state_version\" = { \"state_version\" = 100 }, \"at_state_version\" = { \"state_version\" = 300} }` gateway api will check in which epoch transactions with state version 100 and 300 were and then use that as inclusive boundary for request. 
+/// For `at_ledger_state` and `from_ledger_state` you can use one of `state_version`, `epoch`, `epoch` and `round`, or `timestamp`, but then ongoing epoch will be selected and used for querying data. i.e for request with `{ \"from_state_version\" = { \"state_version\" = 100 }, \"at_state_version\" = { \"state_version\" = 300} }` gateway api will check in which epoch transactions with state version 100 and 300 were and then use that as inclusive boundary for request.
 ///
 /// Properties:
-/// * [atLedgerState] 
-/// * [fromLedgerState] 
-/// * [validatorAddresses] 
+/// * [atLedgerState]
+/// * [fromLedgerState]
+/// * [validatorAddresses]
 @BuiltValue()
-abstract class ValidatorsUptimeRequest implements AtLedgerStateMixin, FromLedgerStateMixin, Built<ValidatorsUptimeRequest, ValidatorsUptimeRequestBuilder> {
+abstract class ValidatorsUptimeRequest
+    implements
+        AtLedgerStateMixin,
+        FromLedgerStateMixin,
+        Built<ValidatorsUptimeRequest, ValidatorsUptimeRequestBuilder> {
   @BuiltValueField(wireName: r'validator_addresses')
   BuiltList<String>? get validatorAddresses;
 
   ValidatorsUptimeRequest._();
 
-  factory ValidatorsUptimeRequest([void updates(ValidatorsUptimeRequestBuilder b)]) = _$ValidatorsUptimeRequest;
+  factory ValidatorsUptimeRequest(
+          [void updates(ValidatorsUptimeRequestBuilder b)]) =
+      _$ValidatorsUptimeRequest;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(ValidatorsUptimeRequestBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<ValidatorsUptimeRequest> get serializer => _$ValidatorsUptimeRequestSerializer();
+  static Serializer<ValidatorsUptimeRequest> get serializer =>
+      _$ValidatorsUptimeRequestSerializer();
 }
 
-class _$ValidatorsUptimeRequestSerializer implements PrimitiveSerializer<ValidatorsUptimeRequest> {
+class _$ValidatorsUptimeRequestSerializer
+    implements PrimitiveSerializer<ValidatorsUptimeRequest> {
   @override
-  final Iterable<Type> types = const [ValidatorsUptimeRequest, _$ValidatorsUptimeRequest];
+  final Iterable<Type> types = const [
+    ValidatorsUptimeRequest,
+    _$ValidatorsUptimeRequest
+  ];
 
   @override
   final String wireName = r'ValidatorsUptimeRequest';
@@ -75,7 +86,9 @@ class _$ValidatorsUptimeRequestSerializer implements PrimitiveSerializer<Validat
     ValidatorsUptimeRequest object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -141,4 +154,3 @@ class _$ValidatorsUptimeRequestSerializer implements PrimitiveSerializer<Validat
     return result.build();
   }
 }
-

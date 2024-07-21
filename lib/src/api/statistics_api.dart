@@ -12,7 +12,6 @@ import 'package:unofficial_babylon_gateway_api/src/model/validators_uptime_reque
 import 'package:unofficial_babylon_gateway_api/src/model/validators_uptime_response.dart';
 
 class StatisticsApi {
-
   final Dio _dio;
 
   final Serializers _serializers;
@@ -20,10 +19,10 @@ class StatisticsApi {
   const StatisticsApi(this._dio, this._serializers);
 
   /// Get Validators Uptime
-  /// Returns validators uptime data for time range limited by &#x60;from_state_version&#x60; and &#x60;at_state_version&#x60;. 
+  /// Returns validators uptime data for time range limited by &#x60;from_state_version&#x60; and &#x60;at_state_version&#x60;.
   ///
   /// Parameters:
-  /// * [validatorsUptimeRequest] 
+  /// * [validatorsUptimeRequest]
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -33,7 +32,7 @@ class StatisticsApi {
   ///
   /// Returns a [Future] containing a [Response] with a [ValidatorsUptimeResponse] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<ValidatorsUptimeResponse>> validatorsUptime({ 
+  Future<Response<ValidatorsUptimeResponse>> validatorsUptime({
     required ValidatorsUptimeRequest validatorsUptimeRequest,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -60,11 +59,11 @@ class StatisticsApi {
 
     try {
       const _type = FullType(ValidatorsUptimeRequest);
-      _bodyData = _serializers.serialize(validatorsUptimeRequest, specifiedType: _type);
-
-    } catch(error, stackTrace) {
+      _bodyData =
+          _serializers.serialize(validatorsUptimeRequest, specifiedType: _type);
+    } catch (error, stackTrace) {
       throw DioException(
-         requestOptions: _options.compose(
+        requestOptions: _options.compose(
           _dio.options,
           _path,
         ),
@@ -87,11 +86,12 @@ class StatisticsApi {
 
     try {
       final rawResponse = _response.data;
-      _responseData = rawResponse == null ? null : _serializers.deserialize(
-        rawResponse,
-        specifiedType: const FullType(ValidatorsUptimeResponse),
-      ) as ValidatorsUptimeResponse;
-
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(ValidatorsUptimeResponse),
+            ) as ValidatorsUptimeResponse;
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -113,5 +113,4 @@ class StatisticsApi {
       extra: _response.extra,
     );
   }
-
 }

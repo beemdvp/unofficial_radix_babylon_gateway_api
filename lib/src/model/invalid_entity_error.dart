@@ -15,23 +15,30 @@ part 'invalid_entity_error.g.dart';
 /// * [type] - The type of error. Each subtype may have its own additional structured fields.
 /// * [address] - Bech32m-encoded human readable version of the address.
 @BuiltValue()
-abstract class InvalidEntityError implements GatewayError, Built<InvalidEntityError, InvalidEntityErrorBuilder> {
+abstract class InvalidEntityError
+    implements
+        GatewayError,
+        Built<InvalidEntityError, InvalidEntityErrorBuilder> {
   /// Bech32m-encoded human readable version of the address.
   @BuiltValueField(wireName: r'address')
   String get address;
 
   InvalidEntityError._();
 
-  factory InvalidEntityError([void updates(InvalidEntityErrorBuilder b)]) = _$InvalidEntityError;
+  factory InvalidEntityError([void updates(InvalidEntityErrorBuilder b)]) =
+      _$InvalidEntityError;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(InvalidEntityErrorBuilder b) => b..type=b.discriminatorValue;
+  static void _defaults(InvalidEntityErrorBuilder b) =>
+      b..type = b.discriminatorValue;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<InvalidEntityError> get serializer => _$InvalidEntityErrorSerializer();
+  static Serializer<InvalidEntityError> get serializer =>
+      _$InvalidEntityErrorSerializer();
 }
 
-class _$InvalidEntityErrorSerializer implements PrimitiveSerializer<InvalidEntityError> {
+class _$InvalidEntityErrorSerializer
+    implements PrimitiveSerializer<InvalidEntityError> {
   @override
   final Iterable<Type> types = const [InvalidEntityError, _$InvalidEntityError];
 
@@ -61,7 +68,9 @@ class _$InvalidEntityErrorSerializer implements PrimitiveSerializer<InvalidEntit
     InvalidEntityError object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -118,4 +127,3 @@ class _$InvalidEntityErrorSerializer implements PrimitiveSerializer<InvalidEntit
     return result.build();
   }
 }
-
