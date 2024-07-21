@@ -34,7 +34,7 @@ abstract class ProgrammaticScryptoSborValuePreciseDecimal
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(ProgrammaticScryptoSborValuePreciseDecimalBuilder b) =>
-      b..kind = b.discriminatorValue as dynamic;
+      b..kind = ProgrammaticScryptoSborValueKind.preciseDecimal;
 
   @BuiltValueSerializer(custom: true)
   static Serializer<ProgrammaticScryptoSborValuePreciseDecimal>

@@ -31,7 +31,7 @@ abstract class MetadataU32ArrayValue
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(MetadataU32ArrayValueBuilder b) =>
-      b..type = b.discriminatorValue as dynamic;
+      b..type = MetadataValueType.u32Array;
 
   @BuiltValueSerializer(custom: true)
   static Serializer<MetadataU32ArrayValue> get serializer =>

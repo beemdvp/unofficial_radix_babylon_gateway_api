@@ -34,7 +34,7 @@ abstract class ProgrammaticScryptoSborValueU32
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(ProgrammaticScryptoSborValueU32Builder b) =>
-      b..kind = b.discriminatorValue as dynamic;
+      b..kind = ProgrammaticScryptoSborValueKind.u32;
 
   @BuiltValueSerializer(custom: true)
   static Serializer<ProgrammaticScryptoSborValueU32> get serializer =>

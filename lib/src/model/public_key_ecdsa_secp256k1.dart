@@ -32,7 +32,7 @@ abstract class PublicKeyEcdsaSecp256k1
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(PublicKeyEcdsaSecp256k1Builder b) =>
-      b..keyType = b.discriminatorValue as dynamic;
+      b..keyType = PublicKeyType.ecdsaSecp256k1;
 
   @BuiltValueSerializer(custom: true)
   static Serializer<PublicKeyEcdsaSecp256k1> get serializer =>

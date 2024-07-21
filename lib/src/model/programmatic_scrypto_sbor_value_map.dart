@@ -54,7 +54,7 @@ abstract class ProgrammaticScryptoSborValueMap
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(ProgrammaticScryptoSborValueMapBuilder b) =>
-      b..kind = b.discriminatorValue as dynamic;
+      b..kind = ProgrammaticScryptoSborValueKind.map;
 
   @BuiltValueSerializer(custom: true)
   static Serializer<ProgrammaticScryptoSborValueMap> get serializer =>

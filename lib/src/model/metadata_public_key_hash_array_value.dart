@@ -34,7 +34,7 @@ abstract class MetadataPublicKeyHashArrayValue
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(MetadataPublicKeyHashArrayValueBuilder b) =>
-      b..type = b.discriminatorValue as dynamic;
+      b..type = MetadataValueType.publicKeyHashArray;
 
   @BuiltValueSerializer(custom: true)
   static Serializer<MetadataPublicKeyHashArrayValue> get serializer =>

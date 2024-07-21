@@ -32,7 +32,7 @@ abstract class MetadataStringArrayValue
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(MetadataStringArrayValueBuilder b) =>
-      b..type = b.discriminatorValue as dynamic;
+      b..type = MetadataValueType.stringArray;
 
   @BuiltValueSerializer(custom: true)
   static Serializer<MetadataStringArrayValue> get serializer =>

@@ -30,7 +30,7 @@ abstract class MetadataU8Value
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(MetadataU8ValueBuilder b) =>
-      b..type = b.discriminatorValue as dynamic;
+      b..type = MetadataValueType.u8;
 
   @BuiltValueSerializer(custom: true)
   static Serializer<MetadataU8Value> get serializer =>

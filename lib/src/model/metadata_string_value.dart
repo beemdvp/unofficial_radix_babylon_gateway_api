@@ -30,7 +30,7 @@ abstract class MetadataStringValue
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(MetadataStringValueBuilder b) =>
-      b..type = b.discriminatorValue as dynamic;
+      b..type = MetadataValueType.string;
 
   @BuiltValueSerializer(custom: true)
   static Serializer<MetadataStringValue> get serializer =>

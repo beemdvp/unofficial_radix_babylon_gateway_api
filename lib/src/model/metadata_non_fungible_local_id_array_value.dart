@@ -33,7 +33,7 @@ abstract class MetadataNonFungibleLocalIdArrayValue
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(MetadataNonFungibleLocalIdArrayValueBuilder b) =>
-      b..type = b.discriminatorValue as dynamic;
+      b..type = MetadataValueType.nonFungibleLocalIdArray;
 
   @BuiltValueSerializer(custom: true)
   static Serializer<MetadataNonFungibleLocalIdArrayValue> get serializer =>

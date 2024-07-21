@@ -30,7 +30,7 @@ abstract class MetadataBoolValue
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(MetadataBoolValueBuilder b) =>
-      b..type = b.discriminatorValue as dynamic;
+      b..type = MetadataValueType.bool_;
 
   @BuiltValueSerializer(custom: true)
   static Serializer<MetadataBoolValue> get serializer =>

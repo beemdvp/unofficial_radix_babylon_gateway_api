@@ -56,7 +56,7 @@ abstract class StateEntityDetailsResponseNonFungibleResourceDetails
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(
           StateEntityDetailsResponseNonFungibleResourceDetailsBuilder b) =>
-      b..type = b.discriminatorValue as dynamic;
+      b..type = StateEntityDetailsResponseItemDetailsType.nonFungibleResource;
 
   @BuiltValueSerializer(custom: true)
   static Serializer<StateEntityDetailsResponseNonFungibleResourceDetails>

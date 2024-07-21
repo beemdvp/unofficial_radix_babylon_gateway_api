@@ -31,7 +31,7 @@ abstract class MetadataI64ArrayValue
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(MetadataI64ArrayValueBuilder b) =>
-      b..type = b.discriminatorValue as dynamic;
+      b..type = MetadataValueType.i64Array;
 
   @BuiltValueSerializer(custom: true)
   static Serializer<MetadataI64ArrayValue> get serializer =>

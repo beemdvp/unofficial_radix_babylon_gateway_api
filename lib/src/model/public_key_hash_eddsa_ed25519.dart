@@ -32,7 +32,7 @@ abstract class PublicKeyHashEddsaEd25519
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(PublicKeyHashEddsaEd25519Builder b) =>
-      b..keyHashType = b.discriminatorValue as dynamic;
+      b..keyHashType = PublicKeyHashType.eddsaEd25519;
 
   @BuiltValueSerializer(custom: true)
   static Serializer<PublicKeyHashEddsaEd25519> get serializer =>

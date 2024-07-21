@@ -36,7 +36,7 @@ abstract class MetadataInstantArrayValue
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(MetadataInstantArrayValueBuilder b) =>
-      b..type = b.discriminatorValue as dynamic;
+      b..type = MetadataValueType.instantArray;
 
   @BuiltValueSerializer(custom: true)
   static Serializer<MetadataInstantArrayValue> get serializer =>

@@ -36,7 +36,7 @@ abstract class ProgrammaticScryptoSborValueNonFungibleLocalId
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(
           ProgrammaticScryptoSborValueNonFungibleLocalIdBuilder b) =>
-      b..kind = b.discriminatorValue as dynamic;
+      b..kind = ProgrammaticScryptoSborValueKind.nonFungibleLocalId;
 
   @BuiltValueSerializer(custom: true)
   static Serializer<ProgrammaticScryptoSborValueNonFungibleLocalId>

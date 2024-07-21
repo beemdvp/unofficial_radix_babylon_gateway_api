@@ -30,7 +30,7 @@ abstract class MetadataUrlValue
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(MetadataUrlValueBuilder b) =>
-      b..type = b.discriminatorValue as dynamic;
+      b..type = MetadataValueType.url;
 
   @BuiltValueSerializer(custom: true)
   static Serializer<MetadataUrlValue> get serializer =>

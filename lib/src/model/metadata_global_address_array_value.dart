@@ -33,7 +33,7 @@ abstract class MetadataGlobalAddressArrayValue
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(MetadataGlobalAddressArrayValueBuilder b) =>
-      b..type = b.discriminatorValue as dynamic;
+      b..type = MetadataValueType.globalAddressArray;
 
   @BuiltValueSerializer(custom: true)
   static Serializer<MetadataGlobalAddressArrayValue> get serializer =>

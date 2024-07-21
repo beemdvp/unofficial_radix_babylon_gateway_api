@@ -30,7 +30,7 @@ abstract class MetadataOriginValue
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(MetadataOriginValueBuilder b) =>
-      b..type = b.discriminatorValue as dynamic;
+      b..type = MetadataValueType.origin;
 
   @BuiltValueSerializer(custom: true)
   static Serializer<MetadataOriginValue> get serializer =>

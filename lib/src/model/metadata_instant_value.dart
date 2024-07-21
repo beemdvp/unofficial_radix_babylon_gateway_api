@@ -36,7 +36,7 @@ abstract class MetadataInstantValue
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(MetadataInstantValueBuilder b) =>
-      b..type = b.discriminatorValue as dynamic;
+      b..type = MetadataValueType.instant;
 
   @BuiltValueSerializer(custom: true)
   static Serializer<MetadataInstantValue> get serializer =>

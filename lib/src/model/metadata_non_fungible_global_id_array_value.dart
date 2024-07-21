@@ -34,7 +34,7 @@ abstract class MetadataNonFungibleGlobalIdArrayValue
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(MetadataNonFungibleGlobalIdArrayValueBuilder b) =>
-      b..type = b.discriminatorValue as dynamic;
+      b..type = MetadataValueType.nonFungibleGlobalIdArray;
 
   @BuiltValueSerializer(custom: true)
   static Serializer<MetadataNonFungibleGlobalIdArrayValue> get serializer =>

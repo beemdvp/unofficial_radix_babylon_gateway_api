@@ -69,7 +69,7 @@ abstract class StateEntityDetailsResponsePackageDetails
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(StateEntityDetailsResponsePackageDetailsBuilder b) =>
-      b..type = b.discriminatorValue as dynamic;
+      b..type = StateEntityDetailsResponseItemDetailsType.package;
 
   @BuiltValueSerializer(custom: true)
   static Serializer<StateEntityDetailsResponsePackageDetails> get serializer =>

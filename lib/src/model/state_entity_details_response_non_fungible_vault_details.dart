@@ -40,7 +40,7 @@ abstract class StateEntityDetailsResponseNonFungibleVaultDetails
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(
           StateEntityDetailsResponseNonFungibleVaultDetailsBuilder b) =>
-      b..type = b.discriminatorValue as dynamic;
+      b..type = StateEntityDetailsResponseItemDetailsType.nonFungibleVault;
 
   @BuiltValueSerializer(custom: true)
   static Serializer<StateEntityDetailsResponseNonFungibleVaultDetails>

@@ -32,7 +32,7 @@ abstract class MetadataOriginArrayValue
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(MetadataOriginArrayValueBuilder b) =>
-      b..type = b.discriminatorValue as dynamic;
+      b..type = MetadataValueType.originArray;
 
   @BuiltValueSerializer(custom: true)
   static Serializer<MetadataOriginArrayValue> get serializer =>

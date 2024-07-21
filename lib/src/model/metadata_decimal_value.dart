@@ -30,7 +30,7 @@ abstract class MetadataDecimalValue
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(MetadataDecimalValueBuilder b) =>
-      b..type = b.discriminatorValue as dynamic;
+      b..type = MetadataValueType.decimal;
 
   @BuiltValueSerializer(custom: true)
   static Serializer<MetadataDecimalValue> get serializer =>
