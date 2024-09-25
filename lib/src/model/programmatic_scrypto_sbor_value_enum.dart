@@ -27,7 +27,7 @@ abstract class ProgrammaticScryptoSborValueEnum
         Built<ProgrammaticScryptoSborValueEnum,
             ProgrammaticScryptoSborValueEnumBuilder> {
   @BuiltValueField(wireName: r'variant_id')
-  int get variantId;
+  String get variantId;
 
   @BuiltValueField(wireName: r'variant_name')
   String? get variantName;
@@ -76,7 +76,7 @@ class _$ProgrammaticScryptoSborValueEnumSerializer
     yield r'variant_id';
     yield serializers.serialize(
       object.variantId,
-      specifiedType: const FullType(int),
+      specifiedType: const FullType(String),
     );
     if (object.fieldName != null) {
       yield r'field_name';
@@ -139,8 +139,8 @@ class _$ProgrammaticScryptoSborValueEnumSerializer
         case r'variant_id':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(int),
-          ) as int;
+            specifiedType: const FullType(String),
+          ) as String;
           result.variantId = valueDes;
           break;
         case r'field_name':

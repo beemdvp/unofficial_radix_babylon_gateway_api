@@ -9,7 +9,7 @@ part of 'programmatic_scrypto_sbor_value_enum.dart';
 class _$ProgrammaticScryptoSborValueEnum
     extends ProgrammaticScryptoSborValueEnum {
   @override
-  final int variantId;
+  final String variantId;
   @override
   final String? variantName;
   @override
@@ -95,9 +95,9 @@ class ProgrammaticScryptoSborValueEnumBuilder
         ProgrammaticScryptoSborValueBuilder {
   _$ProgrammaticScryptoSborValueEnum? _$v;
 
-  int? _variantId;
-  int? get variantId => _$this._variantId;
-  set variantId(covariant int? variantId) => _$this._variantId = variantId;
+  String? _variantId;
+  String? get variantId => _$this._variantId;
+  set variantId(covariant String? variantId) => _$this._variantId = variantId;
 
   String? _variantName;
   String? get variantName => _$this._variantName;
